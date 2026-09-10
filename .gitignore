@@ -1,0 +1,6 @@
+# 视频编辑插件的工作缓存
+.video_agent/
+
+# 常见临时与系统文件
+Thumbs.db
+Desktop.ini
