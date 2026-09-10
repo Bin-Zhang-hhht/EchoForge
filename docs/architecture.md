@@ -1,7 +1,7 @@
 # EchoForge — 架构文档
 
-> 版本：v0.6 · 2026-09-11  
-> 依据：[产品文档](产品文档.md)  
+> 版本：v0.7 · 2026-09-11
+> 依据：[产品文档](product.md)
 > 状态：待实现。下文文件和命令是约定，不代表已经创建或运行。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
 
 ## 1. 总体结构
@@ -55,11 +55,11 @@ echoforge/
 │       ├── index.md              # 构建生成，不提交 Git
 │       └── <id>.md               # 正式公开文章
 ├── docs/
-│   ├── 产品文档.md
-│   ├── 架构文档.md
-│   ├── 执行计划.md
-│   ├── 产品审查与决策记录.md
-│   └── Podcast RSS源清单.md      # 人工维护的来源池，不是运行时自动发现模块
+│   ├── product.md
+│   ├── architecture.md
+│   ├── implementation-plan.md
+│   ├── decisions.md
+│   └── podcast-sources.md      # 人工维护的来源池，不是运行时自动发现模块
 ├── local-library/                # 本地长期内容资产，不提交 Git
 │   └── <source_id>/<item_id>/
 │       ├── metadata.yaml
@@ -88,7 +88,7 @@ echoforge/
 
 ### 3.1 来源配置
 
-所有实际采集来源在 `config/sources.yaml` 维护，不为一种来源拆一套配置系统。经过人工调研的来源池单独记录在 [Podcast RSS源清单](Podcast%20RSS源清单.md)；运行时不读取该文档，也不自动发现新源。
+所有实际采集来源在 `config/sources.yaml` 维护，不为一种来源拆一套配置系统。经过人工调研的来源池单独记录在 [Podcast RSS源清单](podcast-sources.md)；运行时不读取该文档，也不自动发现新源。
 
 M2 首次联调只加入 5 个 Feed：Recsperts、Data Skeptic、Latent Space、Practical AI 和 Software Engineering Daily。其他来源是否加入，只通过后续人工修改 `sources.yaml` 完成。
 
@@ -139,13 +139,15 @@ sources:
 
 每期处理成功后，在 `local-library/<source_id>/<item_id>/` 至少保留：
 
-- `metadata.yaml`：与节目来源相关的必要元信息和本地处理记录；
+- `metadata.yaml`：最小记录，包括来源获取方式、URL、获取时间、可用性说明和内容检查结论；不建设 evidence 数据库；
 - `transcript.md`：完整逐字稿，供人工阅读、公众号编辑和视频选段；
 - 时间戳 / speaker 等结构化文件：来源或转写工具实际提供时保存，例如 `transcript.json`、`transcript.vtt`，缺失时不伪造。
 
-本地逐字稿是可复用资产，**不因 GitHub 文章已经发布而删除**。机器摘要、人工笔记和渠道草稿可以继续挂在同一期目录下，但首版不要求所有文件都存在。
+逐字稿获取遵循 transcript-first：先获取完整且可用的官方 / RSS transcript；只有无法取得完整 transcript、且允许使用 ASR 并未超出本批预算时，才下载音频并转写。官方稿和 ASR 都必须检查期次身份、确实是逐字稿而非摘要、是否有明显截断或不可读内容，以及在可取得时的时间戳覆盖与节目时长是否相符；“成功”或文件存在本身不算通过。完整但不可用的材料记为失败；因预算跳过记为 pending 并说明原因。不能用部分材料生成整期总结，也不能用标题或简介替代正文。
 
-原始音频不属于长期资产。音频下载到 `.cache/`，仅用于 Video Agent Kit 转写或人工复听；转写完成且必要核对后可删除。
+ASR 后对不确定的专有名词、关键术语、数字和因果表述回听核对；回听疑点未解决前不得清理音频。音频清理是所有任务的共同收尾动作，且仅在逐字稿已保存、可用性检查通过并完成所需回听后进行，不得提前删除。
+
+本地逐字稿是可复用资产，**不因 GitHub 文章已经发布而删除**。机器摘要、人工笔记和渠道草稿可以继续挂在同一期目录下，但首版不要求所有文件都存在。项目必须使用用户已有的私有备份机制，保留独立于工作目录的副本，覆盖逐字稿和编辑笔记；不建设备份服务。首次恢复验证至少检查逐字稿和编辑笔记均能恢复。
 
 ### 3.4 GitHub 文章
 
@@ -213,34 +215,42 @@ tags: [Agent]
 
 本项目只提供操作文档和小脚本，由 ZCode 执行，不再开发 Agent runtime、模型路由或自动调度器。闲时任务的可用性和设备要求以宿主为准，不把当前免费政策写成永久系统承诺。[Z1]
 
+每批初始上限为最多 3 篇文章、最多 1 次新 ASR，新增 ASR 音频总时长不超过 120 分钟；优先复用本地已有可用材料。`pending.py --limit 10` 只是候选窗口，不是处理配额。预算不足的条目标记 `pending` 并保留原因；只有明确不相关或不值得处理才标记 `ignored`。不做评分系统，积压按当前顺序处理。
+
 ZCode 在本地处理链中的职责：
 
 ```text
 pending item
    ↓
-判断是否有官方 / RSS transcript
-   ├─ 有 → 获取并保存
-   └─ 无 → 下载临时音频 → 调 Video Agent Kit 转写
+检查期次身份与完整可用性
+   ↓
+获取完整官方 / RSS transcript
+   ├─ 可用 → 保存并继续
+   └─ 不完整 / 不可用 → 若允许且预算足够，下载音频并 ASR
+                         ├─ 可用 → 保存并继续
+                         └─ 不可用 / 预算不足 → failed 或 pending，写明原因
    ↓
 写入 local-library/ 长期逐字稿
+   ↓
+必要时回听 ASR 疑点，再清理临时音频
    ↓
 GLM 阅读 / 精编
    ↓
 GitHub Machine Digest
-   ↓
-可选：生成公众号草稿 / 视频脚本，但不得自动发布
 ```
 
 一次任务的操作顺序：
 
-1. 确认工作区没有不相关改动，拉取 `main`，列出待处理条目，选定本次数量。
-2. 先看元信息判断是否值得处理；优先获取真实官方转录。没有转录时，临时下载音频并由 Video Agent Kit 完成转写。
-3. 将完整逐字稿和实际存在的时间戳 / speaker 信息写入 `local-library/`；只有临时音频和可重建中间文件写入 `.cache/`。
-4. 长文本按章节或片段阅读后再合并笔记，不只读开头；机器精编工作稿可以留在同一期本地目录，正式 GitHub 文章写入 `site/posts/`。
-5. 逐期保存结果。GitHub 文章完整且基本检查通过后，标为 `processed`；不相关标为 `ignored`；缺少正文或执行失败标为 `failed` 并写原因。
-6. 如生成公众号稿或视频脚本，只保存为本地草稿并明确 `needs_human_review` 语义，不执行自动发布。
-7. 执行本地检查和站点构建，提交本次 GitHub 文件；同步远端新增提交，检查无误后推送 `main`。
-8. 转写完成且逐字稿已核验保存后，可以删除 `.cache/` 中的临时音频。
+1. 确认工作区没有不相关改动，拉取 `main`，执行 `pending.py --limit 10` 取得候选，但按本批预算选定不超过 3 篇文章和 1 次新 ASR；未知音频长度时先建立实际时长，若无法在预算内确定则延期为 `pending` 并报告。
+2. 先核对期次身份并获取完整官方 / RSS transcript；检查其不是摘要、没有明显截断且可读，在有时长和时间戳时检查覆盖。无法取得完整可用稿时，才在允许且预算足够时使用 ASR，并对 ASR 做同样检查。
+3. 完整可用材料失败则标记 `failed` 并写原因；预算跳过则保留 `pending`；不得从部分材料生成整期总结。通过检查后，将完整逐字稿及实际存在的时间戳 / speaker 信息写入 `local-library/`，并写最小 `metadata.yaml`。
+4. 长文本按章节或片段阅读后再合并笔记，不只读开头；文章以信息雷达为主，帮助决定复听，通常提炼 3–5 个关键主题但不把数量当硬门槛，保留证据、限制、条件和不确定性。1000–3000 字只是指导范围，不是发布门槛。
+5. 对 ASR 中不确定的术语、数字和关键因果回听；只有逐字稿已保存、可用性通过且所需疑点已解决，才可清理 `.cache/` 音频。音频清理不得提前发生。
+6. 逐期保存结果。文章和对应基本检查通过后标为 `processed`；不相关标为 `ignored`；完整材料不可用或执行失败标为 `failed`；预算延期标为 `pending` 并写原因。
+7. 如生成公众号稿或视频脚本，只保存为本地草稿并明确 `needs_human_review` 语义，不执行自动发布。
+8. 执行本地检查和站点构建，提交本次 GitHub 文件；同步远端新增提交，检查无误后推送 `main`。
+
+发布前有两个互补门：确定性的 `check.py` 检查 metadata/status/body/link 格式、禁止可执行 Markdown 内容，以及不应被提交或暂存的文件；ZCode 另行复核核心观点、数字、因果、建议、条件、不确定性、归因和真实来源定位，并将补充解释标为补充内容而非来源原话。删除无法验证的外围断言；核心断言无法解决时不发布，标记失败并记录原因。`processed` 仅表示材料可用且内容 / 基本检查完成，不表示部署成功或独立事实认证。
 
 首版只支持一个本地编辑任务。单条失败可以继续下一条；Git 冲突、权限问题或站点构建失败时停止发布，保留本地产物，不做无限重试和强制推送。
 
@@ -260,9 +270,9 @@ VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和
 
 ## 7. 只保留必要检查
 
-`check.py` 只检查 GitHub 范围内的基本字段、状态值、文章与 `item_id` 的对应关系、来源链接和正文非空。双向核对：每个 `processed` 都有文章，每篇正式文章都有对应 `processed` 条目。格式检查不能证明观点准确，ZCode 在标记 `processed` 前还须对照本地逐字稿核查关键数字和结论。
+`check.py` 只做确定性检查：metadata/status/body/link 格式、文章与 `item_id` 对应关系、来源链接、正文非空、禁止可执行 Markdown 内容，以及不应提交或暂存的 disallowed 文件。它不证明观点准确。ZCode 在标记 `processed` 前还须对照完整本地逐字稿，复核核心观点、数字、因果、建议、条件、不确定性、归因和真实定位；补充解释要明确标为补充内容而非来源原话。无法验证的外围断言应删除；未解决的核心断言不得发布，标记 `failed` 并记录原因。
 
-本地处理额外做一个简单前置检查：正式 GitHub 文章生成前，确认本期 `local-library/` 中存在完整逐字稿或明确的官方 transcript 原文副本。该检查不进入 GitHub CI，因为 CI 不应依赖本地私有资产。
+本地处理额外做两个前置检查：正式文章生成前确认本期存在完整且通过可用性检查的官方 transcript 或 ASR 逐字稿资产；音频清理前确认逐字稿已保存、检查已通过、需要回听的疑点已解决。检查不进入 GitHub CI，因为 CI 不应依赖本地私有资产。`processed` 只表示可用材料和内容 / 基本检查完成，不表示已部署，也不是独立事实认证。
 
 文章只允许普通 Markdown 与规定的 frontmatter，不允许引入脚本、Vue 组件或可执行页面配置；引用材料里的模板表达式应作为字面文本转义。VitePress 支持在 Markdown 内使用 Vue，不能把任意抓取内容直接当可信页面编译。[V4]
 
@@ -286,7 +296,7 @@ VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和
 
 核查日期：2026-09-11；参考仓库为核查时的 `main`，未运行其代码。
 
-- [RSS1] [Podcast RSS源清单](Podcast%20RSS源清单.md)
+- [RSS1] [Podcast RSS源清单](podcast-sources.md)
 - [R1] [rec-sys-daily README 与来源配置](https://github.com/Bin-Zhang-hhht/rec-sys-daily)
 - [R2] [rec-sys-daily / collect.py](https://github.com/Bin-Zhang-hhht/rec-sys-daily/blob/main/pipeline/recsys_daily/collect.py)
 - [R3] [rec-sys-daily / filtering.py](https://github.com/Bin-Zhang-hhht/rec-sys-daily/blob/main/pipeline/recsys_daily/filtering.py)
