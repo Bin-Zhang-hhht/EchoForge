@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path, PurePosixPath
 from typing import Any, Mapping, Sequence
+from urllib.parse import unquote
 
 import yaml
 
@@ -51,10 +52,14 @@ DISALLOWED_SUFFIXES = {".mp3", ".mp4", ".wav", ".m4a", ".vtt", ".srt"}
 MARKDOWN_LINK_PATTERN = re.compile(r"!?\[[^\]]*\]\(([^)\s]+)(?:\s+['\"][^'\"]*['\"])?\)")
 MARKDOWN_LINK_TEXT_PATTERN = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
-META_LINE_PATTERN = re.compile(
-    r"^节目发布：(?P<published>\d{4}-\d{2}-\d{2}) · 逐字稿获取：(?P<transcribed>\d{4}-\d{2}-\d{2})"
-    r" · 笔记整理：(?P<digest>\d{4}-\d{2}-\d{2}) · 全文 (?P<words>\d+) 字 · 预计阅读 (?P<minutes>\d+) 分钟$"
+META_DATES_PATTERN = re.compile(
+    r"^> 节目发布：(\d{4}-\d{2}-\d{2}) · 逐字稿获取：(\d{4}-\d{2}-\d{2}) · 笔记整理：(\d{4}-\d{2}-\d{2})$"
 )
+META_COUNTS_PATTERN = re.compile(r"^> 全文 (\d+) 字 · 预计阅读 (\d+) 分钟$")
+META_TAGS_PREFIX = "> 标签："
+META_TAGS_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((/tags/[^)]+/)\)")
+LOCATOR_ITEM_PATTERN = re.compile(r"^\s{2,}-\s+(.+)$")
+NON_LOCATORS = {"不适用", "无", "N/A", "n/a"}
 READING_SPEED_CHARS_PER_MINUTE = 400
 
 
@@ -194,16 +199,31 @@ def heading_match(body: str, heading: str) -> re.Match[str] | None:
     return re.search(rf"^{re.escape(heading)}[ \t]*$", body, re.MULTILINE)
 
 
-def article_meta_line(body: str) -> re.Match[str] | None:
+def article_meta_block(body: str) -> tuple[re.Match[str] | None, re.Match[str] | None, str | None]:
+    dates = counts = tags_line = None
     for line in strip_fenced_code(body).splitlines():
-        match = META_LINE_PATTERN.fullmatch(line.strip())
-        if match:
-            return match
-    return None
+        stripped = line.strip()
+        if dates is None and META_DATES_PATTERN.fullmatch(stripped):
+            dates = META_DATES_PATTERN.fullmatch(stripped)
+        elif counts is None and META_COUNTS_PATTERN.fullmatch(stripped):
+            counts = META_COUNTS_PATTERN.fullmatch(stripped)
+        elif tags_line is None and stripped.startswith(META_TAGS_PREFIX):
+            tags_line = stripped
+    return dates, counts, tags_line
 
 
 def article_word_count(body: str) -> int:
-    lines = [line for line in body.splitlines() if not META_LINE_PATTERN.fullmatch(line.strip())]
+    excluded = (
+        META_DATES_PATTERN,
+        META_COUNTS_PATTERN,
+        re.compile(r"^>\s*标签："),
+        re.compile(rf"^>?\s*{re.escape(DISCLAIMER)}\s*$"),
+    )
+    lines = [
+        line
+        for line in body.splitlines()
+        if not any(pattern.fullmatch(line.strip()) for pattern in excluded)
+    ]
     text = MARKDOWN_LINK_TEXT_PATTERN.sub(r"\1", "\n".join(lines))
     return sum(1 for char in text if not char.isspace())
 
@@ -251,7 +271,7 @@ def validate_body(post: Post, root: Path) -> list[str]:
         errors.append(f"{location}: executable Vue template syntax is not allowed")
     for raw_target in markdown_link_targets(body):
         target = raw_target.strip("<>")
-        if target.startswith("#"):
+        if target.startswith("#") or re.match(r"^/(posts|tags)/", target):
             continue
         if not pending.is_public_http_url(target):
             errors.append(f"{location}: Markdown links and images must use public http(s) URLs")
@@ -264,37 +284,66 @@ def validate_body(post: Post, root: Path) -> list[str]:
         source_targets = [target.strip("<>") for target in markdown_link_targets(source_section)]
         if not isinstance(source_url, str) or source_url not in source_targets:
             errors.append(f"{location}: 来源与定位 must contain an exact source_url link")
-        location_match = re.search(r"^-\s*定位[：:]\s*(.+)$", source_section, re.MULTILINE)
-        if not location_match or location_match.group(1).strip() in {"不适用", "无", "N/A", "n/a"}:
-            errors.append(f"{location}: 来源与定位 must contain a real source locator")
+        locator_match = re.search(r"^-\s*定位[：:][ \t]*(.*)$", source_section, re.MULTILINE)
+        locator_items: list[str] = []
+        if locator_match:
+            for line in source_section[locator_match.end() :].splitlines():
+                item = LOCATOR_ITEM_PATTERN.fullmatch(line.rstrip())
+                if item:
+                    locator_items.append(item.group(1).strip())
+                elif line.strip() and not locator_items:
+                    continue
+                elif line.strip():
+                    break
+        if not locator_items or any(item in NON_LOCATORS for item in locator_items):
+            errors.append(
+                f"{location}: 来源与定位 must contain a real source locator list under 定位 (one timestamp or phrase per line)"
+            )
 
-        meta = article_meta_line(body)
-        if meta is None:
-            errors.append(f"{location}: missing article meta line (节目发布/逐字稿获取/笔记整理/全文 N 字/预计阅读)")
+        dates, counts, tags_line = article_meta_block(body)
+        if dates is None or counts is None:
+            errors.append(
+                f"{location}: missing article meta blockquote (节目发布/逐字稿获取/笔记整理 and 全文/预计阅读 lines)"
+            )
         else:
             if (
-                meta.group("published") != fields.get("published_at")
-                or meta.group("transcribed") != fields.get("transcribed_at")
-                or meta.group("digest") != fields.get("date")
+                dates.group(1) != fields.get("published_at")
+                or dates.group(2) != fields.get("transcribed_at")
+                or dates.group(3) != fields.get("date")
             ):
-                errors.append(f"{location}: meta line dates must equal frontmatter published_at/transcribed_at/date")
-            declared_words = int(meta.group("words"))
+                errors.append(f"{location}: meta blockquote dates must equal frontmatter published_at/transcribed_at/date")
+            declared_words = int(counts.group(1))
             computed_words = article_word_count(post.body)
             if computed_words != declared_words:
                 errors.append(
-                    f"{location}: meta line declares 全文 {declared_words} 字 but computed count is {computed_words} 字"
+                    f"{location}: meta blockquote declares 全文 {declared_words} 字 but computed count is {computed_words} 字"
                 )
             expected_minutes = reading_minutes(declared_words)
-            if int(meta.group("minutes")) != expected_minutes:
+            if int(counts.group(2)) != expected_minutes:
                 errors.append(
-                    f"{location}: meta line 预计阅读 must be {expected_minutes} 分钟 "
+                    f"{location}: meta blockquote 预计阅读 must be {expected_minutes} 分钟 "
                     f"({READING_SPEED_CHARS_PER_MINUTE} characters per minute)"
                 )
             stripped_body = strip_fenced_code(body)
-            meta_index = stripped_body.find(meta.group(0))
+            meta_index = stripped_body.find(dates.group(0))
             first_section = re.search(r"^##[ \t]+", stripped_body, re.MULTILINE)
             if first_section and (meta_index == -1 or meta_index > first_section.start()):
-                errors.append(f"{location}: meta line must sit directly under the H1 title, before the first section")
+                errors.append(f"{location}: meta blockquote must sit directly under the H1 title, before the first section")
+
+        tags = fields.get("tags")
+        if not isinstance(tags, list) or not tags or any(not str(tag).strip() for tag in tags):
+            errors.append(f"{location}: non-demo article must declare a non-empty tags list")
+        elif tags_line is None:
+            errors.append(f"{location}: non-demo article must include a 标签 line in the meta blockquote")
+        else:
+            links = META_TAGS_LINK_PATTERN.findall(tags_line[len(META_TAGS_PREFIX) :])
+            texts = [text for text, _ in links]
+            if texts != [str(tag) for tag in tags] or any(
+                unquote(target) != f"/tags/{text}/" for text, target in links
+            ):
+                errors.append(
+                    f"{location}: 标签 line must list exactly the frontmatter tags in order, each linked to /tags/<tag>/"
+                )
     return errors
 
 

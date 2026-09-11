@@ -104,10 +104,15 @@ transcribed_at: '2026-09-11'
 source_url: {value['url']}
 source_name: {value['source_name']}
 input_type: official_transcript
+tags: [推荐系统, 测试]
 ---
 
 """
     body = f"""# 测试文章
+
+> 节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
+> 标签：[推荐系统](/tags/推荐系统/) · [测试](/tags/测试/)
+> AI 编辑整理，请以原始节目为准。
 
 ## 速读
 
@@ -122,17 +127,14 @@ input_type: official_transcript
 ## 来源与定位
 
 - 原始节目：[A Complete Fixture Episode]({value['url']})
-- 定位：逐字稿小节 “implementation details”。
-
-AI 编辑整理，请以原始节目为准。
+- 定位：
+  - 逐字稿小节 “implementation details”
 """
     words = check.article_word_count(body)
     minutes = check.reading_minutes(words)
-    meta = (
-        f"节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11"
-        f" · 全文 {words} 字 · 预计阅读 {minutes} 分钟"
+    return frontmatter + body.replace(
+        "> 标签：", f"> 全文 {words} 字 · 预计阅读 {minutes} 分钟\n> 标签：", 1
     )
-    return frontmatter + body.replace("# 测试文章\n", f"# 测试文章\n\n{meta}\n", 1)
 
 
 def valid_article(value: dict[str, object], body_extra: str = "") -> str:
@@ -661,14 +663,15 @@ def test_check_accepts_generated_source_index_pages(tmp_path: Path) -> None:
     assert post_count == 1
 
 
-def test_check_requires_meta_line_with_accurate_word_count(tmp_path: Path) -> None:
+def test_check_requires_meta_blockquote_with_accurate_word_count(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
 
-    write_post(posts, value, re.sub(r"节目发布：[^\n]*\n\n", "", valid_article(value)))
+    stripped = re.sub(r"> (节目发布|全文)[^\n]*\n", "", valid_article(value))
+    write_post(posts, value, stripped)
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
-    assert any("missing article meta line" in error for error in errors)
+    assert any("missing article meta blockquote" in error for error in errors)
 
     write_post(posts, value, re.sub(r"全文 \d+ 字", "全文 1 字", valid_article(value)))
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
@@ -680,7 +683,21 @@ def test_check_requires_meta_line_with_accurate_word_count(tmp_path: Path) -> No
 
     write_post(posts, value, valid_article(value))
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
-    assert not any("meta line" in error for error in errors)
+    assert not any("meta blockquote" in error for error in errors)
+
+
+def test_check_requires_tag_line_matching_frontmatter(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+
+    write_post(posts, value, re.sub(r"> 标签：[^\n]*\n", "", valid_article(value)))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("must include a 标签 line" in error for error in errors)
+
+    write_post(posts, value, valid_article(value).replace("](/tags/测试/)", "](/tags/wrong/)"))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("must list exactly the frontmatter tags" in error for error in errors)
 
 
 def test_check_requires_item_publish_date_match(tmp_path: Path) -> None:
@@ -722,7 +739,7 @@ def test_check_rejects_unknown_frontmatter_and_missing_real_locator(tmp_path: Pa
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    invalid = article(value).replace("定位：逐字稿小节 “implementation details”。", "定位：不适用")
+    invalid = article(value).replace("  - 逐字稿小节 “implementation details”", "  - 不适用")
     write_post(posts, value, invalid)
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])

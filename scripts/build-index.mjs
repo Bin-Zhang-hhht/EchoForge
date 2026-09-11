@@ -288,6 +288,10 @@ async function listArticlePaths() {
     .sort((left, right) => left.localeCompare(right, 'en'));
 }
 
+function tagHref(tag) {
+  return `${encodeURIComponent(tag).replace(/%2F/gi, '')}/`;
+}
+
 async function buildIndex() {
   const articlePaths = await listArticlePaths();
   const items = await loadItems();
@@ -342,16 +346,26 @@ async function buildIndex() {
     }
   }
 
-  const tagSections = [...tagMap.entries()]
-    .sort(([left], [right]) => left.localeCompare(right, 'zh-CN'))
-    .map(([tag, taggedArticles]) => `## ${escapeMarkdown(tag)}\n\n${taggedArticles.map((article) => articleLink(article, '../posts/')).join('\n')}`)
-    .join('\n\n');
+  const tagEntries = [...tagMap.entries()].sort(
+    ([leftTag, leftArticles], [rightTag, rightArticles]) =>
+      rightArticles.length - leftArticles.length || leftTag.localeCompare(rightTag, 'zh-CN')
+  );
 
-  const tagsOutput = `---\nlayout: doc\ntitle: 标签\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记。\n\n${tagSections || '> 还没有带标签的文章。\n'}\n`;
+  const tagList = tagEntries.length
+    ? tagEntries.map(([tag, taggedArticles]) => `- [${escapeMarkdown(tag)}](./${tagHref(tag)}) · ${taggedArticles.length} 篇`).join('\n')
+    : '> 还没有带标签的文章。\n';
+  const tagsOutput = `---\nlayout: doc\ntitle: 标签\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记，标签按文章数排序。\n\n${tagList}\n`;
 
   await mkdir(tagsDirectory, { recursive: true });
   await writeFile(tagsPath, tagsOutput, 'utf8');
-  console.log(`Generated ${relative(projectRoot, tagsPath)} from ${tagMap.size} tag(s).`);
+
+  for (const [tag, taggedArticles] of tagEntries) {
+    const page = `---\nlayout: doc\ntitle: ${yamlQuote(tag)}\n---\n\n# ${escapeMarkdown(tag)}\n\n标签「${escapeMarkdown(tag)}」下的中文技术播客笔记，按整理日期倒序。\n\n${taggedArticles.map((article) => articleLink(article, '../../posts/')).join('\n')}\n`;
+    const tagDirectory = join(tagsDirectory, tag);
+    await mkdir(tagDirectory, { recursive: true });
+    await writeFile(join(tagDirectory, 'index.md'), page, 'utf8');
+  }
+  console.log(`Generated ${relative(projectRoot, tagsPath)} and ${tagEntries.length} tag page(s).`);
 
   await buildHomePage(articles, items, tagMap.size);
 

@@ -182,15 +182,18 @@ tags: [Agent]
 
 必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期，必须与单期元信息一致（元信息无日期时省略该字段）；`transcribed_at` 是逐字稿获取日期，来自私有归档 manifest 的 `retrieved_at`，只公开日期本身。三者不得混为一谈。
 
-正文 H1 下方紧跟一行元信息：
+正文 H1 下方紧跟一个元信息引用块（四行）：
 
 ```text
-节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD · 全文 N 字 · 预计阅读 M 分钟
+> 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
+> 全文 N 字 · 预计阅读 M 分钟
+> 标签：[标签](/tags/标签/) · [标签](/tags/标签/)
+> AI 编辑整理，请以原始节目为准。
 ```
 
-三个日期必须与 frontmatter 对应字段一致；N 为正文字符数（按确定性规则：去除元信息行、链接 URL 和空白后计数，代码块计入），M = max(1, ceil(N/400))。`check.py` 按同一算法复核字数与时长，声明不一致即失败，避免手工数字过期；演示文章不要求元信息行。
+三个日期必须与 frontmatter 对应字段一致；N 为正文字符数（按确定性规则：去除元信息引用块固定行、链接 URL 和空白后计数，代码块计入），M = max(1, ceil(N/400))。`check.py` 按同一算法复核字数与时长，声明不一致即失败。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。演示文章不要求元信息引用块与标签行。
 
-正文采用“速读 → 主题正文 → 来源与定位”的结构。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
+正文采用“速读 → 主题正文 → 来源与定位”的结构。来源与定位的 `- 定位：` 是列表，一个时间点或可搜索短语一行，与文章核心断言一一对应；不允许把全部定位挤成一行。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
 
 ### 3.5 人工编辑内容
 
@@ -289,7 +292,7 @@ VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录、
 
 首页 `site/index.md` 由 `build-index.mjs` 生成：精编数、待处理数、覆盖节目和收录总时长等统计在构建时从 `data/items` 与文章现算；节目卡按精编数排序，无精编的节目显示收录情况；横幅图自动探测 `site/public/banner.*`（png/jpg/jpeg/webp/avif/svg），存在时写入 `hero.image`。首页统计是最近一次构建的快照，随文章更新同批生效。首页与文章列表、标签页、节目页、侧边栏一样都是派生产物，不提交 Git，不由 Agent 手工维护。
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`，并按文章 `tags` 生成 `site/tags/index.md` 标签页。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径。节目页、文章列表、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`。`site/tags/index.md` 是标签总览页：一行一个标签、附文章数，按文章数排序；同时为每个标签生成 `site/tags/<标签>/index.md`，列出该标签下的文章，与文章页元信息块中的标签行互链。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径。节目页、文章列表、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
 

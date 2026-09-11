@@ -12,9 +12,11 @@ tags: [推荐系统, RecSys, 产品指标]
 
 # 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值
 
-节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11 · 全文 2587 字 · 预计阅读 7 分钟
-
+> 节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
+> 全文 2590 字 · 预计阅读 7 分钟
+> 标签：[推荐系统](/tags/推荐系统/) · [RecSys](/tags/RecSys/) · [产品指标](/tags/产品指标/)
 > AI 编辑整理，请以原始节目为准。
+
 
 ## 速读
 
@@ -57,6 +59,10 @@ Konstan 认为，推荐问题只在一部分上是机器学习或计算问题。
 ## 来源与定位
 
 - 原始节目：[#33: Useful Recommender Systems and 20 Years of RecSys with Joseph Konstan](https://share.transistor.fm/s/c07c7bf6)
-- 定位：官方 transcript 无时间戳；可搜索 `buy bananas and bread`、`optimize for value`、`longitudinal testing`、`what links people click on`、`multi-stakeholder, multi-sided recommendation problems` 与 `immerse yourself in an application`。
+- 定位：官方 transcript 无时间戳，以下为可在全文中搜索的原文短语。
+  - 可搜索 `buy bananas and bread`
+  - `optimize for value`
+  - `longitudinal testing`
+  - `what links people click on`
+  - `multi-stakeholder, multi-sided recommendation problems` 与 `immerse yourself in an application`
 
-AI 编辑整理，请以原始节目为准。

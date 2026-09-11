@@ -43,12 +43,14 @@ For ASR, first run the `asr-reserve` command above, then use `--input-type video
 
 1. Read the entire archived transcript in sections; do not rely only on its beginning or a tool summary.
 2. Write `site/posts/<source_id>/<year>/<item_id>.md`, sharded by the item's source and publish year (use `unknown` as the year when the item has no publish date). The frontmatter `source_url` and `source_name` must match the collected item; `input_type` must match the archive.
-3. Follow the frontmatter and meta line in `templates/post.md`: `published_at` is the episode publish date from the item metadata (omit the field only when the item has no publish date); `transcribed_at` is the transcript retrieval date recorded in the private archive manifest. Directly under the H1, write the meta line `节目发布：… · 逐字稿获取：… · 笔记整理：… · 全文 N 字 · 预计阅读 M 分钟`, where N is the body character count as defined by the deterministic checker and M = max(1, ceil(N/400)). `check.py` recomputes both values and rejects mismatches, so finalize the body before filling them in.
-4. The digest must help decide whether to listen and explain the strongest useful points. Usually select three to five themes, but do not force a count or claim full coverage.
-5. Preserve evidence, examples, limits, disagreement, uncertainty, and speaker attribution. Use source timestamps when real; otherwise use a recognizable transcript section or phrase. Do not invent locators.
-6. Explicitly review core claims, numbers, causality, recommendations, conditions, uncertainty, attribution, and every locator against the archived full transcript. Mark added explanation as editorial context.
-7. Remove unverifiable peripheral assertions. If an unresolved assertion is central, delete the article and mark the item `failed` with the reason.
-8. Once the transcript is usable, review is complete, and article checks pass, update only that item's `status` to `processed` and keep `reason` null.
+3. Follow the frontmatter and meta blockquote in `templates/post.md`: `published_at` is the episode publish date from the item metadata (omit the field only when the item has no publish date); `transcribed_at` is the transcript retrieval date recorded in the private archive manifest. Directly under the H1, write the four-line blockquote (`节目发布/逐字稿获取/笔记整理` dates, `全文 N 字 · 预计阅读 M 分钟`, `标签` links, AI disclaimer), where N is the body character count as defined by the deterministic checker and M = max(1, ceil(N/400)). The `标签` line lists the frontmatter tags in order, each linked to `/tags/<tag>/` (percent-encode spaces as `%20`). `check.py` recomputes the counts and validates the links, so finalize the body before filling them in.
+4. In 来源与定位, write one locator per line as a list under `- 定位：` — a real timestamp or searchable transcript phrase for each claim cluster, taken from the archived material. Never invent timestamps; when the source has none, use searchable phrases and say so.
+5. Tag governance: prefer reusing tags that already exist on the 标签 page, keep three to five per article, and introduce a new tag only when it is genuinely reusable across future episodes. Avoid one-off episode-specific tags.
+6. The digest must help decide whether to listen and explain the strongest useful points. Usually select three to five themes, but do not force a count or claim full coverage.
+7. Preserve evidence, examples, limits, disagreement, uncertainty, and speaker attribution. Use source timestamps when real; otherwise use a recognizable transcript section or phrase. Do not invent locators.
+8. Explicitly review core claims, numbers, causality, recommendations, conditions, uncertainty, attribution, and every locator against the archived full transcript. Mark added explanation as editorial context.
+9. Remove unverifiable peripheral assertions. If an unresolved assertion is central, delete the article and mark the item `failed` with the reason.
+10. Once the transcript is usable, review is complete, and article checks pass, update only that item's `status` to `processed` and keep `reason` null.
 
 ## 4. Check, Build, And Commit
 

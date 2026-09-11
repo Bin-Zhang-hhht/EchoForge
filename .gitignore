@@ -11,6 +11,7 @@ site/index.md
 site/posts/index.md
 site/posts/*/index.md
 site/tags/index.md
+site/tags/*/index.md
 
 # 本地 ZCode 辅助文件
 .zcode/
