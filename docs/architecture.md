@@ -186,8 +186,11 @@ tags: [Agent]
 
 ```text
 > 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
+>
 > 全文 N 字 · 预计阅读 M 分钟
+>
 > 标签：[标签](/tags/标签/) · [标签](/tags/标签/)
+>
 > AI 编辑整理，请以原始节目为准。
 ```
 

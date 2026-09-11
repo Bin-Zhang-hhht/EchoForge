@@ -217,6 +217,7 @@ def article_word_count(body: str) -> int:
         META_DATES_PATTERN,
         META_COUNTS_PATTERN,
         re.compile(r"^>\s*标签："),
+        re.compile(r"^>\s*$"),
         re.compile(rf"^>?\s*{re.escape(DISCLAIMER)}\s*$"),
     )
     lines = [
