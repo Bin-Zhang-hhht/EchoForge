@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/212802973/c2384f8705a8bc7665575ec0b4770ed0.mp3",
+  "description": "A few years ago, Caltech Prof. and co-founder of Accelerated Understanding, Anima Anandkumar set out to develop the first open-source weather model with AI. Talking to experts in the field, she was met with skepticism. Weather is chaotic, physics simulations are hard, have been developed for decades, and require supercomputers, the data just isn’t there. Despite reservations, Anima went forth and built. Within a year her team had developed FourCastNet, a predictive model that is competitive with the best physics-based simulations available. Thanks to Anima, and her follow up work, anyone can now predict weather accurately over a short timescale using consumer grade GPUs. In the fifteen or so science episodes we’ve released on Latent.Space, we’ve covered atoms, molecules, materials, biology, and math. Anima is a pioneer in studying physical systems that are continuous. Weather, fusion, and fluid or heat flow are huge areas of science that are extremely difficult to model: they are large",
+  "duration_seconds": 5011,
+  "guid": "substack:post:212802973",
+  "item_id": "latent-space-91ca10619dae",
+  "published_at": "2026-08-26T15:15:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬“We have foundation models for language, not for physics” — Anima Anandkumar, Bren Professor of Computing",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/anima"
+}

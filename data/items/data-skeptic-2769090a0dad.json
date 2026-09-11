@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/1finale-part-2-final-adfree.mp3?dest-id=201630",
+  "description": "In part two of the Data Skeptic Recommender Systems season finale, Kyle asks a deceptively difficult question: what should recommender systems actually optimize for? Drawing on conversations from across the season, the episode explores engagement, filter bubbles, popularity bias, fairness, human curation, embeddings, and the growing role—and risks—of large language models in shaping what gets recommended to us.",
+  "duration_seconds": 1875,
+  "guid": "1d36491d-3f3b-4bb6-bead-e649c27ebdce",
+  "item_id": "data-skeptic-2769090a0dad",
+  "published_at": "2026-09-01T16:06:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "Recommender Systems Optimization Goals",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/recommender-systems-optimization-goals"
+}

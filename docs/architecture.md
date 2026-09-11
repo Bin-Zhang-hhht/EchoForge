@@ -2,7 +2,7 @@
 
 > 版本：v0.7 · 2026-09-11
 > 依据：[产品文档](product.md)
-> 状态：M1 已完成本地验证；M2/M3 待实现。下文未实现的文件和命令仍是约定，不代表已经运行或部署。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
+> 状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 待实现。下文未实现的文件和命令仍是约定，不代表已经运行或部署。远端 Pages 与 Actions 尚未验证。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
 
 ## 1. 总体结构
 
@@ -28,7 +28,7 @@ collect.yml                                                            deploy.ym
 
 ## 2. 技术与目录
 
-采集使用 Python 和现成 RSS 解析库；网站使用 VitePress 默认主题。依赖选兼容的稳定版本并锁定，不把框架预览版作为必需条件。不要求 Docker。
+采集使用 Python 和现成 RSS 解析库；网站使用 VitePress 默认主题。依赖选兼容的稳定版本并锁定，不把框架预览版作为必需条件。本地测试与 GitHub Actions 统一通过项目 Dockerfile 和 Compose 服务运行，使用相同基础镜像、锁文件和命令；不以本机 Node/Python 环境作为验收依据。Docker 用于构建、测试和批次任务，不建设常驻容器服务。
 
 ```text
 echoforge/
@@ -38,7 +38,7 @@ echoforge/
 ├── config/
 │   └── sources.yaml              # 当前实际启用的 RSS 白名单和简单过滤条件
 ├── data/items/
-│   └── <id>.json                 # 每期一个文件，包含处理状态
+│   └── <item_id>.json            # 每期一个文件，包含处理状态
 ├── scripts/
 │   ├── collect.py                # RSS 读取、去重、过滤、保存
 │   ├── pending.py                # 输出待处理条目及数量
@@ -53,7 +53,7 @@ echoforge/
 │   ├── index.md                  # 首页
 │   └── posts/
 │       ├── index.md              # 构建生成，不提交 Git
-│       └── <id>.md               # 正式公开文章
+│       └── <item_id>.md          # 正式公开文章
 ├── docs/
 │   ├── product.md
 │   ├── architecture.md
@@ -103,17 +103,17 @@ sources:
     min_duration_minutes: null
 ```
 
-包含词为空表示接受该来源的所有候选，否则标题或简短简介命中任一词即可。排除词优先。时长未知时，不仅因缺失而丢弃。首版每次只接收最近 30 天的节目，已入库的待处理条目不会因此被删除；未知日期仅取少量最近条目，不猜测日期。历史回填以后再做。
+包含词为空表示接受该来源的所有候选，否则对清洗后的标题与简短简介做不区分大小写的子串匹配，命中任一词即可。排除词优先。已知时长低于 `min_duration_minutes` 才过滤，时长未知不因缺失而丢弃；支持秒数和 `HH:MM:SS` 等常见格式，无法解析则视为未知。首版每次只接收最近 30 天的节目，已入库的待处理条目不会因此被删除；日期优先使用 published，缺失时使用 updated，统一为 UTC ISO-8601，无法解析的日期视为未知。每个来源最多接收 3 条未知日期条目，按 Feed 顺序处理；历史回填以后再做。
 
-每个新 Feed 进入 `sources.yaml` 前做一次最小 smoke test：能访问、能被所选 RSS 解析库解析、能读到节目/单集标题，并能获得 GUID、episode URL 等至少一种稳定标识。Podcast Feed 若提供 enclosure/audio URL 或 transcript URL，则正常提取；缺失字段不由采集器猜测。
+每个新 Feed 进入 `sources.yaml` 前做一次最小 smoke test：能访问、能被所选 RSS 解析库解析、能读到节目/单集标题，并能获得 GUID、episode URL 等至少一种稳定标识。Podcast Feed 若提供 enclosure/audio URL 或 transcript URL，则正常提取；缺失字段不由采集器猜测。采集器只访问 Feed 本身，不跟进音频或 transcript URL。
 
 ### 3.2 单期元信息
 
-稳定 ID 优先由 `source_id + RSS GUID` 生成短哈希，GUID 缺失时用节目页面链接；两者都没有就跳过并记录日志。不使用标题作为唯一标识，不使用可能变化的音频地址作为首选标识。
+稳定 `item_id` 优先以 `source_id + ':' + RSS GUID` 的 SHA-256 前 12 位生成后缀，GUID 缺失时使用节目页面链接；两者都没有就跳过并记录日志。完整 ID 为 `<source_id>-<hash>`。不使用标题作为唯一标识，不使用可能变化的音频地址作为首选标识；同一输入必须始终得到相同 ID。
 
 ```json
 {
-  "id": "example-podcast-a1b2c3d4",
+  "item_id": "example-podcast-a1b2c3d4",
   "source_id": "example-podcast",
   "source_name": "Example Podcast",
   "guid": "episode-123",
@@ -129,7 +129,7 @@ sources:
 }
 ```
 
-缺失字段用 `null`。简介转为纯文本并限制长度，首版上限 1,000 字符；不保存完整 Feed 响应或内嵌全文。文件名只用程序生成的安全 ID。
+缺失字段用 `null`。简介转为纯文本并限制长度，首版上限 1,000 字符；不保存完整 Feed 响应或内嵌全文。文件名使用与 `item_id` 相同的程序生成安全 ID。
 
 **Collector 只新增文件；已有文件原样保留。** 本地任务只更新选中条目的状态及原因，必要时修正失效链接。暂不实现定期元信息刷新或跨节目模糊去重。
 
@@ -151,7 +151,7 @@ ASR 后对不确定的专有名词、关键术语、数字和因果表述回听�
 
 ### 3.4 GitHub 文章
 
-文章固定保存为 `site/posts/<id>.md`，其 `item_id` 对应元信息文件。例如：
+文章固定保存为 `site/posts/<item_id>.md`，其 `item_id` 对应 `data/items/<item_id>.json`。例如：
 
 ```yaml
 ---

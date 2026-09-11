@@ -2,7 +2,7 @@
 
 **EchoForge · 技术播客**：从公开 Podcast RSS 发现技术访谈，在本地保存完整逐字稿并生成可追溯的中文精编，通过 GitHub Pages 提供个人技术信息雷达。
 
-> 文档基线：v0.7 · 2026-09-11。M1 已完成本地验证，M2～M3 未开始；远端 Pages 部署尚未验证。未实现的目录、脚本和命令仍是约定，不代表已运行或部署。
+> 文档基线：v0.7 · 2026-09-11。M1、M2 已完成统一 Docker 环境的本地验证，M3 未开始；远端 Pages 和 Actions 运行尚未验证。未实现的目录、脚本和命令仍是约定，不代表已运行或部署。
 
 ## 阅读顺序
 
@@ -13,6 +13,19 @@
 5. [Podcast RSS 来源清单](docs/podcast-sources.md)：人工维护的来源池及首批五个 Feed。
 
 文档文件名统一使用英文，正文保留中文。日常规则以产品文档为准，具体契约和验收分别见架构文档与执行计划。
+
+## 开发与测试环境
+
+本地测试统一使用 Docker，与 GitHub Actions 调用相同的镜像阶段和 Compose 服务；不使用本机安装的 Node/Python 依赖作为验收依据。
+
+```bash
+docker compose run --rm site-build
+docker compose run --rm collector-test
+docker compose run --rm collect
+docker compose run --rm pending --limit 10
+```
+
+`site-build` 生成 VitePress 产物，`collector-test` 运行采集器测试，`workflow-lint` 检查 Actions，`collect` 只获取 RSS 元信息并写入挂载的输出目录，`pending` 验证并列出候选。`scripts/test-in-docker.sh` 是本地和 `.github/workflows/test.yml` 共同使用的测试入口。Docker 是开发测试基线，不是网站或采集器的长期运行服务。
 
 ## 工作流与边界
 
@@ -28,7 +41,7 @@
 | 阶段 | 目标 | 状态 |
 | --- | --- | --- |
 | M1 | VitePress 默认主题网站和 GitHub Pages 发布 | 已完成本地验证，Pages 待部署验证 |
-| M2 | 首批五个 RSS 的元信息采集与状态保留 | 未开始 |
+| M2 | 首批五个 RSS 的元信息采集与状态保留 | 已完成 Docker 本地验证，Actions 待验证 |
 | M3 | 三篇真实笔记、逐字稿资产、质量门与一次用户阅读验收 | 未开始 |
 
-计划使用 Python 采集、VitePress 阅读站点，以及本地 ZCode / Video Agent Kit 内容处理。运行和部署说明将在对应阶段验证后补充；当前不提供未经实现验证的安装命令。达到 M3 后先实际使用，不追加首版功能。
+当前已可通过 Docker 构建 VitePress、测试采集器、采集五个 Feed 并查看待处理项。M3 将接入本地 ZCode / Video Agent Kit 内容处理。远端工作流和部署状态只有实际运行后才会更新；达到 M3 后先实际使用，不追加首版功能。

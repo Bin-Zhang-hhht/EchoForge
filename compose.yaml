@@ -1,0 +1,48 @@
+services:
+  workflow-lint:
+    image: rhysd/actionlint:1.7.12@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667
+    working_dir: /workspace
+    volumes:
+      - .:/workspace:ro
+
+  site-build:
+    build:
+      context: .
+      target: site-runtime
+    command:
+      - sh
+      - -c
+      - npm run site:build && rm -rf /output/* && cp -a site/.vitepress/dist/. /output/
+    volumes:
+      - ${SITE_OUTPUT_DIR:-./.cache/docker/site-dist}:/output
+
+  collector-test:
+    build:
+      context: .
+      target: collector-test
+
+  collect:
+    build:
+      context: .
+      target: collector-runtime
+    command:
+      - python
+      - scripts/collect.py
+      - --config
+      - config/sources.yaml
+      - --output-dir
+      - /output
+    volumes:
+      - ${COLLECT_OUTPUT_DIR:-./.cache/docker/collected-items}:/output
+
+  pending:
+    build:
+      context: .
+      target: collector-runtime
+    entrypoint:
+      - python
+      - scripts/pending.py
+      - --items-dir
+      - /output
+    volumes:
+      - ${COLLECT_OUTPUT_DIR:-./.cache/docker/collected-items}:/output

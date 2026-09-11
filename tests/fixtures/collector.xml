@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <title>Fixture Podcast</title>
+    <link>https://example.com/podcast</link>
+    <description>Collector test fixture.</description>
+
+    <item>
+      <title><![CDATA[<b>Fresh AI</b> Episode]]></title>
+      <guid isPermaLink="false">guid-fresh</guid>
+      <link>https://example.com/episodes/fresh</link>
+      <pubDate>Thu, 10 Sep 2026 08:00:00 +0800</pubDate>
+      <description><![CDATA[<p>Hello&nbsp;<strong>WORLD</strong>.</p><script>hidden()</script>]]></description>
+      <enclosure url="https://cdn.example.com/fresh.mp3" type="audio/mpeg" length="12345"/>
+      <itunes:duration>01:02:03</itunes:duration>
+      <podcast:transcript url="https://example.com/transcripts/fresh.vtt" type="text/vtt"/>
+    </item>
+
+    <item>
+      <title>Excluded AI sponsor</title>
+      <guid isPermaLink="false">guid-excluded</guid>
+      <link>https://example.com/episodes/excluded</link>
+      <pubDate>Wed, 09 Sep 2026 12:00:00 GMT</pubDate>
+      <description>This says AI but also SPONSOR.</description>
+      <itunes:duration>3600</itunes:duration>
+    </item>
+
+    <item>
+      <title>Old AI Episode</title>
+      <guid isPermaLink="false">guid-old</guid>
+      <link>https://example.com/episodes/old</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Too old for the intake window.</description>
+      <itunes:duration>3600</itunes:duration>
+    </item>
+
+    <item>
+      <title>Updated AI Episode</title>
+      <guid isPermaLink="false">guid-updated</guid>
+      <link>https://example.com/episodes/updated</link>
+      <pubDate>not a date</pubDate>
+      <lastBuildDate>Thu, 10 Sep 2026 12:00:00 -0400</lastBuildDate>
+      <description>Published is invalid, so updated must be used.</description>
+      <itunes:duration>45:30</itunes:duration>
+    </item>
+
+    <item>
+      <title>Short AI Episode</title>
+      <guid isPermaLink="false">guid-short</guid>
+      <link>https://example.com/episodes/short</link>
+      <pubDate>Thu, 10 Sep 2026 10:00:00 GMT</pubDate>
+      <description>Known duration below the minimum.</description>
+      <itunes:duration>59</itunes:duration>
+    </item>
+
+    <item>
+      <title>Unknown Duration AI Episode</title>
+      <guid isPermaLink="false">guid-unknown-duration</guid>
+      <link>https://example.com/episodes/unknown-duration</link>
+      <pubDate>Thu, 10 Sep 2026 09:00:00 GMT</pubDate>
+      <description>An invalid duration remains acceptable.</description>
+      <itunes:duration>not-known</itunes:duration>
+    </item>
+
+    <item>
+      <title>Fallback AI URL</title>
+      <link>https://example.com/episodes/fallback</link>
+      <pubDate>Thu, 10 Sep 2026 08:30:00 GMT</pubDate>
+      <description>No GUID, so the page URL is the identity.</description>
+      <itunes:duration>3600</itunes:duration>
+    </item>
+
+    <item>
+      <title>No stable identity</title>
+      <pubDate>Thu, 10 Sep 2026 08:15:00 GMT</pubDate>
+      <description>AI without a GUID or page URL.</description>
+    </item>
+  </channel>
+</rss>

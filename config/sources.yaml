@@ -1,0 +1,50 @@
+sources:
+  - id: recsperts
+    name: Recsperts
+    url: https://feeds.transistor.fm/recsperts-recommender-systems-experts
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
+
+  - id: data-skeptic
+    name: Data Skeptic
+    url: https://dataskeptic.libsyn.com/rss
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
+
+  - id: latent-space
+    name: Latent Space
+    url: https://api.substack.com/feed/podcast/1084089.rss
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
+
+  - id: practical-ai
+    name: Practical AI
+    url: https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
+
+  - id: software-engineering-daily
+    name: Software Engineering Daily
+    url: https://softwareengineeringdaily.com/feed/podcast/
+    enabled: true
+    include_keywords:
+      - AI
+      - agent
+      - LLM
+      - recommendation
+      - ranking
+      - database
+      - distributed
+      - infrastructure
+      - compiler
+      - DevOps
+    exclude_keywords: []
+    min_duration_minutes: null

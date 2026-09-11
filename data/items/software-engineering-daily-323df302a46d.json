@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/f6ab72dc/b084152d.mp3",
+  "description": "TypeScript is a programming language that builds on JavaScript by adding a system of types. Those types let developers describe the shape of their data and catch mistakes before code ever runs, while also powering the autocompletion and editor tooling that many developers now rely on every day. It was first released in 2012, and has since become one of the most widely used tools in web development. TypeScript recently underwent one of the most significant changes in its history with the release of version 7. Daniel Rosenwasser is the Principal Product Manager of TypeScript at Microsoft, where he began as an engineer on the team just weeks after the TypeScript 1.0 release. In this episode, Daniel joins Josh Goldberg to talk about the features of TypeScript 7. They discuss the TypeScript team’s approach to tooling, TypeScript’s relationship with the TC39 standards process behind JavaScript, the new API and IPC boundary, how LLMs could reshape type checking and linting, and more. Sponsors",
+  "duration_seconds": 3435,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9872",
+  "item_id": "software-engineering-daily-323df302a46d",
+  "published_at": "2026-08-27T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "TypeScript 7 and What Comes Next",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/typescript-7-and-what-comes-next/"
+}

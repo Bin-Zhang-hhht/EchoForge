@@ -26,12 +26,15 @@
 | 内容来源 | 只做公开 Podcast RSS，不实现 YouTube 模块 |
 | RSS 来源管理 | `podcast-sources.md` 保存人工调研的来源池；`config/sources.yaml` 只保存当前实际启用源 |
 | 首批 RSS | M2 先启用 Recsperts、Data Skeptic、Latent Space、Practical AI、Software Engineering Daily 共 5 个 |
+| 元信息标识 | `item_id` 统一用于 JSON 字段、文件名、文章 frontmatter 和本地资产路径；以 `source_id + ':' + GUID/episode URL` 的 SHA-256 前 12 位生成后缀 |
+| 采集规则 | published 优先、updated 后备并统一 UTC；仅收最近 30 天，每源最多 3 条未知日期；关键词不区分大小写子串匹配，排除优先，未知时长不拒绝 |
 | 转录策略 | Transcript-first；RSS → Publisher，均需可用性检查；无可用完整稿时在许可和预算内调用 Video Agent Kit ASR |
 | 本地逐字稿 | 完整逐字稿是长期资产，放 `local-library/`，不提交 Git，不随缓存清理 |
 | 临时音频 | 仅在逐字稿已保存、可用性通过且必需回听疑点解决后删除 |
 | GitHub 内容 | Machine Digest，可在本地检查通过后直接发布到 VitePress / Pages |
 | 公众号 / 视频 | 机器只能生成草稿；必须人工核查、改写和确认后再发布，不做自动同步 |
 | 网站 | VitePress 默认主题 + 内置本地搜索 |
+| 测试环境 | 本地与 GitHub Actions 统一使用项目 Dockerfile / Compose 服务，相同镜像阶段、依赖锁和命令；不以宿主 Node/Python 结果作为验收依据 |
 | 首版范围 | M1 网站、M2 采集、M3 本地逐字稿与机器摘要三步闭环 |
 
 ## 3. 新的核心内容分层
@@ -137,4 +140,4 @@ AI 配音、AI 动画、“三分钟带你学习……”视频、微信公众�
 
 ## 11. 本轮交付
 
-本轮将[产品文档](product.md)、[架构文档](architecture.md)、[执行计划](implementation-plan.md)、[决策记录](decisions.md)和 RSS 来源清单统一改为英文文件名，并更新产品、架构、执行与决策规则。M1 网站已完成本地构建与预览验证；RSS 来源清单的来源池、首批选择和外部核查记录保持原状，本轮没有重新验证外部 Feed。实际 RSS 采集、转写、资产保存、备份恢复和 GitHub Pages 远端部署验证均留到后续实施阶段。
+文档文件名已统一为英文，产品、架构、执行与决策规则已同步。M1 与 M2 均使用和 GitHub Actions 相同的 Docker 镜像阶段与命令完成本地验证：M1 网站构建通过；M2 的 16 项采集测试、五个真实 Feed、重复采集、人工状态保留、来源失败隔离和 `pending` 校验均通过。RSS 来源池和首批选择不变。远端 Pages、Actions、M3 转写与内容发布闭环尚未实际运行，不将本地验证表述为远端成功。

@@ -22,17 +22,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build site
-        run: npm run site:build
+      - name: Build site in project container
+        run: docker compose run --rm site-build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -40,7 +31,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/.vitepress/dist
+          path: .cache/docker/site-dist
 
   deploy:
     environment:

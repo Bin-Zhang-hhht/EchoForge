@@ -1,0 +1,17 @@
+.git
+.github
+.video_agent
+.zcode
+.cache
+local-library
+node_modules
+site/.vitepress/dist
+site/.vitepress/cache
+site/.vitepress/temp
+site/posts/index.md
+__pycache__
+.pytest_cache
+*.py[cod]
+.env
+.env.*
+data/items

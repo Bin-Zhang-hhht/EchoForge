@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/c1692d22/f857d353.mp3",
+  "description": "News feeds and recommendation systems have long relied on deep learning architectures that score each candidate item independently. As LLMs have matured, they have opened up a fundamentally different approach, where a system can reason about content the way it reasons about language. However, that power comes with a fresh set of engineering challenges around cost, scale, and evaluation. LinkedIn recently rebuilt its news feed to treat content recommendation as a sequence modeling problem. The general approach is to predict what a user will want next, much like an LLM predicts the next token in a sentence. Tim Jurka has worked at LinkedIn for 13 years and is currently a VP of Engineering. In this episode, Tim joins Matt Merrill to discuss how LinkedIn re-engineered its feed, how the team combines LLMs with traditional signals, managing inference costs at massive scale, steering content quality using natural language policies, and more. Sponsorship inquiries: sponsor@softwareengineeringd",
+  "duration_seconds": 2871,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9845",
+  "item_id": "software-engineering-daily-0d21e7dbc922",
+  "published_at": "2026-08-18T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "How LLMs Are Reshaping Recommendation Systems",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/how-llms-are-reshaping-recommendation-systems/"
+}

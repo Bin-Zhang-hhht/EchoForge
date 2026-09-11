@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/part3-withad.mp3?dest-id=201630",
+  "description": "In the final episode of our Recommender Systems season, we explore the growing questions of trust, manipulation, privacy, fairness, sustainability, and user control. From fake reviews and shilling attacks to explainable recommendations and user-selected algorithms, we look at what happens when recommender systems must answer not only for what they recommend, but for the consequences of those choices.",
+  "duration_seconds": 1366,
+  "guid": "039b9482-c35c-4687-8372-8824b569f1c2",
+  "item_id": "data-skeptic-5df813d42ab1",
+  "published_at": "2026-09-09T15:35:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "Recommender Systems Today and Tomorrow",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/recommender-systems-today-and-tomorrow"
+}

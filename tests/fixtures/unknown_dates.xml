@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Unknown Dates</title>
+    <link>https://example.com/unknown</link>
+    <description>Unknown date limit fixture.</description>
+    <item><title>Unknown One</title><guid>unknown-1</guid><link>https://example.com/u1</link><description>First in feed order.</description></item>
+    <item><title>Unknown Two</title><guid>unknown-2</guid><link>https://example.com/u2</link><description>Second in feed order.</description></item>
+    <item><title>Unknown Three</title><guid>unknown-3</guid><link>https://example.com/u3</link><description>Third in feed order.</description></item>
+    <item><title>Unknown Four</title><guid>unknown-4</guid><link>https://example.com/u4</link><description>Must be filtered.</description></item>
+    <item><title>Invalid Unknown Five</title><guid>unknown-5</guid><link>https://example.com/u5</link><pubDate>invalid</pubDate><description>Also unknown and filtered.</description></item>
+  </channel>
+</rss>

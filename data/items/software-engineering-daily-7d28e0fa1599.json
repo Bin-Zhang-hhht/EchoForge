@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/94344b5c/23746022.mp3",
+  "description": "Retrieval has become one of the central problems in building useful AI systems. The standard approach to grounding a model in one’s own data has been retrieval augmented generation, or RAG, where an agent searches a vector database for relevant information at query time. That pattern works, but it has limitations, such as retrieving information that’s not truly relevant, repeating the same lookup work on every query, and producing inconsistent answers to the same question. Pinecone is a vector database that’s widely used to power semantic search and RAG at scale. The team recently developed Nexus, which is a knowledge engine that reframes context as a first-class, precomputed asset rather than something reassembled on the fly. The approach borrows the database concept of a materialized view, and curates context once into a versioned artifact that carries its own schema, metadata, permissions, and lineage. Jörg Schad is the VP of Engineering at Pinecone. In this episode, he joins Kevin ",
+  "duration_seconds": 3348,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9904",
+  "item_id": "software-engineering-daily-7d28e0fa1599",
+  "published_at": "2026-09-03T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Moving Beyond RAG with Precomputed Context",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/moving-beyond-rag-with-precomputed-context/"
+}

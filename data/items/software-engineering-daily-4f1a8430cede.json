@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/76e7a404/3aa72d4d.mp3",
+  "description": "A Rust Framework to Simplify Distributed Systems Building software that runs across many machines is notoriously difficult. Developers have to grapple with problems such as race conditions, partial failures, and message ordering. Notably, one category of distributed software has largely escaped these burdens. A distributed database can spread a single query across thousands of machines, handling the coordination, failure recovery, and ordering internally. This raises a natural question of why general-purpose distributed programming can’t feel the same way. This is a highly practical problem at AWS, because the reliability of cloud infrastructure depends on getting distributed systems right at massive scale. Joe Hellerstein spent thirty years as a database and distributed systems researcher at UC Berkeley, where he pioneered much of the foundational thinking on applying database ideas to distributed programming. He is now at AWS, where he works to bring his research into production thro",
+  "duration_seconds": 3031,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9925",
+  "item_id": "software-engineering-daily-4f1a8430cede",
+  "published_at": "2026-09-10T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "A Rust Framework to Simplify Distributed Systems",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/a-rust-framework-to-simplify-distributed-systems/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/recsys-finale-pt1.mp3?dest-id=201630",
+  "description": "Where did recommender systems come from, and how do we know when they're actually working? In part one of Data Skeptic's three-part Recommender Systems finale, Kyle traces the field from collaborative filtering and the Netflix Prize to matrix factorization and modern approaches, while exploring why accuracy alone can't capture what makes a recommendation useful, surprising, or meaningful.",
+  "duration_seconds": 1532,
+  "guid": "9887e4de-5012-40e8-b144-d8eb2ada6963",
+  "item_id": "data-skeptic-a346e302a620",
+  "published_at": "2026-08-18T15:19:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "Recommender Systems Origin Story",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/recommender-systems-origin-story"
+}

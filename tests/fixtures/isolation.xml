@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Isolation Feed</title>
+    <link>https://example.com/isolation</link>
+    <description>One source succeeds while another fails.</description>
+    <item>
+      <title>Healthy Episode</title>
+      <guid>healthy-guid</guid>
+      <link>https://example.com/healthy</link>
+      <pubDate>Thu, 10 Sep 2026 08:00:00 GMT</pubDate>
+      <description>Valid source result.</description>
+    </item>
+  </channel>
+</rss>

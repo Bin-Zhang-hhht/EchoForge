@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/c07c7bf6/8a10e95d.mp3",
+  "description": "In episode 33 of Recsperts, I speak with Joseph A. Konstan, Distinguished McKnight University Professor and Distinguished University Teaching Professor at the University of Minnesota, co-founder of GroupLens, and the very first General Chair of the ACM RecSys conference back in 2007. This year he returns in that role as General Co-Chair of the 20th RecSys in Minneapolis. We talk about what actually makes a recommendation useful, why the field is more than a machine learning application, and how the community around RecSys came into being. We start with what Joe cares about most: usefulness. He recalls the supermarket thought experiment of printing \"buy bananas and bread\" on every shopping cart and explains why the early systems were valuable because they were wrong a lot. A recommender that took ten people like you and often got it wrong was also often surprising when it got it right, whereas today's systems are wrong far less and useless far more. As Joe puts it, \"I don't care about p",
+  "duration_seconds": 5077,
+  "guid": "aed10376-facb-43b6-97b6-1c8a264c15ff",
+  "item_id": "recsperts-72eb3158250c",
+  "published_at": "2026-09-01T10:30:01Z",
+  "reason": null,
+  "source_id": "recsperts",
+  "source_name": "Recsperts",
+  "status": "pending",
+  "title": "#33: Useful Recommender Systems and 20 Years of RecSys with Joseph Konstan",
+  "transcript_url": "https://share.transistor.fm/s/c07c7bf6/transcript.txt",
+  "url": "https://share.transistor.fm/s/c07c7bf6"
+}
