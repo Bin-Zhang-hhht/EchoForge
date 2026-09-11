@@ -1,4 +1,5 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -9,7 +10,11 @@ const postsDirectory = join(projectRoot, 'site', 'posts');
 const indexPath = join(postsDirectory, 'index.md');
 const tagsDirectory = join(projectRoot, 'site', 'tags');
 const tagsPath = join(tagsDirectory, 'index.md');
+const homePath = join(projectRoot, 'site', 'index.md');
 const sidebarDataPath = join(projectRoot, 'site', '.vitepress', 'sidebar.data.json');
+const dataDirectory = join(projectRoot, 'data', 'items');
+const publicDirectory = join(projectRoot, 'site', 'public');
+const siteBase = '/EchoForge/'; // keep in sync with site/.vitepress/config.mts base
 
 function parseFrontmatter(source, filePath) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
@@ -110,7 +115,169 @@ function groupBySource(articles) {
 }
 
 function articleLink(article, linkPrefix) {
-  return `- [${escapeMarkdown(article.title)}](${linkPrefix}${article.path})\n  - 整理日期：${article.date}\n  - 来源：[${escapeMarkdown(article.source_name ?? article.source_url)}](${article.source_url})`;
+  const lines = [
+    `- [${escapeMarkdown(article.title)}](${linkPrefix}${article.path})`,
+    `  - 整理日期：${article.date}`
+  ];
+  if (article.published_at) {
+    lines.push(`  - 节目发布：${article.published_at}`);
+  }
+  lines.push(`  - 来源：[${escapeMarkdown(article.source_name ?? article.source_url)}](${article.source_url})`);
+  return lines.join('\n');
+}
+
+async function loadItems() {
+  const entries = await readdir(dataDirectory, { withFileTypes: true, recursive: true });
+  const items = [];
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.endsWith('.json')) {
+      continue;
+    }
+    try {
+      items.push(JSON.parse(await readFile(join(entry.parentPath, entry.name), 'utf8')));
+    } catch {
+      // malformed metadata is reported by content-check; stats just skip it
+    }
+  }
+  return items;
+}
+
+function buildSourceStats(articles, items) {
+  const sources = new Map();
+  for (const item of items) {
+    const id = item.source_id;
+    if (!sources.has(id)) {
+      sources.set(id, { id, name: item.source_name ?? id, itemCount: 0, articleCount: 0, latest: null });
+    }
+    const source = sources.get(id);
+    source.itemCount += 1;
+    source.name = item.source_name ?? source.name;
+  }
+  for (const article of articles) {
+    const [sourceId] = article.path.split('/');
+    const source = sources.get(sourceId);
+    if (!source) {
+      continue;
+    }
+    source.articleCount += 1;
+    if (!source.latest || article.date > source.latest) {
+      source.latest = article.date;
+    }
+  }
+  return [...sources.values()].sort(
+    (left, right) =>
+      right.articleCount - left.articleCount || left.name.localeCompare(right.name, 'en')
+  );
+}
+
+async function buildHomePage(articles, items, tagCount) {
+  const realArticles = articles.filter((article) => article.path.split('/').length === 3);
+  const sources = buildSourceStats(realArticles, items);
+  const pending = items.filter((item) => item.status === 'pending').length;
+  const totalSeconds = items.reduce(
+    (sum, item) => sum + (typeof item.duration_seconds === 'number' ? item.duration_seconds : 0),
+    0
+  );
+  const hours = Math.round(totalSeconds / 3600);
+  const covered = sources.filter((source) => source.articleCount > 0).length;
+  const latestDate = realArticles.length ? realArticles[0].date : null;
+
+  const features = [
+    {
+      icon: '📝',
+      title: `${realArticles.length} 篇精编`,
+      details: latestDate ? `最近整理 ${latestDate}` : '精编即将发布',
+      link: '/posts/',
+      linkText: '浏览文章'
+    },
+    {
+      icon: '⏳',
+      title: `${pending} 条待处理`,
+      details: `已收录 ${items.length} 期节目素材`
+    },
+    {
+      icon: '🎙️',
+      title: `${covered} 档节目已精编`,
+      details: `共收录 ${sources.length} 档 · 约 ${hours} 小时音频`
+    },
+    {
+      icon: '🏷️',
+      title: `${tagCount} 个主题标签`,
+      details: '按主题浏览同类内容',
+      link: '/tags/',
+      linkText: '查看标签'
+    }
+  ];
+  for (const source of sources) {
+    features.push(
+      source.articleCount
+        ? {
+            icon: '📻',
+            title: source.name,
+            details: `精编 ${source.articleCount} 篇 · 收录 ${source.itemCount} 期 · 最近整理 ${source.latest}`,
+            link: `/posts/${source.id}/`,
+            linkText: '进入节目'
+          }
+        : {
+            icon: '📻',
+            title: source.name,
+            details: `收录 ${source.itemCount} 期素材，精编整理中`
+          }
+    );
+  }
+
+  const hero = {
+    name: 'EchoForge',
+    text: '技术播客中文阅读雷达',
+    tagline: '从公开技术访谈保存完整逐字稿，生成可追溯的中文精编——先看重点观点与边界，再决定是否回听。',
+    actions: [
+      { theme: 'brand', text: '浏览文章', link: '/posts/' },
+      { theme: 'alt', text: '按标签浏览', link: '/tags/' }
+    ]
+  };
+  for (const extension of ['png', 'jpg', 'jpeg', 'webp', 'avif', 'svg']) {
+    const banner = `banner.${extension}`;
+    if (existsSync(join(publicDirectory, banner))) {
+      hero.image = { src: `${siteBase}${banner}`, alt: 'EchoForge' };
+      break;
+    }
+  }
+
+  const lines = [
+    '---',
+    'layout: home',
+    'hero:',
+    `  name: ${yamlQuote(hero.name)}`,
+    `  text: ${yamlQuote(hero.text)}`,
+    `  tagline: ${yamlQuote(hero.tagline)}`,
+    '  actions:'
+  ];
+  for (const action of hero.actions) {
+    lines.push(`    - theme: ${action.theme}`, `      text: ${yamlQuote(action.text)}`, `      link: ${action.link}`);
+  }
+  if (hero.image) {
+    lines.push('  image:', `    src: ${hero.image.src}`, `    alt: ${yamlQuote(hero.image.alt)}`);
+  }
+  lines.push('features:');
+  for (const feature of features) {
+    lines.push(
+      `  - icon: ${yamlQuote(feature.icon)}`,
+      `    title: ${yamlQuote(feature.title)}`,
+      `    details: ${yamlQuote(feature.details)}`
+    );
+    if (feature.link) {
+      lines.push(`    link: ${feature.link}`, `    linkText: ${yamlQuote(feature.linkText)}`);
+    }
+  }
+  lines.push('---', '');
+
+  const latest = realArticles.slice(0, 3);
+  if (latest.length) {
+    lines.push('## 最新精编', '', ...latest.map((article) => articleLink(article, './posts/')), '');
+  }
+
+  await writeFile(homePath, `${lines.join('\n')}\n`, 'utf8');
+  console.log(`Generated ${relative(projectRoot, homePath)} with ${features.length} feature card(s).`);
 }
 
 async function listArticlePaths() {
@@ -123,6 +290,7 @@ async function listArticlePaths() {
 
 async function buildIndex() {
   const articlePaths = await listArticlePaths();
+  const items = await loadItems();
 
   const articles = await Promise.all(
     articlePaths.map(async (articlePath) => {
@@ -184,6 +352,8 @@ async function buildIndex() {
   await mkdir(tagsDirectory, { recursive: true });
   await writeFile(tagsPath, tagsOutput, 'utf8');
   console.log(`Generated ${relative(projectRoot, tagsPath)} from ${tagMap.size} tag(s).`);
+
+  await buildHomePage(articles, items, tagMap.size);
 
   const sources = groupBySource(articles);
   for (const source of sources) {

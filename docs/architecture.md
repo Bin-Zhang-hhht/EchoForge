@@ -55,7 +55,7 @@ echoforge/
 │   ├── .vitepress/
 │   │   ├── config.mts            # 导入生成的侧边栏数据
 │   │   └── sidebar.data.json     # 构建生成的侧边栏配置，不提交 Git
-│   ├── index.md                  # 首页
+│   ├── index.md                  # 构建生成的首页（统计与节目卡），不提交 Git
 │   ├── posts/
 │   │   ├── index.md              # 构建生成，不提交 Git
 │   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
@@ -171,6 +171,8 @@ ASR 后对不确定的专有名词、关键术语、数字和因果表述回听�
 item_id: example-podcast-a1b2c3d4
 title: 从一次访谈看 Agent 的实际落地难点
 date: '2026-09-10'
+published_at: '2026-09-08'
+transcribed_at: '2026-09-10'
 source_url: https://example.com/episodes/123
 source_name: Example Podcast
 input_type: official_transcript
@@ -178,7 +180,15 @@ tags: [Agent]
 ---
 ```
 
-必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期，节目原始发布时间保留在元信息里，不混为一谈。
+必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期，必须与单期元信息一致（元信息无日期时省略该字段）；`transcribed_at` 是逐字稿获取日期，来自私有归档 manifest 的 `retrieved_at`，只公开日期本身。三者不得混为一谈。
+
+正文 H1 下方紧跟一行元信息：
+
+```text
+节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD · 全文 N 字 · 预计阅读 M 分钟
+```
+
+三个日期必须与 frontmatter 对应字段一致；N 为正文字符数（按确定性规则：去除元信息行、链接 URL 和空白后计数，代码块计入），M = max(1, ceil(N/400))。`check.py` 按同一算法复核字数与时长，声明不一致即失败，避免手工数字过期；演示文章不要求元信息行。
 
 正文采用“速读 → 主题正文 → 来源与定位”的结构。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
 
@@ -275,7 +285,9 @@ GitHub Machine Digest
 
 ## 6. 网站实现
 
-VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和阅读样式，不制作复杂首页。[V2]
+VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录、`home` 布局和阅读样式，不制作自定义主题组件。[V2]
+
+首页 `site/index.md` 由 `build-index.mjs` 生成：精编数、待处理数、覆盖节目和收录总时长等统计在构建时从 `data/items` 与文章现算；节目卡按精编数排序，无精编的节目显示收录情况；横幅图自动探测 `site/public/banner.*`（png/jpg/jpeg/webp/avif/svg），存在时写入 `hero.image`。首页统计是最近一次构建的快照，随文章更新同批生效。首页与文章列表、标签页、节目页、侧边栏一样都是派生产物，不提交 Git，不由 Agent 手工维护。
 
 `build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`，并按文章 `tags` 生成 `site/tags/index.md` 标签页。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径。节目页、文章列表、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
 

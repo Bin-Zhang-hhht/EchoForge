@@ -2,12 +2,17 @@
 item_id: <stable-item-id>
 title: <中文文章标题>
 date: 'YYYY-MM-DD'
+published_at: 'YYYY-MM-DD'
+transcribed_at: 'YYYY-MM-DD'
 source_url: https://example.com/episode
 source_name: <Podcast 名称>
 input_type: official_transcript
+tags: [标签]
 ---
 
 # <中文文章标题>
+
+节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD · 全文 N 字 · 预计阅读 M 分钟
 
 > AI 编辑整理，请以原始节目为准。
 

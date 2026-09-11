@@ -2,6 +2,8 @@
 item_id: data-skeptic-5df813d42ab1
 title: 推荐系统不只预测点击：信任、操纵与用户选择权
 date: '2026-09-11'
+published_at: '2026-09-09'
+transcribed_at: '2026-09-11'
 source_url: https://dataskeptic.com/blog/episodes/2026/recommender-systems-today-and-tomorrow
 source_name: Data Skeptic
 input_type: video_agent_kit_asr
@@ -9,6 +11,8 @@ tags: [推荐系统, 隐私, 可解释性]
 ---
 
 # 推荐系统不只预测点击：信任、操纵与用户选择权
+
+节目发布：2026-09-09 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11 · 全文 2184 字 · 预计阅读 6 分钟
 
 > AI 编辑整理，请以原始节目为准。
 

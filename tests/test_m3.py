@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -93,17 +94,20 @@ def write_post(posts_dir: Path, value: dict[str, object], content: str) -> Path:
 
 
 def article(value: dict[str, object], body_extra: str = "") -> str:
-    return f"""---
+    frontmatter = f"""---
 item_id: {value['item_id']}
 title: 测试文章
 DateIgnored: no
 date: '2026-09-11'
+published_at: '{str(value['published_at'])[:10]}'
+transcribed_at: '2026-09-11'
 source_url: {value['url']}
 source_name: {value['source_name']}
 input_type: official_transcript
 ---
 
-# 测试文章
+"""
+    body = f"""# 测试文章
 
 ## 速读
 
@@ -122,6 +126,13 @@ input_type: official_transcript
 
 AI 编辑整理，请以原始节目为准。
 """
+    words = check.article_word_count(body)
+    minutes = check.reading_minutes(words)
+    meta = (
+        f"节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11"
+        f" · 全文 {words} 字 · 预计阅读 {minutes} 分钟"
+    )
+    return frontmatter + body.replace("# 测试文章\n", f"# 测试文章\n\n{meta}\n", 1)
 
 
 def valid_article(value: dict[str, object], body_extra: str = "") -> str:
@@ -648,6 +659,50 @@ def test_check_accepts_generated_source_index_pages(tmp_path: Path) -> None:
     assert errors == []
     assert item_count == 1
     assert post_count == 1
+
+
+def test_check_requires_meta_line_with_accurate_word_count(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+
+    write_post(posts, value, re.sub(r"节目发布：[^\n]*\n\n", "", valid_article(value)))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("missing article meta line" in error for error in errors)
+
+    write_post(posts, value, re.sub(r"全文 \d+ 字", "全文 1 字", valid_article(value)))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("computed count is" in error for error in errors)
+
+    write_post(posts, value, re.sub(r"预计阅读 \d+ 分钟", "预计阅读 99 分钟", valid_article(value)))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("预计阅读 must be" in error for error in errors)
+
+    write_post(posts, value, valid_article(value))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert not any("meta line" in error for error in errors)
+
+
+def test_check_requires_item_publish_date_match(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    digest_date = str(value["published_at"])[:10]
+    mismatched = (
+        valid_article(value)
+        .replace(f"published_at: '{digest_date}'", "published_at: '2020-01-01'")
+        .replace(f"节目发布：{digest_date}", "节目发布：2020-01-01")
+    )
+    write_post(posts, value, mismatched)
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("published_at must match the item publish date" in error for error in errors)
+
+    missing_transcribed = re.sub(r"transcribed_at: '[^']*'\n", "", valid_article(value))
+    write_post(posts, value, missing_transcribed)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("must declare transcribed_at" in error for error in errors)
 
 
 def test_check_requires_article_path_to_match_item_shards(tmp_path: Path) -> None:

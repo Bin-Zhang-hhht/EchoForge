@@ -16,6 +16,7 @@ services:
     volumes:
       - ./site:/source/site:ro
       - ./scripts/build-index.mjs:/source/build-index.mjs:ro
+      - ./data:/workspace/data:ro
       - ${SITE_OUTPUT_DIR:-./.cache/docker/site-dist}:/output
 
   collector-test:

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import subprocess
 import sys
@@ -22,6 +23,8 @@ ALLOWED_FRONTMATTER_FIELDS = {
     "layout",
     "title",
     "date",
+    "published_at",
+    "transcribed_at",
     "source_url",
     "source_name",
     "input_type",
@@ -46,6 +49,13 @@ DISALLOWED_NAMES = {
 }
 DISALLOWED_SUFFIXES = {".mp3", ".mp4", ".wav", ".m4a", ".vtt", ".srt"}
 MARKDOWN_LINK_PATTERN = re.compile(r"!?\[[^\]]*\]\(([^)\s]+)(?:\s+['\"][^'\"]*['\"])?\)")
+MARKDOWN_LINK_TEXT_PATTERN = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
+DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+META_LINE_PATTERN = re.compile(
+    r"^节目发布：(?P<published>\d{4}-\d{2}-\d{2}) · 逐字稿获取：(?P<transcribed>\d{4}-\d{2}-\d{2})"
+    r" · 笔记整理：(?P<digest>\d{4}-\d{2}-\d{2}) · 全文 (?P<words>\d+) 字 · 预计阅读 (?P<minutes>\d+) 分钟$"
+)
+READING_SPEED_CHARS_PER_MINUTE = 400
 
 
 @dataclass(frozen=True)
@@ -125,6 +135,20 @@ def validate_frontmatter(post: Post, root: Path) -> list[str]:
         except ValueError:
             errors.append(f"{location}: date is not a valid calendar date")
 
+    for field in ("published_at", "transcribed_at"):
+        value = fields.get(field)
+        if value is None:
+            continue
+        if not isinstance(value, str) or not DATE_PATTERN.fullmatch(value):
+            errors.append(f"{location}: {field} must be a YYYY-MM-DD string")
+            continue
+        try:
+            date.fromisoformat(value)
+        except ValueError:
+            errors.append(f"{location}: {field} is not a valid calendar date")
+    if item_id != DEMO_ITEM_ID and fields.get("transcribed_at") is None:
+        errors.append(f"{location}: non-demo article must declare transcribed_at")
+
     if not pending.is_public_http_url(fields.get("source_url")):
         errors.append(f"{location}: source_url must be a public http(s) URL")
 
@@ -168,6 +192,24 @@ def markdown_link_targets(body: str) -> list[str]:
 
 def heading_match(body: str, heading: str) -> re.Match[str] | None:
     return re.search(rf"^{re.escape(heading)}[ \t]*$", body, re.MULTILINE)
+
+
+def article_meta_line(body: str) -> re.Match[str] | None:
+    for line in strip_fenced_code(body).splitlines():
+        match = META_LINE_PATTERN.fullmatch(line.strip())
+        if match:
+            return match
+    return None
+
+
+def article_word_count(body: str) -> int:
+    lines = [line for line in body.splitlines() if not META_LINE_PATTERN.fullmatch(line.strip())]
+    text = MARKDOWN_LINK_TEXT_PATTERN.sub(r"\1", "\n".join(lines))
+    return sum(1 for char in text if not char.isspace())
+
+
+def reading_minutes(words: int) -> int:
+    return max(1, math.ceil(words / READING_SPEED_CHARS_PER_MINUTE))
 
 
 def section_text(body: str, heading: str) -> str:
@@ -225,6 +267,34 @@ def validate_body(post: Post, root: Path) -> list[str]:
         location_match = re.search(r"^-\s*定位[：:]\s*(.+)$", source_section, re.MULTILINE)
         if not location_match or location_match.group(1).strip() in {"不适用", "无", "N/A", "n/a"}:
             errors.append(f"{location}: 来源与定位 must contain a real source locator")
+
+        meta = article_meta_line(body)
+        if meta is None:
+            errors.append(f"{location}: missing article meta line (节目发布/逐字稿获取/笔记整理/全文 N 字/预计阅读)")
+        else:
+            if (
+                meta.group("published") != fields.get("published_at")
+                or meta.group("transcribed") != fields.get("transcribed_at")
+                or meta.group("digest") != fields.get("date")
+            ):
+                errors.append(f"{location}: meta line dates must equal frontmatter published_at/transcribed_at/date")
+            declared_words = int(meta.group("words"))
+            computed_words = article_word_count(post.body)
+            if computed_words != declared_words:
+                errors.append(
+                    f"{location}: meta line declares 全文 {declared_words} 字 but computed count is {computed_words} 字"
+                )
+            expected_minutes = reading_minutes(declared_words)
+            if int(meta.group("minutes")) != expected_minutes:
+                errors.append(
+                    f"{location}: meta line 预计阅读 must be {expected_minutes} 分钟 "
+                    f"({READING_SPEED_CHARS_PER_MINUTE} characters per minute)"
+                )
+            stripped_body = strip_fenced_code(body)
+            meta_index = stripped_body.find(meta.group(0))
+            first_section = re.search(r"^##[ \t]+", stripped_body, re.MULTILINE)
+            if first_section and (meta_index == -1 or meta_index > first_section.start()):
+                errors.append(f"{location}: meta line must sit directly under the H1 title, before the first section")
     return errors
 
 
@@ -269,6 +339,12 @@ def validate_correspondence(
             errors.append(f"{relative(post.path, root)}: source_url must match item metadata url")
         if post.frontmatter.get("source_name") != item["source_name"]:
             errors.append(f"{relative(post.path, root)}: source_name must match item metadata")
+        expected_published = (item["published_at"] or "")[:10] or None
+        if post.frontmatter.get("published_at") != expected_published:
+            errors.append(
+                f"{relative(post.path, root)}: published_at must match the item publish date "
+                f"({expected_published or 'absent'})"
+            )
         year_dir = post.path.parent.name
         source_dir = post.path.parent.parent.name
         if year_dir != pending.item_year(item) or source_dir != item["source_id"]:
