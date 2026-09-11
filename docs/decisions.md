@@ -137,4 +137,4 @@ AI 配音、AI 动画、“三分钟带你学习……”视频、微信公众�
 
 ## 11. 本轮交付
 
-本轮将[产品文档](product.md)、[架构文档](architecture.md)、[执行计划](implementation-plan.md)、[决策记录](decisions.md)和 RSS 来源清单统一改为英文文件名，并更新产品、架构、执行与决策规则。RSS 来源清单的来源池、首批选择和外部核查记录保持原状，本轮没有重新验证外部 Feed。实际 RSS 采集、转写、资产保存、备份恢复和 GitHub Pages 部署验证均留到实施阶段。
+本轮将[产品文档](product.md)、[架构文档](architecture.md)、[执行计划](implementation-plan.md)、[决策记录](decisions.md)和 RSS 来源清单统一改为英文文件名，并更新产品、架构、执行与决策规则。M1 网站已完成本地构建与预览验证；RSS 来源清单的来源池、首批选择和外部核查记录保持原状，本轮没有重新验证外部 Feed。实际 RSS 采集、转写、资产保存、备份恢复和 GitHub Pages 远端部署验证均留到后续实施阶段。

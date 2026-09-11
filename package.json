@@ -1,0 +1,15 @@
+{
+  "name": "echoforge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Chinese technical podcast reading radar.",
+  "scripts": {
+    "site:generate-index": "node scripts/build-index.mjs",
+    "site:dev": "npm run site:generate-index && vitepress dev site",
+    "site:build": "npm run site:generate-index && vitepress build site",
+    "site:preview": "npm run site:generate-index && vitepress preview site"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

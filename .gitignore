@@ -1,6 +1,32 @@
 # 视频编辑插件的工作缓存
 .video_agent/
 
+# Node 与 VitePress 构建产物
+node_modules/
+site/.vitepress/dist/
+site/.vitepress/cache/
+site/.vitepress/temp/
+site/posts/index.md
+
+# 本地 ZCode 辅助文件
+.zcode/
+
+# 本地长期资产与临时处理文件
+local-library/
+.cache/
+*.mp3
+*.mp4
+*.wav
+*.m4a
+*.vtt
+*.srt
+*.transcript.json
+
+# 本地凭据与环境配置
+.env
+.env.*
+!.env.example
+
 # 常见临时与系统文件
 Thumbs.db
 Desktop.ini

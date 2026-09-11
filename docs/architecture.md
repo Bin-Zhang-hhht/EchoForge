@@ -2,7 +2,7 @@
 
 > 版本：v0.7 · 2026-09-11
 > 依据：[产品文档](product.md)
-> 状态：待实现。下文文件和命令是约定，不代表已经创建或运行。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
+> 状态：M1 已完成本地验证；M2/M3 待实现。下文未实现的文件和命令仍是约定，不代表已经运行或部署。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
 
 ## 1. 总体结构
 
@@ -59,7 +59,7 @@ echoforge/
 │   ├── architecture.md
 │   ├── implementation-plan.md
 │   ├── decisions.md
-│   └── podcast-sources.md      # 人工维护的来源池，不是运行时自动发现模块
+│   └── podcast-sources.md         # 人工维护的来源池，不是运行时自动发现模块
 ├── local-library/                # 本地长期内容资产，不提交 Git
 │   └── <source_id>/<item_id>/
 │       ├── metadata.yaml
