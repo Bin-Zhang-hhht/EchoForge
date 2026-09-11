@@ -167,3 +167,5 @@ M3 验收期间用户提出三点结构要求：根目录太乱、`data/items` �
 - 站点检索由 VitePress 本地全文搜索承担，分片不影响它；浏览与发现通过两条增量改进解决：文章 frontmatter 已有的 `tags` 现在生成 `site/tags/index.md` 标签页（构建产物，不提交 Git），导航加入口；文章索引与标签页由 `build-index.mjs` 递归扫描生成。
 
 迁移通过 `git mv` 保留历史，19 个 item 与 3 篇文章全部落在 2026 分片；采集、候选、归档、检查、索引脚本与测试同步更新，collect.yml 的 `git add data/items` 天然覆盖子目录，工作流与 Dockerfile 无需修改。以上均为本地 Docker 验证结果，不涉及远端状态。
+
+侧边栏原是 `config.mts` 中手写的单一"全部文章"入口，随内容增长会失真。决定把侧边栏也纳入派生产物：`build-index.mjs` 按来源聚合文章（按文章数排序），生成节目页 `site/posts/<source_id>/index.md` 和侧边栏数据 `site/.vitepress/sidebar.data.json`，`config.mts` 导入后应用到 `/posts/` 与 `/tags/`。选择来源而不是标签作为侧边栏分组轴，是因为节目是稳定实体、标签随内容漂移；主题浏览继续由标签页承担。年份不进侧边栏一级（当前只有 2026），留待节目页内部按年分层。`check.py` 的布局规则相应放行来源目录下的生成 `index.md`。演示文章不进节目分组，只出现在"全部文章"。

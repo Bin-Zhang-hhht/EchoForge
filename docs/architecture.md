@@ -52,13 +52,17 @@ echoforge/
 ├── templates/
 │   └── post.md                   # GitHub 机器摘要模板
 ├── site/
-│   ├── .vitepress/config.mts
+│   ├── .vitepress/
+│   │   ├── config.mts            # 导入生成的侧边栏数据
+│   │   └── sidebar.data.json     # 构建生成的侧边栏配置，不提交 Git
 │   ├── index.md                  # 首页
 │   ├── posts/
 │   │   ├── index.md              # 构建生成，不提交 Git
 │   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
-│   │   └── <source_id>/<year>/
-│   │       └── <item_id>.md      # 正式公开文章，按来源与发布年份分片
+│   │   └── <source_id>/
+│   │       ├── index.md          # 构建生成的节目页，不提交 Git
+│   │       └── <year>/
+│   │           └── <item_id>.md  # 正式公开文章，按来源与发布年份分片
 │   └── tags/
 │       └── index.md              # 构建生成的标签页，不提交 Git
 ├── docs/
@@ -273,7 +277,7 @@ GitHub Machine Digest
 
 VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和阅读样式，不制作复杂首页。[V2]
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`，并按文章 `tags` 生成 `site/tags/index.md` 标签页；两者都排除生成的 `index.md` 自身。导航与首页链接到文章列表和标签页。两个索引页都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`，并按文章 `tags` 生成 `site/tags/index.md` 标签页。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径。节目页、文章列表、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
 

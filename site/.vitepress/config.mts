@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import sidebar from './sidebar.data.json';
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -14,12 +15,8 @@ export default defineConfig({
       { text: '项目文档', link: 'https://github.com/Bin-Zhang-hhht/EchoForge' }
     ],
     sidebar: {
-      '/posts/': [
-        {
-          text: '文章',
-          items: [{ text: '全部文章', link: '/posts/' }]
-        }
-      ]
+      '/posts/': sidebar,
+      '/tags/': sidebar
     },
     search: {
       provider: 'local'

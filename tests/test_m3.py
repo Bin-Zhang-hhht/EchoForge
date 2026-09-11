@@ -634,6 +634,22 @@ def test_check_rejects_misplaced_public_content(tmp_path: Path) -> None:
     assert any("notes.txt" in error and "site/posts articles must use" in error for error in errors)
 
 
+def test_check_accepts_generated_source_index_pages(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    write_post(posts, value, valid_article(value))
+    index_page = posts / "fixture" / "index.md"
+    index_page.parent.mkdir(parents=True, exist_ok=True)
+    index_page.write_text("---\nlayout: doc\ntitle: Fixture Podcast\n---\n\n# Fixture Podcast\n", encoding="utf-8")
+
+    errors, item_count, post_count = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert errors == []
+    assert item_count == 1
+    assert post_count == 1
+
+
 def test_check_requires_article_path_to_match_item_shards(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)

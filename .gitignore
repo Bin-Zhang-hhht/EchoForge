@@ -6,7 +6,9 @@ node_modules/
 site/.vitepress/dist/
 site/.vitepress/cache/
 site/.vitepress/temp/
+site/.vitepress/sidebar.data.json
 site/posts/index.md
+site/posts/*/index.md
 site/tags/index.md
 
 # 本地 ZCode 辅助文件

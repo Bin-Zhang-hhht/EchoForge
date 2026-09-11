@@ -1,5 +1,5 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const requiredFields = ['item_id', 'title', 'date', 'source_url'];
@@ -9,6 +9,7 @@ const postsDirectory = join(projectRoot, 'site', 'posts');
 const indexPath = join(postsDirectory, 'index.md');
 const tagsDirectory = join(projectRoot, 'site', 'tags');
 const tagsPath = join(tagsDirectory, 'index.md');
+const sidebarDataPath = join(projectRoot, 'site', '.vitepress', 'sidebar.data.json');
 
 function parseFrontmatter(source, filePath) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
@@ -83,6 +84,29 @@ function parseTags(value) {
 
 function escapeMarkdown(text) {
   return text.replace(/([\\[\]])/g, '\\$1');
+}
+
+function yamlQuote(value) {
+  return `'${String(value).replace(/'/g, "''")}'`;
+}
+
+function groupBySource(articles) {
+  const sources = new Map();
+  for (const article of articles) {
+    const parts = article.path.split('/');
+    if (parts.length !== 3) {
+      continue;
+    }
+    const [sourceId, year] = parts;
+    if (!sources.has(sourceId)) {
+      sources.set(sourceId, { id: sourceId, name: article.source_name ?? sourceId, articles: [] });
+    }
+    sources.get(sourceId).articles.push({ ...article, year, href: `./${parts.slice(1).join('/')}` });
+  }
+  return [...sources.values()].sort(
+    (left, right) =>
+      right.articles.length - left.articles.length || left.name.localeCompare(right.name, 'en')
+  );
 }
 
 function articleLink(article, linkPrefix) {
@@ -160,6 +184,48 @@ async function buildIndex() {
   await mkdir(tagsDirectory, { recursive: true });
   await writeFile(tagsPath, tagsOutput, 'utf8');
   console.log(`Generated ${relative(projectRoot, tagsPath)} from ${tagMap.size} tag(s).`);
+
+  const sources = groupBySource(articles);
+  for (const source of sources) {
+    const byYear = new Map();
+    for (const article of source.articles) {
+      if (!byYear.has(article.year)) {
+        byYear.set(article.year, []);
+      }
+      byYear.get(article.year).push(article);
+    }
+    const sections = [...byYear.keys()]
+      .sort((left, right) => right.localeCompare(left))
+      .map(
+        (year) =>
+          `## ${year}\n\n${byYear.get(year).map((article) => `- [${escapeMarkdown(article.title)}](${article.href})\n  - 整理日期：${article.date}`).join('\n')}`
+      )
+      .join('\n\n');
+    const page = `---\nlayout: doc\ntitle: ${yamlQuote(source.name)}\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(source.name)} 节目的中文技术播客笔记，按年份分组、整理日期倒序。\n\n${sections}\n`;
+    const sourceDirectory = join(postsDirectory, source.id);
+    await mkdir(sourceDirectory, { recursive: true });
+    await writeFile(join(sourceDirectory, 'index.md'), page, 'utf8');
+  }
+  console.log(`Generated ${sources.length} show page(s).`);
+
+  const sidebar = [
+    {
+      text: '导航',
+      items: [
+        { text: '全部文章', link: '/posts/' },
+        { text: '标签', link: '/tags/' }
+      ]
+    }
+  ];
+  if (sources.length) {
+    sidebar.push({
+      text: '节目',
+      items: sources.map((source) => ({ text: source.name, link: `/posts/${source.id}/` }))
+    });
+  }
+  await mkdir(dirname(sidebarDataPath), { recursive: true });
+  await writeFile(sidebarDataPath, `${JSON.stringify(sidebar, null, 2)}\n`, 'utf8');
+  console.log(`Generated ${relative(projectRoot, sidebarDataPath)}.`);
 }
 
 buildIndex().catch((error) => {

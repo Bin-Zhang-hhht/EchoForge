@@ -324,11 +324,13 @@ def validate_directory_contents(root: Path, items_dir: Path, posts_dir: Path) ->
             if path.is_dir():
                 continue
             rel_parts = path.relative_to(posts_dir).parts
-            flat_allowed = len(rel_parts) == 1 and path.name in {f"{DEMO_ITEM_ID}.md", "index.md"}
-            if path.suffix != ".md" or (len(rel_parts) != 3 and not flat_allowed):
+            generated_index = path.name == "index.md" and len(rel_parts) in {1, 2}
+            flat_demo = len(rel_parts) == 1 and path.name == f"{DEMO_ITEM_ID}.md"
+            if path.suffix != ".md" or (len(rel_parts) != 3 and not (generated_index or flat_demo)):
                 errors.append(
                     f"{relative(path, root)}: site/posts articles must use <source_id>/<year>/<item_id>.md layout "
-                    "(only index.md and the demo article may sit directly in site/posts)"
+                    "(only index.md and the demo article may sit directly in site/posts, "
+                    "and index.md may also sit in a source directory)"
                 )
     return errors
 
