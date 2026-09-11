@@ -101,6 +101,7 @@ DateIgnored: no
 date: '2026-09-11'
 published_at: '{str(value['published_at'])[:10]}'
 transcribed_at: '2026-09-11'
+model: GLM
 source_url: {value['url']}
 source_name: {value['source_name']}
 input_type: official_transcript
@@ -110,10 +111,8 @@ tags: [推荐系统, 测试]
 """
     body = f"""# 测试文章
 
-> 节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
->
-> 标签：[推荐系统](/tags/推荐系统/) · [测试](/tags/测试/)
->
+> 节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11\\
+> 标签：[推荐系统](/tags/推荐系统/) · [测试](/tags/测试/)\\
 > AI 编辑整理，请以原始节目为准。
 
 ## 速读
@@ -134,9 +133,8 @@ tags: [推荐系统, 测试]
 """
     words = check.article_word_count(body)
     minutes = check.reading_minutes(words)
-    return frontmatter + body.replace(
-        "> 标签：", f"> 全文 {words} 字 · 预计阅读 {minutes} 分钟\n> 标签：", 1
-    )
+    counts_line = f"> 全文 {words} 字 · 预计阅读 {minutes} 分钟 · 处理模型：GLM\\"
+    return frontmatter + body.replace("> 标签：", f"{counts_line}\n> 标签：", 1)
 
 
 def valid_article(value: dict[str, object], body_extra: str = "") -> str:

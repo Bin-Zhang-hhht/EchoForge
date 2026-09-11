@@ -4,6 +4,7 @@ title: 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长�
 date: '2026-09-11'
 published_at: '2026-09-01'
 transcribed_at: '2026-09-11'
+model: gpt-5.6-sol
 source_url: https://share.transistor.fm/s/c07c7bf6
 source_name: Recsperts
 input_type: official_transcript
@@ -12,12 +13,9 @@ tags: [推荐系统, RecSys, 产品指标]
 
 # 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值
 
-> 节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
->
-> 全文 2590 字 · 预计阅读 7 分钟
->
-> 标签：[推荐系统](/tags/推荐系统/) · [RecSys](/tags/RecSys/) · [产品指标](/tags/产品指标/)
->
+> 节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11\
+> 全文 2570 字 · 预计阅读 7 分钟 · 处理模型：gpt-5.6-sol\
+> 标签：[推荐系统](/tags/推荐系统/) · [RecSys](/tags/RecSys/) · [产品指标](/tags/产品指标/)\
 > AI 编辑整理，请以原始节目为准。
 
 

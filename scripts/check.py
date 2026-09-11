@@ -26,6 +26,7 @@ ALLOWED_FRONTMATTER_FIELDS = {
     "date",
     "published_at",
     "transcribed_at",
+    "model",
     "source_url",
     "source_name",
     "input_type",
@@ -55,7 +56,7 @@ DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 META_DATES_PATTERN = re.compile(
     r"^> 节目发布：(\d{4}-\d{2}-\d{2}) · 逐字稿获取：(\d{4}-\d{2}-\d{2}) · 笔记整理：(\d{4}-\d{2}-\d{2})$"
 )
-META_COUNTS_PATTERN = re.compile(r"^> 全文 (\d+) 字 · 预计阅读 (\d+) 分钟$")
+META_COUNTS_PATTERN = re.compile(r"^> 全文 (\d+) 字 · 预计阅读 (\d+) 分钟 · 处理模型：(\S+)$")
 META_TAGS_PREFIX = "> 标签："
 META_TAGS_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((/tags/[^)]+/)\)")
 LOCATOR_ITEM_PATTERN = re.compile(r"^\s{2,}-\s+(.+)$")
@@ -153,6 +154,10 @@ def validate_frontmatter(post: Post, root: Path) -> list[str]:
             errors.append(f"{location}: {field} is not a valid calendar date")
     if item_id != DEMO_ITEM_ID and fields.get("transcribed_at") is None:
         errors.append(f"{location}: non-demo article must declare transcribed_at")
+    if item_id != DEMO_ITEM_ID:
+        model = fields.get("model")
+        if not isinstance(model, str) or not model.strip():
+            errors.append(f"{location}: non-demo article must declare model")
 
     if not pending.is_public_http_url(fields.get("source_url")):
         errors.append(f"{location}: source_url must be a public http(s) URL")
@@ -199,10 +204,15 @@ def heading_match(body: str, heading: str) -> re.Match[str] | None:
     return re.search(rf"^{re.escape(heading)}[ \t]*$", body, re.MULTILINE)
 
 
+def _strip_hard_break(line: str) -> str:
+    stripped = line.strip()
+    return stripped[:-1].rstrip() if stripped.endswith("\\") else stripped
+
+
 def article_meta_block(body: str) -> tuple[re.Match[str] | None, re.Match[str] | None, str | None]:
     dates = counts = tags_line = None
     for line in strip_fenced_code(body).splitlines():
-        stripped = line.strip()
+        stripped = _strip_hard_break(line)
         if dates is None and META_DATES_PATTERN.fullmatch(stripped):
             dates = META_DATES_PATTERN.fullmatch(stripped)
         elif counts is None and META_COUNTS_PATTERN.fullmatch(stripped):
@@ -216,14 +226,15 @@ def article_word_count(body: str) -> int:
     excluded = (
         META_DATES_PATTERN,
         META_COUNTS_PATTERN,
-        re.compile(r"^>\s*标签："),
         re.compile(r"^>\s*$"),
         re.compile(rf"^>?\s*{re.escape(DISCLAIMER)}\s*$"),
     )
+    tags_prefix = re.compile(r"^>\s*标签：")
     lines = [
         line
         for line in body.splitlines()
-        if not any(pattern.fullmatch(line.strip()) for pattern in excluded)
+        if not tags_prefix.match(_strip_hard_break(line))
+        and not any(pattern.fullmatch(_strip_hard_break(line)) for pattern in excluded)
     ]
     text = MARKDOWN_LINK_TEXT_PATTERN.sub(r"\1", "\n".join(lines))
     return sum(1 for char in text if not char.isspace())
@@ -325,6 +336,8 @@ def validate_body(post: Post, root: Path) -> list[str]:
                     f"{location}: meta blockquote 预计阅读 must be {expected_minutes} 分钟 "
                     f"({READING_SPEED_CHARS_PER_MINUTE} characters per minute)"
                 )
+            if counts.group(3) != fields.get("model"):
+                errors.append(f"{location}: meta blockquote 处理模型 must equal frontmatter model")
             stripped_body = strip_fenced_code(body)
             meta_index = stripped_body.find(dates.group(0))
             first_section = re.search(r"^##[ \t]+", stripped_body, re.MULTILINE)

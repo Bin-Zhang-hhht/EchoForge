@@ -7,17 +7,19 @@ export default defineConfig({
   description: '技术播客的中文阅读雷达',
   base: '/EchoForge/',
   cleanUrls: true,
+  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/EchoForge/logo.svg' }]],
   themeConfig: {
+    logo: '/logo.svg',
     nav: [
       { text: '首页', link: '/' },
       { text: '文章', link: '/posts/' },
-      { text: '标签', link: '/tags/' },
-      { text: '项目文档', link: 'https://github.com/Bin-Zhang-hhht/EchoForge' }
+      { text: '标签', link: '/tags/' }
     ],
     sidebar: {
       '/posts/': sidebar,
       '/tags/': sidebar
     },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Bin-Zhang-hhht/EchoForge' }],
     search: {
       provider: 'local'
     },

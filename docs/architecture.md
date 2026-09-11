@@ -56,6 +56,8 @@ echoforge/
 │   │   ├── config.mts            # 导入生成的侧边栏数据
 │   │   └── sidebar.data.json     # 构建生成的侧边栏配置，不提交 Git
 │   ├── index.md                  # 构建生成的首页（统计与节目卡），不提交 Git
+│   ├── public/
+│   │   └── logo.svg              # 站点标识与 favicon
 │   ├── posts/
 │   │   ├── index.md              # 构建生成，不提交 Git
 │   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
@@ -173,6 +175,7 @@ title: 从一次访谈看 Agent 的实际落地难点
 date: '2026-09-10'
 published_at: '2026-09-08'
 transcribed_at: '2026-09-10'
+model: GLM
 source_url: https://example.com/episodes/123
 source_name: Example Podcast
 input_type: official_transcript
@@ -180,21 +183,18 @@ tags: [Agent]
 ---
 ```
 
-必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期，必须与单期元信息一致（元信息无日期时省略该字段）；`transcribed_at` 是逐字稿获取日期，来自私有归档 manifest 的 `retrieved_at`，只公开日期本身。三者不得混为一谈。
+必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期，必须与单期元信息一致（元信息无日期时省略该字段）；`transcribed_at` 是逐字稿获取日期，来自私有归档 manifest 的 `retrieved_at`，只公开日期本身；`model` 记录实际生成该篇精编的处理模型。四者不得混为一谈。
 
-正文 H1 下方紧跟一个元信息引用块（四行）：
+正文 H1 下方紧跟一个元信息引用块（四行，除末行外每行以反斜杠硬换行结尾，紧凑显示）：
 
 ```text
-> 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
->
-> 全文 N 字 · 预计阅读 M 分钟
->
-> 标签：[标签](/tags/标签/) · [标签](/tags/标签/)
->
+> 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD\
+> 全文 N 字 · 预计阅读 M 分钟 · 处理模型：<模型>\
+> 标签：[标签](/tags/标签/) · [标签](/tags/标签/)\
 > AI 编辑整理，请以原始节目为准。
 ```
 
-三个日期必须与 frontmatter 对应字段一致；N 为正文字符数（按确定性规则：去除元信息引用块固定行、链接 URL 和空白后计数，代码块计入），M = max(1, ceil(N/400))。`check.py` 按同一算法复核字数与时长，声明不一致即失败。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。演示文章不要求元信息引用块与标签行。
+三个日期必须与 frontmatter 对应字段一致；`处理模型` 必须与 frontmatter `model` 一致；N 为正文字符数（按确定性规则：去除元信息引用块固定行、链接 URL 和空白后计数，代码块计入），M = max(1, ceil(N/400))。`check.py` 按同一算法复核字数与时长，声明不一致即失败。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。演示文章不要求元信息引用块、标签行与 model。
 
 正文采用“速读 → 主题正文 → 来源与定位”的结构。来源与定位的 `- 定位：` 是列表，一个时间点或可搜索短语一行，与文章核心断言一一对应；不允许把全部定位挤成一行。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
 
