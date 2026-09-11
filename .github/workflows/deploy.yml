@@ -21,6 +21,14 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Build project containers
+        run: docker compose build content-check site-build
+
+      - name: Check public content in project container
+        run: docker compose run --rm content-check
 
       - name: Build site in project container
         run: docker compose run --rm site-build

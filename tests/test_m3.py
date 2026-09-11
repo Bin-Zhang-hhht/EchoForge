@@ -1,0 +1,452 @@
+from __future__ import annotations
+
+import argparse
+import copy
+import json
+import sys
+from pathlib import Path
+
+import pytest
+import yaml
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = ROOT / "scripts"
+sys.path.insert(0, str(SCRIPTS))
+
+import archive_transcript as archive  # noqa: E402
+import check  # noqa: E402
+
+ITEM_ID = "fixture-aaaaaaaaaaaa"
+SOURCE_URL = "https://example.com/episodes/fixture"
+TRANSCRIPT_URL = "https://example.com/transcripts/fixture.vtt"
+AUDIO_URL = "https://cdn.example.com/fixture.mp3"
+
+
+def item(status: str = "pending", reason: str | None = None, duration: int | None = 3600) -> dict[str, object]:
+    return {
+        "item_id": ITEM_ID,
+        "source_id": "fixture",
+        "source_name": "Fixture Podcast",
+        "guid": "fixture-guid",
+        "title": "A Complete Fixture Episode",
+        "url": SOURCE_URL,
+        "published_at": "2026-09-10T00:00:00Z",
+        "description": "Fixture description",
+        "audio_url": AUDIO_URL,
+        "transcript_url": TRANSCRIPT_URL,
+        "duration_seconds": duration,
+        "status": status,
+        "reason": reason,
+    }
+
+
+def transcript_payload() -> bytes:
+    repeated = "A substantial transcript cue about systems, evidence, limitations, and implementation details. " * 4
+    return (
+        "WEBVTT\n\n"
+        f"00:00:00.000 --> 00:00:30.000\n{repeated}\n\n"
+        f"00:59:20.000 --> 01:00:00.000\n{repeated}\n"
+    ).encode()
+
+
+def review_args(**overrides: object) -> argparse.Namespace:
+    values: dict[str, object] = {
+        "identity_confirmed": True,
+        "transcript_confirmed": True,
+        "complete": True,
+        "readable": True,
+        "notes": "Identity, completeness, readability, and time coverage reviewed.",
+        "timestamp_coverage": "passed",
+        "input_type": "official_transcript",
+        "source_kind": "rss",
+        "batch_asr_count": 0,
+        "batch_asr_seconds": 0,
+        "listening_resolved": False,
+    }
+    values.update(overrides)
+    return argparse.Namespace(**values)
+
+
+def write_item(root: Path, value: dict[str, object]) -> None:
+    items_dir = root / "data" / "items"
+    items_dir.mkdir(parents=True, exist_ok=True)
+    (items_dir / f"{value['item_id']}.json").write_text(json.dumps(value), encoding="utf-8")
+
+
+def article(value: dict[str, object], body_extra: str = "") -> str:
+    return f"""---
+item_id: {value['item_id']}
+title: 测试文章
+DateIgnored: no
+date: '2026-09-11'
+source_url: {value['url']}
+source_name: {value['source_name']}
+input_type: official_transcript
+---
+
+# 测试文章
+
+## 速读
+
+这是一段有具体内容的测试速读。
+
+## 主题正文
+
+### 一个主题
+
+这是一段有来源约束和适用条件的测试正文。{body_extra}
+
+## 来源与定位
+
+- 原始节目：[A Complete Fixture Episode]({value['url']})
+- 定位：逐字稿小节 “implementation details”。
+
+AI 编辑整理，请以原始节目为准。
+"""
+
+
+def valid_article(value: dict[str, object], body_extra: str = "") -> str:
+    return article(value, body_extra).replace("DateIgnored: no\n", "")
+
+
+def test_archive_requires_explicit_human_readable_review() -> None:
+    value = item()
+    with pytest.raises(archive.ArchiveError, match="--complete"):
+        archive.validate_review(review_args(complete=False), value, has_timestamps=True)
+    with pytest.raises(archive.ArchiveError, match="untimed transcript"):
+        archive.validate_review(review_args(timestamp_coverage="passed"), value, has_timestamps=False)
+
+
+def test_archive_writes_private_assets_and_is_idempotent(tmp_path: Path) -> None:
+    value = item()
+    payload = transcript_payload()
+    target, created = archive.archive_transcript(
+        item=value,
+        payload=payload,
+        source_format="vtt",
+        source_url=TRANSCRIPT_URL,
+        input_type="official_transcript",
+        source_kind="rss",
+        retrieved_at="2026-09-11T12:00:00Z",
+        timestamp_coverage="passed",
+        listening_resolved=False,
+        notes="Reviewed the episode identity and complete one-hour timestamp coverage.",
+        library_dir=tmp_path / "local-library",
+    )
+
+    assert created
+    assert target == tmp_path / "local-library" / "fixture" / ITEM_ID
+    assert (target / "transcript.md").read_text(encoding="utf-8").startswith("# A Complete Fixture Episode")
+    assert (target / "transcript.vtt").read_bytes() == payload
+    metadata = yaml.safe_load((target / "metadata.yaml").read_text(encoding="utf-8"))
+    assert metadata["item_id"] == ITEM_ID
+    assert metadata["content_checks"]["completeness"] == "passed"
+    assert metadata["asset_files"] == ["transcript.md", "transcript.vtt"]
+
+    same_target, second_created = archive.archive_transcript(
+        item=value,
+        payload=payload,
+        source_format="vtt",
+        source_url=TRANSCRIPT_URL,
+        input_type="official_transcript",
+        source_kind="rss",
+        retrieved_at="2026-09-11T12:00:00Z",
+        timestamp_coverage="passed",
+        listening_resolved=False,
+        notes="Reviewed the episode identity and complete one-hour timestamp coverage.",
+        library_dir=tmp_path / "local-library",
+    )
+    assert same_target == target
+    assert not second_created
+
+    with pytest.raises(archive.ArchiveError, match="different content"):
+        archive.archive_transcript(
+            item=value,
+            payload=payload + b"changed",
+            source_format="vtt",
+            source_url=TRANSCRIPT_URL,
+            input_type="official_transcript",
+            source_kind="rss",
+            retrieved_at="2026-09-11T12:00:00Z",
+            timestamp_coverage="passed",
+            listening_resolved=False,
+            notes="Reviewed.",
+            library_dir=tmp_path / "local-library",
+        )
+
+
+def test_archive_rejects_corrupted_existing_assets(tmp_path: Path) -> None:
+    value = item()
+    payload = transcript_payload()
+    library = tmp_path / "local-library"
+    target, _ = archive.archive_transcript(
+        item=value,
+        payload=payload,
+        source_format="vtt",
+        source_url=TRANSCRIPT_URL,
+        input_type="official_transcript",
+        source_kind="rss",
+        retrieved_at="2026-09-11T12:00:00Z",
+        timestamp_coverage="passed",
+        listening_resolved=False,
+        notes="Reviewed the episode identity and complete one-hour timestamp coverage.",
+        library_dir=library,
+    )
+
+    original_transcript = (target / "transcript.md").read_text(encoding="utf-8")
+    (target / "transcript.md").write_text("corrupted", encoding="utf-8")
+    with pytest.raises(archive.ArchiveError, match="corrupted transcript.md"):
+        archive.archive_transcript(
+            item=value,
+            payload=payload,
+            source_format="vtt",
+            source_url=TRANSCRIPT_URL,
+            input_type="official_transcript",
+            source_kind="rss",
+            retrieved_at="2026-09-11T12:00:00Z",
+            timestamp_coverage="passed",
+            listening_resolved=False,
+            notes="Reviewed.",
+            library_dir=library,
+        )
+
+    (target / "transcript.md").write_text(original_transcript, encoding="utf-8")
+    (target / "transcript.vtt").unlink()
+    with pytest.raises(archive.ArchiveError, match="cannot be validated"):
+        archive.archive_transcript(
+            item=value,
+            payload=payload,
+            source_format="vtt",
+            source_url=TRANSCRIPT_URL,
+            input_type="official_transcript",
+            source_kind="rss",
+            retrieved_at="2026-09-11T12:00:00Z",
+            timestamp_coverage="passed",
+            listening_resolved=False,
+            notes="Reviewed.",
+            library_dir=library,
+        )
+
+
+def test_archive_rejects_missing_content_checks(tmp_path: Path) -> None:
+    value = item()
+    payload = transcript_payload()
+    library = tmp_path / "local-library"
+    target, _ = archive.archive_transcript(
+        item=value,
+        payload=payload,
+        source_format="vtt",
+        source_url=TRANSCRIPT_URL,
+        input_type="official_transcript",
+        source_kind="rss",
+        retrieved_at="2026-09-11T12:00:00Z",
+        timestamp_coverage="passed",
+        listening_resolved=False,
+        notes="Reviewed.",
+        library_dir=library,
+    )
+    metadata_path = target / "metadata.yaml"
+    metadata = yaml.safe_load(metadata_path.read_text(encoding="utf-8"))
+    metadata.pop("content_checks")
+    metadata_path.write_text(yaml.safe_dump(metadata), encoding="utf-8")
+
+    with pytest.raises(archive.ArchiveError, match="missing content_checks"):
+        archive.archive_transcript(
+            item=value,
+            payload=payload,
+            source_format="vtt",
+            source_url=TRANSCRIPT_URL,
+            input_type="official_transcript",
+            source_kind="rss",
+            retrieved_at="2026-09-11T12:00:00Z",
+            timestamp_coverage="passed",
+            listening_resolved=False,
+            notes="Reviewed.",
+            library_dir=library,
+        )
+
+
+def test_json_transcript_rejects_non_finite_timestamp() -> None:
+    payload = b'{"segments":[{"start":Infinity,"text":"This is invalid timestamp data with enough transcript text to parse."}]}'
+    with pytest.raises(archive.ArchiveError, match="invalid timestamp"):
+        archive.convert_transcript(payload, "json")
+
+
+def test_asr_requires_known_duration_budget_and_listening_resolution() -> None:
+    unknown = item(duration=None)
+    with pytest.raises(archive.ArchiveError, match="known episode duration"):
+        archive.validate_review(
+            review_args(
+                input_type="video_agent_kit_asr",
+                source_kind="video_agent_kit",
+                listening_resolved=True,
+            ),
+            unknown,
+            has_timestamps=True,
+        )
+
+    value = item(duration=3600)
+    with pytest.raises(archive.ArchiveError, match="item limit"):
+        archive.validate_review(
+            review_args(
+                input_type="video_agent_kit_asr",
+                source_kind="video_agent_kit",
+                listening_resolved=True,
+                batch_asr_count=1,
+            ),
+            value,
+            has_timestamps=True,
+        )
+    with pytest.raises(archive.ArchiveError, match="duration limit"):
+        archive.validate_review(
+            review_args(
+                input_type="video_agent_kit_asr",
+                source_kind="video_agent_kit",
+                listening_resolved=True,
+                batch_asr_seconds=4000,
+            ),
+            value,
+            has_timestamps=True,
+        )
+    with pytest.raises(archive.ArchiveError, match="--listening-resolved"):
+        archive.validate_review(
+            review_args(input_type="video_agent_kit_asr", source_kind="video_agent_kit"),
+            value,
+            has_timestamps=True,
+        )
+
+
+def test_check_accepts_processed_article_and_demo(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    (posts / f"{ITEM_ID}.md").write_text(valid_article(value), encoding="utf-8")
+
+    errors, item_count, post_count = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert errors == []
+    assert item_count == 1
+    assert post_count == 1
+
+
+def test_check_rejects_status_mismatch_executable_markdown_and_private_assets(tmp_path: Path) -> None:
+    value = item(status="pending")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    (posts / f"{ITEM_ID}.md").write_text(
+        valid_article(value, " <script>alert(1)</script> [unsafe](javascript:alert(1))"),
+        encoding="utf-8",
+    )
+
+    errors, _, _ = check.run_checks(
+        tmp_path,
+        tracked_paths=[
+            "site/posts/fixture-aaaaaaaaaaaa.md",
+            "local-library/fixture/fixture-aaaaaaaaaaaa/transcript.md",
+            "notes/wechat-draft.md",
+        ],
+    )
+
+    assert any("article item status must be processed" in error for error in errors)
+    assert any("raw HTML" in error for error in errors)
+    assert any("Markdown links and images" in error for error in errors)
+    assert sum("must not be tracked or staged" in error for error in errors) == 2
+
+
+def test_check_requires_reason_for_failed_and_article_for_processed(tmp_path: Path) -> None:
+    failed = item(status="failed", reason=None)
+    write_item(tmp_path, failed)
+    (tmp_path / "site" / "posts").mkdir(parents=True)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("failed item must have a non-empty reason" in error for error in errors)
+
+    processed = copy.deepcopy(failed)
+    processed["status"] = "processed"
+    processed["reason"] = None
+    write_item(tmp_path, processed)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("processed item has no matching article" in error for error in errors)
+
+
+def test_check_rejects_structure_hidden_in_fenced_code(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    hidden = f"""---
+item_id: {ITEM_ID}
+title: 测试文章
+date: '2026-09-11'
+source_url: {SOURCE_URL}
+source_name: Fixture Podcast
+input_type: official_transcript
+---
+
+```markdown
+# 测试文章
+
+## 速读
+隐藏内容
+## 主题正文
+隐藏内容
+## 来源与定位
+- 原始节目：[fixture]({SOURCE_URL})
+- 定位：隐藏内容
+{check.DISCLAIMER}
+```
+"""
+    (posts / f"{ITEM_ID}.md").write_text(hidden, encoding="utf-8")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("body must contain an H1" in error for error in errors)
+    assert any("missing required heading" in error for error in errors)
+
+
+def test_check_requires_exact_source_link(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    wrong = valid_article(value).replace(f"]({SOURCE_URL})", f"]({SOURCE_URL}-attacker)")
+    (posts / f"{ITEM_ID}.md").write_text(wrong, encoding="utf-8")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("exact source_url link" in error for error in errors)
+
+
+def test_check_rejects_case_variant_private_paths() -> None:
+    assert check.is_disallowed_repository_path("Local-Library/source/transcript.md")
+    assert check.is_disallowed_repository_path(".Cache/source/audio.mp3")
+    assert check.is_disallowed_repository_path("NOTES/WECHAT-DRAFT.MD")
+
+
+def test_check_rejects_unexpected_files_in_public_data_directories(tmp_path: Path) -> None:
+    value = item()
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    (tmp_path / "data" / "items" / "transcript.md").write_text("private", encoding="utf-8")
+    (posts / "audio.mp3").write_bytes(b"private")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("data/items may only contain JSON item files" in error for error in errors)
+    assert any("site/posts may only contain Markdown article files" in error for error in errors)
+
+
+def test_check_rejects_unknown_frontmatter_and_missing_real_locator(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    invalid = article(value).replace("定位：逐字稿小节 “implementation details”。", "定位：不适用")
+    (posts / f"{ITEM_ID}.md").write_text(invalid, encoding="utf-8")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("unexpected frontmatter fields" in error for error in errors)
+    assert any("real source locator" in error for error in errors)

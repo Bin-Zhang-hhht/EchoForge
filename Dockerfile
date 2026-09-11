@@ -14,6 +14,16 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY config ./config
 COPY scripts ./scripts
 
+FROM collector-runtime AS content-check
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
+COPY data ./data
+COPY site ./site
+CMD ["python", "scripts/check.py"]
+
 FROM collector-runtime AS collector-test
+COPY data ./data
+COPY site ./site
 COPY tests ./tests
 CMD ["python", "-m", "pytest", "-q"]

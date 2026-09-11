@@ -22,6 +22,9 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Build collector containers
+        run: docker compose build collector-test collect pending
+
       - name: Test collector in project container
         run: docker compose run --rm collector-test
 
