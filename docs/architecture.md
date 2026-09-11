@@ -54,6 +54,9 @@ echoforge/
 ├── site/
 │   ├── .vitepress/
 │   │   ├── config.mts            # 导入生成的侧边栏数据
+│   │   ├── theme/                # 扩展默认主题：文章元信息卡样式
+│   │   │   ├── index.mts
+│   │   │   └── custom.css
 │   │   └── sidebar.data.json     # 构建生成的侧边栏配置，不提交 Git
 │   ├── index.md                  # 构建生成的首页（统计与节目卡），不提交 Git
 │   ├── public/
@@ -185,12 +188,15 @@ tags: [Agent]
 
 必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期，必须与单期元信息一致（元信息无日期时省略该字段）；`transcribed_at` 是逐字稿获取日期，来自私有归档 manifest 的 `retrieved_at`，只公开日期本身；`model` 记录实际生成该篇精编的处理模型。四者不得混为一谈。
 
-正文 H1 下方紧跟一个元信息引用块（四行，除末行外每行以反斜杠硬换行结尾，紧凑显示）：
+正文 H1 下方紧跟一个元信息引用块（四段，以空 `>` 行分隔；站点样式表把它渲染为浅底信息卡）：
 
 ```text
-> 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD\
-> 全文 N 字 · 预计阅读 M 分钟 · 处理模型：<模型>\
-> 标签：[标签](/tags/标签/) · [标签](/tags/标签/)\
+> 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
+>
+> 全文 N 字 · 预计阅读 M 分钟 · 处理模型：<模型>
+>
+> 标签：[标签](/tags/标签/) [标签](/tags/标签/)
+>
 > AI 编辑整理，请以原始节目为准。
 ```
 

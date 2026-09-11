@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="EchoForge · 技术播客中文阅读雷达">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1531"/>
+      <stop offset="0.55" stop-color="#1d2c5e"/>
+      <stop offset="1" stop-color="#3451b2"/>
+    </linearGradient>
+    <linearGradient id="tileg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b76e6"/>
+      <stop offset="1" stop-color="#3451b2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="2">
+    <circle cx="1215" cy="-30" r="140"/>
+    <circle cx="1215" cy="-30" r="215"/>
+    <circle cx="1215" cy="-30" r="290"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.10">
+    <rect x="76" y="262" width="12" height="38" rx="6"/>
+    <rect x="116" y="278" width="12" height="22" rx="6"/>
+    <rect x="156" y="250" width="12" height="50" rx="6"/>
+    <rect x="196" y="270" width="12" height="30" rx="6"/>
+    <rect x="236" y="242" width="12" height="58" rx="6"/>
+    <rect x="276" y="274" width="12" height="26" rx="6"/>
+    <rect x="316" y="256" width="12" height="44" rx="6"/>
+    <rect x="356" y="282" width="12" height="18" rx="6"/>
+    <rect x="396" y="248" width="12" height="52" rx="6"/>
+    <rect x="436" y="266" width="12" height="34" rx="6"/>
+    <rect x="476" y="240" width="12" height="60" rx="6"/>
+    <rect x="516" y="276" width="12" height="24" rx="6"/>
+    <rect x="556" y="258" width="12" height="42" rx="6"/>
+    <rect x="596" y="270" width="12" height="30" rx="6"/>
+    <rect x="636" y="244" width="12" height="56" rx="6"/>
+    <rect x="676" y="280" width="12" height="20" rx="6"/>
+    <rect x="716" y="254" width="12" height="46" rx="6"/>
+    <rect x="756" y="268" width="12" height="32" rx="6"/>
+    <rect x="796" y="238" width="12" height="62" rx="6"/>
+    <rect x="836" y="274" width="12" height="26" rx="6"/>
+    <rect x="876" y="262" width="12" height="38" rx="6"/>
+    <rect x="916" y="250" width="12" height="50" rx="6"/>
+    <rect x="956" y="278" width="12" height="22" rx="6"/>
+    <rect x="996" y="242" width="12" height="58" rx="6"/>
+    <rect x="1036" y="266" width="12" height="34" rx="6"/>
+    <rect x="1076" y="256" width="12" height="44" rx="6"/>
+    <rect x="1116" y="272" width="12" height="28" rx="6"/>
+  </g>
+  <g transform="translate(76 84)">
+    <rect width="132" height="132" rx="30" fill="url(#tileg)"/>
+    <g transform="scale(2.0625)">
+      <path d="M46.5 6 48.5 10.5 53 12.5 48.5 14.5 46.5 19 44.5 14.5 40 12.5 44.5 10.5Z" fill="#ffffff"/>
+      <path d="M16 21L51 21Q54 21 54 24L54 27Q54 30 51 30L40 30L40 36L47 36Q51 36 51 39.5L51 40.5Q51 43 48 43L19 43Q16 43 16 40.5L16 39.5Q16 36 20 36L28 36L28 30L22 30Q13 30 8 33.5Q9.5 27.5 16 21Z" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <text x="252" y="150" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="88" font-weight="800" letter-spacing="-1" fill="#ffffff">EchoForge</text>
+  <text x="255" y="207" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="33" letter-spacing="6" fill="#ffffff" fill-opacity="0.75">技术播客中文阅读雷达</text>
+</svg>
