@@ -1,5 +1,5 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
-import { basename, join, relative } from 'node:path';
+import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const requiredFields = ['item_id', 'title', 'date', 'source_url'];
@@ -7,6 +7,8 @@ const scriptDirectory = fileURLToPath(new URL('.', import.meta.url));
 const projectRoot = join(scriptDirectory, '..');
 const postsDirectory = join(projectRoot, 'site', 'posts');
 const indexPath = join(postsDirectory, 'index.md');
+const tagsDirectory = join(projectRoot, 'site', 'tags');
+const tagsPath = join(tagsDirectory, 'index.md');
 
 function parseFrontmatter(source, filePath) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
@@ -68,27 +70,48 @@ function parseFrontmatter(source, filePath) {
   return Object.fromEntries(fields);
 }
 
+function parseTags(value) {
+  if (!value) {
+    return [];
+  }
+  const inner = value.trim().replace(/^\[/, '').replace(/\]$/, '');
+  return inner
+    .split(',')
+    .map((tag) => tag.trim().replace(/^['"]/, '').replace(/['"]$/, ''))
+    .filter(Boolean);
+}
+
 function escapeMarkdown(text) {
   return text.replace(/([\\[\]])/g, '\\$1');
 }
 
-async function buildIndex() {
-  const entries = await readdir(postsDirectory, { withFileTypes: true });
-  const articleFiles = entries
+function articleLink(article, linkPrefix) {
+  return `- [${escapeMarkdown(article.title)}](${linkPrefix}${article.path})\n  - 整理日期：${article.date}\n  - 来源：[${escapeMarkdown(article.source_name ?? article.source_url)}](${article.source_url})`;
+}
+
+async function listArticlePaths() {
+  const entries = await readdir(postsDirectory, { withFileTypes: true, recursive: true });
+  return entries
     .filter((entry) => entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'index.md')
-    .map((entry) => entry.name)
+    .map((entry) => relative(postsDirectory, join(entry.parentPath, entry.name)).split('\\').join('/'))
     .sort((left, right) => left.localeCompare(right, 'en'));
+}
+
+async function buildIndex() {
+  const articlePaths = await listArticlePaths();
 
   const articles = await Promise.all(
-    articleFiles.map(async (filename) => {
-      const path = join(postsDirectory, filename);
+    articlePaths.map(async (articlePath) => {
+      const path = join(postsDirectory, articlePath);
       const source = await readFile(path, 'utf8');
       const frontmatter = parseFrontmatter(source, path);
+      const slug = articlePath.replace(/\.md$/, '');
 
       return {
         ...frontmatter,
-        filename,
-        slug: basename(filename, '.md')
+        tags: parseTags(frontmatter.tags),
+        path: articlePath,
+        slug
       };
     })
   );
@@ -108,9 +131,7 @@ async function buildIndex() {
   });
 
   const list = articles.length
-    ? articles
-        .map((article) => `- [${escapeMarkdown(article.title)}](./${article.slug}.md)\n  - 整理日期：${article.date}\n  - 来源：[${escapeMarkdown(article.source_name ?? article.source_url)}](${article.source_url})`)
-        .join('\n')
+    ? articles.map((article) => articleLink(article, './')).join('\n')
     : '> 还没有可发布的文章。\n';
 
   const output = `---\nlayout: doc\ntitle: 文章\n---\n\n# 文章\n\n这里列出 EchoForge 已发布的中文技术播客笔记。文章按整理日期倒序排列。\n\n${list}\n`;
@@ -118,6 +139,27 @@ async function buildIndex() {
   await mkdir(postsDirectory, { recursive: true });
   await writeFile(indexPath, output, 'utf8');
   console.log(`Generated ${relative(projectRoot, indexPath)} from ${articles.length} article(s).`);
+
+  const tagMap = new Map();
+  for (const article of articles) {
+    for (const tag of article.tags) {
+      if (!tagMap.has(tag)) {
+        tagMap.set(tag, []);
+      }
+      tagMap.get(tag).push(article);
+    }
+  }
+
+  const tagSections = [...tagMap.entries()]
+    .sort(([left], [right]) => left.localeCompare(right, 'zh-CN'))
+    .map(([tag, taggedArticles]) => `## ${escapeMarkdown(tag)}\n\n${taggedArticles.map((article) => articleLink(article, '../posts/')).join('\n')}`)
+    .join('\n\n');
+
+  const tagsOutput = `---\nlayout: doc\ntitle: 标签\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记。\n\n${tagSections || '> 还没有带标签的文章。\n'}\n`;
+
+  await mkdir(tagsDirectory, { recursive: true });
+  await writeFile(tagsPath, tagsOutput, 'utf8');
+  console.log(`Generated ${relative(projectRoot, tagsPath)} from ${tagMap.size} tag(s).`);
 }
 
 buildIndex().catch((error) => {

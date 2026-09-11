@@ -156,3 +156,14 @@ M3 使用普通脚本和 Compose 服务实现，不增加 Agent runtime 或数�
 ## 12. 本轮交付
 
 文档文件名继续使用英文，产品、架构、执行与决策规则已同步到 v0.8。M1、M2 本地验证保持有效；M3 的处理基础设施、审查加固、三份私有逐字稿和三篇公开内容已完成本地闭环。没有完整逐字稿、音频、批次预约、人工草稿或凭据进入 Git；未执行的远端及用户侧验收继续明确列为待完成。
+
+## 13. 公开内容按来源与年份分片（v0.9）
+
+M3 验收期间用户提出三点结构要求：根目录太乱、`data/items` 平铺不利于长期存储、站点内容堆在一起不利于检索。逐项决策如下：
+
+- 根目录只做最小整理。删除遗留的 `out/`、`.video_agent/`、`.pytest_cache/` 缓存目录；`package.json`、`requirements.txt` 留在根目录，因为它们是 Dockerfile 与 Compose 的构建输入，移动只会增加构建链路改动而不减少实际杂乱。
+- `data/items` 与 `site/posts` 统一按「播客来源 / 发布年份」两层分片：`data/items/<source_id>/<year>/<item_id>.json`、`site/posts/<source_id>/<year>/<item_id>.md`。文件名保持 `<item_id>` 不变，`item_id` 稳定，站点 URL 在 Pages 尚未部署前调整零成本。按来源分是因为播客是长期实体，且与 `local-library/` 已有的组织方式同轴；按年份细分应对单播客长期积累。明确不按状态分目录，状态变化不应移动文件、污染 diff。日期未知的条目存入 `unknown` 目录，保持"未知日期排在最后"的既有语义。
+- v0.8 "公开目录只允许直接子文件"的规则由分片布局校验取代：`check.py` 现在强制 `<source_id>/<year>/<item_id>` 精确深度，并校验文章所在分片与元信息的来源、年份一致；演示文章 `demo-vitepress-site.md` 是唯一允许平铺的正式文章。
+- 站点检索由 VitePress 本地全文搜索承担，分片不影响它；浏览与发现通过两条增量改进解决：文章 frontmatter 已有的 `tags` 现在生成 `site/tags/index.md` 标签页（构建产物，不提交 Git），导航加入口；文章索引与标签页由 `build-index.mjs` 递归扫描生成。
+
+迁移通过 `git mv` 保留历史，19 个 item 与 3 篇文章全部落在 2026 分片；采集、候选、归档、检查、索引脚本与测试同步更新，collect.yml 的 `git add data/items` 天然覆盖子目录，工作流与 Dockerfile 无需修改。以上均为本地 Docker 验证结果，不涉及远端状态。

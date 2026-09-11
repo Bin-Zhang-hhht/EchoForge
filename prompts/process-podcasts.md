@@ -42,7 +42,7 @@ For ASR, first run the `asr-reserve` command above, then use `--input-type video
 ## 3. Write And Review
 
 1. Read the entire archived transcript in sections; do not rely only on its beginning or a tool summary.
-2. Write `site/posts/<item_id>.md`. The frontmatter `source_url` and `source_name` must match the collected item; `input_type` must match the archive.
+2. Write `site/posts/<source_id>/<year>/<item_id>.md`, sharded by the item's source and publish year (use `unknown` as the year when the item has no publish date). The frontmatter `source_url` and `source_name` must match the collected item; `input_type` must match the archive.
 3. The digest must help decide whether to listen and explain the strongest useful points. Usually select three to five themes, but do not force a count or claim full coverage.
 4. Preserve evidence, examples, limits, disagreement, uncertainty, and speaker attribution. Use source timestamps when real; otherwise use a recognizable transcript section or phrase. Do not invent locators.
 5. Explicitly review core claims, numbers, causality, recommendations, conditions, uncertainty, attribution, and every locator against the archived full transcript. Mark added explanation as editorial context.

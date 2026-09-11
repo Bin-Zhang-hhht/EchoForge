@@ -73,7 +73,15 @@ def validate_utc_timestamp(value: str) -> str:
 
 
 def load_item(items_dir: Path, item_id: str) -> dict[str, Any]:
-    path = items_dir / f"{item_id}.json"
+    if not pending.ITEM_ID_PATTERN.fullmatch(item_id):
+        raise ArchiveError(f"invalid item id: {item_id}")
+    matches = sorted(items_dir.rglob(f"{item_id}.json")) if items_dir.is_dir() else []
+    if not matches:
+        raise ArchiveError(f"cannot find item metadata {item_id}.json under {items_dir}")
+    if len(matches) > 1:
+        locations = ", ".join(str(path) for path in matches)
+        raise ArchiveError(f"duplicate item metadata for {item_id}: {locations}")
+    path = matches[0]
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
     except OSError as error:

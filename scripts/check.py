@@ -231,7 +231,7 @@ def validate_body(post: Post, root: Path) -> list[str]:
 def validate_status_reasons(items: Sequence[Mapping[str, Any]], items_dir: Path, root: Path) -> list[str]:
     errors: list[str] = []
     for item in items:
-        path = items_dir / f"{item['item_id']}.json"
+        path = items_dir / pending.item_relpath(item)
         location = relative(path, root)
         status = item["status"]
         reason = item["reason"]
@@ -269,10 +269,17 @@ def validate_correspondence(
             errors.append(f"{relative(post.path, root)}: source_url must match item metadata url")
         if post.frontmatter.get("source_name") != item["source_name"]:
             errors.append(f"{relative(post.path, root)}: source_name must match item metadata")
+        year_dir = post.path.parent.name
+        source_dir = post.path.parent.parent.name
+        if year_dir != pending.item_year(item) or source_dir != item["source_id"]:
+            errors.append(
+                f"{relative(post.path, root)}: article must be stored as "
+                "site/posts/<source_id>/<year>/<item_id>.md matching item metadata"
+            )
 
     for item in items:
         if item["status"] == "processed" and item["item_id"] not in posts_by_id:
-            item_path = root / "data" / "items" / f"{item['item_id']}.json"
+            item_path = root / "data" / "items" / pending.item_relpath(item)
             errors.append(
                 f"{relative(item_path, root)}: processed item has no matching article"
             )
@@ -305,12 +312,24 @@ def validate_directory_contents(root: Path, items_dir: Path, posts_dir: Path) ->
     errors: list[str] = []
     if items_dir.is_dir():
         for path in sorted(items_dir.rglob("*"), key=lambda candidate: candidate.as_posix()):
-            if path.parent != items_dir or not path.is_file() or path.suffix != ".json":
-                errors.append(f"{relative(path, root)}: data/items may only contain direct JSON item files")
+            if path.is_dir():
+                continue
+            rel_parts = path.relative_to(items_dir).parts
+            if len(rel_parts) != 3 or path.suffix != ".json":
+                errors.append(
+                    f"{relative(path, root)}: data/items item files must use <source_id>/<year>/<item_id>.json layout"
+                )
     if posts_dir.is_dir():
         for path in sorted(posts_dir.rglob("*"), key=lambda candidate: candidate.as_posix()):
-            if path.parent != posts_dir or not path.is_file() or path.suffix != ".md":
-                errors.append(f"{relative(path, root)}: site/posts may only contain direct Markdown article files")
+            if path.is_dir():
+                continue
+            rel_parts = path.relative_to(posts_dir).parts
+            flat_allowed = len(rel_parts) == 1 and path.name in {f"{DEMO_ITEM_ID}.md", "index.md"}
+            if path.suffix != ".md" or (len(rel_parts) != 3 and not flat_allowed):
+                errors.append(
+                    f"{relative(path, root)}: site/posts articles must use <source_id>/<year>/<item_id>.md layout "
+                    "(only index.md and the demo article may sit directly in site/posts)"
+                )
     return errors
 
 
@@ -344,7 +363,7 @@ def run_checks(root: Path, tracked_paths: Sequence[str] | None = None) -> tuple[
     if not posts_dir.is_dir():
         errors.append(f"{relative(posts_dir, root)}: not a directory")
     else:
-        for path in sorted(posts_dir.glob("*.md"), key=lambda candidate: candidate.name):
+        for path in sorted(posts_dir.rglob("*.md"), key=lambda candidate: candidate.as_posix()):
             if path.name == "index.md":
                 continue
             try:

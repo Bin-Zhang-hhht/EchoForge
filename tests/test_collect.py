@@ -62,7 +62,12 @@ def fixture_fetcher(mapping: dict[str, str], failures: set[str] | None = None):
 
 
 def load_output(output_dir: Path) -> list[dict[str, object]]:
-    return [json.loads(path.read_text(encoding="utf-8")) for path in sorted(output_dir.glob("*.json"))]
+    return [
+        json.loads(path.read_text(encoding="utf-8"))
+        for path in sorted(
+            output_dir.rglob("*.json"), key=lambda candidate: candidate.relative_to(output_dir).as_posix()
+        )
+    ]
 
 
 def valid_item(item_id: str, published_at: str | None, status: str = "pending") -> dict[str, object]:
@@ -138,6 +143,8 @@ def test_date_filter_keywords_duration_cleaning_and_optional_links(tmp_path: Pat
 
     items = {item["guid"]: item for item in load_output(output)}
     assert set(items) == {"guid-fresh", "guid-updated", "guid-unknown-duration", None}
+    assert (output / "fixture" / "2026").is_dir()
+    assert {path.parent.name for path in output.rglob("*.json")} == {"2026"}
     assert items["guid-fresh"]["published_at"] == "2026-09-10T00:00:00Z"
     assert items["guid-updated"]["published_at"] == "2026-09-10T16:00:00Z"
     assert items["guid-fresh"]["duration_seconds"] == 3723
@@ -181,6 +188,7 @@ def test_unknown_dates_are_limited_to_first_three_in_feed_order(tmp_path: Path) 
     items = load_output(output)
     assert {item["guid"] for item in items} == {"unknown-1", "unknown-2", "unknown-3"}
     assert all(item["published_at"] is None for item in items)
+    assert {path.parent.name for path in output.rglob("*.json")} == {pending.UNKNOWN_YEAR}
 
 
 def test_description_is_plain_text_and_truncated(tmp_path: Path) -> None:
@@ -222,7 +230,7 @@ def test_existing_item_is_preserved_byte_for_byte(tmp_path: Path) -> None:
     fetcher = fixture_fetcher({url: "isolation.xml"})
 
     collect.collect(config, output, NOW, fetcher=fetcher)
-    item_path = next(output.glob("*.json"))
+    item_path = next(iter(sorted(output.rglob("*.json"))))
     edited = json.loads(item_path.read_text(encoding="utf-8"))
     edited["status"] = "ignored"
     edited["reason"] = "manual decision"
@@ -295,7 +303,9 @@ def test_pending_orders_valid_items_and_limit_is_candidate_window(tmp_path: Path
         valid_item("delta-dddddddddddd", "2026-09-10T00:00:00Z", status="processed"),
     ]
     for item in items:
-        (items_dir / f"{item['item_id']}.json").write_text(json.dumps(item), encoding="utf-8")
+        target = items_dir / pending.item_relpath(item)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(item), encoding="utf-8")
 
     valid, errors = pending.load_items(items_dir)
     ordered = pending.pending_items(valid)
@@ -316,7 +326,9 @@ def test_pending_cli_reports_malformed_json_nonzero(tmp_path: Path) -> None:
     items_dir = tmp_path / "items"
     items_dir.mkdir()
     good = valid_item("good-eeeeeeeeeeee", "2026-09-11T00:00:00Z")
-    (items_dir / f"{good['item_id']}.json").write_text(json.dumps(good), encoding="utf-8")
+    good_path = items_dir / pending.item_relpath(good)
+    good_path.parent.mkdir(parents=True, exist_ok=True)
+    good_path.write_text(json.dumps(good), encoding="utf-8")
     (items_dir / "broken.json").write_text('{"item_id":', encoding="utf-8")
 
     result = subprocess.run(

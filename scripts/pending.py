@@ -16,6 +16,7 @@ from urllib.parse import urlparse
 ITEM_ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*-[0-9a-f]{12}$")
 SOURCE_ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 UTC_ISO_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
+UNKNOWN_YEAR = "unknown"
 ALLOWED_STATUSES = {"pending", "processed", "ignored", "failed"}
 REQUIRED_FIELDS = {
     "item_id",
@@ -60,6 +61,19 @@ def is_public_http_url(value: Any) -> bool:
         return True
 
 
+def item_year(item: Mapping[str, Any]) -> str:
+    """Return the storage shard year: publish year, or 'unknown' without a date."""
+    published_at = item.get("published_at")
+    if isinstance(published_at, str) and len(published_at) >= 4 and published_at[:4].isdigit():
+        return published_at[:4]
+    return UNKNOWN_YEAR
+
+
+def item_relpath(item: Mapping[str, Any]) -> Path:
+    """Expected sharded item path relative to the items directory."""
+    return Path(str(item.get("source_id"))) / item_year(item) / f"{item.get('item_id')}.json"
+
+
 def validate_item(value: Any, path: Path) -> list[str]:
     if not isinstance(value, Mapping):
         return ["top-level JSON value must be an object"]
@@ -82,6 +96,12 @@ def validate_item(value: Any, path: Path) -> list[str]:
         errors.append("source_id must be a lowercase kebab-case identifier")
     elif isinstance(item_id, str) and not item_id.startswith(f"{source_id}-"):
         errors.append("item_id must start with source_id")
+
+    if isinstance(source_id, str) and SOURCE_ID_PATTERN.fullmatch(source_id) and isinstance(item_id, str) and ITEM_ID_PATTERN.fullmatch(item_id):
+        year_part = path.parent.name
+        source_part = path.parent.parent.name
+        if year_part != item_year(value) or source_part != source_id:
+            errors.append("item file must be stored as <source_id>/<year>/<item_id>.json under the items directory")
 
     for field in ("source_name", "title"):
         if not isinstance(value.get(field), str) or not value[field].strip():
@@ -137,7 +157,9 @@ def load_items(items_dir: Path) -> tuple[list[dict[str, Any]], list[str]]:
     items: list[dict[str, Any]] = []
     errors: list[str] = []
     paths_by_item_id: dict[str, list[Path]] = {}
-    for path in sorted(items_dir.glob("*.json"), key=lambda candidate: candidate.name):
+    for path in sorted(
+        items_dir.rglob("*.json"), key=lambda candidate: candidate.relative_to(items_dir).as_posix()
+    ):
         try:
             value = json.loads(path.read_text(encoding="utf-8"))
         except OSError as error:

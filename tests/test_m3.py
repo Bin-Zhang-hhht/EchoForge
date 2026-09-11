@@ -15,6 +15,7 @@ sys.path.insert(0, str(SCRIPTS))
 
 import archive_transcript as archive  # noqa: E402
 import check  # noqa: E402
+import pending  # noqa: E402
 
 ITEM_ID = "fixture-aaaaaaaaaaaa"
 SOURCE_URL = "https://example.com/episodes/fixture"
@@ -79,9 +80,16 @@ def review_args(**overrides: object) -> argparse.Namespace:
 
 
 def write_item(root: Path, value: dict[str, object]) -> None:
-    items_dir = root / "data" / "items"
-    items_dir.mkdir(parents=True, exist_ok=True)
-    (items_dir / f"{value['item_id']}.json").write_text(json.dumps(value), encoding="utf-8")
+    target = root / "data" / "items" / pending.item_relpath(value)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(value), encoding="utf-8")
+
+
+def write_post(posts_dir: Path, value: dict[str, object], content: str) -> Path:
+    target = posts_dir / pending.item_relpath(value).with_suffix(".md")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(content, encoding="utf-8")
+    return target
 
 
 def article(value: dict[str, object], body_extra: str = "") -> str:
@@ -441,30 +449,60 @@ def test_check_accepts_processed_article_and_demo(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    posts.mkdir(parents=True)
-    (posts / f"{ITEM_ID}.md").write_text(valid_article(value), encoding="utf-8")
+    write_post(posts, value, valid_article(value))
+
+    demo = posts / "demo-vitepress-site.md"
+    demo.write_text(
+        """---
+item_id: demo-vitepress-site
+title: 演示文章
+date: '2026-09-11'
+source_url: https://example.com/demo
+source_name: Demo
+input_type: demo
+---
+
+# 演示文章
+
+## 速读
+
+这是一篇演示文章的速读。
+
+## 主题正文
+
+演示正文内容。
+
+## 来源与定位
+
+- 原始节目：[Demo](https://example.com/demo)
+- 定位：演示内容。
+
+AI 编辑整理，请以原始节目为准。
+""",
+        encoding="utf-8",
+    )
 
     errors, item_count, post_count = check.run_checks(tmp_path, tracked_paths=[])
 
     assert errors == []
     assert item_count == 1
-    assert post_count == 1
+    assert post_count == 2
 
 
 def test_check_rejects_status_mismatch_executable_markdown_and_private_assets(tmp_path: Path) -> None:
     value = item(status="pending")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    posts.mkdir(parents=True)
-    (posts / f"{ITEM_ID}.md").write_text(
+    write_post(
+        posts,
+        value,
         valid_article(value, " <script>alert(1)</script> [unsafe](javascript:alert(1))"),
-        encoding="utf-8",
     )
 
     errors, _, _ = check.run_checks(
         tmp_path,
         tracked_paths=[
-            "site/posts/fixture-aaaaaaaaaaaa.md",
+            "site/posts/fixture/2026/fixture-aaaaaaaaaaaa.md",
             "local-library/fixture/fixture-aaaaaaaaaaaa/transcript.md",
             "notes/wechat-draft.md",
         ],
@@ -495,7 +533,6 @@ def test_check_rejects_structure_hidden_in_fenced_code(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    posts.mkdir(parents=True)
     hidden = f"""---
 item_id: {ITEM_ID}
 title: 测试文章
@@ -518,23 +555,21 @@ input_type: official_transcript
 {check.DISCLAIMER}
 ```
 """
-    (posts / f"{ITEM_ID}.md").write_text(hidden, encoding="utf-8")
+    write_post(posts, value, hidden)
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 
     assert any("body must contain an H1" in error for error in errors)
     assert any("missing required heading" in error for error in errors)
 
-
 def test_check_rejects_structure_spoofed_by_inline_code(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    posts.mkdir(parents=True)
     spoofed = valid_article(value)
     spoofed = spoofed.replace("## 速读", "This sentence contains `## 速读`")
     spoofed = spoofed.replace("## 主题正文", "This sentence contains ## 主题正文")
-    (posts / f"{ITEM_ID}.md").write_text(spoofed, encoding="utf-8")
+    write_post(posts, value, spoofed)
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 
@@ -546,9 +581,8 @@ def test_check_requires_exact_source_link(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    posts.mkdir(parents=True)
     wrong = valid_article(value).replace(f"]({SOURCE_URL})", f"]({SOURCE_URL}-attacker)")
-    (posts / f"{ITEM_ID}.md").write_text(wrong, encoding="utf-8")
+    write_post(posts, value, wrong)
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 
@@ -573,33 +607,52 @@ def test_check_rejects_unexpected_files_in_public_data_directories(tmp_path: Pat
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 
-    assert any("data/items may only contain direct JSON item files" in error for error in errors)
-    assert any("site/posts may only contain direct Markdown article files" in error for error in errors)
+    assert any("data/items item files must use" in error for error in errors)
+    assert any("site/posts articles must use" in error for error in errors)
 
 
-def test_check_rejects_nested_public_content(tmp_path: Path) -> None:
+def test_check_rejects_misplaced_public_content(tmp_path: Path) -> None:
     value = item()
     write_item(tmp_path, value)
-    nested_items = tmp_path / "data" / "items" / "nested"
-    nested_items.mkdir()
-    (nested_items / "extra.json").write_text("{}", encoding="utf-8")
-    nested_posts = tmp_path / "site" / "posts" / "nested"
-    nested_posts.mkdir(parents=True)
-    (nested_posts / "unchecked.md").write_text("# unchecked", encoding="utf-8")
+    items_dir = tmp_path / "data" / "items"
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    (items_dir / "flat.json").write_text("{}", encoding="utf-8")
+    deep = items_dir / "fixture" / "2026" / "extra"
+    deep.mkdir(parents=True)
+    (deep / "deep.json").write_text("{}", encoding="utf-8")
+    (posts / "stray.md").write_text("# unchecked", encoding="utf-8")
+    notes = posts / "fixture" / "2026" / "notes.txt"
+    notes.parent.mkdir(parents=True)
+    notes.write_text("x", encoding="utf-8")
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 
-    assert any("data/items/nested" in error for error in errors)
-    assert any("site/posts/nested" in error for error in errors)
+    assert any("flat.json" in error and "data/items item files must use" in error for error in errors)
+    assert any("deep.json" in error and "data/items item files must use" in error for error in errors)
+    assert any("stray.md" in error and "site/posts articles must use" in error for error in errors)
+    assert any("notes.txt" in error and "site/posts articles must use" in error for error in errors)
+
+
+def test_check_requires_article_path_to_match_item_shards(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    target = posts / "fixture" / "2025" / f"{ITEM_ID}.md"
+    target.parent.mkdir(parents=True)
+    target.write_text(valid_article(value), encoding="utf-8")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("must be stored as" in error for error in errors)
 
 
 def test_check_rejects_unknown_frontmatter_and_missing_real_locator(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
-    posts.mkdir(parents=True)
     invalid = article(value).replace("定位：逐字稿小节 “implementation details”。", "定位：不适用")
-    (posts / f"{ITEM_ID}.md").write_text(invalid, encoding="utf-8")
+    write_post(posts, value, invalid)
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 

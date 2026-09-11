@@ -24,7 +24,7 @@ Work milestone by milestone from `docs/implementation-plan.md`. Use the reposito
 
 ## Writing And Publication
 
-- Write one machine digest to `site/posts/<item_id>.md` using `templates/post.md` and the structure `速读 → 主题正文 → 来源与定位`.
+- Write one machine digest to `site/posts/<source_id>/<year>/<item_id>.md` (sharded by item source and publish year, matching `data/items/<source_id>/<year>/<item_id>.json`) using `templates/post.md` and the structure `速读 → 主题正文 → 来源与定位`.
 - Preserve attribution, evidence, conditions, uncertainty, disagreements, and real source locations. Do not turn paraphrases into quotations or invent timestamps.
 - Review every core claim, number, causal statement, recommendation, condition, uncertainty, attribution, and locator against the archived full transcript. Label additional explanation as editorial context, not source speech.
 - Remove unverifiable peripheral claims. If a core claim remains unresolved, do not publish; mark the item `failed` with a reason.

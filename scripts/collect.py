@@ -26,6 +26,8 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 import feedparser
 import yaml
 
+import pending
+
 DEFAULT_TIMEOUT_SECONDS = 20.0
 DEFAULT_RETRIES = 2
 DEFAULT_LOOKBACK_DAYS = 30
@@ -495,9 +497,10 @@ def parse_feed(data: bytes) -> list[Mapping[str, Any]]:
 
 
 def write_item(output_dir: Path, item: Mapping[str, Any]) -> bool:
-    path = output_dir / f"{item['item_id']}.json"
+    path = output_dir / pending.item_relpath(item)
     if path.exists():
         return False
+    path.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps(item, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     try:
         with path.open("x", encoding="utf-8", newline="\n") as handle:
@@ -562,7 +565,9 @@ def collect_source(
 def pending_count(output_dir: Path) -> tuple[int, int]:
     pending = 0
     malformed = 0
-    for path in sorted(output_dir.glob("*.json")):
+    for path in sorted(
+        output_dir.rglob("*.json"), key=lambda candidate: candidate.relative_to(output_dir).as_posix()
+    ):
         try:
             value = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):

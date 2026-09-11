@@ -1,8 +1,8 @@
 # EchoForge — 架构文档
 
-> 版本：v0.8 · 2026-09-11
+> 版本：v0.9 · 2026-09-12
 > 依据：[产品文档](product.md)
-> 状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 的 transcript archive、ASR 预约、内容检查和三篇真实文章已完成本地闭环。远端 Pages / Actions、私有备份恢复及用户阅读验收待验证。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
+> 状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 的 transcript archive、ASR 预约、内容检查和三篇真实文章已完成本地闭环。远端 Pages / Actions、私有备份恢复及用户阅读验收待验证。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。v0.9 将公开数据与文章改为按来源和年份分片存储。
 
 ## 1. 总体结构
 
@@ -16,7 +16,7 @@ collect.yml                                                            deploy.ym
     │                               │                                      │
     │                       local-library/ 长期逐字稿                        │
     │                               │                                      │
-    └── data/items/*.json ──Git──→ GLM 机器精编 ── site/posts/*.md ─push─→ Pages
+    └── data/items/<source>/<year>/*.json ──Git──→ GLM 机器精编 ── site/posts/<source>/<year>/*.md ─push─→ Pages
                                     │
                                     ├─ wechat-draft.md ──人工审核→ 手动发布
                                     └─ video-script.md ──人工审核→ 后续视频制作
@@ -38,14 +38,15 @@ echoforge/
 ├── config/
 │   └── sources.yaml              # 当前实际启用的 RSS 白名单和简单过滤条件
 ├── data/items/
-│   └── <item_id>.json            # 每期一个文件，包含处理状态
+│   └── <source_id>/<year>/
+│       └── <item_id>.json        # 每期一个文件，包含处理状态；按来源与发布年份分片
 ├── scripts/
 │   ├── collect.py                # RSS 读取、去重、过滤、保存
 │   ├── pending.py                # 输出待处理条目及数量
 │   ├── archive_transcript.py       # 审核确认、格式转换、完整性与归档幂等检查
 │   ├── reserve_asr.py              # 转写前原子预约本批唯一 ASR 名额
 │   ├── check.py                    # 少量数据、文章及安全检查
-│   └── build-index.mjs           # 从 Markdown 生成文章列表
+│   └── build-index.mjs           # 从 Markdown 生成文章列表与标签页
 ├── prompts/
 │   └── process-podcasts.md       # 本地闲时任务操作说明
 ├── templates/
@@ -53,9 +54,13 @@ echoforge/
 ├── site/
 │   ├── .vitepress/config.mts
 │   ├── index.md                  # 首页
-│   └── posts/
-│       ├── index.md              # 构建生成，不提交 Git
-│       └── <item_id>.md          # 正式公开文章
+│   ├── posts/
+│   │   ├── index.md              # 构建生成，不提交 Git
+│   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
+│   │   └── <source_id>/<year>/
+│   │       └── <item_id>.md      # 正式公开文章，按来源与发布年份分片
+│   └── tags/
+│       └── index.md              # 构建生成的标签页，不提交 Git
 ├── docs/
 │   ├── product.md
 │   ├── architecture.md
@@ -133,6 +138,8 @@ sources:
 
 缺失字段用 `null`。简介转为纯文本并限制长度，首版上限 1,000 字符；不保存完整 Feed 响应或内嵌全文。文件名使用与 `item_id` 相同的程序生成安全 ID。
 
+单期元信息按来源和发布年份分片保存：`data/items/<source_id>/<year>/<item_id>.json`。年份取 `published_at` 的前 4 位，日期未知时存入 `unknown` 目录。采集器按同一布局写入新文件；文件名保持 `<item_id>.json`，不随分片改变。
+
 **Collector 只新增文件；已有文件原样保留。** 本地任务只更新选中条目的状态及原因，必要时修正失效链接。暂不实现定期元信息刷新或跨节目模糊去重。
 
 `pending.py` 直接扫描这些文件，按发布时间从新到旧列出 `pending`；未知日期排在后面。无需另存 `pending.json` 或独立队列数据库。
@@ -153,7 +160,7 @@ ASR 后对不确定的专有名词、关键术语、数字和因果表述回听�
 
 ### 3.4 GitHub 文章
 
-文章固定保存为 `site/posts/<item_id>.md`，其 `item_id` 对应 `data/items/<item_id>.json`。例如：
+文章保存为 `site/posts/<source_id>/<year>/<item_id>.md`，按来源与发布年份和元信息同轴分片，其 `item_id` 对应 `data/items/<source_id>/<year>/<item_id>.json`。演示文章 `demo-vitepress-site.md` 是唯一允许直接位于 `site/posts/` 根目录的正式文章。例如：
 
 ```yaml
 ---
@@ -266,7 +273,7 @@ GitHub Machine Digest
 
 VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和阅读样式，不制作复杂首页。[V2]
 
-`build-index.mjs` 在构建前扫描 `site/posts/*.md` 的 frontmatter，按整理日期生成 `site/posts/index.md`；排除生成的 `index.md` 自身。首页链接到文章列表。文章列表是可重复生成的派生产物，不由 Agent 手工维护。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`，并按文章 `tags` 生成 `site/tags/index.md` 标签页；两者都排除生成的 `index.md` 自身。导航与首页链接到文章列表和标签页。两个索引页都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
 
@@ -274,7 +281,7 @@ VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和
 
 ## 7. 只保留必要检查
 
-`check.py` 只做确定性检查：metadata/status/body/link 格式、文章与 `item_id` 对应关系、来源链接、真实 Markdown 标题结构、禁止可执行 Markdown 内容、公开目录只能有直接子文件，以及任何层级不应提交或暂存的私有文件。它不证明观点准确。ZCode 在标记 `processed` 前还须对照完整本地逐字稿，复核核心观点、数字、因果、建议、条件、不确定性、归因和真实定位；补充解释要明确标为补充内容而非来源原话。无法验证的外围断言应删除；未解决的核心断言不得发布，标记 `failed` 并记录原因。
+`check.py` 只做确定性检查：metadata/status/body/link 格式、文章与 `item_id` 对应关系、来源链接、真实 Markdown 标题结构、禁止可执行 Markdown 内容、公开数据与文章目录必须使用 `<source_id>/<year>/<item_id>` 分片布局（文章仅演示页可直接位于 `site/posts/` 根目录），以及任何层级不应提交或暂存的私有文件。它不证明观点准确。ZCode 在标记 `processed` 前还须对照完整本地逐字稿，复核核心观点、数字、因果、建议、条件、不确定性、归因和真实定位；补充解释要明确标为补充内容而非来源原话。无法验证的外围断言应删除；未解决的核心断言不得发布，标记 `failed` 并记录原因。
 
 本地处理额外做两个前置检查：正式文章生成前确认本期存在完整且通过可用性检查的官方 transcript 或 ASR 逐字稿资产；音频清理前确认逐字稿已保存、检查已通过、需要回听的疑点已解决。检查不进入 GitHub CI，因为 CI 不应依赖本地私有资产。`processed` 只表示可用材料和内容 / 基本检查完成，不表示已部署，也不是独立事实认证。
 

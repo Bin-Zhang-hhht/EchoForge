@@ -10,6 +10,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '文章', link: '/posts/' },
+      { text: '标签', link: '/tags/' },
       { text: '项目文档', link: 'https://github.com/Bin-Zhang-hhht/EchoForge' }
     ],
     sidebar: {
