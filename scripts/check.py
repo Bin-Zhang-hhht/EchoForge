@@ -166,13 +166,17 @@ def markdown_link_targets(body: str) -> list[str]:
     return MARKDOWN_LINK_PATTERN.findall(strip_fenced_code(body))
 
 
+def heading_match(body: str, heading: str) -> re.Match[str] | None:
+    return re.search(rf"^{re.escape(heading)}[ \t]*$", body, re.MULTILINE)
+
+
 def section_text(body: str, heading: str) -> str:
     body = strip_fenced_code(body)
-    start = body.find(heading)
-    if start < 0:
+    match = heading_match(body, heading)
+    if match is None:
         return ""
-    start += len(heading)
-    next_heading = re.search(r"^##\s+", body[start:], re.MULTILINE)
+    start = match.end()
+    next_heading = re.search(r"^##[ \t]+[^#\r\n].*$", body[start:], re.MULTILINE)
     end = start + next_heading.start() if next_heading else len(body)
     return body[start:end].strip()
 
@@ -186,7 +190,7 @@ def validate_body(post: Post, root: Path) -> list[str]:
     if isinstance(title, str) and not re.search(rf"^#\s+{re.escape(title.strip())}\s*$", body, re.MULTILINE):
         errors.append(f"{location}: body must contain an H1 matching title")
 
-    positions = [body.find(heading) for heading in REQUIRED_HEADINGS]
+    positions = [match.start() if (match := heading_match(body, heading)) else -1 for heading in REQUIRED_HEADINGS]
     for heading, position in zip(REQUIRED_HEADINGS, positions):
         if position < 0:
             errors.append(f"{location}: missing required heading: {heading}")
@@ -284,7 +288,8 @@ def is_disallowed_repository_path(value: str) -> bool:
     if not parts:
         return False
     normalized_parts = tuple(part.casefold() for part in parts)
-    if normalized_parts[0] in {part.casefold() for part in DISALLOWED_TOP_LEVEL}:
+    disallowed_directories = {part.casefold() for part in DISALLOWED_TOP_LEVEL}
+    if any(part in disallowed_directories for part in normalized_parts):
         return True
     name = normalized_parts[-1]
     if name == ".env" or name.startswith(".env."):
@@ -299,13 +304,13 @@ def is_disallowed_repository_path(value: str) -> bool:
 def validate_directory_contents(root: Path, items_dir: Path, posts_dir: Path) -> list[str]:
     errors: list[str] = []
     if items_dir.is_dir():
-        for path in sorted(items_dir.iterdir(), key=lambda candidate: candidate.name):
-            if not path.is_file() or path.suffix != ".json":
-                errors.append(f"{relative(path, root)}: data/items may only contain JSON item files")
+        for path in sorted(items_dir.rglob("*"), key=lambda candidate: candidate.as_posix()):
+            if path.parent != items_dir or not path.is_file() or path.suffix != ".json":
+                errors.append(f"{relative(path, root)}: data/items may only contain direct JSON item files")
     if posts_dir.is_dir():
-        for path in sorted(posts_dir.iterdir(), key=lambda candidate: candidate.name):
-            if not path.is_file() or path.suffix != ".md":
-                errors.append(f"{relative(path, root)}: site/posts may only contain Markdown article files")
+        for path in sorted(posts_dir.rglob("*"), key=lambda candidate: candidate.as_posix()):
+            if path.parent != posts_dir or not path.is_file() or path.suffix != ".md":
+                errors.append(f"{relative(path, root)}: site/posts may only contain direct Markdown article files")
     return errors
 
 

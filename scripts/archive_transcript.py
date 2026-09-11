@@ -11,6 +11,7 @@ import re
 import shutil
 import socket
 import tempfile
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping, Sequence
@@ -24,18 +25,28 @@ import collect
 import pending
 
 MAX_TRANSCRIPT_BYTES = 25 * 1024 * 1024
-MAX_BATCH_ARTICLES = 3
 MAX_BATCH_ASR_ITEMS = 1
 MAX_BATCH_ASR_SECONDS = 120 * 60
+MAX_TIMING_EDGE_GAP_SECONDS = 60
+MAX_TIMING_INTERNAL_GAP_SECONDS = 10 * 60
 USER_AGENT = "EchoForge/0.1 transcript resolver"
 INPUT_TYPES = {"official_transcript", "video_agent_kit_asr"}
 SOURCE_KINDS = {"rss", "publisher", "video_agent_kit"}
 FORMATS = {"plain", "html", "vtt", "srt", "json"}
 TIMESTAMP_COVERAGE = {"passed", "not_available", "not_applicable"}
+BATCH_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
 
 
 class ArchiveError(Exception):
     """Raised when transcript input or archive metadata is invalid."""
+
+
+@dataclass(frozen=True)
+class TimingCoverage:
+    cue_count: int
+    first_start: float
+    last_end: float
+    max_gap: float
 
 
 class _PublicRedirectHandler(HTTPRedirectHandler):
@@ -74,6 +85,31 @@ def load_item(items_dir: Path, item_id: str) -> dict[str, Any]:
     if errors:
         raise ArchiveError(f"invalid item metadata {path}: {'; '.join(errors)}")
     return dict(value)
+
+
+def rss_transcript_matches(item_url: Any, source_url: str) -> bool:
+    if not isinstance(item_url, str):
+        return False
+    try:
+        expected = urlparse(item_url)
+        actual = urlparse(source_url)
+    except ValueError:
+        return False
+    if (expected.scheme.casefold(), expected.hostname, expected.port) != (
+        actual.scheme.casefold(),
+        actual.hostname,
+        actual.port,
+    ):
+        return False
+
+    def base_path(path: str) -> str:
+        lowered = path.casefold()
+        for suffix in (".vtt", ".srt", ".json", ".txt", ".html", ".htm"):
+            if lowered.endswith(suffix):
+                return path[: -len(suffix)]
+        return path
+
+    return base_path(expected.path).rstrip("/") == base_path(actual.path).rstrip("/")
 
 
 def fetch_transcript(url: str, timeout: float, retries: int) -> tuple[bytes, str, str | None]:
@@ -180,6 +216,16 @@ def seconds_from_timestamp(value: str) -> float | None:
 
 
 def normalize_timestamp(value: Any) -> str | None:
+    seconds = timestamp_seconds(value)
+    if seconds is None:
+        return None
+    whole = int(seconds)
+    hours, remainder = divmod(whole, 3600)
+    minutes, secs = divmod(remainder, 60)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+
+def timestamp_seconds(value: Any) -> float | None:
     if isinstance(value, bool) or value is None:
         return None
     if isinstance(value, (int, float)):
@@ -191,16 +237,20 @@ def normalize_timestamp(value: Any) -> str | None:
         seconds = parsed
     if not math.isfinite(seconds) or seconds < 0:
         return None
-    whole = int(seconds)
-    hours, remainder = divmod(whole, 3600)
-    minutes, secs = divmod(remainder, 60)
-    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+    return seconds
 
 
-def parse_timed_text(text: str, source_format: str) -> tuple[str, bool]:
+def timing_coverage(starts: Sequence[float], ends: Sequence[float]) -> TimingCoverage:
+    gaps = [max(0.0, starts[index] - ends[index - 1]) for index in range(1, len(starts))]
+    return TimingCoverage(len(starts), starts[0], max(ends), max(gaps, default=0.0))
+
+
+def parse_timed_text(text: str, source_format: str) -> tuple[str, TimingCoverage]:
     normalized = text.replace("\r\n", "\n").replace("\r", "\n").strip()
     blocks = re.split(r"\n\s*\n", normalized)
     lines: list[str] = []
+    starts: list[float] = []
+    ends: list[float] = []
     timing_pattern = re.compile(
         r"(?P<start>\d{1,2}:\d{2}(?::\d{2})?[.,]\d{3})\s+-->\s+(?P<end>\d{1,2}:\d{2}(?::\d{2})?[.,]\d{3})"
     )
@@ -213,13 +263,21 @@ def parse_timed_text(text: str, source_format: str) -> tuple[str, bool]:
             continue
         match = timing_pattern.search(block_lines[timing_index])
         assert match is not None
-        timestamp = normalize_timestamp(match.group("start"))
+        start = timestamp_seconds(match.group("start"))
+        end = timestamp_seconds(match.group("end"))
+        if start is None or end is None or end < start:
+            raise ArchiveError(f"{source_format.upper()} input contains an invalid cue range")
+        if starts and start < starts[-1]:
+            raise ArchiveError(f"{source_format.upper()} input contains out-of-order cues")
+        timestamp = normalize_timestamp(start)
         cue = collect.clean_text(" ".join(block_lines[timing_index + 1 :]))
         if timestamp and cue:
             lines.append(f"[{timestamp}] {cue}")
+            starts.append(start)
+            ends.append(end)
     if not lines:
         raise ArchiveError(f"{source_format.upper()} input contains no readable timed cues")
-    return "\n\n".join(lines), True
+    return "\n\n".join(lines), timing_coverage(starts, ends)
 
 
 def json_segments(value: Any) -> list[Mapping[str, Any]]:
@@ -234,7 +292,7 @@ def json_segments(value: Any) -> list[Mapping[str, Any]]:
     return []
 
 
-def parse_json_transcript(text: str) -> tuple[str, bool]:
+def parse_json_transcript(text: str) -> tuple[str, TimingCoverage | None, float | None]:
     try:
         value = json.loads(text)
     except json.JSONDecodeError as error:
@@ -242,7 +300,8 @@ def parse_json_transcript(text: str) -> tuple[str, bool]:
 
     segments = json_segments(value)
     lines: list[str] = []
-    has_timestamps = False
+    starts: list[float] = []
+    ends: list[float] = []
     for segment in segments:
         content = collect.clean_text(segment.get("text") or segment.get("content") or segment.get("transcript"))
         if not content:
@@ -252,14 +311,25 @@ def parse_json_transcript(text: str) -> tuple[str, bool]:
             start_value = segment.get("start_time")
         if start_value is None:
             start_value = segment.get("offset")
-        timestamp = normalize_timestamp(start_value)
-        if start_value is not None and timestamp is None:
+        end_value = segment.get("end")
+        if end_value is None:
+            end_value = segment.get("end_time")
+        if (start_value is None) != (end_value is None):
+            raise ArchiveError("transcript JSON timed segments must include both start and end")
+        start = timestamp_seconds(start_value)
+        end = timestamp_seconds(end_value)
+        if start_value is not None and (start is None or end is None or end < start):
             raise ArchiveError("transcript JSON contains an invalid timestamp")
+        if start is not None and starts and start < starts[-1]:
+            raise ArchiveError("transcript JSON contains out-of-order segments")
+        timestamp = normalize_timestamp(start)
         speaker = collect.clean_text(segment.get("speaker") or segment.get("speaker_name"))
         prefix_parts: list[str] = []
         if timestamp:
             prefix_parts.append(f"[{timestamp}]")
-            has_timestamps = True
+            assert start is not None and end is not None
+            starts.append(start)
+            ends.append(end)
         if speaker:
             prefix_parts.append(f"{speaker}:")
         prefix = " ".join(prefix_parts)
@@ -271,33 +341,81 @@ def parse_json_transcript(text: str) -> tuple[str, bool]:
             lines.append(content.strip())
     if not lines:
         raise ArchiveError("transcript JSON contains no readable transcript text")
-    return "\n\n".join(lines), has_timestamps
+    if starts and len(starts) != len(lines):
+        raise ArchiveError("transcript JSON cannot mix timed and untimed readable segments")
+
+    timing = timing_coverage(starts, ends) if starts else None
+    measured_duration = None
+    if isinstance(value, Mapping) and value.get("audio_duration_seconds") is not None:
+        candidate = value["audio_duration_seconds"]
+        if isinstance(candidate, bool) or not isinstance(candidate, (int, float)):
+            raise ArchiveError("transcript JSON contains an invalid audio duration")
+        measured_duration = float(candidate)
+        if not math.isfinite(measured_duration) or measured_duration <= 0:
+            raise ArchiveError("transcript JSON contains an invalid audio duration")
+    return "\n\n".join(lines), timing, measured_duration
 
 
-def convert_transcript(payload: bytes, source_format: str) -> tuple[str, bool, str | None]:
+def convert_transcript(
+    payload: bytes, source_format: str
+) -> tuple[str, TimingCoverage | None, str | None, float | None]:
     text = decode_text(payload)
     raw_name: str | None = None
+    measured_duration: float | None = None
     if source_format == "plain":
         transcript = text.replace("\r\n", "\n").replace("\r", "\n").strip()
-        has_timestamps = False
+        timing = None
     elif source_format == "html":
         transcript = collect.clean_text(text)
-        has_timestamps = False
+        timing = None
     elif source_format in {"vtt", "srt"}:
-        transcript, has_timestamps = parse_timed_text(text, source_format)
+        transcript, timing = parse_timed_text(text, source_format)
         raw_name = f"transcript.{source_format}"
     elif source_format == "json":
-        transcript, has_timestamps = parse_json_transcript(text)
+        transcript, timing, measured_duration = parse_json_transcript(text)
         raw_name = "transcript.json"
     else:
         raise ArchiveError(f"unsupported transcript format: {source_format}")
 
     if len(transcript) < 200:
         raise ArchiveError("transcript is too short to archive; confirm that the source is a full transcript")
-    return transcript, has_timestamps, raw_name
+    return transcript, timing, raw_name, measured_duration
 
 
-def validate_review(args: argparse.Namespace, item: Mapping[str, Any], has_timestamps: bool) -> None:
+def validate_timing_coverage(
+    item: Mapping[str, Any], timing: TimingCoverage | None, declared: str
+) -> None:
+    duration = item.get("duration_seconds")
+    if timing is None:
+        if declared != "not_applicable":
+            raise ArchiveError("untimed transcript must use --timestamp-coverage not_applicable")
+        return
+
+    expected = "passed" if duration is not None else "not_available"
+    if declared != expected:
+        raise ArchiveError(
+            "timed transcript coverage must be passed for known duration or not_available when duration is unknown"
+        )
+    if duration is None:
+        return
+    if timing.cue_count < 2:
+        raise ArchiveError("timed transcript needs at least two readable cues for coverage validation")
+    if timing.first_start > MAX_TIMING_EDGE_GAP_SECONDS:
+        raise ArchiveError("timed transcript starts too late to cover the episode")
+    if timing.last_end < max(0, duration - MAX_TIMING_EDGE_GAP_SECONDS):
+        raise ArchiveError("timed transcript ends too early to cover the episode")
+    if timing.last_end > duration + MAX_TIMING_EDGE_GAP_SECONDS:
+        raise ArchiveError("timed transcript extends beyond the episode duration")
+    if timing.max_gap > MAX_TIMING_INTERNAL_GAP_SECONDS:
+        raise ArchiveError("timed transcript has an implausibly large internal gap")
+
+
+def validate_review(
+    args: argparse.Namespace,
+    item: Mapping[str, Any],
+    timing: TimingCoverage | None,
+    measured_audio_seconds: float | None = None,
+) -> None:
     missing = [
         flag
         for flag, present in (
@@ -320,20 +438,97 @@ def validate_review(args: argparse.Namespace, item: Mapping[str, Any], has_times
         duration = item.get("duration_seconds")
         if duration is None:
             raise ArchiveError("ASR requires a known episode duration before budget approval")
-        if args.batch_asr_count >= MAX_BATCH_ASR_ITEMS:
-            raise ArchiveError("batch ASR item limit exceeded (maximum 1)")
-        if args.batch_asr_seconds + duration > MAX_BATCH_ASR_SECONDS:
+        if not args.batch_id or not BATCH_ID_PATTERN.fullmatch(args.batch_id):
+            raise ArchiveError("ASR archive requires a safe --batch-id")
+        if measured_audio_seconds is None:
+            raise ArchiveError("ASR transcript JSON must include measured audio_duration_seconds")
+        if measured_audio_seconds > MAX_BATCH_ASR_SECONDS:
             raise ArchiveError("batch ASR duration limit exceeded (maximum 120 minutes)")
         if not args.listening_resolved:
             raise ArchiveError("ASR archive requires --listening-resolved after required spot checks")
-    if has_timestamps:
-        expected = "passed" if item.get("duration_seconds") is not None else "not_available"
-        if args.timestamp_coverage != expected:
-            raise ArchiveError(
-                "timed transcript coverage must be passed for known duration or not_available when duration is unknown"
-            )
-    elif args.timestamp_coverage != "not_applicable":
-        raise ArchiveError("untimed transcript must use --timestamp-coverage not_applicable")
+    validate_timing_coverage(item, timing, args.timestamp_coverage)
+
+
+def reserve_asr_batch(
+    library_dir: Path,
+    batch_id: str,
+    item: Mapping[str, Any],
+    measured_audio_seconds: float,
+    reserved_at: str,
+) -> Path:
+    if not BATCH_ID_PATTERN.fullmatch(batch_id):
+        raise ArchiveError("ASR reservation requires a safe batch ID")
+    duration = item.get("duration_seconds")
+    if isinstance(duration, bool) or not isinstance(duration, (int, float)) or duration <= 0:
+        raise ArchiveError("ASR reservation requires a known positive episode duration")
+    if not math.isfinite(measured_audio_seconds) or measured_audio_seconds <= 0:
+        raise ArchiveError("ASR reservation requires a positive measured audio duration")
+    allowed_difference = max(5.0, float(duration) * 0.01)
+    if abs(measured_audio_seconds - float(duration)) > allowed_difference:
+        raise ArchiveError("measured audio duration does not match item metadata")
+    if measured_audio_seconds > MAX_BATCH_ASR_SECONDS:
+        raise ArchiveError("batch ASR duration limit exceeded (maximum 120 minutes)")
+
+    batches_dir = library_dir / ".batches"
+    batches_dir.mkdir(parents=True, exist_ok=True)
+    target = batches_dir / batch_id
+    record = {
+        "batch_id": batch_id,
+        "item_id": item["item_id"],
+        "measured_audio_seconds": measured_audio_seconds,
+        "reserved_at": reserved_at,
+    }
+    temporary = Path(tempfile.mkdtemp(prefix=f".{batch_id}-", dir=batches_dir))
+    try:
+        (temporary / "asr.json").write_text(
+            json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
+        )
+        try:
+            temporary.replace(target)
+            return target / "asr.json"
+        except OSError:
+            if not target.is_dir():
+                raise
+    finally:
+        if temporary.exists():
+            shutil.rmtree(temporary, ignore_errors=True)
+
+    record_path = target / "asr.json"
+    try:
+        existing = json.loads(record_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise ArchiveError(f"existing ASR batch reservation cannot be validated: {error}") from error
+    if not isinstance(existing, Mapping) or existing.get("item_id") != item["item_id"]:
+        raise ArchiveError("batch ASR item limit exceeded (maximum 1)")
+    if existing.get("measured_audio_seconds") != measured_audio_seconds:
+        raise ArchiveError("existing ASR batch reservation has a different duration")
+    return record_path
+
+
+def validate_asr_batch_reservation(
+    library_dir: Path,
+    batch_id: str,
+    item: Mapping[str, Any],
+    measured_audio_seconds: float,
+) -> None:
+    record_path = library_dir / ".batches" / batch_id / "asr.json"
+    try:
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise ArchiveError(f"ASR batch reservation is missing or invalid: {error}") from error
+    if not isinstance(record, Mapping) or record.get("batch_id") != batch_id:
+        raise ArchiveError("ASR batch reservation has an invalid batch ID")
+    if record.get("item_id") != item["item_id"]:
+        raise ArchiveError("batch ASR item limit exceeded (maximum 1)")
+    duration = item.get("duration_seconds")
+    measured_reserved = record.get("measured_audio_seconds")
+    if isinstance(measured_reserved, bool) or not isinstance(measured_reserved, (int, float)):
+        raise ArchiveError("ASR batch reservation has an invalid measured duration")
+    allowed_difference = max(5.0, float(duration) * 0.01)
+    if abs(float(measured_reserved) - float(duration)) > allowed_difference:
+        raise ArchiveError("ASR batch reservation duration does not match item metadata")
+    if abs(measured_audio_seconds - float(measured_reserved)) > allowed_difference:
+        raise ArchiveError("measured ASR audio duration does not match the batch reservation")
 
 
 def render_transcript(item: Mapping[str, Any], transcript: str, input_type: str, source_url: str) -> str:
@@ -348,6 +543,17 @@ def render_transcript(item: Mapping[str, Any], transcript: str, input_type: str,
     )
 
 
+def timing_metadata(timing: TimingCoverage | None) -> Mapping[str, Any] | None:
+    if timing is None:
+        return None
+    return {
+        "cue_count": timing.cue_count,
+        "first_start_seconds": timing.first_start,
+        "last_end_seconds": timing.last_end,
+        "max_internal_gap_seconds": timing.max_gap,
+    }
+
+
 def validate_existing_archive(
     *,
     target: Path,
@@ -360,6 +566,8 @@ def validate_existing_archive(
     input_type: str,
     source_kind: str,
     timestamp_coverage: str,
+    timing: TimingCoverage | None,
+    measured_audio_seconds: float | None,
 ) -> None:
     metadata_path = target / "metadata.yaml"
     try:
@@ -379,6 +587,8 @@ def validate_existing_archive(
         "source_format": source_format,
         "content_sha256": hashlib.sha256(payload).hexdigest(),
         "asset_files": ["transcript.md"] + ([raw_name] if raw_name else []),
+        "timing": timing_metadata(timing),
+        "measured_audio_seconds": measured_audio_seconds,
     }
     mismatches = [key for key, expected in expected_values.items() if existing.get(key) != expected]
     if mismatches:
@@ -437,7 +647,8 @@ def archive_transcript(
     notes: str,
     library_dir: Path,
 ) -> tuple[Path, bool]:
-    transcript, has_timestamps, raw_name = convert_transcript(payload, source_format)
+    transcript, timing, raw_name, measured_audio_seconds = convert_transcript(payload, source_format)
+    validate_timing_coverage(item, timing, timestamp_coverage)
     target = library_dir / str(item["source_id"]) / str(item["item_id"])
     digest = hashlib.sha256(payload).hexdigest()
 
@@ -453,6 +664,8 @@ def archive_transcript(
             input_type=input_type,
             source_kind=source_kind,
             timestamp_coverage=timestamp_coverage,
+            timing=timing,
+            measured_audio_seconds=measured_audio_seconds,
         )
         return target, False
 
@@ -467,6 +680,8 @@ def archive_transcript(
         "source_format": source_format,
         "content_sha256": digest,
         "asset_files": ["transcript.md"] + ([raw_name] if raw_name else []),
+        "timing": timing_metadata(timing),
+        "measured_audio_seconds": measured_audio_seconds,
         "content_checks": {
             "episode_identity": "passed",
             "transcript_kind": "passed",
@@ -520,8 +735,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--timestamp-coverage", choices=sorted(TIMESTAMP_COVERAGE), required=True)
     parser.add_argument("--listening-resolved", action="store_true")
     parser.add_argument("--notes", required=True)
-    parser.add_argument("--batch-asr-count", type=int, default=0)
-    parser.add_argument("--batch-asr-seconds", type=int, default=0)
+    parser.add_argument("--batch-id")
     return parser
 
 
@@ -530,8 +744,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         if args.timeout <= 0 or args.retries < 0:
             raise ArchiveError("--timeout must be positive and --retries must be non-negative")
-        if args.batch_asr_count < 0 or args.batch_asr_seconds < 0:
-            raise ArchiveError("batch ASR counters must be non-negative")
         retrieved_at = validate_utc_timestamp(args.retrieved_at)
         item = load_item(args.items_dir, args.item_id)
 
@@ -543,16 +755,28 @@ def main(argv: Sequence[str] | None = None) -> int:
             source_url = collect.public_url(args.source_url)
             if not source_url:
                 raise ArchiveError("--source-url must be a public http(s) URL with --input-file")
+            collect.resolve_public_host(source_url)
             assert args.input_file is not None
             payload = read_transcript_file(args.input_file)
             content_type = None
             source_name = args.input_file.name
 
+        if args.input_type == "official_transcript" and args.source_kind == "rss":
+            if not rss_transcript_matches(item.get("transcript_url"), source_url):
+                raise ArchiveError("RSS transcript source URL must match the item's transcript_url")
         if args.input_type == "video_agent_kit_asr" and source_url != item.get("audio_url"):
             raise ArchiveError("ASR source URL must match the item's audio_url")
         source_format = detect_format(args.format, source_name, content_type)
-        _, has_timestamps, _ = convert_transcript(payload, source_format)
-        validate_review(args, item, has_timestamps)
+        _, timing, _, measured_audio_seconds = convert_transcript(payload, source_format)
+        validate_review(args, item, timing, measured_audio_seconds)
+        if args.input_type == "video_agent_kit_asr":
+            assert args.batch_id is not None and measured_audio_seconds is not None
+            validate_asr_batch_reservation(
+                args.library_dir,
+                args.batch_id,
+                item,
+                measured_audio_seconds,
+            )
         target, created = archive_transcript(
             item=item,
             payload=payload,

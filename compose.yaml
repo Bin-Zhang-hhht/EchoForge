@@ -27,8 +27,21 @@ services:
       target: content-check
     volumes:
       - ./.git:/workspace/.git:ro
+      - ./scripts:/workspace/scripts:ro
       - ./data:/workspace/data:ro
       - ./site:/workspace/site:ro
+
+  asr-reserve:
+    build:
+      context: .
+      target: collector-runtime
+    entrypoint:
+      - python
+      - scripts/reserve_asr.py
+    volumes:
+      - ./scripts:/workspace/scripts:ro
+      - ./data/items:/workspace/data/items:ro
+      - ${LOCAL_LIBRARY_DIR:-./local-library}:/workspace/local-library
 
   transcript-archive:
     build:
@@ -38,6 +51,7 @@ services:
       - python
       - scripts/archive_transcript.py
     volumes:
+      - ./scripts:/workspace/scripts:ro
       - ./data/items:/workspace/data/items:ro
       - ${LOCAL_LIBRARY_DIR:-./local-library}:/workspace/local-library
       - ${TRANSCRIPT_INPUT_DIR:-./.cache/transcript-input}:/input:ro

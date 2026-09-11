@@ -42,11 +42,23 @@ def item(status: str = "pending", reason: str | None = None, duration: int | Non
 
 def transcript_payload() -> bytes:
     repeated = "A substantial transcript cue about systems, evidence, limitations, and implementation details. " * 4
-    return (
-        "WEBVTT\n\n"
-        f"00:00:00.000 --> 00:00:30.000\n{repeated}\n\n"
-        f"00:59:20.000 --> 01:00:00.000\n{repeated}\n"
-    ).encode()
+    cues = []
+    for start in (0, 600, 1200, 1800, 2400, 3000, 3570):
+        end = min(start + 30, 3600)
+        cues.append(f"{start // 3600:02d}:{start % 3600 // 60:02d}:{start % 60:02d}.000 --> "
+                    f"{end // 3600:02d}:{end % 3600 // 60:02d}:{end % 60:02d}.000\n{repeated}")
+    return ("WEBVTT\n\n" + "\n\n".join(cues) + "\n").encode()
+
+
+def asr_payload(duration: float = 3600.0) -> bytes:
+    repeated = "A complete ASR segment about recommendation systems, evidence, constraints, and outcomes. " * 4
+    starts = [0.0, 600.0, 1200.0, 1800.0, 2400.0, 3000.0, max(0.0, duration - 30.0)]
+    segments = [
+        {"start": start, "end": min(start + 30.0, duration), "text": repeated}
+        for start in starts
+        if start < duration
+    ]
+    return json.dumps({"audio_duration_seconds": duration, "segments": segments}).encode()
 
 
 def review_args(**overrides: object) -> argparse.Namespace:
@@ -59,8 +71,7 @@ def review_args(**overrides: object) -> argparse.Namespace:
         "timestamp_coverage": "passed",
         "input_type": "official_transcript",
         "source_kind": "rss",
-        "batch_asr_count": 0,
-        "batch_asr_seconds": 0,
+        "batch_id": None,
         "listening_resolved": False,
     }
     values.update(overrides)
@@ -109,12 +120,29 @@ def valid_article(value: dict[str, object], body_extra: str = "") -> str:
     return article(value, body_extra).replace("DateIgnored: no\n", "")
 
 
+def reviewed_timing(duration: float = 3600.0) -> archive.TimingCoverage:
+    return archive.TimingCoverage(cue_count=7, first_start=0.0, last_end=duration, max_gap=570.0)
+
+
 def test_archive_requires_explicit_human_readable_review() -> None:
     value = item()
     with pytest.raises(archive.ArchiveError, match="--complete"):
-        archive.validate_review(review_args(complete=False), value, has_timestamps=True)
+        archive.validate_review(review_args(complete=False), value, reviewed_timing())
     with pytest.raises(archive.ArchiveError, match="untimed transcript"):
-        archive.validate_review(review_args(timestamp_coverage="passed"), value, has_timestamps=False)
+        archive.validate_review(review_args(timestamp_coverage="passed"), value, None)
+
+
+def test_rss_transcript_source_must_match_item_metadata() -> None:
+    assert archive.rss_transcript_matches(TRANSCRIPT_URL, TRANSCRIPT_URL)
+    assert archive.rss_transcript_matches(
+        "https://example.com/transcripts/fixture", TRANSCRIPT_URL
+    )
+    assert not archive.rss_transcript_matches(
+        TRANSCRIPT_URL, "https://example.com/transcripts/other.vtt"
+    )
+    assert not archive.rss_transcript_matches(
+        TRANSCRIPT_URL, "https://attacker.example/transcripts/fixture.vtt"
+    )
 
 
 def test_archive_writes_private_assets_and_is_idempotent(tmp_path: Path) -> None:
@@ -267,12 +295,59 @@ def test_archive_rejects_missing_content_checks(tmp_path: Path) -> None:
 
 
 def test_json_transcript_rejects_non_finite_timestamp() -> None:
-    payload = b'{"segments":[{"start":Infinity,"text":"This is invalid timestamp data with enough transcript text to parse."}]}'
+    payload = b'{"segments":[{"start":Infinity,"end":20,"text":"This is invalid timestamp data with enough transcript text to parse."}]}'
     with pytest.raises(archive.ArchiveError, match="invalid timestamp"):
         archive.convert_transcript(payload, "json")
 
 
-def test_asr_requires_known_duration_budget_and_listening_resolution() -> None:
+def test_timed_transcript_rejects_false_coverage_and_bad_ranges() -> None:
+    repeated = "A substantial transcript cue with enough readable source material. " * 5
+    early = f"WEBVTT\n\n00:00:00.000 --> 00:00:30.000\n{repeated}\n\n00:10:00.000 --> 00:10:30.000\n{repeated}\n".encode()
+    with pytest.raises(archive.ArchiveError, match="ends too early"):
+        archive.archive_transcript(
+            item=item(),
+            payload=early,
+            source_format="vtt",
+            source_url=TRANSCRIPT_URL,
+            input_type="official_transcript",
+            source_kind="rss",
+            retrieved_at="2026-09-11T12:00:00Z",
+            timestamp_coverage="passed",
+            listening_resolved=False,
+            notes="Reviewed.",
+            library_dir=Path("unused"),
+        )
+
+    sparse = (
+        "WEBVTT\n\n"
+        f"00:00:00.000 --> 00:00:30.000\n{repeated}\n\n"
+        f"00:59:30.000 --> 01:00:00.000\n{repeated}\n"
+    ).encode()
+    with pytest.raises(archive.ArchiveError, match="internal gap"):
+        archive.archive_transcript(
+            item=item(),
+            payload=sparse,
+            source_format="vtt",
+            source_url=TRANSCRIPT_URL,
+            input_type="official_transcript",
+            source_kind="rss",
+            retrieved_at="2026-09-11T12:00:00Z",
+            timestamp_coverage="passed",
+            listening_resolved=False,
+            notes="Reviewed.",
+            library_dir=Path("unused"),
+        )
+
+    reversed_cues = f"WEBVTT\n\n00:10:00.000 --> 00:10:30.000\n{repeated}\n\n00:05:00.000 --> 00:05:30.000\n{repeated}\n".encode()
+    with pytest.raises(archive.ArchiveError, match="out-of-order"):
+        archive.convert_transcript(reversed_cues, "vtt")
+
+    missing_end = json.dumps({"segments": [{"start": 0, "text": repeated}]}).encode()
+    with pytest.raises(archive.ArchiveError, match="both start and end"):
+        archive.convert_transcript(missing_end, "json")
+
+
+def test_asr_requires_known_duration_batch_measured_duration_and_listening_resolution() -> None:
     unknown = item(duration=None)
     with pytest.raises(archive.ArchiveError, match="known episode duration"):
         archive.validate_review(
@@ -280,22 +355,35 @@ def test_asr_requires_known_duration_budget_and_listening_resolution() -> None:
                 input_type="video_agent_kit_asr",
                 source_kind="video_agent_kit",
                 listening_resolved=True,
+                batch_id="batch-1",
             ),
             unknown,
-            has_timestamps=True,
+            reviewed_timing(),
+            3600.0,
         )
 
     value = item(duration=3600)
-    with pytest.raises(archive.ArchiveError, match="item limit"):
+    with pytest.raises(archive.ArchiveError, match="--batch-id"):
         archive.validate_review(
             review_args(
                 input_type="video_agent_kit_asr",
                 source_kind="video_agent_kit",
                 listening_resolved=True,
-                batch_asr_count=1,
             ),
             value,
-            has_timestamps=True,
+            reviewed_timing(),
+            3600.0,
+        )
+    with pytest.raises(archive.ArchiveError, match="measured audio_duration_seconds"):
+        archive.validate_review(
+            review_args(
+                input_type="video_agent_kit_asr",
+                source_kind="video_agent_kit",
+                listening_resolved=True,
+                batch_id="batch-1",
+            ),
+            value,
+            reviewed_timing(),
         )
     with pytest.raises(archive.ArchiveError, match="duration limit"):
         archive.validate_review(
@@ -303,16 +391,49 @@ def test_asr_requires_known_duration_budget_and_listening_resolution() -> None:
                 input_type="video_agent_kit_asr",
                 source_kind="video_agent_kit",
                 listening_resolved=True,
-                batch_asr_seconds=4000,
+                batch_id="batch-1",
             ),
-            value,
-            has_timestamps=True,
+            item(duration=8000),
+            archive.TimingCoverage(cue_count=14, first_start=0.0, last_end=8000.0, max_gap=570.0),
+            8000.0,
         )
     with pytest.raises(archive.ArchiveError, match="--listening-resolved"):
         archive.validate_review(
-            review_args(input_type="video_agent_kit_asr", source_kind="video_agent_kit"),
+            review_args(
+                input_type="video_agent_kit_asr",
+                source_kind="video_agent_kit",
+                batch_id="batch-1",
+            ),
             value,
-            has_timestamps=True,
+            reviewed_timing(),
+            3600.0,
+        )
+
+
+def test_asr_batch_reservation_enforces_one_item_across_calls(tmp_path: Path) -> None:
+    value = item(duration=3600)
+    library = tmp_path / "local-library"
+    record = archive.reserve_asr_batch(
+        library, "batch-1", value, 3600.0, "2026-09-11T12:00:00Z"
+    )
+    assert record.is_file()
+    assert archive.reserve_asr_batch(
+        library, "batch-1", value, 3600.0, "2026-09-11T12:00:01Z"
+    ) == record
+    archive.validate_asr_batch_reservation(library, "batch-1", value, 3600.0)
+    with pytest.raises(archive.ArchiveError, match="does not match"):
+        archive.validate_asr_batch_reservation(library, "batch-1", value, 3000.0)
+
+    with pytest.raises(archive.ArchiveError, match="does not match"):
+        archive.reserve_asr_batch(
+            tmp_path / "other-library", "batch-2", value, 3000.0, "2026-09-11T12:00:01Z"
+        )
+
+    other = item(duration=1800)
+    other["item_id"] = "fixture-bbbbbbbbbbbb"
+    with pytest.raises(archive.ArchiveError, match="item limit"):
+        archive.reserve_asr_batch(
+            library, "batch-1", other, 1800.0, "2026-09-11T12:00:02Z"
         )
 
 
@@ -405,6 +526,22 @@ input_type: official_transcript
     assert any("missing required heading" in error for error in errors)
 
 
+def test_check_rejects_structure_spoofed_by_inline_code(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+    posts.mkdir(parents=True)
+    spoofed = valid_article(value)
+    spoofed = spoofed.replace("## 速读", "This sentence contains `## 速读`")
+    spoofed = spoofed.replace("## 主题正文", "This sentence contains ## 主题正文")
+    (posts / f"{ITEM_ID}.md").write_text(spoofed, encoding="utf-8")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("missing required heading: ## 速读" in error for error in errors)
+    assert any("missing required heading: ## 主题正文" in error for error in errors)
+
+
 def test_check_requires_exact_source_link(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
@@ -422,6 +559,8 @@ def test_check_rejects_case_variant_private_paths() -> None:
     assert check.is_disallowed_repository_path("Local-Library/source/transcript.md")
     assert check.is_disallowed_repository_path(".Cache/source/audio.mp3")
     assert check.is_disallowed_repository_path("NOTES/WECHAT-DRAFT.MD")
+    assert check.is_disallowed_repository_path("backup/Local-Library/private.txt")
+    assert check.is_disallowed_repository_path("snapshots/.Cache/private.bin")
 
 
 def test_check_rejects_unexpected_files_in_public_data_directories(tmp_path: Path) -> None:
@@ -434,8 +573,24 @@ def test_check_rejects_unexpected_files_in_public_data_directories(tmp_path: Pat
 
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
 
-    assert any("data/items may only contain JSON item files" in error for error in errors)
-    assert any("site/posts may only contain Markdown article files" in error for error in errors)
+    assert any("data/items may only contain direct JSON item files" in error for error in errors)
+    assert any("site/posts may only contain direct Markdown article files" in error for error in errors)
+
+
+def test_check_rejects_nested_public_content(tmp_path: Path) -> None:
+    value = item()
+    write_item(tmp_path, value)
+    nested_items = tmp_path / "data" / "items" / "nested"
+    nested_items.mkdir()
+    (nested_items / "extra.json").write_text("{}", encoding="utf-8")
+    nested_posts = tmp_path / "site" / "posts" / "nested"
+    nested_posts.mkdir(parents=True)
+    (nested_posts / "unchecked.md").write_text("# unchecked", encoding="utf-8")
+
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+
+    assert any("data/items/nested" in error for error in errors)
+    assert any("site/posts/nested" in error for error in errors)
 
 
 def test_check_rejects_unknown_frontmatter_and_missing_real_locator(tmp_path: Path) -> None:
