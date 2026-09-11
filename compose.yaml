@@ -12,14 +12,21 @@ services:
     command:
       - sh
       - -c
-      - npm run site:build && rm -rf /output/* && cp -a site/.vitepress/dist/. /output/
+      - rm -rf site && cp -a /source/site ./site && cp /source/build-index.mjs ./scripts/build-index.mjs && npm run site:build && rm -rf /output/* && cp -a site/.vitepress/dist/. /output/
     volumes:
+      - ./site:/source/site:ro
+      - ./scripts/build-index.mjs:/source/build-index.mjs:ro
       - ${SITE_OUTPUT_DIR:-./.cache/docker/site-dist}:/output
 
   collector-test:
     build:
       context: .
       target: collector-test
+    volumes:
+      - ./scripts:/workspace/scripts:ro
+      - ./tests:/workspace/tests:ro
+      - ./data:/workspace/data:ro
+      - ./site:/workspace/site:ro
 
   content-check:
     build:
@@ -68,6 +75,8 @@ services:
       - --output-dir
       - /output
     volumes:
+      - ./scripts:/workspace/scripts:ro
+      - ./config:/workspace/config:ro
       - ${COLLECT_OUTPUT_DIR:-./.cache/docker/collected-items}:/output
 
   pending:
@@ -80,4 +89,5 @@ services:
       - --items-dir
       - /output
     volumes:
+      - ./scripts:/workspace/scripts:ro
       - ${COLLECT_OUTPUT_DIR:-./.cache/docker/collected-items}:/output
