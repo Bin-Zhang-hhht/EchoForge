@@ -2,12 +2,12 @@
 
 **EchoForge · 技术播客**：从公开 Podcast RSS 发现技术访谈，在本地保存完整逐字稿并生成可追溯的中文精编，通过 GitHub Pages 提供个人技术信息雷达。
 
-> 文档基线：v0.7 · 2026-09-11。M1、M2 已完成统一 Docker 环境的本地验证，M3 未开始；远端 Pages 和 Actions 运行尚未验证。未实现的目录、脚本和命令仍是约定，不代表已运行或部署。
+> 文档基线：v0.8 · 2026-09-11。M1、M2 已完成统一 Docker 环境的本地验证；M3 已完成三篇真实内容的本地处理、复核与站点构建，最终验收仍等待远端 Pages / Actions、私有备份恢复和用户阅读验证。未观察到的远端或用户侧结果不记为成功。
 
 ## 阅读顺序
 
 1. [产品文档](docs/product.md)：目标、首版边界、内容质量与处理预算。
-2. [审查与决策记录](docs/decisions.md)：关键取舍及 v0.7 调整理由。
+2. [审查与决策记录](docs/decisions.md)：关键取舍及 v0.8 调整理由。
 3. [架构文档](docs/architecture.md)：目录、文件契约、检查与发布流程。
 4. [执行计划](docs/implementation-plan.md)：M1～M3 实施顺序和验收标准。
 5. [Podcast RSS 来源清单](docs/podcast-sources.md)：人工维护的来源池及首批五个 Feed。
@@ -21,11 +21,12 @@
 ```bash
 docker compose run --rm site-build
 docker compose run --rm collector-test
+docker compose run --rm content-check
 docker compose run --rm collect
 docker compose run --rm pending --limit 10
 ```
 
-`site-build` 生成 VitePress 产物，`collector-test` 运行采集器测试，`workflow-lint` 检查 Actions，`collect` 只获取 RSS 元信息并写入挂载的输出目录，`pending` 验证并列出候选。`scripts/test-in-docker.sh` 是本地和 `.github/workflows/test.yml` 共同使用的测试入口。Docker 是开发测试基线，不是网站或采集器的长期运行服务。
+`site-build` 生成 VitePress 产物，`collector-test` 运行采集器和 M3 测试，`content-check` 检查公开内容与 Git 边界，`workflow-lint` 检查 Actions，`collect` 只获取 RSS 元信息并写入挂载的输出目录，`pending` 验证并列出候选。Compose 服务把当前工作区的脚本、配置、测试或站点内容只读挂入锁定依赖镜像，因此直接运行与先构建后运行都检查当前文件。`scripts/test-in-docker.sh` 是本地和 `.github/workflows/test.yml` 共同使用的完整测试入口。Docker 是开发测试基线，不是网站或采集器的长期运行服务。
 
 ## 工作流与边界
 
@@ -42,6 +43,6 @@ docker compose run --rm pending --limit 10
 | --- | --- | --- |
 | M1 | VitePress 默认主题网站和 GitHub Pages 发布 | 已完成本地验证，Pages 待部署验证 |
 | M2 | 首批五个 RSS 的元信息采集与状态保留 | 已完成 Docker 本地验证，Actions 待验证 |
-| M3 | 三篇真实笔记、逐字稿资产、质量门与一次用户阅读验收 | 未开始 |
+| M3 | 三篇真实笔记、逐字稿资产、质量门与一次用户阅读验收 | 三篇内容已完成本地闭环；远端部署、备份恢复与用户阅读验收待完成 |
 
-当前已可通过 Docker 构建 VitePress、测试采集器、采集五个 Feed 并查看待处理项。M3 将接入本地 ZCode / Video Agent Kit 内容处理。远端工作流和部署状态只有实际运行后才会更新；达到 M3 后先实际使用，不追加首版功能。
+当前可通过 Docker 构建包含一篇演示和三篇真实精编的 VitePress 站点、运行 36 项测试、检查公开内容、采集五个 Feed 并查看剩余 16 条待处理项。M3 本批使用两份官方 transcript 和一次 Video Agent Kit ASR，三篇文章均经过完整源材料复核；私有逐字稿、音频和批次记录未进入 Git。远端工作流和部署状态只有实际运行后才会更新，私有备份恢复与用户阅读验收也必须由相应环境实际完成。

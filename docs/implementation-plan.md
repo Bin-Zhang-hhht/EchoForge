@@ -1,8 +1,8 @@
 # EchoForge — 执行计划
 
-> 版本：v0.7 · 2026-09-11
+> 版本：v0.8 · 2026-09-11
 > 依据：[产品文档](product.md)、[架构文档](architecture.md)、[Podcast RSS源清单](podcast-sources.md)
-> 当前状态：M1、M2 已完成统一 Docker 环境的本地验证，M3 未开始；远端 Pages 与 Actions 运行尚未验证。项目名称已确定为 **EchoForge**，建议仓库名 `echoforge`。
+> 当前状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 已完成三篇真实内容的本地闭环，最终验收等待远端 Pages / Actions、私有备份恢复及用户阅读验证。项目名称已确定为 **EchoForge**，建议仓库名 `echoforge`。
 
 ## 1. 开发原则
 
@@ -68,7 +68,7 @@ M2 Gate 通过后，可以按来源清单逐步加入 Software Engineering Radio
 
 实施内容：
 
-- 编写 `prompts/process-podcasts.md` 和简短 `AGENTS.md`，落实以下边界、内容原则和发布步骤；这些文件仍待实现。
+- 编写 `prompts/process-podcasts.md` 和简短 `AGENTS.md`，落实处理边界、内容原则和发布步骤；已完成。
 - 建立 `local-library/<source_id>/<item_id>/` 的长期资产约定，不当作缓存。`metadata.yaml` 最小记录来源获取方式、URL、时间、可用性说明和内容检查结论，不建设 evidence 数据库。
 - 实现 transcript-first：优先取得完整可用的官方 / RSS transcript；无法取得完整可用稿时，才在允许且预算足够的情况下由 ZCode 调用 Video Agent Kit ASR。官方稿与 ASR 均核对期次身份、是否逐字稿而非摘要、明显截断和可读性；有时间戳及节目时长时检查覆盖，不用固定字数比例，也不要求广告或音乐逐字转录。工具成功或文件存在不代表材料可用。
 - ASR 前确定实际音频时长；无法在预算内确定则延期为 `pending` 并报告。完整可用材料获取失败标 `failed` 并写原因，预算延期保留 `pending`，不能从部分稿、标题或简介生成整期总结。
@@ -133,18 +133,18 @@ M2 Gate 通过后，可以按来源清单逐步加入 Software Engineering Radio
 
 ## 8. 日常闲时任务模板
 
-以下内容在 M3 完成后，可作为投放任务时的说明；其中脚本和命令当前仍待实现。
+以下内容已实现为 `AGENTS.md`、`prompts/process-podcasts.md`、Docker Compose 服务和 M3 检查脚本，可作为日常投放任务说明：
 
 ```text
 阅读 AGENTS.md、prompts/process-podcasts.md 和 templates/post.md。
 
 确认工作区没有不相关改动，拉取 main。
-执行 `python scripts/pending.py --limit 10`，将其作为候选窗口；按本批最多 3 篇文章、最多 1 次新 ASR 且新增音频总时长不超过 120 分钟的预算选取处理项。预算不足或无法在预算内确定实际音频时长的条目保留 `pending` 并报告。
+执行 `docker compose run --rm pending --limit 10`，将其作为候选窗口；按本批最多 3 篇文章、最多 1 次新 ASR 且新增音频总时长不超过 120 分钟的预算选取处理项。预算不足或无法在预算内确定实际音频时长的条目保留 `pending` 并报告。
 
 先按元信息筛选。只有明确不相关或不值得处理才标记 ignored 并说明原因，允许按现有顺序积压，不评分。
 优先复用本地完整可用材料；否则先获取完整可用的官方 / RSS transcript。
 无法取得完整可用稿时，才在允许且预算足够的情况下使用 Video Agent Kit ASR。
-ASR 前先确定实际音频时长，无法在预算内确定则延期 pending 并报告。
+ASR 前先检查实际音频时长，并通过 `docker compose run --rm asr-reserve --batch-id <batch-id> --item-id <item-id> --measured-audio-seconds <seconds>` 预约本批唯一名额；无法在预算内确定或预约失败则延期 pending 并报告。
 官方稿与 ASR 均核对期次身份、不是摘要、无明显截断且可读；有时长和时间戳时检查覆盖。
 不设固定字数比例，不要求转录广告或音乐；工具成功或文件存在不算可用性通过。
 无法取得完整可用材料则 failed 并写原因，预算延期则 pending；不从部分材料、标题或简介生成整期总结。
@@ -160,9 +160,9 @@ ASR 前先确定实际音频时长，无法在预算内确定则延期 pending �
 完整逐字稿、人工笔记、公众号草稿和视频脚本不要提交 Git。
 使用已有私有备份机制保留 local-library/（含编辑笔记）的独立副本，首次验证逐字稿和笔记均可恢复，不建设备份服务。
 
-执行 python scripts/check.py，检查元信息、状态、正文、链接格式、文章双向对应、禁止可执行 Markdown 和禁止跟踪 / 暂存文件。
+执行 `docker compose run --rm content-check`，检查元信息、状态、正文、链接格式、文章双向对应、禁止可执行 Markdown 和禁止跟踪 / 暂存文件。
 只有完整材料可用、ZCode 内容复核和基本检查通过才标 processed；这不表示已部署或经过独立事实认证。
-执行 npm run site:build。
+执行 `docker compose run --rm site-build`。
 只提交本批有关 GitHub 文件；正常同步远端，冲突时停止，不 force push。
 检查通过后推送 main，不另行 dispatch，不修改工作流或依赖。
 
@@ -177,6 +177,6 @@ ASR 前先确定实际音频时长，无法在预算内确定则延期 pending �
 
 | 阶段 | 状态 | 验收记录 |
 | --- | --- | --- |
-| M1 网站和发布 | 已完成（本地验证） | `npm ci`、`npm run site:build` 通过；本地预览已验证首页、文章列表、示例详情、项目路径导航和本地搜索。远端 Pages 部署待首次推送 `main` 后验证 |
+| M1 网站和发布 | 已完成（Docker 本地验证） | `docker compose run --rm site-build` 通过；本地预览已验证首页、文章列表、示例详情、项目路径导航和本地搜索。远端 Pages 部署待首次推送 `main` 后验证 |
 | M2 RSS 采集 | 已完成（Docker 本地验证） | 统一 Docker 测试入口通过：VitePress 构建、16 项采集测试和 Actions lint；5 个真实 Feed 均成功，首次新增 19 条、第二次新增 0 条；人工状态逐字节保留；单源失败继续、全源失败返回非零；`pending` 验证 19 个有效 JSON。远端 Actions 尚未实际运行 |
-| M3 本地逐字稿 + 机器摘要闭环 | 未开始 | 待填写 |
+| M3 本地逐字稿 + 机器摘要闭环 | 本地内容闭环已完成，最终验收待外部步骤 | 三份完整私有逐字稿已归档并经新逻辑幂等复验：Practical AI 官方 VTT 177 cues，Data Skeptic 单次 ASR 239 segments，Recsperts 官方无时间戳长稿；三份均完成全文阅读。三篇真实 Machine Digest 经来源逐项复核，修正 12 处定位或表述后通过；19 个 item 中 3 个 processed、16 个 pending。共享 Docker 入口通过 VitePress 4 篇构建、36 项测试、content-check 和 Actions lint。远端 Pages / Actions、私有备份恢复及用户阅读验收尚未执行 |

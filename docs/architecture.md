@@ -1,8 +1,8 @@
 # EchoForge — 架构文档
 
-> 版本：v0.7 · 2026-09-11
+> 版本：v0.8 · 2026-09-11
 > 依据：[产品文档](product.md)
-> 状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 待实现。下文未实现的文件和命令仍是约定，不代表已经运行或部署。远端 Pages 与 Actions 尚未验证。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
+> 状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 的 transcript archive、ASR 预约、内容检查和三篇真实文章已完成本地闭环。远端 Pages / Actions、私有备份恢复及用户阅读验收待验证。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。
 
 ## 1. 总体结构
 
@@ -42,7 +42,9 @@ echoforge/
 ├── scripts/
 │   ├── collect.py                # RSS 读取、去重、过滤、保存
 │   ├── pending.py                # 输出待处理条目及数量
-│   ├── check.py                  # 少量数据、文章及安全检查
+│   ├── archive_transcript.py       # 审核确认、格式转换、完整性与归档幂等检查
+│   ├── reserve_asr.py              # 转写前原子预约本批唯一 ASR 名额
+│   ├── check.py                    # 少量数据、文章及安全检查
 │   └── build-index.mjs           # 从 Markdown 生成文章列表
 ├── prompts/
 │   └── process-podcasts.md       # 本地闲时任务操作说明
@@ -215,7 +217,9 @@ tags: [Agent]
 
 本项目只提供操作文档和小脚本，由 ZCode 执行，不再开发 Agent runtime、模型路由或自动调度器。闲时任务的可用性和设备要求以宿主为准，不把当前免费政策写成永久系统承诺。[Z1]
 
-每批初始上限为最多 3 篇文章、最多 1 次新 ASR，新增 ASR 音频总时长不超过 120 分钟；优先复用本地已有可用材料。`pending.py --limit 10` 只是候选窗口，不是处理配额。预算不足的条目标记 `pending` 并保留原因；只有明确不相关或不值得处理才标记 `ignored`。不做评分系统，积压按当前顺序处理。
+每批初始上限为最多 3 篇文章、最多 1 次新 ASR，新增 ASR 音频总时长不超过 120 分钟；优先复用本地已有可用材料。`pending.py --limit 10` 只是候选窗口，不是处理配额。预算不足的条目保持 `pending`，并在批次报告说明原因；只有明确不相关或不值得处理才标记 `ignored`。不做评分系统，积压按当前顺序处理。
+
+新 ASR 必须在转写前通过 `asr-reserve` Compose 服务预约：传入稳定 `batch_id`、item 和媒体探测得到的实际时长。预约写入私有 `local-library/.batches/<batch_id>/asr.json`，使用原子目录创建阻止同一批第二期 ASR；归档时再比较预约、RSS 时长和 Video Agent Kit JSON 的 `audio_duration_seconds`。带时间戳材料由归档器自动检查 cue 顺序、首尾覆盖和最大内部空洞，并把统计写入私有 manifest；人工确认不能替代这些确定性检查。
 
 ZCode 在本地处理链中的职责：
 
@@ -270,7 +274,7 @@ VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录和
 
 ## 7. 只保留必要检查
 
-`check.py` 只做确定性检查：metadata/status/body/link 格式、文章与 `item_id` 对应关系、来源链接、正文非空、禁止可执行 Markdown 内容，以及不应提交或暂存的 disallowed 文件。它不证明观点准确。ZCode 在标记 `processed` 前还须对照完整本地逐字稿，复核核心观点、数字、因果、建议、条件、不确定性、归因和真实定位；补充解释要明确标为补充内容而非来源原话。无法验证的外围断言应删除；未解决的核心断言不得发布，标记 `failed` 并记录原因。
+`check.py` 只做确定性检查：metadata/status/body/link 格式、文章与 `item_id` 对应关系、来源链接、真实 Markdown 标题结构、禁止可执行 Markdown 内容、公开目录只能有直接子文件，以及任何层级不应提交或暂存的私有文件。它不证明观点准确。ZCode 在标记 `processed` 前还须对照完整本地逐字稿，复核核心观点、数字、因果、建议、条件、不确定性、归因和真实定位；补充解释要明确标为补充内容而非来源原话。无法验证的外围断言应删除；未解决的核心断言不得发布，标记 `failed` 并记录原因。
 
 本地处理额外做两个前置检查：正式文章生成前确认本期存在完整且通过可用性检查的官方 transcript 或 ASR 逐字稿资产；音频清理前确认逐字稿已保存、检查已通过、需要回听的疑点已解决。检查不进入 GitHub CI，因为 CI 不应依赖本地私有资产。`processed` 只表示可用材料和内容 / 基本检查完成，不表示已部署，也不是独立事实认证。
 
