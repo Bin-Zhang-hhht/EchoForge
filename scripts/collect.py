@@ -517,6 +517,16 @@ def write_item(output_dir: Path, item: Mapping[str, Any]) -> bool:
     return True
 
 
+def write_collection_stamp(stamp_file: Path, now: datetime) -> None:
+    """Record the collection run time. The file lives outside the items directory
+    (default: its parent), so data/items keeps its strict
+    <source_id>/<year>/<item_id>.json layout; container runs pass --stamp-file
+    because mounted output paths have no meaningful parent."""
+    stamp = {"last_collected_at": utc_iso(now)}
+    stamp_file.parent.mkdir(parents=True, exist_ok=True)
+    stamp_file.write_text(json.dumps(stamp, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def collect_source(
     source: Source,
     output_dir: Path,
@@ -641,6 +651,7 @@ def collect(
     retries: int = DEFAULT_RETRIES,
     lookback_days: int = DEFAULT_LOOKBACK_DAYS,
     fetcher: Callable[[str, float, int], bytes] = fetch_feed,
+    stamp_file: Path | None = None,
 ) -> tuple[int, list[SourceSummary], str]:
     if timeout <= 0:
         raise CollectorError("timeout must be positive")
@@ -663,6 +674,7 @@ def collect(
             summary = SourceSummary(source.source_id, source.name, "error", error=str(error))
         summaries.append(summary)
 
+    write_collection_stamp(stamp_file if stamp_file is not None else output_dir.parent / "collected-at.json", now)
     text = render_summary(summaries, output_dir)
     return (1 if all(summary.status == "error" for summary in summaries) else 0), summaries, text
 
@@ -679,6 +691,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=DEFAULT_LOOKBACK_DAYS,
         help="Intake window in days (default 30); raise it for local cold starts or outage backfill.",
     )
+    parser.add_argument(
+        "--stamp-file",
+        type=Path,
+        default=None,
+        help="Where to write the collection run time (default: collected-at.json next to the output directory).",
+    )
     return parser
 
 
@@ -692,6 +710,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             timeout=args.timeout,
             retries=args.retries,
             lookback_days=args.lookback_days,
+            stamp_file=args.stamp_file,
         )
     except CollectorError as error:
         summary = f"## EchoForge podcast collection\n\nCollection failed: {error}\n"

@@ -330,6 +330,21 @@ def test_valid_empty_feed_is_a_success(tmp_path: Path) -> None:
     assert "1 succeeded, 0 failed" in text
 
 
+def test_collection_stamp_records_run_time_outside_items_dir(tmp_path: Path) -> None:
+    config = tmp_path / "sources.yaml"
+    output = tmp_path / "items"
+    url = "https://example.com/empty.xml"
+    write_config(config, [{"id": "empty", "name": "Empty", "url": url}])
+    fetcher = lambda _url, _timeout, _retries: b"<?xml version='1.0'?><rss version='2.0'><channel><title>Empty</title></channel></rss>"  # noqa: E731
+
+    exit_code, _, _ = collect.collect(config, output, NOW, fetcher=fetcher)
+
+    assert exit_code == 0
+    stamp = json.loads((tmp_path / "collected-at.json").read_text(encoding="utf-8"))
+    assert stamp == {"last_collected_at": "2026-09-11T00:00:00Z"}
+    assert not (output / "collected-at.json").exists()
+
+
 def test_source_failures_are_isolated_and_all_fail_is_nonzero(tmp_path: Path) -> None:
     config = tmp_path / "sources.yaml"
     output = tmp_path / "items"

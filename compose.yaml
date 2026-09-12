@@ -75,10 +75,13 @@ services:
       - config/sources.yaml
       - --output-dir
       - /output
+      - --stamp-file
+      - /stamp/collected-at.json
     volumes:
       - ./scripts:/workspace/scripts:ro
       - ./config:/workspace/config:ro
       - ${COLLECT_OUTPUT_DIR:-./.cache/docker/collected-items}:/output
+      - ${COLLECT_STAMP_DIR:-./data}:/stamp
 
   pending:
     build:

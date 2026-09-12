@@ -197,6 +197,24 @@ async function loadItems() {
   return items;
 }
 
+async function loadCollectedAt() {
+  try {
+    const stamp = JSON.parse(await readFile(join(dataDirectory, '..', 'collected-at.json'), 'utf8'));
+    return typeof stamp.last_collected_at === 'string' ? stamp.last_collected_at : null;
+  } catch {
+    return null;
+  }
+}
+
+// Collection runs record UTC; the site audience is UTC+8, so show Beijing wall-clock time to the minute.
+function formatCollectedAt(iso) {
+  const parsed = new Date(iso);
+  if (Number.isNaN(parsed.getTime())) {
+    return null;
+  }
+  return new Date(parsed.getTime() + 8 * 60 * 60 * 1000).toISOString().slice(0, 16).replace('T', ' ');
+}
+
 function buildSourceStats(articles, items) {
   const sources = new Map();
   for (const item of items) {
@@ -225,7 +243,7 @@ function buildSourceStats(articles, items) {
   );
 }
 
-async function buildHomePage(articles, items, tagCount) {
+async function buildHomePage(articles, items, tagCount, collectedAt) {
   const realArticles = articles.filter((article) => article.path.split('/').length === 3);
   const sources = buildSourceStats(realArticles, items);
   const pending = items.filter((item) => item.status === 'pending').length;
@@ -236,6 +254,7 @@ async function buildHomePage(articles, items, tagCount) {
   const hours = Math.round(totalSeconds / 3600);
   const covered = sources.filter((source) => source.articleCount > 0).length;
   const latestDate = realArticles.length ? realArticles[0].date : null;
+  const collectedMinutes = formatCollectedAt(collectedAt);
 
   const features = [
     {
@@ -248,7 +267,9 @@ async function buildHomePage(articles, items, tagCount) {
     {
       icon: '⏳',
       title: `${pending} 条待处理`,
-      details: `已收录 ${items.length} 期节目素材`
+      details: collectedMinutes
+        ? `已收录 ${items.length} 期节目素材 · 最近收集 ${collectedMinutes} UTC+8`
+        : `已收录 ${items.length} 期节目素材`
     },
     {
       icon: '🎙️',
@@ -417,7 +438,8 @@ async function buildIndex() {
   }
   console.log(`Generated ${relative(projectRoot, tagsPath)} and ${tagEntries.length} tag page(s).`);
 
-  await buildHomePage(articles, items, tagMap.size);
+  const collectedAt = await loadCollectedAt();
+  await buildHomePage(articles, items, tagMap.size, collectedAt);
 
   const sources = groupBySource(articles);
   for (const source of sources) {

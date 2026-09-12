@@ -3,7 +3,7 @@
 # EchoForge · 技术播客
 
 
-[![test](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml)[![collect](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml)[![deploy](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml)[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![test](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml) [![collect](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml) [![deploy](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 从公开 Podcast RSS 发现技术访谈，在本地保存完整逐字稿并生成可追溯的中文精编——先看重点观点与边界，再决定是否回听。
 

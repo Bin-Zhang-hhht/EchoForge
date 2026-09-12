@@ -37,9 +37,11 @@ echoforge/
 │   └── deploy.yml                # main 更新后构建、部署网站
 ├── config/
 │   └── sources.yaml              # 当前实际启用的 RSS 白名单和简单过滤条件
-├── data/items/
-│   └── <source_id>/<year>/
-│       └── <item_id>.json        # 每期一个文件，包含处理状态；按来源与发布年份分片
+├── data/
+│   ├── collected-at.json        # 最近一次采集运行时间（UTC，collect 写入，位于 items 同级）
+│   └── items/
+│       └── <source_id>/<year>/
+│           └── <item_id>.json        # 每期一个文件，包含处理状态；按来源与发布年份分片
 ├── scripts/
 │   ├── collect.py                # RSS 读取、去重、过滤、保存
 │   ├── pending.py                # 输出待处理条目及数量
@@ -223,10 +225,11 @@ tags: [Agent]
 
 ```text
 拉取 main → 安装采集依赖 → 读取来源 → 保存新增元信息
+→ 写入最近采集时间 data/collected-at.json
 → 输出采集摘要 → 有变化才提交并推送 main
 ```
 
-摘要包括各来源是否成功、本次新增、过滤数量和当前待处理数量，写到 Actions 运行摘要，不向飞书等外部渠道发送消息。
+摘要包括各来源是否成功、本次新增、过滤数量和当前待处理数量，写到 Actions 运行摘要，不向飞书等外部渠道发送消息。每次采集结束时 collect 把运行时刻写入 items 目录同级的 `data/collected-at.json`（UTC，精确到秒），采集工作流把该文件与 `data/items` 一起提交；站点首页据此展示「最近收集」时间。
 
 使用内置 `GITHUB_TOKEN`，权限只需 `contents: write`。同类采集任务串行执行。单一来源请求失败时记录原因并继续其他来源；所有启用来源都失败时工作流报错，不能把它报告为“今日没有更新”。
 
@@ -300,7 +303,7 @@ GitHub Machine Digest
 
 VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录、`home` 布局和阅读样式，不制作自定义主题组件。[V2]
 
-首页 `site/index.md` 由 `build-index.mjs` 生成：精编数、待处理数、覆盖节目和收录总时长等统计在构建时从 `data/items` 与文章现算；节目卡按精编数排序，无精编的节目显示收录情况；横幅图自动探测 `site/public/banner.*`（png/jpg/jpeg/webp/avif/svg），存在时写入 `hero.image`。首页统计是最近一次构建的快照，随文章更新同批生效。首页与文章列表、标签页、节目页、侧边栏一样都是派生产物，不提交 Git，不由 Agent 手工维护。
+首页 `site/index.md` 由 `build-index.mjs` 生成：精编数、待处理数、覆盖节目和收录总时长等统计在构建时从 `data/items` 与文章现算；待处理卡在 `data/collected-at.json` 存在时附「最近收集」时间（collect 每次运行写入的 UTC 时刻，展示按 UTC+8 精确到分钟），文件缺失时保持原有文案；节目卡按精编数排序，无精编的节目显示收录情况；横幅图自动探测 `site/public/banner.*`（png/jpg/jpeg/webp/avif/svg），存在时写入 `hero.image`。首页统计是最近一次构建的快照，随文章更新同批生效。首页与文章列表、标签页、节目页、侧边栏一样都是派生产物，不提交 Git，不由 Agent 手工维护。
 
 `build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成两个列表页：`site/posts/index.md` 是本周速览（列出最近 7 天整理的非演示精编，空窗口时指向全部文章）；`site/posts/all/index.md` 是全部文章（按整理年份分组，年份内倒序）。`site/tags/index.md` 是标签总览页：一行一个标签、附文章数，按文章数排序；同时为每个标签生成 `site/tags/<标签>/index.md`，列出该标签下的文章，与文章页元信息块中的标签行互链。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（本周速览、全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径，顶栏「文章」入口即本周速览。节目页、速览与列表页、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
 

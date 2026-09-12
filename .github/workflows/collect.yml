@@ -48,7 +48,7 @@ jobs:
       - name: Commit new metadata
         run: |
           rm -f collection-summary.md
-          git add data/items
+          git add data/items data/collected-at.json
           if git diff --cached --quiet; then
             echo 'No new podcast metadata.'
             exit 0
