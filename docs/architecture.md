@@ -1,8 +1,6 @@
 # EchoForge — 架构文档
 
-> 版本：v0.9 · 2026-09-12
-> 依据：[产品文档](product.md)
-> 状态：M1、M2 已完成统一 Docker 环境的本地验证；M3 的 transcript archive、ASR 预约、内容检查和三篇真实文章已完成本地闭环。远端 Pages / Actions、私有备份恢复及用户阅读验收待验证。项目正式命名为 **EchoForge**，建议仓库及本地目录名统一为 `echoforge`。v0.9 将公开数据与文章改为按来源和年份分片存储。
+> 依据：[产品文档](product.md)；关键决策与当前实现基线见[决策记录](decisions.md)
 
 ## 1. 总体结构
 
@@ -22,7 +20,7 @@ collect.yml                                                            deploy.ym
                                     └─ video-script.md ──人工审核→ 后续视频制作
 ```
 
-只有一个 `main` 分支。`data/` 是普通目录，不是分支；不用 worktree、跨分支 dispatch、双 SHA 发布协议或数据晋升流程。网站通过 Pages artifact 部署，不再创建 `gh-pages` 发布分支。
+只有一个 `main` 分支；`data/` 是普通目录，不是分支。网站通过 Pages artifact 部署，不创建 `gh-pages` 发布分支。
 
 **本地长期资产与 Git 仓库严格分层：** `local-library/` 保存逐字稿和人工编辑材料；`.cache/` 只放临时音频和可随时重建的中间文件；两者都不提交 Git。
 
@@ -34,7 +32,8 @@ collect.yml                                                            deploy.ym
 echoforge/
 ├── .github/workflows/
 │   ├── collect.yml               # 每日采集，只写元信息
-│   └── deploy.yml                # main 更新后构建、部署网站
+│   ├── deploy.yml                # main 更新后构建、部署网站
+│   └── test.yml                  # 共享测试入口，本地与 CI 同一命令
 ├── config/
 │   └── sources.yaml              # 当前实际启用的 RSS 白名单和简单过滤条件
 ├── data/
@@ -65,7 +64,7 @@ echoforge/
 │   │   └── logo.svg              # 站点标识与 favicon
 │   ├── posts/
 │   │   ├── index.md              # 构建生成的全部文章列表，不提交 Git
-│   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
+│   │   ├── demo-vitepress-site.md  # 演示文章，直接位于 posts 根目录
 │   │   └── <source_id>/
 │   │       ├── index.md          # 构建生成的节目页，不提交 Git
 │   │       └── <year>/
@@ -75,7 +74,6 @@ echoforge/
 ├── docs/
 │   ├── product.md
 │   ├── architecture.md
-│   ├── implementation-plan.md
 │   ├── decisions.md
 │   └── podcast-sources.md         # 人工维护的来源池，不是运行时自动发现模块
 ├── local-library/                # 本地长期内容资产，不提交 Git
@@ -108,7 +106,7 @@ echoforge/
 
 所有实际采集来源在 `config/sources.yaml` 维护，不为一种来源拆一套配置系统。经过人工调研的来源池单独记录在 [Podcast RSS源清单](podcast-sources.md)；运行时不读取该文档，也不自动发现新源。
 
-M2 首次联调只加入 5 个 Feed：Recsperts、Data Skeptic、Latent Space、Practical AI 和 Software Engineering Daily。其他来源是否加入，只通过后续人工修改 `sources.yaml` 完成。
+当前启用 5 个 Feed：Recsperts、Data Skeptic、Latent Space、Practical AI 和 Software Engineering Daily，全部全量收集。其他来源是否加入，只通过人工修改 `sources.yaml` 完成。
 
 ```yaml
 sources:
@@ -236,7 +234,7 @@ tags: [Agent]
 
 使用内置 `GITHUB_TOKEN`，权限只需 `contents: write`。同类采集任务串行执行。单一来源请求失败时记录原因并继续其他来源；所有启用来源都失败时工作流报错，不能把它报告为“今日没有更新”。
 
-只新增元信息的提交不需要更新阅读站点。`GITHUB_TOKEN` 的普通 push 不会再触发另一个 push 工作流，本设计不依赖它触发部署。[G1]
+只新增元信息的提交不需要更新阅读站点。`GITHUB_TOKEN` 的普通 push 不会再触发另一个 push 工作流，本设计不依赖它触发部署（参见 [GitHub 工作流触发文档](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)）。
 
 ### 4.2 deploy.yml
 
@@ -247,15 +245,15 @@ tags: [Agent]
 → 构建 VitePress → 上传一个 Pages artifact → 部署
 ```
 
-沿用 VitePress 官方 Pages 工作流的基本结构；权限为 `contents: read`、`pages: write`、`id-token: write`，部署任务串行。产物目录为 `site/.vitepress/dist`，仓库 Pages 发布源设为 GitHub Actions。[V1]
+沿用 [VitePress 官方 Pages 部署指南](https://vitepress.dev/guide/deploy)的基本结构；权限为 `contents: read`、`pages: write`、`id-token: write`，部署任务串行。产物目录为 `site/.vitepress/dist`，仓库 Pages 发布源设为 GitHub Actions。
 
-如果使用项目站点路径，正确配置 `base: '/仓库名/'`；自定义域名或根站点按实际路径配置。[V1]
+如果使用项目站点路径，正确配置 `base: '/仓库名/'`；自定义域名或根站点按实际路径配置。
 
 部署失败时，文章提交和 `processed` 状态不回滚。修复后手动重跑部署即可。没有实际看到部署成功，不把“已推送”报告成“已上线”。
 
 ## 5. 本地闲时任务
 
-本项目只提供操作文档和小脚本，由 ZCode 执行，不再开发 Agent runtime、模型路由或自动调度器。闲时任务的可用性和设备要求以宿主为准，不把当前免费政策写成永久系统承诺。[Z1]
+本项目只提供操作文档和小脚本，由 ZCode 执行，不再开发 Agent runtime、模型路由或自动调度器。闲时任务的可用性和设备要求以宿主为准，不把当前免费政策写成永久系统承诺（参见 [ZCode 闲时任务文档](https://zcode.z.ai/en/docs/idle-time-tasks)）。
 
 每批初始上限为最多 3 篇文章、最多 1 次新 ASR，新增 ASR 音频总时长不超过 120 分钟；优先复用本地已有可用材料。`pending.py --limit 10` 只是候选窗口，不是处理配额。过滤重心在本地：采集侧只保留无损过滤（窗口、身份、格式），主题取舍由每批候选窗口梳理完成——先梳理整个窗口，明显不相关的标 `ignored` 并写原因，再从其余候选中选篇。预算不足的条目保持 `pending`，并在批次报告说明原因；只有明确不相关或不值得处理才标记 `ignored`。不做评分系统，积压按当前顺序处理。
 
@@ -304,15 +302,15 @@ GitHub Machine Digest
 
 ## 6. 网站实现
 
-VitePress 按 Markdown 文件生成页面；使用默认主题并通过少量 `theme/` CSS 调整文章元信息卡与移动端排版，不制作自定义 Vue 组件。[V2]
+VitePress 按 [Markdown 文件生成页面](https://vitepress.dev/guide/routing)；使用默认主题并通过少量 `theme/` CSS 调整文章元信息卡与移动端排版，不制作自定义 Vue 组件。
 
 首页 `site/index.md` 由 `build-index.mjs` 生成：第一屏呈现项目定位，随后展示最近整理的 5 篇文章（摘要、节目、阅读时长和标签），再提供主题、节目页、关于说明与靠后的运行统计。运行统计从 `data/items` 与文章现算，首页不展示待处理数量。首页、文章列表、标签页、节目页和侧边栏都是派生产物，不提交 Git。
 
 `build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成唯一文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序），并生成标签总览与各标签页、各节目页、侧边栏配置，以及供文章页脚注入上一篇/下一篇的 `posts-order.json`。文章列表、标签页和节目页都提供摘要、阅读时长和必要的来源信息；顶栏与侧边栏使用「全部文章」「标签」和节目入口，文章页脚按全站整理时间顺序提供「上一篇 / 下一篇」（列表页、标签页、节目页和演示文章不参与）。
 
-搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
+搜索直接启用 `themeConfig.search.provider: 'local'`，使用 [VitePress 内置本地搜索](https://vitepress.dev/reference/default-theme-search)，不引入 Pagefind、外部搜索服务或向量库。
 
-约定三个 npm 入口：`site:dev`、`site:build`、`site:preview`。前两个先生成文章列表，`site:build` 再执行 `vitepress build site`。初版只需默认主题下的标题/正文检索，不扩展中文搜索算法工程。
+约定 `site:dev`、`site:build`、`site:preview` 三个 npm 入口，均先经 `site:generate-index` 生成文章列表，`site:build` 再执行 `vitepress build site`。初版只需默认主题下的标题/正文检索，不扩展中文搜索算法工程。
 
 ## 7. 只保留必要检查
 
@@ -320,36 +318,6 @@ VitePress 按 Markdown 文件生成页面；使用默认主题并通过少量 `t
 
 本地处理额外做两个前置检查：正式文章生成前确认本期存在完整且通过可用性检查的官方 transcript 或 ASR 逐字稿资产；音频清理前确认逐字稿已保存、检查已通过、需要回听的疑点已解决。检查不进入 GitHub CI，因为 CI 不应依赖本地私有资产。`processed` 只表示可用材料和内容 / 基本检查完成，不表示已部署，也不是独立事实认证。
 
-文章只允许普通 Markdown 与规定的 frontmatter，不允许引入脚本、Vue 组件或可执行页面配置；引用材料里的模板表达式应作为字面文本转义。VitePress 支持在 Markdown 内使用 Vue，不能把任意抓取内容直接当可信页面编译。[V4]
+文章只允许普通 Markdown 与规定的 frontmatter，不允许引入脚本、Vue 组件或可执行页面配置；引用材料里的模板表达式应作为字面文本转义。VitePress 支持在 [Markdown 内使用 Vue](https://vitepress.dev/guide/using-vue)，不能把任意抓取内容直接当可信页面编译。
 
 外部 RSS、网页和转录只当材料，不能当操作指令。内容任务不得擅自修改工作流、依赖或凭据。网络请求设置超时和有限重试，只访问允许的公开 HTTP(S) 来源，不绕过访问限制。
-
-## 8. 参考项目的吸收原则
-
-参考项目用于减少重复造轮子，但不改变“单仓库 + Actions 轻采集 + ZCode 本地重处理”的核心边界。
-
-当前优先吸收的设计思想：
-
-- `cast2md` / `Podsidian`：Transcript-first，ASR 作为 fallback；
-- `Podsidian`：转写与 Markdown 模板化、本地材料保留；
-- `AI Daily News`：采集、处理、生成、发布的简单分层；
-- `Radiofeed`：RSS 条件请求、ETag / Last-Modified 等轻量采集优化；
-- `rec-sys-daily`：来源配置、RSS 清理、确定性过滤和发布分离。
-
-不照搬数据库、向量库、复杂队列、Docker 多服务、自动跨平台发布等结构。
-
-## 9. 参考依据
-
-核查日期：2026-09-11；参考仓库为核查时的 `main`，未运行其代码。
-
-- [RSS1] [Podcast RSS源清单](podcast-sources.md)
-- [R1] [rec-sys-daily README 与来源配置](https://github.com/Bin-Zhang-hhht/rec-sys-daily)
-- [R2] [rec-sys-daily / collect.py](https://github.com/Bin-Zhang-hhht/rec-sys-daily/blob/main/pipeline/recsys_daily/collect.py)
-- [R3] [rec-sys-daily / filtering.py](https://github.com/Bin-Zhang-hhht/rec-sys-daily/blob/main/pipeline/recsys_daily/filtering.py)
-- [R4] [rec-sys-daily / site-only.yml](https://github.com/Bin-Zhang-hhht/rec-sys-daily/blob/main/.github/workflows/site-only.yml)
-- [V1] [VitePress：部署与 GitHub Pages](https://vitepress.dev/guide/deploy)
-- [V2] [VitePress：文件路由](https://vitepress.dev/guide/routing)
-- [V3] [VitePress：内置本地搜索](https://vitepress.dev/reference/default-theme-search)
-- [V4] [VitePress：在 Markdown 中使用 Vue](https://vitepress.dev/guide/using-vue)
-- [G1] [GitHub：工作流触发与 GITHUB_TOKEN](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
-- [Z1] [ZCode：闲时任务](https://zcode.z.ai/en/docs/idle-time-tasks)

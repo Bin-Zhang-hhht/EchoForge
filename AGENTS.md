@@ -2,7 +2,7 @@
 
 ## Scope
 
-Work milestone by milestone from `docs/implementation-plan.md`. Use the repository Dockerfile and Compose services for all project build and test acceptance. Do not treat host Node or Python results as acceptance evidence.
+Use the repository Dockerfile and Compose services for all project build and test acceptance. Do not treat host Node or Python results as acceptance evidence.
 
 ## Trust And Privacy
 
