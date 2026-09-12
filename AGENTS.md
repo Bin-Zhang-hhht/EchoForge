@@ -14,6 +14,7 @@ Work milestone by milestone from `docs/implementation-plan.md`. Use the reposito
 
 ## Processing Contract
 
+- On Windows hosts, Docker Desktop bind mounts use write-back caching and can silently lose bulk file writes when a container exits. Wrap file-writing Compose runs (`collect`, `transcript-archive`, `asr-reserve`) as `sh -c '<command>; sync'` and verify the expected files exist on the host before continuing.
 - Use `docker compose run --rm pending --limit 10` only as the candidate window. Review the whole window each batch before selecting work: mark clearly irrelevant items `ignored` with a reason, then pick the batch's articles and ASR from the remaining candidates.
 - Per batch, create at most 3 public articles, start at most 1 new ASR job, and keep new ASR source duration at or below 120 minutes.
 - Prefer an already archived usable transcript, then an RSS/official publisher transcript. Use Video Agent Kit ASR only when no complete usable official transcript exists, the audio duration is known, and the batch budget permits it.
