@@ -1,26 +1,30 @@
 ---
 item_id: data-skeptic-5df813d42ab1
-title: 推荐系统不只预测点击：信任、操纵与用户选择权
+title: '推荐系统不只预测点击：信任、操纵与用户选择权'
 date: '2026-09-11'
 published_at: '2026-09-09'
 transcribed_at: '2026-09-11'
-model: gpt-5.6-sol
-source_url: https://dataskeptic.com/blog/episodes/2026/recommender-systems-today-and-tomorrow
-source_name: Data Skeptic
+model: 'gpt-5.6-sol'
+source_url: 'https://dataskeptic.com/blog/episodes/2026/recommender-systems-today-and-tomorrow'
+source_name: 'Data Skeptic'
 input_type: video_agent_kit_asr
+summary: '推荐系统的核心问题已从预测准确率扩展到信任、反馈操纵、隐私成本、环境影响和用户选择权，平台还要为谁被看见及其后果负责。'
 tags: [推荐系统, 隐私, 可解释性]
+prev: false
+next: false
 ---
 
 # 推荐系统不只预测点击：信任、操纵与用户选择权
 
+> 节目：[Data Skeptic](/posts/data-skeptic/)
+>
 > 节目发布：2026-09-09 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 全文 2151 字 · 预计阅读 6 分钟
+> 阅读约 6 分钟
 >
-> 标签：[推荐系统](/tags/推荐系统/) [隐私](/tags/隐私/) [可解释性](/tags/可解释性/)
+> 标签：[推荐系统](/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/) [隐私](/tags/%E9%9A%90%E7%A7%81/) [可解释性](/tags/%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/)
 >
-> 处理模型：gpt-5.6-sol · AI 编辑整理，请以原始节目为准。
-
+> 🎧 [收听原节目](https://dataskeptic.com/blog/episodes/2026/recommender-systems-today-and-tomorrow)
 
 ## 速读
 
@@ -77,3 +81,10 @@ tags: [推荐系统, 隐私, 可解释性]
   - 发现与生态参与者 `00:19:22–00:21:03`
   - 目标与责任总结 `00:21:04–00:22:06`
 
+## 整理说明
+
+- 本文基于节目内容与本地 ASR 转写整理；时间戳和关键事实按可用材料核查。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：gpt-5.6-sol
+- AI 编辑整理，请以原始节目为准。

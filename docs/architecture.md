@@ -60,12 +60,11 @@ echoforge/
 │   │   │   ├── index.mts
 │   │   │   └── custom.css
 │   │   └── sidebar.data.json     # 构建生成的侧边栏配置，不提交 Git
-│   ├── index.md                  # 构建生成的首页（统计与节目卡），不提交 Git
+│   ├── index.md                  # 构建生成的首页（最近整理与入口），不提交 Git
 │   ├── public/
 │   │   └── logo.svg              # 站点标识与 favicon
 │   ├── posts/
-│   │   ├── index.md              # 构建生成的本周速览（最近 7 天），不提交 Git
-│   │   ├── all/index.md          # 构建生成的全部文章（按年份分组），不提交 Git
+│   │   ├── index.md              # 构建生成的全部文章列表，不提交 Git
 │   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
 │   │   └── <source_id>/
 │   │       ├── index.md          # 构建生成的节目页，不提交 Git
@@ -185,27 +184,35 @@ model: GLM
 source_url: https://example.com/episodes/123
 source_name: Example Podcast
 input_type: official_transcript
+transcript_url: https://example.com/transcripts/123
+summary: 一句话说明这篇文章为什么值得看。
 tags: [Agent]
+prev: false
+next: false
 ---
 ```
 
-必填 `item_id`、`title`、`date`、`source_url`。其余字段按实际情况填写；`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期，必须与单期元信息一致（元信息无日期时省略该字段）；`transcribed_at` 是逐字稿获取日期，来自私有归档 manifest 的 `retrieved_at`，只公开日期本身；`model` 记录实际生成该篇精编的处理模型。四者不得混为一谈。
+非演示文章必须填写 `item_id`、`title`、`date`、`published_at`、`transcribed_at`、`model`、`source_url`、`source_name`、`input_type`、`summary` 和非空 `tags`。演示文章只允许使用 `demo-vitepress-site` 及 `input_type: demo`，可省略这些内容字段。`transcript_url` 是可选字段，只有在确有官方公开逐字稿时才填写，不能放私人链接。`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期；`transcribed_at` 是逐字稿获取日期，只公开日期本身；`model` 记录实际生成该篇精编的处理模型。
 
-正文 H1 下方紧跟一个元信息引用块（四段，以空 `>` 行分隔；站点样式表把它渲染为浅底信息卡）：
+正文 H1 下方紧跟一个元信息引用块（按空 `>` 行分隔；站点样式表把它渲染为浅底信息卡）：
 
 ```text
+> 节目：[<Podcast 名称>](/posts/<source-id>/)
+>
 > 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
 >
-> 全文 N 字 · 预计阅读 M 分钟
+> 阅读约 N 分钟
 >
 > 标签：[标签](/tags/标签/) [标签](/tags/标签/)
 >
-> 处理模型：<模型> · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://example.com/episode)
+>
+> 📄 [查看官方逐字稿](https://example.com/transcript)
 ```
 
-三个日期必须与 frontmatter 对应字段一致；`处理模型` 必须与 frontmatter `model` 一致；N 为正文字符数（按确定性规则：去除元信息引用块固定行、链接 URL 和空白后计数，代码块计入），M = max(1, ceil(N/400))。`check.py` 按同一算法复核字数与时长，声明不一致即失败。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。演示文章不要求元信息引用块、标签行与 model。
+日期必须与 frontmatter 对应字段一致；`阅读约 N 分钟` 由正文非元信息内容按每分钟 400 个非空白字符计算，最少 1 分钟，`check.py` 负责确定性复核。文章必须提供一个精确的原节目链接；只有 frontmatter 存在公开 `transcript_url` 时才显示并校验官方逐字稿链接。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。模型信息不放在顶部，而是写入文末「整理说明」，并与 frontmatter `model` 一致。演示文章不要求元信息引用块、标签行、model 或来源入口。
 
-正文采用“速读 → 主题正文 → 来源与定位”的结构。来源与定位的 `- 定位：` 是列表，一个时间点或可搜索短语一行，与文章核心断言一一对应；不允许把全部定位挤成一行。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
+正文采用“速读 → 主题正文 → 来源与定位 → 整理说明”的结构。来源与定位的 `- 定位：` 是列表，一个时间点或可搜索短语一行，与文章核心断言一一对应；不允许把全部定位挤成一行。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
 
 ### 3.5 人工编辑内容
 
@@ -229,7 +236,7 @@ tags: [Agent]
 → 输出采集摘要 → 有变化才提交并推送 main
 ```
 
-摘要包括各来源是否成功、本次新增、过滤数量和当前待处理数量，写到 Actions 运行摘要，不向飞书等外部渠道发送消息。每次采集结束时 collect 把运行时刻写入 items 目录同级的 `data/collected-at.json`（UTC，精确到秒），采集工作流把该文件与 `data/items` 一起提交；站点首页据此展示「最近收集」时间。
+摘要包括各来源是否成功、本次新增、过滤数量和当前待处理数量，写到 Actions 运行摘要，不向飞书等外部渠道发送消息。每次采集结束时 collect 把运行时刻写入 `data/collected-at.json`（UTC，精确到秒），采集工作流把该文件与 `data/items` 一起提交；站点首页不展示待处理数量或采集运行时间，只展示公开文章整理日期和构建时统计。
 
 使用内置 `GITHUB_TOKEN`，权限只需 `contents: write`。同类采集任务串行执行。单一来源请求失败时记录原因并继续其他来源；所有启用来源都失败时工作流报错，不能把它报告为“今日没有更新”。
 
@@ -301,11 +308,11 @@ GitHub Machine Digest
 
 ## 6. 网站实现
 
-VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录、`home` 布局和阅读样式，不制作自定义主题组件。[V2]
+VitePress 按 Markdown 文件生成页面；使用默认主题并通过少量 `theme/` CSS 调整文章元信息卡与移动端排版，不制作自定义 Vue 组件。[V2]
 
-首页 `site/index.md` 由 `build-index.mjs` 生成：精编数、待处理数、覆盖节目和收录总时长等统计在构建时从 `data/items` 与文章现算；待处理卡在 `data/collected-at.json` 存在时附「最近收集」时间（collect 每次运行写入的 UTC 时刻，展示按 UTC+8 精确到分钟），文件缺失时保持原有文案；节目卡按精编数排序，无精编的节目显示收录情况；横幅图自动探测 `site/public/banner.*`（png/jpg/jpeg/webp/avif/svg），存在时写入 `hero.image`。首页统计是最近一次构建的快照，随文章更新同批生效。首页与文章列表、标签页、节目页、侧边栏一样都是派生产物，不提交 Git，不由 Agent 手工维护。
+首页 `site/index.md` 由 `build-index.mjs` 生成：第一屏呈现项目定位，随后展示最近整理的 5 篇文章（摘要、节目、阅读时长和标签），再提供主题、节目页、关于说明与靠后的运行统计。运行统计从 `data/items` 与文章现算，首页不展示待处理数量。首页、文章列表、标签页、节目页和侧边栏都是派生产物，不提交 Git。
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成两个列表页：`site/posts/index.md` 是本周速览（列出最近 7 天整理的非演示精编，空窗口时指向全部文章）；`site/posts/all/index.md` 是全部文章（按整理年份分组，年份内倒序）。`site/tags/index.md` 是标签总览页：一行一个标签、附文章数，按文章数排序；同时为每个标签生成 `site/tags/<标签>/index.md`，列出该标签下的文章，与文章页元信息块中的标签行互链。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（本周速览、全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径，顶栏「文章」入口即本周速览。节目页、速览与列表页、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成唯一文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序），并生成标签总览与各标签页、各节目页以及侧边栏配置。文章列表、标签页和节目页都提供摘要、阅读时长和必要的来源信息；导航使用「全部文章」「标签」和节目入口，避免文档章节式的上一篇/下一篇关系。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
 

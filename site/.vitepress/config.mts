@@ -26,6 +26,10 @@ export default defineConfig({
     footer: {
       message: 'AI 编辑整理，请以原始节目为准。',
       copyright: 'EchoForge'
+    },
+    docFooter: {
+      prev: false,
+      next: false
     }
   }
 });

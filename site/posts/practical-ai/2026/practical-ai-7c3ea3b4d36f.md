@@ -1,26 +1,33 @@
 ---
 item_id: practical-ai-7c3ea3b4d36f
-title: 当代理开始替你操作网页：Computer-Use、企业边界与代理商业
+title: '当代理开始替你操作网页：Computer-Use、企业边界与代理商业'
 date: '2026-09-11'
 published_at: '2026-09-10'
 transcribed_at: '2026-09-11'
-model: gpt-5.6-sol
-source_url: https://share.transistor.fm/s/72586f97
-source_name: Practical AI
+model: 'gpt-5.6-sol'
+source_url: 'https://share.transistor.fm/s/72586f97'
+source_name: 'Practical AI'
 input_type: official_transcript
+transcript_url: https://share.transistor.fm/s/72586f97/transcription
+summary: 'Computer-Use 已能处理没有 API 的网页流程，但付款、企业系统和高风险写操作仍需要分级授权、人工确认、审计和错误恢复；MCP 与网页操作更像互补。'
 tags: [AI Agent, Computer Use, MCP]
+prev: false
+next: false
 ---
 
 # 当代理开始替你操作网页：Computer-Use、企业边界与代理商业
 
+> 节目：[Practical AI](/posts/practical-ai/)
+>
 > 节目发布：2026-09-10 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 全文 2006 字 · 预计阅读 6 分钟
+> 阅读约 6 分钟
 >
 > 标签：[AI Agent](/tags/AI%20Agent/) [Computer Use](/tags/Computer%20Use/) [MCP](/tags/MCP/)
 >
-> 处理模型：gpt-5.6-sol · AI 编辑整理，请以原始节目为准。
-
+> 🎧 [收听原节目](https://share.transistor.fm/s/72586f97)
+>
+> 📄 [查看官方逐字稿](https://share.transistor.fm/s/72586f97/transcription)
 
 ## 速读
 
@@ -69,3 +76,10 @@ MCP 代表一种标准化连接方向：由系统提供稳定接口，让 Agent 
   - 模型与 harness `00:34:26–00:41:19`
   - 代理商业及其反例 `00:41:42–00:54:57`
 
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：gpt-5.6-sol
+- AI 编辑整理，请以原始节目为准。

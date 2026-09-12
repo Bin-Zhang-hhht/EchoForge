@@ -1,25 +1,33 @@
 ---
 item_id: practical-ai-e4a8fc08bf15
-title: 从用户到非技术构建者：AI 素养的 L0–L3 分层
+title: '从用户到非技术构建者：AI 素养的 L0–L3 分层'
 date: '2026-09-12'
 published_at: '2026-08-25'
 transcribed_at: '2026-09-12'
-model: glm-5.3-flash
-source_url: https://share.transistor.fm/s/0f57c0bc
-source_name: Practical AI
+model: 'glm-5.3-flash'
+source_url: 'https://share.transistor.fm/s/0f57c0bc'
+source_name: 'Practical AI'
 input_type: official_transcript
+transcript_url: https://share.transistor.fm/s/0f57c0bc/transcription
+summary: 'L0-L3 不是能力等级，而是组织分工；企业应优先识别理解业务 DNA 的非技术构建者，把默会知识变成可持续流程，并用真实试点衡量价值。'
 tags: [AI 素养, 组织转型, 企业 AI]
+prev: false
+next: false
 ---
 
 # 从用户到非技术构建者：AI 素养的 L0–L3 分层
 
+> 节目：[Practical AI](/posts/practical-ai/)
+>
 > 节目发布：2026-08-25 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 3001 字 · 预计阅读 8 分钟
+> 阅读约 8 分钟
 >
-> 标签：[AI 素养](/tags/AI%20素养/) [组织转型](/tags/组织转型/) [企业 AI](/tags/企业%20AI/)
+> 标签：[AI 素养](/tags/AI%20%E7%B4%A0%E5%85%BB/) [组织转型](/tags/%E7%BB%84%E7%BB%87%E8%BD%AC%E5%9E%8B/) [企业 AI](/tags/%E4%BC%81%E4%B8%9A%20AI/)
 >
-> 处理模型：glm-5.3-flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://share.transistor.fm/s/0f57c0bc)
+>
+> 📄 [查看官方逐字稿](https://share.transistor.fm/s/0f57c0bc/transcription)
 
 ## 速读
 
@@ -68,3 +76,11 @@ TiER1 有一套识别 L2 候选人的流程，但起点不是技术测试，而�
   - L2 选拔的公司 DNA 标准与一人一队 `00:29:37–00:32:34`
   - 药企文档转换案例 `00:37:53–00:39:28`
   - 岗位变化与"聚焦可控" `00:48:02–00:50:57`
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：glm-5.3-flash
+- AI 编辑整理，请以原始节目为准。

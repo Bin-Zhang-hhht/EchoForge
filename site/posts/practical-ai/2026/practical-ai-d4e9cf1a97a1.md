@@ -1,25 +1,33 @@
 ---
 item_id: practical-ai-d4e9cf1a97a1
-title: 给智能体标准一个中立的家：走进 Agentic AI 基金会
+title: '给智能体标准一个中立的家：走进 Agentic AI 基金会'
 date: '2026-09-12'
 published_at: '2026-08-28'
 transcribed_at: '2026-09-12'
-model: glm-5.3-flash
-source_url: https://share.transistor.fm/s/123da941
-source_name: Practical AI
+model: 'glm-5.3-flash'
+source_url: 'https://share.transistor.fm/s/123da941'
+source_name: 'Practical AI'
 input_type: official_transcript
+transcript_url: https://share.transistor.fm/s/123da941/transcription
+summary: 'Agentic AI 基金会通过中立治理承载 MCP、A2A 等开放项目；企业推广则需要从即时可见收益切入，用少数创作者沉淀可复用的 agent 工作方式。'
 tags: [AI Agent, MCP, A2A, 开放标准]
+prev: false
+next: false
 ---
 
 # 给智能体标准一个中立的家：走进 Agentic AI 基金会
 
+> 节目：[Practical AI](/posts/practical-ai/)
+>
 > 节目发布：2026-08-28 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 2797 字 · 预计阅读 7 分钟
+> 阅读约 8 分钟
 >
-> 标签：[AI Agent](/tags/AI%20Agent/) [MCP](/tags/MCP/) [A2A](/tags/A2A/) [开放标准](/tags/开放标准/)
+> 标签：[AI Agent](/tags/AI%20Agent/) [MCP](/tags/MCP/) [A2A](/tags/A2A/) [开放标准](/tags/%E5%BC%80%E6%94%BE%E6%A0%87%E5%87%86/)
 >
-> 处理模型：glm-5.3-flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://share.transistor.fm/s/123da941)
+>
+> 📄 [查看官方逐字稿](https://share.transistor.fm/s/123da941/transcription)
 
 ## 速读
 
@@ -68,3 +76,11 @@ Angie 的底子是传统工程师：IBM、Twitter，再到 Block 做工程管理
   - 1–9–90 法则与 50 人创作者小组 `00:13:39–00:18:25`
   - 五个项目清单与 A2A 加入 `00:33:12–00:34:51`
   - 中国移动优先、欧盟 AI 法案与水印工作组 `00:25:22–00:31:19`
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：glm-5.3-flash
+- AI 编辑整理，请以原始节目为准。

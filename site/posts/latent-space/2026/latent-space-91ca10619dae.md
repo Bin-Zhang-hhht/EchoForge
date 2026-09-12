@@ -1,25 +1,30 @@
 ---
 item_id: latent-space-91ca10619dae
-title: 为物理学造基础模型：Anima Anandkumar 谈神经算子、天气与数字孪生
+title: '为物理学造基础模型：Anima Anandkumar 谈神经算子、天气与数字孪生'
 date: '2026-09-12'
 published_at: '2026-08-26'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://www.latent.space/p/anima
-source_name: Latent Space
+model: 'GLM-5.3-Flash'
+source_url: 'https://www.latent.space/p/anima'
+source_name: 'Latent Space'
 input_type: official_transcript
+summary: '神经算子通过连续函数建模和物理约束，为天气、聚变和数字孪生提供基础模型路径；仿真之外的反向设计仍受数据、算力和长期物理有效性约束。'
 tags: [AI for Science, 基础模型, 科学计算]
+prev: false
+next: false
 ---
 
 # 为物理学造基础模型：Anima Anandkumar 谈神经算子、天气与数字孪生
 
+> 节目：[Latent Space](/posts/latent-space/)
+>
 > 节目发布：2026-08-26 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 3658 字 · 预计阅读 10 分钟
+> 阅读约 10 分钟
 >
-> 标签：[AI for Science](/tags/AI%20for%20Science/) [基础模型](/tags/基础模型/) [科学计算](/tags/科学计算/)
+> 标签：[AI for Science](/tags/AI%20for%20Science/) [基础模型](/tags/%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/) [科学计算](/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://www.latent.space/p/anima)
 
 ## 速读
 
@@ -72,3 +77,11 @@ Fourier 神经算子（FNO）是她早年提出的代表性架构。直观理解
   - [01:04:00] 托卡马克等离子体数字孪生、百万倍提速与控制联合设计
   - [01:12:56] 窄代理与物理基础模型愿景、反向设计在同一模型内隐式求解
   - [01:21:18] "更多算力"的瓶颈回答与科研算力主张
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 定位优先采用官方逐字稿中的时间戳；无法可靠获得时间戳的位置使用原文短语。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。

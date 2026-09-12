@@ -1,25 +1,30 @@
 ---
 item_id: software-engineering-daily-0d21e7dbc922
-title: LinkedIn 信息流重构：把推荐当序列建模，以及 LLM 落地的真实代价
+title: 'LinkedIn 信息流重构：把推荐当序列建模，以及 LLM 落地的真实代价'
 date: '2026-09-12'
 published_at: '2026-08-18'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://softwareengineeringdaily.com/podcasts/how-llms-are-reshaping-recommendation-systems/
-source_name: Software Engineering Daily
+model: 'GLM-5.3-Flash'
+source_url: 'https://softwareengineeringdaily.com/podcasts/how-llms-are-reshaping-recommendation-systems/'
+source_name: 'Software Engineering Daily'
 input_type: official_transcript
-tags: [推荐系统, RecSys, LLM]
+summary: 'LinkedIn 将信息流从逐条打分重构为序列建模，并以自然语言策略、人工评测和主动学习治理内容质量；十亿级规模下，成本控制与责任 AI 同等重要。'
+tags: [推荐系统, LLM]
+prev: false
+next: false
 ---
 
 # LinkedIn 信息流重构：把推荐当序列建模，以及 LLM 落地的真实代价
 
+> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+>
 > 节目发布：2026-08-18 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 3950 字 · 预计阅读 10 分钟
+> 阅读约 11 分钟
 >
-> 标签：[推荐系统](/tags/推荐系统/) [RecSys](/tags/RecSys/) [LLM](/tags/LLM/)
+> 标签：[推荐系统](/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/) [LLM](/tags/LLM/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://softwareengineeringdaily.com/podcasts/how-llms-are-reshaping-recommendation-systems/)
 
 ## 速读
 
@@ -81,3 +86,11 @@ Jurka 把新架构的类比讲得很直白：LLM 是语言的序列模型，预�
   - [0:35:38] 更多人审输入、更多自由度与协调成本、可解释推荐
   - [0:38:27] 负责任 AI：职业信号、统计审计、1 亿认证会员、反 slop 执法
   - [0:43:22] 职能墙融化、跨域能力、决策转代码
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 定位优先采用官方逐字稿中的时间戳；无法可靠获得时间戳的位置使用原文短语。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。

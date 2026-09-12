@@ -1,25 +1,30 @@
 ---
 item_id: software-engineering-daily-323df302a46d
-title: TypeScript 7 落地：Go 重写的十倍提速与推迟到 7.1 的 API 边界
+title: 'TypeScript 7 落地：Go 重写的十倍提速与推迟到 7.1 的 API 边界'
 date: '2026-09-12'
 published_at: '2026-08-27'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://softwareengineeringdaily.com/podcasts/typescript-7-and-what-comes-next/
-source_name: Software Engineering Daily
+model: 'GLM-5.3-Flash'
+source_url: 'https://softwareengineeringdaily.com/podcasts/typescript-7-and-what-comes-next/'
+source_name: 'Software Engineering Daily'
 input_type: official_transcript
+summary: 'TypeScript 7 通过 Go 移植获得显著速度和稳定性提升，但 API 延至 7.1，以 IPC 隔离实现细节；迁移要看语言服务器、框架和工具生态边界。'
 tags: [TypeScript, 编程语言, 开发者工具]
+prev: false
+next: false
 ---
 
 # TypeScript 7 落地：Go 重写的十倍提速与推迟到 7.1 的 API 边界
 
+> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+>
 > 节目发布：2026-08-27 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 3568 字 · 预计阅读 9 分钟
+> 阅读约 10 分钟
 >
-> 标签：[TypeScript](/tags/TypeScript/) [编程语言](/tags/编程语言/) [开发者工具](/tags/开发者工具/)
+> 标签：[TypeScript](/tags/TypeScript/) [编程语言](/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/) [开发者工具](/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://softwareengineeringdaily.com/podcasts/typescript-7-and-what-comes-next/)
 
 ## 速读
 
@@ -70,3 +75,11 @@ Daniel 回顾了 TypeScript 与 ECMAScript 标准委员会 TC39 的关系史。T
   - [0:44:04] this 类型因性能与体验被否决、否定类型的语义复杂度
   - [0:48:20] 每个特性从负一千分起步的设计哲学
   - [0:49:39] 迁移边界条件、与 TypeScript 6 并行、Webpack/Slack/Vanta 现状
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 定位优先采用官方逐字稿中的时间戳；无法可靠获得时间戳的位置使用原文短语。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。

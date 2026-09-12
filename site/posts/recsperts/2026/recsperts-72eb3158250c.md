@@ -1,26 +1,33 @@
 ---
 item_id: recsperts-72eb3158250c
-title: 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值
+title: '推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值'
 date: '2026-09-11'
 published_at: '2026-09-01'
 transcribed_at: '2026-09-11'
-model: gpt-5.6-sol
-source_url: https://share.transistor.fm/s/c07c7bf6
-source_name: Recsperts
+model: 'gpt-5.6-sol'
+source_url: 'https://share.transistor.fm/s/c07c7bf6'
+source_name: 'Recsperts'
 input_type: official_transcript
-tags: [推荐系统, RecSys, 产品指标]
+transcript_url: https://share.transistor.fm/s/c07c7bf6/transcript.txt
+summary: '有用的推荐不等于高准确率或高点击率，必须结合具体情境、长期关系、真实用户实验和多方利益相关者来定义价值，再选择模型和指标。'
+tags: [推荐系统, 产品指标]
+prev: false
+next: false
 ---
 
 # 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值
 
+> 节目：[Recsperts](/posts/recsperts/)
+>
 > 节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 全文 2570 字 · 预计阅读 7 分钟
+> 阅读约 7 分钟
 >
-> 标签：[推荐系统](/tags/推荐系统/) [RecSys](/tags/RecSys/) [产品指标](/tags/产品指标/)
+> 标签：[推荐系统](/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/) [产品指标](/tags/%E4%BA%A7%E5%93%81%E6%8C%87%E6%A0%87/)
 >
-> 处理模型：gpt-5.6-sol · AI 编辑整理，请以原始节目为准。
-
+> 🎧 [收听原节目](https://share.transistor.fm/s/c07c7bf6)
+>
+> 📄 [查看官方逐字稿](https://share.transistor.fm/s/c07c7bf6/transcript.txt)
 
 ## 速读
 
@@ -70,3 +77,10 @@ Konstan 认为，推荐问题只在一部分上是机器学习或计算问题。
   - `what links people click on`
   - `multi-stakeholder, multi-sided recommendation problems` 与 `immerse yourself in an application`
 
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：gpt-5.6-sol
+- AI 编辑整理，请以原始节目为准。

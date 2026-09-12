@@ -1,11 +1,14 @@
 ---
 item_id: demo-vitepress-site
 layout: doc
-title: 演示：EchoForge 如何组织一篇技术播客笔记
+title: '演示：EchoForge 如何组织一篇技术播客笔记'
 date: '2026-09-11'
-source_url: https://example.invalid/echoforge-demo
-source_name: EchoForge demo
+source_url: 'https://example.invalid/echoforge-demo'
+source_name: 'EchoForge demo'
 input_type: demo
+summary: '用于验证 EchoForge 文章结构、来源定位和阅读体验的演示页面，不属于已发布节目内容。'
+prev: false
+next: false
 ---
 
 # 演示：EchoForge 如何组织一篇技术播客笔记
@@ -31,4 +34,7 @@ input_type: demo
 - 原始来源：本地 M1 演示材料。
 - 定位：不适用。
 
-AI 编辑整理，请以原始节目为准。
+## 整理说明
+
+- 本页仅用于验证公开站点结构，不对应真实节目。
+- AI 编辑整理，请以原始节目为准。

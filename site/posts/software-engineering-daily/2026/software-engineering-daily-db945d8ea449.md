@@ -1,25 +1,30 @@
 ---
 item_id: software-engineering-daily-db945d8ea449
-title: 企业 AI 的钱为何不增值：Scale AI 眼中的三层断点与 6% 赢家
+title: '企业 AI 的钱为何不增值：Scale AI 眼中的三层断点与 6% 赢家'
 date: '2026-09-12'
 published_at: '2026-08-25'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://softwareengineeringdaily.com/podcasts/the-gap-between-ai-spending-and-ai-value/
-source_name: Software Engineering Daily
+model: 'GLM-5.3-Flash'
+source_url: 'https://softwareengineeringdaily.com/podcasts/the-gap-between-ai-spending-and-ai-value/'
+source_name: 'Software Engineering Daily'
 input_type: official_transcript
+summary: '企业 AI 价值落差来自能力、平台系统和组织采纳三层断点；约 6% 成功企业共享数据基础、变革管理和专长组合，但这些是相关特征而非因果保证。'
 tags: [企业 AI, 组织转型, 产品指标]
+prev: false
+next: false
 ---
 
 # 企业 AI 的钱为何不增值：Scale AI 眼中的三层断点与 6% 赢家
 
+> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+>
 > 节目发布：2026-08-25 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 4105 字 · 预计阅读 11 分钟
+> 阅读约 11 分钟
 >
-> 标签：[企业 AI](/tags/企业%20AI/) [组织转型](/tags/组织转型/) [产品指标](/tags/产品指标/)
+> 标签：[企业 AI](/tags/%E4%BC%81%E4%B8%9A%20AI/) [组织转型](/tags/%E7%BB%84%E7%BB%87%E8%BD%AC%E5%9E%8B/) [产品指标](/tags/%E4%BA%A7%E5%93%81%E6%8C%87%E6%A0%87/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://softwareengineeringdaily.com/podcasts/the-gap-between-ai-spending-and-ai-value/)
 
 ## 速读
 
@@ -89,3 +94,11 @@ tags: [企业 AI, 组织转型, 产品指标]
   - [0:43:12] 责任长期在人、人审负担随信任递减
   - [0:47:14] 确认疲劳、校准与 logit 置信的开放研究
   - [0:50:57] 单点建议：选对试点用例（有价值、就绪、有专长）
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 定位优先采用官方逐字稿中的时间戳；无法可靠获得时间戳的位置使用原文短语。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。

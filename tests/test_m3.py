@@ -105,17 +105,27 @@ model: GLM
 source_url: {value['url']}
 source_name: {value['source_name']}
 input_type: official_transcript
+transcript_url: {TRANSCRIPT_URL}
+summary: 测试文章摘要
+prev: false
+next: false
 tags: [推荐系统, 测试]
 ---
 
 """
     body = f"""# 测试文章
 
+> 节目：[Fixture Podcast](/posts/fixture/)
+>
 > 节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
+>
+> 阅读约 1 分钟
 >
 > 标签：[推荐系统](/tags/推荐系统/) [测试](/tags/测试/)
 >
-> 处理模型：GLM · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目]({value['url']})
+>
+> 📄 [查看官方逐字稿]({TRANSCRIPT_URL})
 
 ## 速读
 
@@ -132,11 +142,16 @@ tags: [推荐系统, 测试]
 - 原始节目：[A Complete Fixture Episode]({value['url']})
 - 定位：
   - 逐字稿小节 “implementation details”
+
+## 整理说明
+
+- 本文基于节目内容与公开逐字稿整理。
+- 整理模型：GLM
+- AI 编辑整理，请以原始节目为准。
 """
     words = check.article_word_count(body)
     minutes = check.reading_minutes(words)
-    counts_line = f"> 全文 {words} 字 · 预计阅读 {minutes} 分钟"
-    return frontmatter + body.replace("> 标签：", f"{counts_line}\n>\n> 标签：", 1)
+    return frontmatter + body.replace("> 阅读约 1 分钟", f"> 阅读约 {minutes} 分钟", 1)
 
 
 def valid_article(value: dict[str, object], body_extra: str = "") -> str:
@@ -471,6 +486,7 @@ def test_check_accepts_processed_article_and_demo(tmp_path: Path) -> None:
         """---
 item_id: demo-vitepress-site
 title: 演示文章
+summary: 演示文章摘要
 date: '2026-09-11'
 source_url: https://example.com/demo
 source_name: Demo
@@ -492,7 +508,10 @@ input_type: demo
 - 原始节目：[Demo](https://example.com/demo)
 - 定位：演示内容。
 
-AI 编辑整理，请以原始节目为准。
+## 整理说明
+
+- 本页仅用于验证公开站点结构，不对应真实节目。
+- AI 编辑整理，请以原始节目为准。
 """,
         encoding="utf-8",
     )
@@ -670,18 +689,14 @@ def test_check_requires_meta_blockquote_with_accurate_word_count(tmp_path: Path)
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
 
-    stripped = re.sub(r"> (节目发布|全文)[^\n]*\n", "", valid_article(value))
+    stripped = re.sub(r"> (节目发布|阅读约)[^\n]*\n", "", valid_article(value))
     write_post(posts, value, stripped)
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
     assert any("missing article meta blockquote" in error for error in errors)
 
-    write_post(posts, value, re.sub(r"全文 \d+ 字", "全文 1 字", valid_article(value)))
+    write_post(posts, value, re.sub(r"阅读约 \d+ 分钟", "阅读约 99 分钟", valid_article(value)))
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
-    assert any("computed count is" in error for error in errors)
-
-    write_post(posts, value, re.sub(r"预计阅读 \d+ 分钟", "预计阅读 99 分钟", valid_article(value)))
-    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
-    assert any("预计阅读 must be" in error for error in errors)
+    assert any("阅读约 must be" in error for error in errors)
 
     write_post(posts, value, valid_article(value))
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])

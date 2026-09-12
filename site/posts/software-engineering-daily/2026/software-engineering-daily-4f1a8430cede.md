@@ -1,25 +1,30 @@
 ---
 item_id: software-engineering-daily-4f1a8430cede
-title: 把数据库的确定性带进分布式编程：CALM 定理与 Hydro 的类型系统
+title: '把数据库的确定性带进分布式编程：CALM 定理与 Hydro 的类型系统'
 date: '2026-09-12'
 published_at: '2026-09-10'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://softwareengineeringdaily.com/podcasts/a-rust-framework-to-simplify-distributed-systems/
-source_name: Software Engineering Daily
+model: 'GLM-5.3-Flash'
+source_url: 'https://softwareengineeringdaily.com/podcasts/a-rust-framework-to-simplify-distributed-systems/'
+source_name: 'Software Engineering Daily'
 input_type: official_transcript
+summary: 'CALM 用单调性划分可同时获得一致性与可用性的程序，Hydro 再把 location 和确定性纳入 Rust 类型系统；编译器负责兜底，显式放行的不确定性才交给模拟测试。'
 tags: [Rust, 分布式系统, 数据库]
+prev: false
+next: false
 ---
 
 # 把数据库的确定性带进分布式编程：CALM 定理与 Hydro 的类型系统
 
+> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+>
 > 节目发布：2026-09-10 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 4034 字 · 预计阅读 11 分钟
+> 阅读约 11 分钟
 >
-> 标签：[Rust](/tags/Rust/) [分布式系统](/tags/分布式系统/) [数据库](/tags/数据库/)
+> 标签：[Rust](/tags/Rust/) [分布式系统](/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/) [数据库](/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://softwareengineeringdaily.com/podcasts/a-rust-framework-to-simplify-distributed-systems/)
 
 ## 速读
 
@@ -76,3 +81,11 @@ Hydro 是他实验室约 25 年、三代语言迭代的产物，三年前他才�
   - [0:33:15] JVM 批评、GC 停顿看似故障、企业 Rust 化、Hadoop 与 MapReduce 的判断
   - [0:40:40] 25 年三代迭代、性能意外过关、QUIC 互操作、灰度多版本模拟测试
   - [0:43:46] 三位学生获 Jim Gray 奖、仍在伯克利带四名博士生
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 定位优先采用官方逐字稿中的时间戳；无法可靠获得时间戳的位置使用原文短语。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。

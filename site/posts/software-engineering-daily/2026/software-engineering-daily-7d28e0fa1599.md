@@ -1,25 +1,30 @@
 ---
 item_id: software-engineering-daily-7d28e0fa1599
-title: 上下文即资产：Pinecone Nexus 用数据库思路重做检索
+title: '上下文即资产：Pinecone Nexus 用数据库思路重做检索'
 date: '2026-09-12'
 published_at: '2026-09-03'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://softwareengineeringdaily.com/podcasts/moving-beyond-rag-with-precomputed-context/
-source_name: Software Engineering Daily
+model: 'GLM-5.3-Flash'
+source_url: 'https://softwareengineeringdaily.com/podcasts/moving-beyond-rag-with-precomputed-context/'
+source_name: 'Software Engineering Daily'
 input_type: official_transcript
+summary: 'Pinecone Nexus 将上下文做成类似物化视图的、可版本化的一等资产，携带 schema、权限、元数据和血缘，以换取可复现性和审计能力。'
 tags: [RAG, AI Agent, AI 架构]
+prev: false
+next: false
 ---
 
 # 上下文即资产：Pinecone Nexus 用数据库思路重做检索
 
+> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+>
 > 节目发布：2026-09-03 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 3299 字 · 预计阅读 9 分钟
+> 阅读约 9 分钟
 >
-> 标签：[RAG](/tags/RAG/) [AI Agent](/tags/AI%20Agent/) [AI 架构](/tags/AI%20架构/)
+> 标签：[RAG](/tags/RAG/) [AI Agent](/tags/AI%20Agent/) [AI 架构](/tags/AI%20%E6%9E%B6%E6%9E%84/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://softwareengineeringdaily.com/podcasts/moving-beyond-rag-with-precomputed-context/)
 
 ## 速读
 
@@ -77,3 +82,11 @@ Kevin Ball 把讨论引向工程方法论：LLM 擅长线性描述的任务，�
   - [0:34:39] 非一次性交互、token 开销、发现循环前置
   - [0:43:15] 夜间空闲算力持续整理知识图与贝叶斯更新
   - [0:48:19] 端到端全栈的收益、查询前端先标准化、两年观察期判断
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 定位优先采用官方逐字稿中的时间戳；无法可靠获得时间戳的位置使用原文短语。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。

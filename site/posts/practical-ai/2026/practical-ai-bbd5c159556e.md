@@ -1,25 +1,33 @@
 ---
 item_id: practical-ai-bbd5c159556e
-title: 别只盯着模型：企业 AI 需要的是架构思维
+title: '别只盯着模型：企业 AI 需要的是架构思维'
 date: '2026-09-12'
 published_at: '2026-09-03'
 transcribed_at: '2026-09-12'
-model: glm-5.3-flash
-source_url: https://share.transistor.fm/s/ec79b4ac
-source_name: Practical AI
+model: 'glm-5.3-flash'
+source_url: 'https://share.transistor.fm/s/ec79b4ac'
+source_name: 'Practical AI'
 input_type: official_transcript
+transcript_url: https://share.transistor.fm/s/ec79b4ac/transcription
+summary: '企业 AI 的关键不在绑定某个模型，而在成本路由、数据主权、harness、编排、治理和自有评测体系；架构化能力可以换来更自由的模型切换。'
 tags: [企业 AI, AI 架构, 数据主权, AI 治理]
+prev: false
+next: false
 ---
 
 # 别只盯着模型：企业 AI 需要的是架构思维
 
+> 节目：[Practical AI](/posts/practical-ai/)
+>
 > 节目发布：2026-09-03 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 2663 字 · 预计阅读 7 分钟
+> 阅读约 7 分钟
 >
-> 标签：[企业 AI](/tags/企业%20AI/) [AI 架构](/tags/AI%20架构/) [数据主权](/tags/数据主权/) [AI 治理](/tags/AI%20治理/)
+> 标签：[企业 AI](/tags/%E4%BC%81%E4%B8%9A%20AI/) [AI 架构](/tags/AI%20%E6%9E%B6%E6%9E%84/) [数据主权](/tags/%E6%95%B0%E6%8D%AE%E4%B8%BB%E6%9D%83/) [AI 治理](/tags/AI%20%E6%B2%BB%E7%90%86/)
 >
-> 处理模型：glm-5.3-flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://share.transistor.fm/s/ec79b4ac)
+>
+> 📄 [查看官方逐字稿](https://share.transistor.fm/s/ec79b4ac/transcription)
 
 ## 速读
 
@@ -67,3 +75,11 @@ Rackspace 的定位是从芯片到结果（与 AMD 合作、自有数据中心�
   - 分层架构与 harness `00:33:41–00:36:31`
   - 自建评测层与黄金数据集类比 `00:38:05–00:40:17`
   - Rackspace 内部优先的三件事 `00:41:30–00:43:14`
+
+## 整理说明
+
+- 本文基于节目内容与出版方或官方公开逐字稿整理。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：glm-5.3-flash
+- AI 编辑整理，请以原始节目为准。

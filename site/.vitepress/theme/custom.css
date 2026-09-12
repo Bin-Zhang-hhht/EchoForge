@@ -1,12 +1,9 @@
-/* 文章元信息卡：仅作用于 H1 正下方的 blockquote（templates/post.md 的元信息块）。
-   元信息文字受 scripts/check.py 逐行校验，只能通过结构与 CSS 调整排版。 */
-
+/* Article metadata stays compact so the first screen leads with the reading. */
 .vp-doc h1 + blockquote {
   margin: 24px 0 28px;
   padding: 15px 22px 13px;
   border-left: none;
-  border-radius: 12px;
-  background-color: var(--vp-c-bg-soft);
+  border-radius: 8px;
   background-color: color-mix(in srgb, var(--vp-c-brand-1) 5%, var(--vp-c-bg-soft));
   font-size: 13px;
   line-height: 1.8;
@@ -17,21 +14,28 @@
   margin: 0;
 }
 
-/* 日期行：来源性信息，最弱 */
-.vp-doc h1 + blockquote p:nth-child(1) {
+/* Show and date lines are supporting context; the reading time stays easy to scan. */
+.vp-doc h1 + blockquote p:nth-child(1),
+.vp-doc h1 + blockquote p:nth-child(2) {
   color: var(--vp-c-text-3);
   font-size: 12.5px;
 }
 
-/* 标签行：可点击胶囊，是元信息卡里唯一强调的元素 */
 .vp-doc h1 + blockquote p:nth-child(3) {
+  margin-top: 5px;
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+/* Tags remain the only pill-like metadata element. */
+.vp-doc h1 + blockquote p:nth-child(4) {
   margin-top: 10px;
 }
 
-.vp-doc h1 + blockquote p:nth-child(3) a {
+.vp-doc h1 + blockquote p:nth-child(4) a {
   display: inline-block;
   margin: 2px 8px 2px 0;
-  padding: 1px 12px;
+  padding: 1px 10px;
   border-radius: 999px;
   background-color: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
@@ -41,29 +45,46 @@
   transition: background-color 0.25s, color 0.25s;
 }
 
-.vp-doc h1 + blockquote p:nth-child(3) a:hover {
+.vp-doc h1 + blockquote p:nth-child(4) a:hover {
   background-color: var(--vp-c-brand-1);
   color: var(--vp-c-white);
   text-decoration: none;
 }
 
-/* 免责声明：细线隔开、最弱一行 */
-.vp-doc h1 + blockquote p:nth-child(4) {
-  margin-top: 10px;
-  padding-top: 9px;
-  border-top: 1px solid var(--vp-c-divider);
-  color: var(--vp-c-text-3);
-  font-size: 12.5px;
+/* Public source links are explicit actions, while staying visually quieter than the title. */
+.vp-doc h1 + blockquote p:nth-child(5),
+.vp-doc h1 + blockquote p:nth-child(6) {
+  margin-top: 8px;
 }
 
-.vp-doc h1 + blockquote p:nth-child(4)::before {
-  content: 'ⓘ ';
-  margin-right: 2px;
+.vp-doc h1 + blockquote p:nth-child(5) a,
+.vp-doc h1 + blockquote p:nth-child(6) a {
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
 }
 
-/* 「速读」紧贴信息卡：去掉 VitePress 给 h2 的分段线和留白，信息卡下边缘即分隔 */
+/* The shared disclaimer lives at the end of整理说明, not in the top metadata card. */
 .vp-doc h1 + blockquote + h2 {
   margin-top: 0;
   padding-top: 0;
   border-top: none;
+}
+
+.vp-doc a {
+  overflow-wrap: anywhere;
+}
+
+.vp-doc pre {
+  overflow-x: auto;
+}
+
+@media (max-width: 640px) {
+  .vp-doc h1 + blockquote {
+    margin: 18px 0 24px;
+    padding: 13px 16px 11px;
+  }
+
+  .vp-doc h1 + blockquote p:nth-child(4) a {
+    margin-right: 5px;
+  }
 }

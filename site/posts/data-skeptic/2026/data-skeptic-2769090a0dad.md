@@ -1,25 +1,30 @@
 ---
 item_id: data-skeptic-2769090a0dad
-title: 推荐系统到底该优化什么：从点击之外的目标到 LLM 的边界
+title: '推荐系统到底该优化什么：从点击之外的目标到 LLM 的边界'
 date: '2026-09-12'
 published_at: '2026-09-01'
 transcribed_at: '2026-09-12'
-model: GLM-5.3-Flash
-source_url: https://dataskeptic.com/blog/episodes/2026/recommender-systems-optimization-goals
-source_name: Data Skeptic
+model: 'GLM-5.3-Flash'
+source_url: 'https://dataskeptic.com/blog/episodes/2026/recommender-systems-optimization-goals'
+source_name: 'Data Skeptic'
 input_type: video_agent_kit_asr
-tags: [推荐系统, RecSys, LLM]
+summary: '推荐系统不能只优化点击或参与度，还应纳入公平、多样性、创作者生计和可持续性；embedding、两阶段检索和 LLM 对话能力必须配合可信事实源。'
+tags: [推荐系统, LLM]
+prev: false
+next: false
 ---
 
 # 推荐系统到底该优化什么：从点击之外的目标到 LLM 的边界
 
+> 节目：[Data Skeptic](/posts/data-skeptic/)
+>
 > 节目发布：2026-09-01 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >
-> 全文 3355 字 · 预计阅读 9 分钟
+> 阅读约 9 分钟
 >
-> 标签：[推荐系统](/tags/推荐系统/) [RecSys](/tags/RecSys/) [LLM](/tags/LLM/)
+> 标签：[推荐系统](/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/) [LLM](/tags/LLM/)
 >
-> 处理模型：GLM-5.3-Flash · AI 编辑整理，请以原始节目为准。
+> 🎧 [收听原节目](https://dataskeptic.com/blog/episodes/2026/recommender-systems-optimization-goals)
 
 ## 速读
 
@@ -67,3 +72,11 @@ LLM 打破了"给目录打分"的框架：它不需要对目录排序，可以�
   - MCP/RAG 锚定事实源，LLM 作控制器而非替代 `00:27:26–00:29:04`
 
 > 说明：本篇逐字稿来自 Video Agent Kit ASR 转写（已通过完整性与回听核查）。受访者人名按 ASR 拼写转写，可能与实际拼写有出入；引文为中文转述而非逐字翻译。关键事实请以原始节目为准。
+
+## 整理说明
+
+- 本文基于节目内容与本地 ASR 转写整理；时间戳和关键事实按可用材料核查。
+- 原节目未提供可靠时间戳的位置，使用原文短语进行定位。
+- 无法独立验证的数字仅作为节目中的观点或案例呈现。
+- 整理模型：GLM-5.3-Flash
+- AI 编辑整理，请以原始节目为准。
