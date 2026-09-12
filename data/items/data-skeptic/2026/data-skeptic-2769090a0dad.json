@@ -5,10 +5,10 @@
   "guid": "1d36491d-3f3b-4bb6-bead-e649c27ebdce",
   "item_id": "data-skeptic-2769090a0dad",
   "published_at": "2026-09-01T16:06:00Z",
-  "reason": "Deferred: no official transcript available (RSS and episode page checked); batch ASR transcription tool unavailable in this environment (cloud channel rejected, no local fallback credentials), so the reserved slot asr-20260912 went unused. Audio not deleted from .cache; retry in a later batch.",
+  "reason": null,
   "source_id": "data-skeptic",
   "source_name": "Data Skeptic",
-  "status": "pending",
+  "status": "processed",
   "title": "Recommender Systems Optimization Goals",
   "transcript_url": null,
   "url": "https://dataskeptic.com/blog/episodes/2026/recommender-systems-optimization-goals"
