@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/183902568/be200b54760e7673fbd7664d6ccaddae.mp3",
+  "description": "Happy New Year! You may have noticed that in 2025 we had moved toward YouTube as our primary podcasting platform. As we’ll explain in the next State of Latent Space post, we’ll be doubling down on Substack again and improving the experience for the over 100,000 of you who look out for our emails and website updates! We first mentioned Artificial Analysis in 2024, when it was still a side project in a Sydney basement. They then were one of the few Nat Friedman and Daniel Gross’ AIGrant companies to raise a full seed round from them and have now become the independent gold standard for AI benchmarking—trusted by developers, enterprises, and every major lab to navigate the exploding landscape of models, providers, and capabilities. We have chatted with both Clementine Fourrier of HuggingFace’s OpenLLM Leaderboard and (the freshly valued at $1.7B) Anastasios Angelopoulos of LMArena on their approaches to LLM evals and trendspotting, but Artificial Analysis have staked out an enduring and i",
+  "duration_seconds": 4704,
+  "guid": "substack:post:183902568",
+  "item_id": "latent-space-f8b6fd4f7e14",
+  "published_at": "2026-01-08T15:08:15Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Artificial Analysis: Independent LLM Evals as a Service — with George Cameron and Micah-Hill Smith",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/artificialanalysis"
+}

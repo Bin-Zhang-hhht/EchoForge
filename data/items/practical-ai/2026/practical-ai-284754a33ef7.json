@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/44e59b0b/1ecd61fa.mp3",
+  "description": "In this fully connected episode, Dan and Chris break down the Anthropic Claude Code leak, what went wrong and what it reveals about agentic systems, AI architecture, and AI safety. They also explore how the open source community is responding and why this moment could reshape how AI systems are built and secured. Featuring: Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Daniel Whitenack – Website, GitHub, X Upcoming Events: Register for upcoming webinars here!",
+  "duration_seconds": 2676,
+  "guid": "935cb988-528b-460c-a13b-ac081b371aef",
+  "item_id": "practical-ai-284754a33ef7",
+  "published_at": "2026-04-09T09:00:00Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Post-Mortem of Anthropic's Claude Code Leak",
+  "transcript_url": "https://share.transistor.fm/s/44e59b0b/transcription",
+  "url": "https://share.transistor.fm/s/44e59b0b"
+}

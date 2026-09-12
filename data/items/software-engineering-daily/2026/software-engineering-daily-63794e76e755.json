@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/11a3d2dd/963f26da.mp3",
+  "description": "AI-assisted coding tools have made it easier than ever to spin up prototypes, but turning those prototypes into reliable, production-grade systems remains a major challenge. Large language models are non-deterministic, prone to drift, and often lose track of intent over long development sessions. Kiro is an AI-powered IDE that’s built around a spec-driven development workflow. It’s focused on helping developers capture intent up front, translate it into concrete requirements and designs, and systematically validate implementations through tasks, testing, and guardrails. It aims to preserve the creativity of AI-assisted development while producing software that is ready for real-world use. David Yanacek is a Senior Principal Engineer and a lead advisor on the Agentic AI team at AWS. Today, his work focuses on Kiro, frontier agents, Amazon Bedrock AgentCore, and AWS’s operational agents. He joins the show with Kevin Ball to discuss the design of Kiro, how spec-driven development changes ",
+  "duration_seconds": 3420,
+  "guid": "https://softwareengineeringdaily.com/?p=21286",
+  "item_id": "software-engineering-daily-63794e76e755",
+  "published_at": "2026-02-26T10:00:14Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Amazon’s IDE for Spec-Driven Development with David Yanacek",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/amazons-ide-for-spec-driven-development-with-david-yanacek/"
+}

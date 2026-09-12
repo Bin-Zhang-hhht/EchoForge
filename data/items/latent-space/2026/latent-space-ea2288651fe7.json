@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/191799646/e5fd22546e0bfbe77cc829cd27c36415.mp3",
+  "description": "Materials science is the unsung hero of the science world. Behind every physical product you interact was decades of research into getting the properties of materials just right. Your gym clothes contain synthetic fibers developed over decades. The glass screen, diodes, and chip substrate technology needed to read this blog post were only viable due to many teams of material scientists. Our guest Prof. Heather Kulik was one of the first material scientists to realize that there was alpha in combining computational tools with data driven modeling — she did AI for science before it was cool. She has a hard-fought perspective for how to succeed in this field. Yes, she believes the wins are real. To get there you must work hard to deeply integrate domain expertise with AI techniques, and also maintain a discriminating mind. Ultimately what matters is you succeed in the lab, and nature doesn’t care about how hyped a model is. These lessons personally resonated with the Latent.Space Science ",
+  "duration_seconds": 2114,
+  "guid": "substack:post:191799646",
+  "item_id": "latent-space-ea2288651fe7",
+  "published_at": "2026-03-24T16:53:15Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬Why There Is No \"AlphaFold for Materials\" — AI for Materials Discovery with Heather Kulik",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/materials"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/7d578a4d/1d725d7e.mp3",
+  "description": "AI agents have shown remarkable potential to function as persistent digital assistants that are capable of monitoring data, managing communications, and taking action autonomously over long periods. OpenClaw was one of the first serious attempts to fulfill that vision, connecting frontier coding agents to messaging platforms like Slack and WhatsApp and letting them run continuously in the background. However, OpenClaw largely set aside questions of security to pursue that vision, leaving credentials exposed in the agent’s environment and giving agents broad access to data and services far beyond what any given task required. NanoClaw is an open source project that takes a zero trust approach to agent orchestration. Rather than relying on instructions to constrain agent behavior, it isolates each agent in its own Docker container, keeps credentials entirely outside the agent’s environment, and enforces human-in-the-loop approval for sensitive actions. Gavriel Cohen is the founder of Nan",
+  "duration_seconds": 3815,
+  "guid": "https://softwareengineeringdaily.com/?p=23082",
+  "item_id": "software-engineering-daily-11902321ee22",
+  "published_at": "2026-07-21T09:00:55Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "NanoClaw and the Rise of Personal AI Agents",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/nanoclaw-and-the-rise-of-personal-ai-agents/"
+}

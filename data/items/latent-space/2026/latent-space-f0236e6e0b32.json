@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/192356063/415e7523439ae30c5bb12cb913de9ee9.mp3",
+  "description": "Mistral has been on an absolute tear - with frequent successful model launches it is easy to forget that they raised the largest European AI round in history last year. We were long overdue for a Mistral episode, and we were very fortunate to work with Sophia and Howard to catch up with Pavan (Voxtral lead) and Guillaume (Chief Scientist, Co-founder) on the occasion of this week’s Voxtral TTS launch: Mistral can’t directly say it, but the benchmarks do imply, that this is basically an open-weights ElevenLabs-level TTS model (Technically, it is a 4B Ministral based multilingual low-latency TTS open weights model that has a 68.4% win rate vs ElevenLabs Flash v2.5). The contributions are not just in the open weights but also in open research: We also spend a decent amount of the pod talking about their architecture that combines auto-regressive generation of semantic speech tokens with flow-matching for acoustic tokens (typically only applied in the Image Generation space, as seen in the ",
+  "duration_seconds": 2928,
+  "guid": "substack:post:192356063",
+  "item_id": "latent-space-f0236e6e0b32",
+  "published_at": "2026-03-30T19:25:21Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Mistral: Voxtral TTS, Forge, Leanstral, & what's next for Mistral 4 — w/ Pavan Kumar Reddy & Guillaume Lample",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/voxtral"
+}

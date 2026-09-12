@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/aaa99867/9fdce213.mp3",
+  "description": "Open source software underpins nearly every modern application, including frameworks powering the most popular websites, to the libraries securing financial backend systems. However, while open source drives collaboration and innovation at a global scale, it also faces deep challenges in sustainability, community health, and long-term maintenance. Many of the world’s most critical dependencies are still maintained by just a handful of volunteers. Abby Cabunoc Mayes leads Open Source Maintainer Programs at GitHub, and Brian Muenzenmeyer is a Principal Engineer, Node.js maintainer, and author of the book, Approachable Open Source. Abby and Brian join Josh Goldberg to talk about what it means to build and sustain healthy open source projects, how maintainers can foster inclusive communities, the evolving role of open source in the workplace, and how AI is reshaping the way we collaborate. Josh Goldberg is an independent full time open source developer in the TypeScript ecosystem. He works",
+  "duration_seconds": 3523,
+  "guid": "https://softwareengineeringdaily.com/?p=21815",
+  "item_id": "software-engineering-daily-50e61bb8d192",
+  "published_at": "2026-05-14T09:00:11Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Open Source Sustainability",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/open-source-sustainability/"
+}

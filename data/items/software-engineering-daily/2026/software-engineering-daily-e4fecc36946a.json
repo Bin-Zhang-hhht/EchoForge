@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/250d2634/0a7be216.mp3",
+  "description": "Formal methods are a branch of mathematics and computer science focused on proving the correctness of systems, and they have long promised a more rigorous foundation for software. However, their complexity has kept them confined to a small community of specialists. That is now changing as agentic AI systems take on increasingly autonomous roles. The question of how to define, enforce, and verify what those agents are allowed to do has become urgent, and automated reasoning is emerging as a critical part of the answer. Byron Cook is a VP and Distinguished Scientist at AWS, a professor at University College London, and a program manager at DARPA. He founded the Automated Reasoning Group at AWS over a decade ago, where his team built the foundations behind products like IAM Access Analyzer, VPC Reachability Analyzer, and Bedrock Guardrails. In this episode, Byron joins Sean Falconer to discuss how automated reasoning works and why it scales so well with AI, the rise of neurosymbolic appro",
+  "duration_seconds": 2912,
+  "guid": "https://softwareengineeringdaily.com/?p=21824",
+  "item_id": "software-engineering-daily-e4fecc36946a",
+  "published_at": "2026-05-19T09:00:29Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Formal Methods as Agent Guardrails",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/formal-methods-as-agent-guardrails/"
+}

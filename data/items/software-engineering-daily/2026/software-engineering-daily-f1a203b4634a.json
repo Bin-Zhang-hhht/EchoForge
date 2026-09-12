@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/4d1f7500/03230f7e.mp3",
+  "description": "Most of the cryptography securing the internet today rests on mathematical problems that classical computers cannot solve in any reasonable timeframe. That assumption is now being tested. Recent advances in quantum computing have dramatically compressed timelines, and many in the industry have set a target of full post-quantum security by 2029, meaning a complete migration to algorithms designed to remain secure against quantum attacks. Bas Westerbaan is a cryptography engineer at Cloudflare, where he leads the company’s efforts to migrate to post-quantum cryptography. In this episode, Bas joins Kevin Ball to discuss how quantum computers threaten public key cryptography, what post-quantum algorithms actually are and how they work, the timeline shifts that have made quantum readiness feel so urgent, and what software engineers need to do now to prepare their systems. Kevin Ball or KBall, is the vice president of engineering at Mento and an independent coach for engineers and engineerin",
+  "duration_seconds": 2778,
+  "guid": "https://softwareengineeringdaily.com/?p=22308",
+  "item_id": "software-engineering-daily-f1a203b4634a",
+  "published_at": "2026-06-16T09:00:03Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Preparing for Q-Day",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/preparing-for-q-day/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/2d31a2f1/1c8947b9.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer break down the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, Gregor and Sean dig into the growing tension around restricted AI models, including Anthropic‘s Fable being pulled from the Claude platform days after launch. They explore what Sean calls “vibe regulations” and the risk foreign governments and enterprises face when a model they depend on can be cut off. They also cover the FT’s reporting on London’s “DeepMind mafia,” a vibe-coding clone controversy involving YC-backed Corgi and Papermark, SpaceX‘s acquisitions of Cursor and Mesh, and Anthropic’s launch of Claude Science. They also take on the latest round of the IDE wars, and explore who owns your dev toolchain, the vendor lock-in that now comes from context and memory rather than the model itself, and the widening cost gap between frontier tools and open weigh",
+  "duration_seconds": 3118,
+  "guid": "https://softwareengineeringdaily.com/?p=22362",
+  "item_id": "software-engineering-daily-6039f5d7fb09",
+  "published_at": "2026-07-07T09:00:41Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: Restricted Models, IDE Wars, and the DeepMind Mafia",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-restricted-models-ide-wars-and-the-deepmind-mafia/"
+}

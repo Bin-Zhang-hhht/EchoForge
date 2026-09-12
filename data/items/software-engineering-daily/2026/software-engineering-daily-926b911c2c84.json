@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/bc50f5e8/213b450b.mp3",
+  "description": "Engineering teams often build microservices as their systems grow, but over time this can lead to a fragmented ecosystem with scattered data access patterns, duplicated business logic, and an uneven developer experience. A unified data graph with a consistent execution layer helps address these challenges by centralizing schema, simplifying how teams compose functionality, and reducing operational overhead while preserving performance and reliability. Viaduct is Airbnb’s open-source, data-oriented service mesh and GraphQL platform built around a single, highly connected central schema. It has played a major role in scaling Airbnb’s engineering organization. Adam Miskiewicz is a Principal Software Engineer at Airbnb and he worked on Viaduct. He joins the podcast with Gregor Vand to talk about how Viaduct originated inside Airbnb, the architectural principles that shaped it, the challenges of scaling GraphQL to millions of queries per second, and why the team decided to open-source the p",
+  "duration_seconds": 3345,
+  "guid": "https://softwareengineeringdaily.com/?p=20442",
+  "item_id": "software-engineering-daily-926b911c2c84",
+  "published_at": "2026-02-05T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Airbnb’s Open-Source GraphQL Framework with Adam Miskiewicz",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/airbnbs-open-source-graphql-framework-with-adam-miskiewicz/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/0739c72e/83dd64e8.mp3",
+  "description": "React Native is an open source framework developed by Meta that allows engineers to build mobile applications for both iOS and Android using a single JavaScript codebase. The framework bridges the gap between web development and native mobile, which lets teams ship to both platforms simultaneously without sacrificing the look and feel of a truly native app. Manjiri Moghe is a Staff Software Engineer at Coinbase, where she has spent five years building and scaling one of the world’s most demanding React Native applications. Her work spans performance optimization, reliability engineering, and the developer tooling that keeps large engineering teams moving quickly without sacrificing quality. In this episode, Manjiri joins Josh Goldberg to discuss why React Native has become the framework of choice for high-velocity mobile teams, how Coinbase measures app health, how to handle data fetching and loading in production, how AI coding agents are changing the day-to-day workflow for mobile en",
+  "duration_seconds": 2735,
+  "guid": "https://softwareengineeringdaily.com/?p=21852",
+  "item_id": "software-engineering-daily-dca8b9c89657",
+  "published_at": "2026-05-21T09:00:46Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "React Native at Scale",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/react-native-at-scale/"
+}

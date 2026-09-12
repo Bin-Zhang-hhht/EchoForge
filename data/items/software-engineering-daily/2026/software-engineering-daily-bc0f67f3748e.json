@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/356cd537/70eb1835.mp3",
+  "description": "Software engineering has developed powerful tools for observability, data management, and continuous testing, but hardware engineering has largely not kept pace. The feedback loops, tooling, and infrastructure that software engineers take for granted simply do not exist in most hardware programs. Nominal is a data platform built to help hardware organizations move at the same speed as software teams. It manages the hardware data supply chain end to end, from ingesting high-frequency sensor data off physical assets to enabling real-time control room monitoring, post-test analysis, and simulation correlation. Jason Hoch is the co-founder and CTO of Nominal, and he has a background spanning distributed data systems at Palantir and cloud infrastructure at Vercel. In this episode, Jason joins Kevin Ball to discuss why hardware engineering has lagged so far behind software in tooling and observability, the unique data challenges of working with high-frequency time series sensor data, how Nom",
+  "duration_seconds": 3167,
+  "guid": "https://softwareengineeringdaily.com/?p=22289",
+  "item_id": "software-engineering-daily-bc0f67f3748e",
+  "published_at": "2026-06-02T09:00:29Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "The Hardware Bottleneck AI Can’t Fix",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/the-hardware-bottleneck-ai-cant-fix/"
+}

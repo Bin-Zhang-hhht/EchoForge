@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186586042/58687b03760c08bf74c668f939e1baf8.mp3",
+  "description": "Editor’s note: Welcome to our new AI for Science pod, with your new hosts RJ and Brandon! See the writeup on Latent.Space (https://Latent.Space) for more details on why we’re launching 2 new pods this year. RJ Honicky is a co-founder and CTO at MiraOmics (https://miraomics.bio/), building AI models and services for single cell, spatial transcriptomics and pathology slide analysis. Brandon Anderson builds AI systems for RNA drug discovery at Atomic AI (https://atomic.ai). Anything said on this podcast is his personal take — not Atomic’s.—From building molecular dynamics simulations at the University of Washington to red-teaming GPT-4 for chemistry applications and co-founding Future House (a focused research organization) and Edison Scientific (a venture-backed startup automating science at scale)—Andrew White has spent the last five years living through the full arc of AI’s transformation of scientific discovery, from ChemCrow (the first Chemistry LLM agent) triggering White House brie",
+  "duration_seconds": 4436,
+  "guid": "substack:post:186586042",
+  "item_id": "latent-space-16f55c4b395d",
+  "published_at": "2026-01-28T15:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬 Automating Science: World Models, Scientific Taste, Agent Loops — Andrew White",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/edison"
+}

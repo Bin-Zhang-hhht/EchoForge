@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/Hieu_No_Ads_V1.mp3?dest-id=201630",
+  "description": "How can researchers audit recommendation systems when the algorithms are hidden from view? Hieu Le joins Kyle Polich to discuss Auto-Like, a reinforcement learning framework that systematically explores how platforms like TikTok personalize content feeds. The conversation covers recommendation transparency, black-box auditing, and the future of platform accountability.",
+  "duration_seconds": 2118,
+  "guid": "d24a3b88-fbbd-4b1e-be6f-79664dbf718f",
+  "item_id": "data-skeptic-9fa55940d076",
+  "published_at": "2026-06-17T18:00:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "AutoLike",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/autolike"
+}

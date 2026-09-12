@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/ea7694a9/378817af.mp3",
+  "description": "What does “AI at the edge” really mean in 2026, and why does it matter now more than ever before? In this episode, we’re joined by Brandon Shibley, Edge AI Solutions Engineering Lead at Qualcomm’s Edge Impulse, to discuss the current state and future of Edge AI in 2026. We discuss Gen AI, Small Models, and Cascades of Models, along with real-world constraints like latency, power, and privacy. We also dive into the role of MLOps, evolving hardware, and how developers can start building practical edge AI systems today. Featuring: Brandon Shibley – LinkedIn Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Daniel Whitenack – Website, GitHub, X Links: Read our Ultimate Guide to Edge AI Download your copy of O'Reilly's AI at the Edge Check out the Edge Impulse blog Sign-up for an expert led trial of Edge Impulse Upcoming Events: Register for upcoming webinars here!",
+  "duration_seconds": 2819,
+  "guid": "c0bc0a38-8ba5-40a7-994e-0e60e37985f3",
+  "item_id": "practical-ai-7f286c523d40",
+  "published_at": "2026-03-25T18:59:43Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "AI at the Edge is a different operating environment",
+  "transcript_url": "https://share.transistor.fm/s/ea7694a9/transcription",
+  "url": "https://share.transistor.fm/s/ea7694a9"
+}

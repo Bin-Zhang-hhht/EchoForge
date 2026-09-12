@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/1898fba5/e5b0527d.mp3",
+  "description": "Predictive modeling is a core element in modern systems, and powers capabilities such as fraud detection, loan approvals, and recommendation systems. These systems typically operate on structured, relational data stored in enterprise databases, with rows, columns, and interlinked tables. While computer vision and natural language processing have undergone a neural network revolution, the tabular data layer underpinning predictive modeling still largely relies on manual feature engineering and task-specific models. Relational deep learning proposes a new approach. It treats databases as graphs and applies transformer-style attention mechanisms directly over structured relational data. Researchers are now building foundation models for tabular data that aim to generalize across predictive tasks without painstaking feature engineering. Jure Leskovec is a Professor of Computer Science at Stanford University and he previously served as Chief Scientist at Pinterest and was an investigator at",
+  "duration_seconds": 2640,
+  "guid": "https://softwareengineeringdaily.com/?p=22320",
+  "item_id": "software-engineering-daily-111e1dc8fb36",
+  "published_at": "2026-06-23T09:00:39Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Foundation Models for Structured Data",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/foundation-models-for-structured-data/"
+}

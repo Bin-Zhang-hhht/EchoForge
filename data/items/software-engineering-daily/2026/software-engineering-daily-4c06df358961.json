@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/d6014e9b/8fe86fb9.mp3",
+  "description": "Package management sits at the foundation of modern software development, quietly powering nearly every software project in the world. Tools like npm and Yarn have long been the core of the JavaScript ecosystem, enabling developers to install, update, and share code with ease. But as projects grow larger and the ecosystem more complex, this older infrastructure is beginning to show its limits with performance bottlenecks, dependency conflicts, and growing concerns around supply chain security. Darcy Clarke and Ruy Adorno are veterans of this ecosystem. Both spent years maintaining the npm CLI and helping guide the Node.js project, where they saw firsthand the technical debt and design tradeoffs that define modern JavaScript tooling. Now they’re building vlt, a new package manager and registry that rethinks performance, security, and developer experience from the ground up. In this episode, Darcy and Ruy join Josh Goldberg to discuss how vlt works, why they believe package management ne",
+  "duration_seconds": 3438,
+  "guid": "https://softwareengineeringdaily.com/?p=20424",
+  "item_id": "software-engineering-daily-4c06df358961",
+  "published_at": "2026-01-22T10:00:16Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Next-Gen JavaScript Package Management with Ruy Adorno and Darcy Clarke",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/next-gen-javascript-package-management-with-ruy-adorno-and-darcy-clarke/"
+}

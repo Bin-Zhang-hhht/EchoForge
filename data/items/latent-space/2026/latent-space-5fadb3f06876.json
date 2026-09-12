@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/208082176/eb710305543a96a17ff4f67800586d98.mp3",
+  "description": "In recent months, the open vs closed, and US vs China discussions on model ownership and sovereign/local AI have heated up to a fever pitch. So it is very very good news that Poolside AI are finally emerging with new models, like Laguna S 2.1, that are beating Thinking Machines’ recent release nearly 10 times their size. Poolside’s recent tech report got a lot of praise due to their level of detail, and Vibhu first covered Laguna’s recent technical report on our paper club: From spending $12 million building language models for code before the world cared to creating a Model Factory that can take a model from pre-training to release in eight weeks, Eiso Kant has spent more than a decade betting that code is the path to AGI. In this episode, the Poolside co-founder joins swyx and Vibhu to explain why ChatGPT felt like vindication, why Poolside embraced open weights and open research, and why he would rather live in a world with 100 foundation model companies than five even if Poolside w",
+  "duration_seconds": 6873,
+  "guid": "substack:post:208082176",
+  "item_id": "latent-space-5fadb3f06876",
+  "published_at": "2026-07-23T05:09:14Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Inside the Model Factory — Eiso Kant, Poolside AI",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/poolside"
+}

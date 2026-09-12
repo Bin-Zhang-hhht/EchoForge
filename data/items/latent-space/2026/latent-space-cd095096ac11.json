@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/198688585/e48f923a6fb4c7f822f1f5013a97c41d.mp3",
+  "description": "Take the 2026 AI Engineering Survey and get >$2k in credits and AIE WF tickets! On the product side, everyone is getting Computer - Perplexity, Manus, Cursor, and so on. Meanwhile on the research side, agentic evals like TerminalBench and GDPVal are also assuming computer (Harbor). On both ends, the consolidating LLM OS stack has become a standard toolkit, and Daytona is one of a small set of AI Infra companies that are booming because of it. “The end of localhost” has been Ivan Burazin’s obsession for more than a decade. Something that is all too familiar… Long before agents became the default way people talked about software development, Ivan was already chasing the idea that development should not depend on a fragile local machine. CodeAnywhere, one of the first browser-based IDEs, was an early attempt at that future: move the development environment into the cloud, make setup reproducible, and free developers from the endless “works on my machine” tax. The thesis was directionally ",
+  "duration_seconds": 4227,
+  "guid": "substack:post:198688585",
+  "item_id": "latent-space-cd095096ac11",
+  "published_at": "2026-05-21T20:37:40Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Giving Agents Computers — Ivan Burazin, Daytona",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/daytona"
+}

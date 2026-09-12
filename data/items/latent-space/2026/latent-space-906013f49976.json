@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/191097767/72a8d1a77282f7fee0214a7442ccfd40.mp3",
+  "description": "Claude Cowork came out of an accident. Felix and the Anthropic team noticed something interesting with Claude Code: many users were using it primarily for all kinds of messy knowledge work instead of coding. Even technical builders would use it for lots of non-technical work. Even more shocking, Claude cowork wrote itself. With a team of humans simply orchestrating multiple claude code instances, the tool was ready after a brief week and a half. This isn’t Felix’s first rodeo with impactful and playful desktop apps. He’s helped ship the Slack desktop app and is a core maintainer of Electron the open-source software framework used for building cross-platform desktop applications, even putting Windows 95 into an Electron app that runs on macOS, Windows, and Linux. In this episode, Felix joins us to unpack why execution has suddenly become cheap enough that teams can “just build all the candidates” and why the real frontier in AI products is no longer better chat, but trusted task executi",
+  "duration_seconds": 5219,
+  "guid": "substack:post:191097767",
+  "item_id": "latent-space-906013f49976",
+  "published_at": "2026-03-17T21:39:16Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Why Anthropic Thinks AI Should Have Its Own Computer — Felix Rieseberg of Claude Cowork & Claude Code Desktop",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/felix-anthropic"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/d76e02d5/e934139b.mp3",
+  "description": "What happens when AI agents start acting less like chatbots and more like coworkers? In this episode, Dan and Chris sit down with Craig McLuckie, CEO of Stacklok to explore MCP, Kubernetes, ToolHive, enterprise AI, and the emerging infrastructure powering AI-native applications. From identity management to agent orchestration and system architecture, this conversation dives into how organizations may soon manage entire fleets of AI agents working behind the scenes. Featuring: Craig McLuckie – LinkedIn Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Daniel Whitenack – Website, GitHub, X Links: Stacklok Toolhive Sponsors: Prediction Guard: A self-hosted AI control plane for running agents in high impact environments. predictionguard.com/practicalai Upcoming Events: Register for upcoming webinars here! Midwest AI Summit 2026",
+  "duration_seconds": 2889,
+  "guid": "16863a1c-38c8-4d5c-ac85-efdbf1da5b40",
+  "item_id": "practical-ai-59f2dc28f20a",
+  "published_at": "2026-05-28T09:00:00Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Rebooting Enterprise AI with MCP and Kubernetes",
+  "transcript_url": "https://share.transistor.fm/s/d76e02d5/transcription",
+  "url": "https://share.transistor.fm/s/d76e02d5"
+}

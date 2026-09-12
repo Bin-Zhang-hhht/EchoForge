@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/48e85dca/218a1c73.mp3",
+  "description": "AI agents have taken on a growing share of software development work, so much so that the hardest problems are shifting away from code generation towards something new, context. The challenge is now contextualizing why systems work the way they do, how architectural decisions were made, and the sources of truth that exist outside of the code base. As teams adopt agentic tools, gaps or inconsistencies in context have emerged as a primary reason why software fails to meet production standards. Unblocked is a startup focused on solving this context gap. Their context engine aggregates and reasons over organizational knowledge spread across source code, pull requests, documentation, chat systems, and production telemetry. By acting as a context engine for both developers and AI agents, Unblocked aims to improve AI code quality and review, reduce interruptions, accelerate onboarding, and enable safer, more effective agentic workflows. Dennis Pilarinos is the Founder and CEO of Unblocked. Pr",
+  "duration_seconds": 2961,
+  "guid": "https://softwareengineeringdaily.com/?p=21311",
+  "item_id": "software-engineering-daily-1a321f11ed1f",
+  "published_at": "2026-03-05T10:00:04Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Organizational Context for AI Coding Agents with Dennis Pilarinos",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/organizational-context-for-ai-coding-agents-with-dennis-pilarinos/"
+}

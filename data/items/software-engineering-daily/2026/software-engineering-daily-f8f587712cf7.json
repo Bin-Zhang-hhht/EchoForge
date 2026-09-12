@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/0fe41fef/64f81b4f.mp3",
+  "description": "AI-assisted programming has moved far beyond autocomplete. Large language models are now capable of editing entire codebases, coordinating long-running tasks, and collaborating across multiple systems. As these capabilities mature, the core challenge in software development is shifting away from writing code and toward orchestrating work, managing context, and maintaining shared understanding across fleets of agents. Steve Yegge is a software engineer, writer, and industry veteran whose essays have shaped how many developers think about their work. Over the past year, Steve has been exploring the frontier of agentic software development, building tools like Beads and Gas Town to experiment with multi-agent coordination, shared memory, and AI-driven software workflows. In this episode, Steve joins Kevin Ball to discuss the evolution of AI coding from chat-based assistance to full agent orchestration, the technical and cognitive challenges of managing fleets of agents, how concepts like ",
+  "duration_seconds": 4192,
+  "guid": "https://softwareengineeringdaily.com/?p=20465",
+  "item_id": "software-engineering-daily-f8f587712cf7",
+  "published_at": "2026-02-12T10:00:51Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Gas Town, Beads, and the Rise of Agentic Development with Steve Yegge",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/gas-town-beads-and-the-rise-of-agentic-development-with-steve-yegge/"
+}

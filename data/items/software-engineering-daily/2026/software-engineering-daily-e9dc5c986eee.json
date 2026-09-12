@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/e4f451c5/58d24e81.mp3",
+  "description": "Mobile apps have become a primary interface for critical services, including banking, payments, and healthcare. Unlike web applications, much of the logic and intellectual property in a mobile app lives directly on the user’s device, which is an environment the developer doesn’t control. That makes mobile apps uniquely exposed to reverse engineering, runtime manipulation, and fraud. As more critical functionality shifts to mobile, the need to harden apps against sophisticated attackers continues to grow. Guardsquare builds tools to protect and test mobile applications against both static and dynamic threats. Its platform has features including layered code obfuscation, runtime application self-protection, mobile-specific security testing, threat monitoring, and API attestation. Ryan Lloyd is the Chief Product Officer at Guardsquare. In this episode, he joins Gregor Vand to discuss why mobile security differs from desktop and web security, how reverse engineering tools have evolved, the",
+  "duration_seconds": 3292,
+  "guid": "https://softwareengineeringdaily.com/?p=21759",
+  "item_id": "software-engineering-daily-e9dc5c986eee",
+  "published_at": "2026-04-09T09:00:53Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Mobile App Security with Ryan Lloyd",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/mobile-app-security-with-ryan-lloyd/"
+}

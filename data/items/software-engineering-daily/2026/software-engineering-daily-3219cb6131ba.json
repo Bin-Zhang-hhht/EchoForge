@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/53e19dd7/75d663ec.mp3",
+  "description": "The most useful coding agents can mutate their environments by downloading packages, writing files, and connecting to services across the network. However, that freedom also presents dangers, and promises to usher in a new wave of security threats. Docker recently announced Docker Sandboxes, which give each agent its own isolated micro VM while preserving the familiar ergonomics of a container. A standard container shares the host’s kernel, but a micro VM emulates hardware and runs its own kernel, giving a stronger security boundary around code that cannot be trusted. Mark Cavage is the President and COO of Docker, and he previously worked at companies including Stripe, AWS and Oracle. In this episode, Mark joins Gregor Vand for a wide-ranging conversation that includes why agents break the immutability assumptions containers were built on, how micro VMs differ from both containers and traditional VMs, and the still-unsolved challenge of giving agents scoped, trustworthy access to sens",
+  "duration_seconds": 3050,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9805",
+  "item_id": "software-engineering-daily-3219cb6131ba",
+  "published_at": "2026-07-30T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Docker and Sandboxing AI Agents",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/docker-and-sandboxing-ai-agents/"
+}

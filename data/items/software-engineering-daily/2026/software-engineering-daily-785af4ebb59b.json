@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/0b9386ae/a709c725.mp3",
+  "description": "LLM -powered systems continue to move steadily into production, but this process is presenting teams with challenges that traditional software practices don’t commonly encounter. Models and agents are non-deterministic systems, which makes it difficult to test changes, reason about failures, and confidently ship updates. This has created the need for new evaluation tooling designed specifically around the properties of LLMs. Comet is a platform with Roots and MLOps, to the rapidly evolving world of agent-based systems by treating prompts, tools, and workflows as optimizable components that can be evaluated and improved over time. Gideon Mendels is the co -founder and CEO of Comet. He previously worked at Google on hate speech and deception detection, and he founded GroupWise, which trained and deployed NLP models processing billions of chats. In this episode, Gideon joins Kevin Ball to discuss how agent development sits between software engineering and ML, why eVals are the missing fou",
+  "duration_seconds": 3145,
+  "guid": "https://softwareengineeringdaily.com/?p=20470",
+  "item_id": "software-engineering-daily-785af4ebb59b",
+  "published_at": "2026-02-17T10:00:15Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Optimizing Agent Behavior in Production with Gideon Mendels",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/optimizing-agent-behavior-in-production-with-gideon-mendels/"
+}

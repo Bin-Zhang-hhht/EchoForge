@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/e7d072b9/2267790f.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer unpack the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, they cover Apple‘s uncertain path beyond the iPhone. They also discuss Google‘s agentic pivot at Google I/O, a surge in DuckDuckGo traffic following Google’s default switch to AI mode, and payroll platform Remote surpassing 300 million in ARR with flat headcount. Gregor and Sean also dig into why consumer subscriptions don’t seem to correspond to actual costs, how enterprise is quietly subsidizing the AI economy, why the true moat has shifted from model quality to context management and agentic harness, and what the coming wave of token cost optimization might look like as companies start scrutinizing their AI bills. Finally, they highlight standout threads from Hacker News including Doom running on a travel router touchscreen, a viral post asking whether AI produc",
+  "duration_seconds": 3069,
+  "guid": "https://softwareengineeringdaily.com/?p=22301",
+  "item_id": "software-engineering-daily-02d77919b59d",
+  "published_at": "2026-06-09T09:00:31Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: Apple’s AI Problem, The Real Business Model of AI, and Token Cost Reckoning",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-apples-ai-problem-the-real-business-model-of-ai-and-token-cost-reckoning/"
+}

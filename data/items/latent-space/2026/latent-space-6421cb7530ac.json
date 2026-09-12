@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/189936942/61bbb1aad83c5b1e92776435f97ac3f0.mp3",
+  "description": "The reception to our recent post on Code Reviews has been strong. Catch up! Amid a maelstrom of discussion on whether or not AI is killing SaaS, one of the top publicly listed SaaS companies in the world has just reported record revenues, clearing well over $1.1B in ARR for the first time with a 28% margin. As we comment on the pod, Aaron Levie is the rare public company CEO equally at home in both worlds of Silicon Valley and Wall Street/Main Street, by day helping 70% of the Fortune 500 with their Enterprise Advanced Suite, and yet by night is often found in the basements of early startups and tweeting viral insights about the future of agents. Now that both Cursor, Cloudflare, Perplexity, Anthropic and more have made Filesystems and Sandboxes and various forms of “Just Give the Agent a Box” cool (not just cool; it is now one of the single hottest areas in AI infrastructure growing 100% MoM), we find it a delightfully appropriate time to do the episode with the OG CEO who has been gi",
+  "duration_seconds": 4618,
+  "guid": "substack:post:189936942",
+  "item_id": "latent-space-6421cb7530ac",
+  "published_at": "2026-03-05T00:54:45Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Every Agent Needs a Box — Aaron Levie, Box",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/box"
+}

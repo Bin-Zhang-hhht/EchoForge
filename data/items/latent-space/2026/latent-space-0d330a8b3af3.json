@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/199487836/d44a44519bdf8c14dc458f47d0972ffc.mp3",
+  "description": "Editor’s note: In our first BioHub pod with Priscilla and Mark they discussed their acquisition of EvoScale, led by Alex Rives, who is now Head of Science at BioHub. With ESM-1 they trained language models on millions of protein sequences drawn from across life, with a simple “next token” objective: predict the amino acids that have been randomly masked out, based on the context of the rest of the sequence. But they soon found that these models also learned biological structure and function, including properties the model had never been explicitly shown AND that this ability scales predictably with compute, leading to ESM2 and ESM3. Today, Alex announced ESMFold 2, an open scientific engine to power prediction, design, and discovery across protein biology. Building on Cryo-EM data (discussed in the CZI pod), ESMFold2 reports state of the art performance on protein interactions, especially antibodies, a critical modality for therapeutics, and evidence that inference time scaling is also",
+  "duration_seconds": 4212,
+  "guid": "substack:post:199487836",
+  "item_id": "latent-space-0d330a8b3af3",
+  "published_at": "2026-05-27T17:46:16Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬ESM: The Bitter Lesson is Coming for Proteins - Alex Rives, BioHub",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/esmfold2"
+}

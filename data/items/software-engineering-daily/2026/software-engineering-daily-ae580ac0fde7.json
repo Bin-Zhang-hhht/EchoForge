@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/8576bc41/fe6d28f7.mp3",
+  "description": "Enterprise IT systems have grown into sprawling, highly distributed environments spanning cloud infrastructure, applications, data platforms, and increasingly AI-driven workloads. Observability tools have made it easier to collect metrics, logs, and traces, but understanding why systems fail and responding quickly remains a persistent challenge. As complexity continues to rise, the industry is looking beyond dashboards and alerts toward agentic AI systems that can reason about operational data, reduce toil, and take action when things go wrong. SolarWinds offers solutions to monitor, understand, and remediate issues across complex, distributed systems. The company began as a leader in network and infrastructure monitoring, and has evolved to support modern applications, cloud environments, containers, and AI workloads, with a growing focus on reducing operational toil. Krishna Sai is the Chief Technology Officer at SolarWinds. He joins the show with Sean Falconer to discuss how SolarWi",
+  "duration_seconds": 3195,
+  "guid": "https://softwareengineeringdaily.com/?p=21283",
+  "item_id": "software-engineering-daily-ae580ac0fde7",
+  "published_at": "2026-02-24T10:00:39Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Engineering AI Systems for Autonomy and Resilience with Krishna Sai",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/engineering-ai-systems-for-autonomy-and-resilience-with-krishna-sai/"
+}

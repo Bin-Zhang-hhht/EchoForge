@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/609a0c3a/055770ef.mp3",
+  "description": "Modern web development requires an ever-growing collection of tools including formatters, linters, bundlers, and plugins. Each tool typically has its own configuration, dependencies, and performance cost. As applications grow more complex, the overhead of maintaining this toolchain becomes a real burden. Biome is an open source toolchain for web projects that brings formatting and linting together in a single fast, opinionated tool. It’s built in Rust and is designed to be a drop-in replacement for Prettier and ESLint, with sensible defaults, minimal configuration, and consistent behavior across the CLI and editor environments. Biome also introduces a module graph that enables cross-file analysis, and type-aware lint rules that don’t require the TypeScript compiler. Emanuele Stoppa, known as Ema, is a Senior Systems Engineer at Cloudflare, a lead at Astro, and the creator and lead maintainer of Biome. In this episode, Ema joins Josh Goldberg to discuss the history of Biome, how linters",
+  "duration_seconds": 3776,
+  "guid": "https://softwareengineeringdaily.com/?p=22315",
+  "item_id": "software-engineering-daily-84ff67512b56",
+  "published_at": "2026-06-18T09:00:41Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Biome and the Future of JavaScript Tooling",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/biome-and-the-future-of-javascript-tooling/"
+}

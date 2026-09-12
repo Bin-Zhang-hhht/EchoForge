@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/Yashar_No_Ads_V1.mp3?dest-id=201630",
+  "description": "Kyle Polich sits down with Yashar Deldjoo, research scientist and Associate Professor at the Polytechnic University of Bari, to explore how recommender systems have evolved and why trustworthiness matters. They unpack key dimensions of responsible AI, including robustness to adversarial attacks, privacy, explainability, and fairness, and discuss how LLMs introduce new risks like hallucinations. The episode closes with a look at \"agentic\" recommender systems, where tools and memory shift recommendations from ranked lists to end-to-end task completion.",
+  "duration_seconds": 2965,
+  "guid": "d2162e7b-02f2-475f-a353-e1041bcedd78",
+  "item_id": "data-skeptic-8ee06f5ab5f6",
+  "published_at": "2026-04-25T18:00:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "The Future is Agentic in Recommender Systems",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/The-future-is-agentic-in-recommender-systems"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/193082940/b98c45099bbe4f6e5ca15d48d02e7222.mp3",
+  "description": "Fresh off raising a monster $15B, Marc Andreessen has lived through multiple computing platform shifts firsthand, from Mosaic and Netscape to cofounding A16z. In this episode, Marc joins swyx and Alessio in a16z’s legendary Sand Hill Road office to argue that AI is not just another hype cycle, but the payoff of an “80-year overnight success”: from neural nets and expert systems to transformers, reasoning models, coding, agents, and recursive self-improvement. He lays out why he thinks this moment is different, why AI is finally escaping the old boom-bust pattern, and why the real bottleneck may be less about models than about the messy institutions, incentives, and social systems that struggle to absorb technological change. This episode was a dream come true for us, and many thanks to Erik Torenberg for the assist in setting this up. Full episode on YouTube! We discuss: * Marc’s long view on AI: from the 1980s AI boom and expert systems to AlexNet, transformers, and why he sees today’",
+  "duration_seconds": 4580,
+  "guid": "substack:post:193082940",
+  "item_id": "latent-space-a2bae852be74",
+  "published_at": "2026-04-03T16:57:46Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Marc Andreessen introspects on The Death of the Browser, Pi + OpenClaw, and Why \"This Time Is Different\"",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/pmarca"
+}

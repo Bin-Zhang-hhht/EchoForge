@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/d80c12af/00b19a79.mp3",
+  "description": "Engineering teams around the world are building AI-focused applications or integrating AI features into existing products. The AI development ecosystem is maturing, which is accelerating how quickly these applications can be prototyped. However, taking AI applications to production remains a notoriously complex process. Modern AI stacks demand LLMs, embeddings, vector search, observability, new caching layers, and constant adaptation as the landscape shifts week to week. Increasingly, the data layer has become both the foundation and the bottleneck to AI app productionization. MongoDB has been expanding beyond its core document database into a full AI-ready database platform with integrated capabilities for operational data, search, real-time analytics, and AI-powered data retrieval. The company also recently acquired Voyage AI to provide accurate and cost-effective embedding models and rerankers to its users. Fred Roma is a veteran engineer and is currently the SVP of Product and Engi",
+  "duration_seconds": 3109,
+  "guid": "https://softwareengineeringdaily.com/?p=20429",
+  "item_id": "software-engineering-daily-8ae1f95f4ab4",
+  "published_at": "2026-01-27T10:00:27Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Production-Grade AI Systems with Fred Roma",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/production-grade-ai-systems-with-fred-roma/"
+}

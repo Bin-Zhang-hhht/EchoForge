@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/Roan_No_Ads_V1.mp3?dest-id=201630",
+  "description": "In this episode, host Kyle Polich speaks with Roan Schellingerhout, a fourth-year PhD student at Maastricht University, about explainable multi-stakeholder recommender systems for job recruitment. Roan discusses his research on creating AI-powered job matching systems that balance the needs of multiple stakeholders—job seekers, recruiters, HR professionals, and companies. The conversation explores different types of explanations for job recommendations, including textual, bar chart, and graph-based formats, with findings showing that lay users strongly prefer simple textual explanations over more technical visualizations. Roan shares insights from his \"healthy friction\" study, which tested whether users could distinguish between real AI-generated explanations and randomly generated ones, revealing that participants often used explanations as information sources rather than decision-making tools. The discussion delves into the technical architecture behind these systems, including the u",
+  "duration_seconds": 1597,
+  "guid": "70f91d40-5610-4f4f-8aa5-d417fd8d669d",
+  "item_id": "data-skeptic-458037a2d471",
+  "published_at": "2026-02-02T16:55:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "Healthy Friction in Job Recommender Systems",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/Healthy-Friction-in-Job-Recommender-Systems"
+}

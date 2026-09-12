@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/01289c0f/0d56de82.mp3",
+  "description": "In episode 30 of Recsperts, I speak with Annelien Smets, Professor at Vrije Universiteit Brussel and Senior Researcher at imec-SMIT, about the value, perception, and practical design of serendipity in recommender systems. Annelien introduces her framework for understanding serendipity through intention, experience, and affordances, and explains the paradox of artificial serendipity - why it cannot be engineered, but only designed for. We start by unpacking the paradox of serendipity: while serendipity cannot be engineered or planned, systems and environments can be designed to increase the likelihood that serendipitous experiences occur. Annelien explains why randomness alone is not enough and why serendipity always emerges from an interplay between an unexpected encounter and a user’s ability to recognize its relevance and value. A central part of our discussion focuses on Annelien’s recent framework that distinguishes between intended, experienced, and afforded serendipity. We explor",
+  "duration_seconds": 5521,
+  "guid": "30ba22c1-92ce-4cfc-afee-640b7ef7cedf",
+  "item_id": "recsperts-3b0b4ea61894",
+  "published_at": "2026-01-28T10:30:00Z",
+  "reason": null,
+  "source_id": "recsperts",
+  "source_name": "Recsperts",
+  "status": "pending",
+  "title": "#30: Serendipity for Recommender Systems with Annelien Smets",
+  "transcript_url": "https://share.transistor.fm/s/01289c0f/transcript.txt",
+  "url": "https://recsperts.com/31-serendipity"
+}

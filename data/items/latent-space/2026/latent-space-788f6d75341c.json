@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/208716574/1644ff34767eacc3e04d93b5c8621905.mp3",
+  "description": "There are roughly 100x more people who use code than who can write code. As code that “just works” becomes easier to generate, this group may be the biggest prize of all — if you can get the agentic interface right. A key trend we have been tracking over at AINews is the absolute explosion in Codex usage this year, with MAU now up >10x from Jan 2026. Less than two weeks after their July 9th launch, OpenAI said ChatGPT Work and Codex had reached 10M users combined (as we cover in the pod, Codex now powers ChatGPT Work, so all ChatGPT Work users are now users of the Codex harness, even if they aren’t traditional engineers) — showing the early innings of what happens when you graduate from coding agents to knowledge work agents: We’ve been calling out how coding agents are “breaking containment” to do everything else this year to power every other part of knowledge work - and it started with the org chart, with a major reorg last month that amounted to two of Codex’s most prominent leader",
+  "duration_seconds": 4168,
+  "guid": "substack:post:208716574",
+  "item_id": "latent-space-788f6d75341c",
+  "published_at": "2026-07-28T15:26:30Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Codex from 0 to 10M Users: Building ChatGPT Work — Akshay Nathan, OpenAI",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/chatgpt-work"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/202058620/cbf3e49d692276339a44a698b75ed914.mp3",
+  "description": "On the Science pod, we’ve been covering a lot of the ground on how AI is revolutionizing STEM, but one of our favorite off the record topics since our launch is which field is harder to accelerate: math, bio, or physics? Today we’re back in Materials Science land with Radical — Unlike biological molecules that can be represented (and predicted!) by token strings, the success of materials involve many more macro complex variables like supply chains, microstructures, and manufacturing processes. If you recall the LK99 drama of 2023, while the basic ingredients were known, part of the confusion came from the lack of disclosure around manufacturing, and therefore defeated reproducibility. There is probably no \"one-shot\" model capable of designing a material that works perfectly at scale. How Radical is accelerating materials discovery >10x the pace of DARPA/GE MACH Joseph Krause is a materials scientist through and through. And after spending his career watching industries stall out waitin",
+  "duration_seconds": 4610,
+  "guid": "substack:post:202058620",
+  "item_id": "latent-space-f3348e4671cb",
+  "published_at": "2026-06-17T17:58:06Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬 The Self-Driving Lab — Joseph Krause, Radical AI",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/radical-ai"
+}

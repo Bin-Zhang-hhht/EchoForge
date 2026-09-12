@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/3e60eb39/b9943953.mp3",
+  "description": "Vector search has risen to become a foundational tool in modern search and retrieval systems, including the RAG pipelines that power many AI applications. However, the demands on retrieval systems are growing more sophisticated, which is revealing the limits of relying on a single vector similarity score. Vespa is a popular open source search and data serving engine. Central to Vespa’s architecture is tensor-based retrieval, which is an approach that represents data as tensors rather than simple vectors. Tensor-based retrieval enables richer mathematical operations and more flexible ranking functions that can surmount the limitations of a single vector similarity score. Radu Gheorghe is a software engineer at Vespa with a background spanning nearly 12 years of consulting and training on Elasticsearch and Solr. In this episode, Radu joins Sean Falconer to discuss why vector similarity alone falls short in production, how tensor-based retrieval generalizes to support richer ranking funct",
+  "duration_seconds": 2315,
+  "guid": "https://softwareengineeringdaily.com/?p=21813",
+  "item_id": "software-engineering-daily-ade6b9ea81bf",
+  "published_at": "2026-05-12T09:00:05Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Vespa AI and Surpassing the Limits of Vector Search",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/vespa-ai-and-surpassing-the-limits-of-vector-search/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/197417280/2d79546fa3b8f67062f71fa1b134c52c.mp3",
+  "description": "Special discounts up for AIE Melbourne (LS discount) and AIE World’s Fair (group discounts up to 25% - CFPs still open for Autoresearch and Vertical AI) Cya there! Abridge did not start as an “GPT wrapper”. It was founded in 2018, years before the Cambrian explosion of AI application layer companies. OpenAI launched ChatGPT publicly on November 30, 2022 and by then, Abridge had already spent years doing the unglamorous work of building trust for one of the highest context, most important workflows in healthcare: the conversation between a patient and a clinician. Abridge’s original wedge was clinical documentation. Listen to the visit, generate the note, reduce the clerical burden, and let clinicians spend more time with patients instead of the EHR. By focusing on how doctors actually document, how health systems actually buy, how EHR integration actually works, how clinicians verify outputs, and how missing context during a visit turns into downstream friction across billing, prior au",
+  "duration_seconds": 3920,
+  "guid": "substack:post:197417280",
+  "item_id": "latent-space-f98c46c3a7e0",
+  "published_at": "2026-05-14T22:05:31Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "AI-Native Healthcare: 100M Doctor Visits, 10–20 Hours Saved, Prior Auth in Minutes — Janie Lee & Chai Asawa, Abridge",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/abridge"
+}

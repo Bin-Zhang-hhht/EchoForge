@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/5c1a087d/89d77a53.mp3",
+  "description": "As AI agents become more capable and autonomous, they also introduce new security challenges. In this 'Fully Connected' episode, Dan and Chris unpack Anthropic’s Zero Trust for AI Agents security framework and what it means for organizations deploying agentic systems. They examine the key security risks facing agentic systems and discuss how organizations can apply Zero Trust principles to deploy AI agents safely. Along the way, they break down practical security controls and discuss how traditional cybersecurity principles must evolve for the age of AI agents. Featuring: Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Daniel Whitenack – Website, GitHub, X Links: Zero Trust for AI Agents OWASP GenAI Project Sponsors: Prediction Guard: A self-hosted AI control plane for running agents in high impact environments. predictionguard.com/practicalai Upcoming Events: Register for upcoming webinars here! Midwest AI Summit 2026",
+  "duration_seconds": 2822,
+  "guid": "9e7d7537-3ac2-4775-aa7e-e93ad4536b95",
+  "item_id": "practical-ai-db1f65c5af44",
+  "published_at": "2026-06-11T09:00:00Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Zero Trust for AI Agents",
+  "transcript_url": "https://share.transistor.fm/s/5c1a087d/transcription",
+  "url": "https://share.transistor.fm/s/5c1a087d"
+}

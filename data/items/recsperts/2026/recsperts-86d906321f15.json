@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/08c95763/08df982c.mp3",
+  "description": "In episode 31 of Recsperts, I sit down with Elisabeth Lex, Full Professor of Human-Computer Interfaces and Inclusive Technologies at Graz University of Technology and a leading researcher at the intersection of recommender systems, psychology, and human–computer interaction. Together, we explore how recommender systems can become truly human-centric by integrating cognitive, emotional, and personality-aware models into their design. Elisabeth begins by addressing a common reductionism in the field: treating users primarily as data points rather than as humans with goals, emotions, memories, and cognitive boundaries. We revisit the origins of psychology-informed recommendation, including the Grundy system -the first recommender system, built nearly 50 years ago - which framed book recommendation through stereotype modeling. From there, we discuss how the community’s focus shifted toward solving recommendation mainly as an algorithmic optimization problem, often sidelining richer models ",
+  "duration_seconds": 5846,
+  "guid": "415e011f-02e9-42ff-a076-35b763df561c",
+  "item_id": "recsperts-86d906321f15",
+  "published_at": "2026-02-19T11:47:21Z",
+  "reason": null,
+  "source_id": "recsperts",
+  "source_name": "Recsperts",
+  "status": "pending",
+  "title": "#31: Psychology-Aware Recommender Systems with Elisabeth Lex",
+  "transcript_url": "https://share.transistor.fm/s/08c95763/transcript.txt",
+  "url": "https://recsperts.com/31-psychology-lex"
+}

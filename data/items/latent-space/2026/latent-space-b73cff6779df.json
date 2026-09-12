@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/189149291/17fc201d8202018971be66d15a960624.mp3",
+  "description": "Editor’s note: CuspAI raised a $100m Series A in September and is rumored to have reached a unicorn valuation. They have all-star advisors from Geoff Hinton to Yann Lecun and team of deep domain experts to tackle this next frontier in AI applications. In this episode, Max Welling traces the thread connecting quantum gravity, equivariant neural networks, diffusion models, and climate-focused materials discovery (yes, there is one!!!). We begin with a provocative framing: experiments as computation. Welling describes the idea of a “physics processing unit”—a world in which digital models and physical experiments work together, with nature itself acting as a kind of processor. It’s a grounded but ambitious vision of AI for science: not replacing chemists, but accelerating them.Along the way, we discuss: * Why symmetry and equivariance matter in deep learning * The tradeoff between scale and inductive bias * The deep mathematical links between diffusion models and stochastic thermodynamics",
+  "duration_seconds": 2036,
+  "guid": "substack:post:189149291",
+  "item_id": "latent-space-b73cff6779df",
+  "published_at": "2026-02-25T17:36:18Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬Searching the Space of All Possible Materials — Prof. Max Welling, CuspAI",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/cuspai"
+}

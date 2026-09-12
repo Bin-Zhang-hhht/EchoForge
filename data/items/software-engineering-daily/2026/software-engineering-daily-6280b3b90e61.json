@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/aaca90ba/496c91f6.mp3",
+  "description": "Autonomous drone delivery has long been the stuff of science fiction, but ongoing advances have moved the space from experimental to operational. Zipline is one of the leading companies in this space, with drones that charge between missions and fly autonomously to deliver packages directly to customers. Kyle Madonia is the VP of Application Software and IT at Zipline, and she previously spent a decade as an engineer at SpaceX. In this episode, Kyle joins Gregor Vand to discuss how Zipline’s software stack powers end-to-end autonomous delivery, the engineering challenges of managing drone fleets at scale, and how the team approaches software releases for safety-critical systems. Gregor Vand is a security-focused technologist, having previously been a CTO across cybersecurity, cyber insurance and general software engineering companies. He is based in Singapore and can be found via his profile at vand.hk or on LinkedIn. Please click here to see the transcript of this episode. Sponsorship",
+  "duration_seconds": 3030,
+  "guid": "https://softwareengineeringdaily.com/?p=22282",
+  "item_id": "software-engineering-daily-6280b3b90e61",
+  "published_at": "2026-05-28T09:00:14Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Autonomous Drone Delivery at Scale",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/autonomous-drone-delivery-at-scale/"
+}

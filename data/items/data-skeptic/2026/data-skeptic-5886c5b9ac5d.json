@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/Ekatrina_No_With_Ads_V1.mp3?dest-id=201630",
+  "description": "Ekaterina (Kat) Fedorova from MIT EECS joins us to discuss strategic learning in recommender systems—what happens when users collectively coordinate to game recommendation algorithms. Kat's research reveals surprising findings: algorithmic \"protest movements\" can paradoxically help platforms by providing clearer preference signals, and the challenge of distinguishing coordinated behavior from bot activity is more complex than it appears. This episode explores the intersection of machine learning and game theory, examining what happens when your training data actively responds to your algorithm.",
+  "duration_seconds": 3275,
+  "guid": "a3c5a2fd-455b-4031-89e6-9caec7312300",
+  "item_id": "data-skeptic-5886c5b9ac5d",
+  "published_at": "2026-02-27T16:49:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "Collective Altruism in Recommender Systems",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/collective-altruism-in-recommender-systems"
+}

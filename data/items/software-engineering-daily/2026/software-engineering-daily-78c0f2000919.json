@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/936e6511/73d34e63.mp3",
+  "description": "Multiplayer games are among the hardest software systems to build, requiring developers to synchronize state across unreliable networks while maintaining fairness, performance, and a responsive player experience. Latency, cheating, server costs, and debugging distributed game logic all introduce complexity that single-player games never encounter. Dome Keeper is a minimalist tower defense game with roguelike elements where players must protect a fragile glass dome from relentless waves of alien attackers. The game was developed with the Godot Engine and released in 2022. More recently, the development team embarked on the challenge of adding multiplayer to the game. René Habermann is the founder of Bippinbits and the creator of Dome Keeper. Chris Ridenour is the founder of KAR Games, which is Godot focused studio that developed Drift: Space Survival. Chris is now working with the Dome Keeper team to bring multiplayer to the game. René and Chris join the show to talk about the origins o",
+  "duration_seconds": 2841,
+  "guid": "https://softwareengineeringdaily.com/?p=22305",
+  "item_id": "software-engineering-daily-78c0f2000919",
+  "published_at": "2026-06-11T09:00:19Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Developing Multiplayer Games in Godot",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/developing-multiplayer-games-in-godot/"
+}

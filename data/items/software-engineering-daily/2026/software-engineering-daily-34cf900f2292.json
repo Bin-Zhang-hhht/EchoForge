@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/b3038d77/22a2eabe.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer break down the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, Gregor and Sean dig into a wave of “runaway AI” stories, including Anthropic and OpenAI disclosing that their models accessed outside organizations during cyber evaluations, and Amazon reporting a staggering budget overrun blamed on bad agent loops. They explore why most of these incidents trace back to human decisions rather than models breaking free, and the awkward reality that today’s systems can bill you for tokens without reliably counting them. They also talk about the “Kimi moment.” Moonshot AI‘s open weight model has closed the gap with frontier models like ChatGPT and Claude at a remarkable pace, and the hosts unpack what it means for open weight strategies and how chip scarcity is pushing Chinese labs to innovate. As always, the episode wraps up with",
+  "duration_seconds": 2908,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9855",
+  "item_id": "software-engineering-daily-34cf900f2292",
+  "published_at": "2026-08-11T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: The Kimi Moment, Runaway AI, and Tokenmaxxing",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-the-kimi-moment-runaway-ai-and-tokenmaxxing/"
+}

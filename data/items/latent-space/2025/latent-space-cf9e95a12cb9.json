@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610562/84a86ba6927f827c7d138818724a3e00.mp3",
+  "description": "From Berkeley robotics and OpenAI’s 2017 Dota-era internship to shipping RL breakthroughs on GPT-4o, o1, and o3, and now leading model development at Cursor, Ashvin Nair has done it all. We caught up with Ashvin at NeurIPS 2025 to dig into the inside story of OpenAI’s reasoning team (spoiler: it went from a dozen people to 300+), why IOI Gold felt reachable in 2022 but somehow didn’t change the world when o1 actually achieved it, how RL doesn’t generalize beyond the training distribution (and why that means you need to bring economically useful tasks into distribution by co-designing products and models), the deeper lessons from the RL research era (2017–2022) and why most of it didn’t pan out because the community overfitted to benchmarks, how Cursor is uniquely positioned to do continual learning at scale with policy updates every two hours and product-model co-design that keeps engineers in the loop instead of context-switching into ADHD hell, and his bet that the next paradigm shif",
+  "duration_seconds": 2713,
+  "guid": "substack:post:186610562",
+  "item_id": "latent-space-cf9e95a12cb9",
+  "published_at": "2025-12-30T16:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[State of RL/Reasoning] IMO/IOI Gold, OpenAI o3/GPT-5, and Cursor Composer — Ashvin Nair, Cursor",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/state-of-rlreasoning-imoioi-gold"
+}

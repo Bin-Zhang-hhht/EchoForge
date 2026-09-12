@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/190777516/3e8657eee5a6ccb27814143e15672fd5.mp3",
+  "description": "Turbopuffer came out of a reading app. In 2022, Simon was helping his friends at Readwise scale their infra for a highly requested feature: article recommendations and semantic search. Readwise was paying ~$5k/month for their relational database and vector search would cost ~$20k/month making the feature too expensive to ship. In 2023 after mulling over the problem from Readwise, Simon decided he wanted to “build a search engine” which became Turbopuffer. We discuss:• Simon’s path: Denmark → Shopify infra for nearly a decade → “angel engineering” across startups like Readwise, Replicate, and Causal → turbopuffer almost accidentally becoming a company • The Readwise origin story: building an early recommendation engine right after the ChatGPT moment, seeing it work, then realizing it would cost ~$30k/month for a company spending ~$5k/month total on infra and getting obsessed with fixing that cost structure • Why turbopuffer is “a search engine for unstructured data”: Simon’s belief that",
+  "duration_seconds": 3632,
+  "guid": "substack:post:190777516",
+  "item_id": "latent-space-00fb3fde9db2",
+  "published_at": "2026-03-12T22:56:01Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Retrieval After RAG: Hybrid Search, Agents, and Database Design — Simon Hørup Eskildsen of Turbopuffer",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/turbopuffer"
+}

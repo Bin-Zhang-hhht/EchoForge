@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/630a1694/edda0fde.mp3",
+  "description": "Open source software underpins virtually every modern application. That ubiquity is a superpower for developers, but it is also an expanding attack surface. Software supply chain attacks were once rare but are now happening daily, with malicious actors exploiting the trust developers place in public registries, package managers, and CI/CD pipelines. Chainguard is a secure software supply chain platform. The company started with hardened container images and has expanded to cover domains including VMs, language libraries, GitHub Actions, and agent skills. Matt Moore is a co-founder and CTO of Chainguard, and a veteran of Google’s open source, container, and security infrastructure work. In this episode, Matt joins Gregor Vand to discuss lessons from recent supply chain attacks, why CI/CD pipelines are now a primary attack surface, the challenge of meaningful software inventories, the EU Cyber Resilience Act, and what the arrival of Anthropic’s Mythos model means for the pace of vulnerab",
+  "duration_seconds": 3441,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9828",
+  "item_id": "software-engineering-daily-586b23e64d48",
+  "published_at": "2026-08-04T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "AI-Powered Threats to the Software Supply Chain",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/ai-powered-threats-to-the-software-supply-chain/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/0f4098a5/589942b9.mp3",
+  "description": "Retrieval-augmented generation, or RAG, has become a foundational approach to building production AI systems. However, deploying RAG in practice can be complex and costly. Developers typically have to manage vector databases, chunking strategies, embedding models, and indexing infrastructure. Designing effective RAG systems is also a moving target, as techniques and best practices evolve in step with rapidly advancing language models. Google DeepMind recently released the File Search Tool, a fully managed RAG system built directly into the Gemini API. File Search abstracts away the retrieval pipeline, allowing developers to upload documents, code, and other text data, automatically generate embeddings, and query their knowledge base. We wanted to understand how the DeepMind team designed a general-purpose RAG system that maintains high retrieval quality. Animesh Chatterji is a Software Engineer at Google DeepMind and Ivan Solovyev is a Product Manager at DeepMind, and they worked on Fi",
+  "duration_seconds": 2277,
+  "guid": "https://softwareengineeringdaily.com/?p=21314",
+  "item_id": "software-engineering-daily-42e9226fc0fd",
+  "published_at": "2026-03-12T09:00:14Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "DeepMind’s RAG System with Animesh Chatterji and Ivan Solovyev",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/deepminds-rag-system-with-animesh-chatterji-and-ivan-solovyev/"
+}

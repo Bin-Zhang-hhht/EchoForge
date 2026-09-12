@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/42a8963e/618c5ac9.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer unpack the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, they cover Starlink’s rapid rollout of free, high-speed in-flight internet, Tesla’s move to deprecate Autopilot in favor of full self-driving, and Apple’s reported decision to power Siri with Google’s Gemini models. They also discuss Meta’s $2B acquisition of Manus, Waymo’s growing pains as autonomous vehicles scale, and the competitive shockwaves triggered by Google’s advances in custom AI hardware. Gregor and Sean then dive deep into the state of the tech job market, examining OpenAI’s decision to eliminate vesting cliffs, the escalating war for elite AI talent, and what recent layoffs really say about the future of software engineering. They explore how AI coding tools are reshaping the balance between junior and senior engineers, why fundamentals still matter, ",
+  "duration_seconds": 3066,
+  "guid": "https://softwareengineeringdaily.com/?p=20440",
+  "item_id": "software-engineering-daily-32385e026c2e",
+  "published_at": "2026-02-03T10:00:31Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: Apple Bets on Gemini, Google’s AI Advantage, and the Talent Arms Race",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-apple-bets-on-gemini-googles-ai-advantage-and-the-talent-arms-race/"
+}

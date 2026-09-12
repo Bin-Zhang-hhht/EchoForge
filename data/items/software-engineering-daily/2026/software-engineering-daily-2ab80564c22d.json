@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/87737c00/dbc799c9.mp3",
+  "description": "AI coding tools have gone from novelty to core infrastructure in under three years. Today, many devs use AI daily, a substantial share of new code is AI-generated, and expectations for automation are rapidly increasing. Sonar is a company specializing in analysis of code quality and security, and they recently released a new survey – the State of Code Developer Survey. The survey provides a deep examination of how developers are using AI in real production environments, and where the real-world gaps and risks still exist. Chris Grams is the CVP of Corporate Marketing at Sonar, and Manish Kapur is the VP of Product Marketing and Developer Relations at Sonar. In this episode, they join Matt Merrill to discuss what the survey reveals about AI-assisted development, why 96% of developers still don’t fully trust AI-generated code, how deterministic verification layers fit into agent-driven workflows, and what engineering leaders should prioritize as AI shifts from experimentation to producti",
+  "duration_seconds": 3425,
+  "guid": "https://softwareengineeringdaily.com/?p=21775",
+  "item_id": "software-engineering-daily-2ab80564c22d",
+  "published_at": "2026-04-23T09:00:23Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Hype and Reality of the AI Coding Shift",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/hype-and-reality-of-the-ai-coding-shift/"
+}

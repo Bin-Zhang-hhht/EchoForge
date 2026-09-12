@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/ef0e26a0/acac1782.mp3",
+  "description": "Developer tooling shapes how software gets written day to day, but the best tools often disappear into the background once they succeed. Formatting, linting, and build systems can either create friction and endless debate, or quietly remove entire classes of problems from a team’s workflow. Over the past decade, the JavaScript ecosystem has wrestled with both extremes as it scaled rapidly and accumulated complexity. Prettier emerged as a response to the surprisingly human problem of engineers spending too much time debating code style instead of building software. It offers a deterministic, opinionated formatter that helped normalize automation as part of everyday development. James Long is a design and product engineer who has worked at Mozilla and Stripe, and he’s the creator of Prettier. He joins the show with Josh Goldberg to talk about the origins of Prettier, why formatting debates are so emotionally charged, the technical challenges of building formatters, the realities of maint",
+  "duration_seconds": 3035,
+  "guid": "https://softwareengineeringdaily.com/?p=21319",
+  "item_id": "software-engineering-daily-12692deda714",
+  "published_at": "2026-03-19T09:00:09Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Prettier and Opinionated Code Formatting with James Long",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/prettier-and-opinionated-code-formatting-with-james-long/"
+}

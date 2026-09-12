@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610564/4944e1f91a0d0d17e5525fb297469684.mp3",
+  "description": "From pre-training data curation to shipping GPT-4o, o1, o3, and now GPT-5 thinking and the shopping model, Josh McGrath has lived through the full arc of OpenAI’s post-training evolution—from the PPO vs DPO debates of 2023 to today’s RLVR era, where the real innovation isn’t optimization methods but data quality, signal trust, and token efficiency. We sat down with Josh at NeurIPS 2025 to dig into the state of post-training heading into 2026: why RLHF and RLVR are both just policy gradient methods (the difference is the input data, not the math), how GRPO from DeepSeek Math was underappreciated as a shift toward more trustworthy reward signals (math answers you can verify vs. human preference you can’t), why token efficiency matters more than wall-clock time (GPT-5 to 5.1 bumped evals and slashed tokens), how Codex has changed his workflow so much he feels “trapped” by 40-minute design sessions followed by 15-minute agent sprints, the infrastructure chaos of scaling RL (”way more movin",
+  "duration_seconds": 1654,
+  "guid": "substack:post:186610564",
+  "item_id": "latent-space-257589da16ee",
+  "published_at": "2025-12-31T14:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[State of Post-Training] From GPT-4.1 to 5.1: RLVR, Agent & Token Efficiency — Josh McGrath, OpenAI",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/state-of-post-training-from-gpt-41"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/06577afc/c04f8b97.mp3",
+  "description": "AI agents are increasingly capable of reasoning and performing autonomous work over long periods. However, as agents take on more complex, longer-horizon tasks, keeping them supplied with the right information becomes the core engineering challenge. The industry is moving away from pre-loading context upfront toward a model where agents dynamically navigate and retrieve the data they need, when they need it. Redis is approaching context management using a context engine, which is an architecture built around four pillars: on-demand context retrieval, data that is always current, fast retrieval, and a memory layer that improves over time. In practice this means building materialized views of data with a semantic layer on top, rather than giving agents direct access to production databases. A memory system sits alongside this, extracting and compacting information asynchronously as the agent works. Simba Khadder leads AI strategy at Redis, and he previously co-founded the feature store p",
+  "duration_seconds": 2944,
+  "guid": "https://softwareengineeringdaily.com/?p=21769",
+  "item_id": "software-engineering-daily-94e759ab2bd2",
+  "published_at": "2026-04-21T09:00:58Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Unlocking the Data Layer for Agentic AI with Simba Khadder",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/unlocking-the-data-layer-for-agentic-ai-with-simba-khadder/"
+}

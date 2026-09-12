@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/facb92e2/33d1bc96.mp3",
+  "description": "What does it take to move AI agents from demos to reliable production systems? In this episode, Hamza Tahir explores how MLOps principles are shaping the future of generative AI, covering workflows, agent harnesses, fleets, and the infrastructure needed to build durable, scalable systems. The conversation dives into open source tools, production challenges, and how ZenML's new project, Kitaru, helps developers build resilient, replayable, and observable agent systems. Featuring: Hamza Tahir – LinkedIn Daniel Whitenack – Website, GitHub, X Links: ZenML Kitaru Machine Learning Tools Landscape v2 (+84 new tools) Sponsors: Framer: The enterprise-grade website builder that lets your team ship faster. Get 30% off at framer.com/practicalai Upcoming Events: Register for upcoming webinars here! Midwest AI Summit 2026",
+  "duration_seconds": 2799,
+  "guid": "8b5b6bd9-8bc8-4b5c-93a8-4d660f14b6dd",
+  "item_id": "practical-ai-da3c718c8d11",
+  "published_at": "2026-07-09T09:00:00Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Building Durable AI Agents",
+  "transcript_url": "https://share.transistor.fm/s/facb92e2/transcription",
+  "url": "https://share.transistor.fm/s/facb92e2"
+}

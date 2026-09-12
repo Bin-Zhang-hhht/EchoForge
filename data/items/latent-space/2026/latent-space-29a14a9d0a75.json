@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/190063769/104adabca6129bf33af673e58934a2ba.mp3",
+  "description": "All speakers are announced at AIE EU, schedule coming soon. Join us there or in Miami with the renowned organizers of React Miami! Singapore CFP also open! We’ve called this out a few times over in AINews, but the overwhelming consensus in the Valley is that “the IDE is Dead”. In November it was just a gut feeling, but now we actually have data: even at the canonical “VSCode Fork” company, people are officially using more agents than tab autocomplete (the first wave of AI coding): Cursor has launched cloud agents for a few months now, and this specific launch is around Computer Use, which has come a long way since we first talked with Anthropic about it in 2024, and which Jonas productized as Autotab: We also take the opportunity to do a live demo, talk about slash commands and subagents, and the future of continual learning and personalized coding models, something that Sam previously worked on at New Computer. (The fact that both of these folks are top tier CEOs of their own startups",
+  "duration_seconds": 3999,
+  "guid": "substack:post:190063769",
+  "item_id": "latent-space-29a14a9d0a75",
+  "published_at": "2026-03-06T02:42:37Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Cursor's Third Era: Cloud Agents",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/cursor-third-era"
+}

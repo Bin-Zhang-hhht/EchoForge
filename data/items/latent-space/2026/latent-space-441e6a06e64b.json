@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/195677117/0b85e7d88c5122f9f3d7832c6c2fa38f.mp3",
+  "description": "From building Applied Intuition from YC-era autonomy tooling into a $15B physical AI company, Qasar Younis and Peter Ludwig have spent the last decade living through the full arc of autonomy: from simulation and data infrastructure for robotaxi companies, to operating systems for safety-critical machines, to deploying AI onto cars, trucks, mining equipment, construction vehicles, agriculture, defense systems, and driverless L4 trucks running in Japan today. They join us to explain why “physical AI” is not just LLMs on wheels, why the real bottleneck is no longer model intelligence but deployment onto constrained hardware, and why the future of autonomy may look less like one-off demos and more like Android for every moving machine. We discuss: * Applied Intuition’s mission: building physical AI for a safer, more prosperous world, powering cars, trucks, construction and mining equipment, agriculture, defense, and other moving machines * Why physical AI is different from screen-based AI:",
+  "duration_seconds": 4341,
+  "guid": "substack:post:195677117",
+  "item_id": "latent-space-441e6a06e64b",
+  "published_at": "2026-04-27T23:02:37Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Physical AI that Moves the World — Qasar Younis & Peter Ludwig, Applied Intuition",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/appliedintuition"
+}

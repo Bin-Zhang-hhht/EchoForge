@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/193478192/2c0fb135ac3f9193c58922fcaf1b81a8.mp3",
+  "description": "We’re proud to release this ahead of Ryan’s keynote at AIE Europe. Hit the bell, get notified when it is live! Attendees: come prepped for Ryan’s AMA with Vibhu after. Move over, context engineering. Now it’s time for Harness engineering and the age of the token billionaires. Ryan Lopopolo of OpenAI is leading that charge, recently publishing a lengthy essay on Harness Eng that has become the talk of the town: In it, Ryan peeled back the curtains on how the recently announced OpenAI Frontier team have become OpenAI’s top Codex users, running a >1m LOC codebase with 0 human written code and, crucially for the Dark Factory fans, no human REVIEWED code before merge. Ryan is admirably evangelical about this, calling it borderline “negligent” if you aren’t using >1B tokens a day (roughly $2-3k/day in token spend based on market rates and caching assumptions): Over the past five months, they ran an extreme experiment: building and shipping an internal beta product with zero manually written ",
+  "duration_seconds": 4363,
+  "guid": "substack:post:193478192",
+  "item_id": "latent-space-de1937ca4723",
+  "published_at": "2026-04-07T17:14:26Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Extreme Harness Engineering for Token Billionaires: 1M LOC, 1B toks/day, 0% human code, 0% human review — Ryan Lopopolo, OpenAI Frontier & Symphony",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/harness-eng"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/200614482/b8155f27572ea1cda50b33bd50e67f32.mp3",
+  "description": "The new AIEWF website is live! Get your tickets booked ASAP as they -will- sell out. Take the AI Engineering Survey and get >$2k in credits and free AIE WF tickets! Most industry benchmarks compress intelligence and reasoning ability into scores. SWE-Bench Pro, MMLU, Humanity’s Last Exam, etc. These metrics are useful, but don’t always represent the full extent of how a model performs in the real world. Some of the most interesting evals today look less like exams and more like operating businesses in the real world. One of which is Vending Bench. In Anthropic’s Mythos Preview System Card, Andon was the only third party eval to get their own section, observing increasingly concerning aggressive behavior: You don’t know what a model is capable of doing in the real world unless you actually give it inventory, a wallet, tools, customers, competitors, humans, & some time. More often than not, it’ll surprise you how much a model is capable of and in doing so, also reveal unexpected behavior",
+  "duration_seconds": 4539,
+  "guid": "substack:post:200614482",
+  "item_id": "latent-space-263243edbd5e",
+  "published_at": "2026-06-04T20:39:18Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Reality: The Final Eval — Lukas Petersson and Axel Backlund of Andon Labs",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/andon"
+}

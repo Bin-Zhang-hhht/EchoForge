@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/8f6a345f/d1c18208.mp3",
+  "description": "Interactive notebooks were popularized by the Jupyter project and have since become a core tool for data science, research, and data exploration. However, traditional, imperative notebooks often break down as projects grow more complex. Hidden state, non-reproducible execution, poor version control ergonomics, and difficulty reusing notebook code in real software systems make it hard to move from exploration to production. At the same time, sharing results often requires collaborators to recreate entire environments, limiting interactivity and slowing feedback. Marimo is an open-source, next-generation Python notebook designed to address these problems directly. Akshay Agrawal is the creator of Marimo and he previously worked at Google Brain. He joins the show with Kevin Ball to discuss the limitations of traditional notebooks, the design of reactive notebooks in Python, how marimo bridges research and production, and where notebooks fit in an increasingly agentic, AI-assisted developm",
+  "duration_seconds": 2764,
+  "guid": "https://softwareengineeringdaily.com/?p=21313",
+  "item_id": "software-engineering-daily-a6270e82b928",
+  "published_at": "2026-03-10T09:00:06Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Reinventing the Python Notebook with Akshay Agrawal",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/reinventing-the-python-notebook-with-akshay-agrawal/"
+}

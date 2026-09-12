@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/0a6732f7/c7da0cce.mp3",
+  "description": "AI agents have transformed how software gets written, but the operational side of running software in production has not yet experienced a similar revolution. The same teams responsible for keeping systems healthy, investigating incidents, and managing reliability are still doing much of that work manually. Mezmo is a Production AI company that makes autonomous operations fast, efficient, and safe. Their open source project, AURA, is a declarative agent framework specifically designed for SRE and platform engineering workflows. It takes a Kubernetes-inspired approach where teams define what they want agents to do rather than scripting every step of how to do it. Andre Elizondo is the head of product at Mezmo, and he has a background in systems engineering, SRE, and observability. In this episode, Andre joins Kevin Ball to discuss what makes SRE agent workflows fundamentally different from coding agents, how AURA handles context engineering, AURA’s declarative configuration model, the s",
+  "duration_seconds": 3184,
+  "guid": "https://softwareengineeringdaily.com/?p=22374",
+  "item_id": "software-engineering-daily-c282b8cae7b3",
+  "published_at": "2026-07-14T09:00:01Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "AURA and Open-Source Agents for Production Operations",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/aura-and-open-source-agents-for-production-operations/"
+}

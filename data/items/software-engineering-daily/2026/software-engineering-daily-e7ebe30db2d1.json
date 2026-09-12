@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/ba3811ec/e3f92992.mp3",
+  "description": "Advanced software systems have long been more complex than any single engineer can fully understand. Observability is the established solution to this problem, but with AI agents now generating code, deploying changes, and operating autonomously, the challenge of understanding large software systems is entering a new dimension. Grafana is an open source observability platform, and one of the most widely used in the world. The company builds tools that help teams collect, visualize, and act on telemetry data across logs, metrics, and traces. They are now extending that capability into the agentic era with AI-powered investigation and monitoring tools. Anthony Woods is a co-founder of Grafana Labs. In this episode, he joins Matt Merrill to discuss how AI-generated code is straining software operations, why telemetry data volume has become as much a problem as a solution, how Grafana is adapting to a world where agents are the primary consumers of observability data, and what keeps him up",
+  "duration_seconds": 2909,
+  "guid": "https://softwareengineeringdaily.com/?p=22342",
+  "item_id": "software-engineering-daily-e7ebe30db2d1",
+  "published_at": "2026-07-02T09:00:10Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Grafana’s Approach to AI-Native Observability",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/grafanas-approach-to-ai-native-observability/"
+}

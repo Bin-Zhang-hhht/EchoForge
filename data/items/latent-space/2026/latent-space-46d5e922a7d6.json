@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/189062462/654370814579f2242c870e8cb05b58a5.mp3",
+  "description": "This is a free preview of a paid episode. To hear more, visit www.latent.space First speakers for AIE Europe and AIEi Miami have been announced. If you’re in Asia/Aus, come by Singapore and Melbourne. AI Engineering is going global! One year ago today, Anthropic launched Claude Code, to not much fanfare: The word of mouth was incredibly strong however, and so we were glad to be one of the first podcasts to invite Boris and Cat on in early May: As we discussed on the pod, all CC usage was API-based and therefore it was ridiculously expensive to do anything. This was then fixed by the team including Claude Code in the Claude Pro plan in early June, and then the virality caused us to make a rare trend call in late June: Now, 6 months on, Doug has just calculated that around 4% of GitHub is written by Claude Code: We talk about how Doug uses Claude Code to do SemiAnalysis work. Memory Mania In the second part of this episode, we also check in on Memory Mania, which is going to affect you (",
+  "duration_seconds": 7453,
+  "guid": "substack:post:189062462",
+  "item_id": "latent-space-46d5e922a7d6",
+  "published_at": "2026-02-24T21:27:25Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Claude Code for Finance + The Global Memory Shortage: Doug O'Laughlin, SemiAnalysis",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/valuemule"
+}

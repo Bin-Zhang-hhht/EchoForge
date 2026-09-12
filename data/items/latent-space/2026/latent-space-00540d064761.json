@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/200432443/dff0614ab10e21be66d39c4847157a18.mp3",
+  "description": "We’ve informally heard that Satya is a listener to LS for a couple years now, but it was still absolutely surreal to meet him and do a live pod at Build, together with our friends at No Priors, the leading VC AI Podcast that we also greatly admire! We covered the MAI model technical takeaways on yesterday’s AINews, so I will focus our recap of Satya’s main messages around three elements: * Satya’s adaptation of the Bill Gates Line for positioning Microsoft as the Frontier Intelligence Platform — customers must gain much more value from the Microsoft ecosystem than Microsoft itself, by building on multi-model harnesses like OpenClaw and Scout, drawing on the full enterprise context exposed by context layers like Work IQ (heavily dogfooded by his C-suite), and building up private evals and traces as a new form of Token IP * AI ROI: On one hand, enterprises are having difficult conversations around Tokenmaxxing and Layoffs, and on the other hand, there are serious re-evaluations of the En",
+  "duration_seconds": 2338,
+  "guid": "substack:post:200432443",
+  "item_id": "latent-space-00540d064761",
+  "published_at": "2026-06-03T17:13:57Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "⚡️Satya Nadella: No Priors x Latent Space Crossover Special at Microsoft Build",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/satya-2026"
+}

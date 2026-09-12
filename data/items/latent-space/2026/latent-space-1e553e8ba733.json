@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/192967759/1555edb9d5649c656d2244abc7f5eeff.mp3",
+  "description": "We’ve been on a bit of a mini World Models series over the last quarter: from introducing the topic with Yi Tay, to exploring Marble with World Labs’ Fei-Fei Li and Justin Johnson, to previewing World Models learned from massive gaming datasets with General Intuition’s Pim de Witte (who has now written down their approach to World Models with Not Boring), to discussing the Cosmos World Model with with Andrew White of Edison Scientific on our new Science pod, to writing up our own theses on Adversarial World Models. Meanwhile Nvidia, Waymo and Tesla have published their own approaches, Google has released Genie 3, and Yann LeCun has raised $1B for AMI and published LeWorldModel. Today’s guests have a radically different approach to World Modeling to every player we just mentioned — while Genie 3 is impressive, its many flaws demonstrate the issues with their approach - terrain clipping, noninteractivity (single player, no physics/no objects other than the player move), and maximum of 60",
+  "duration_seconds": 4007,
+  "guid": "substack:post:192967759",
+  "item_id": "latent-space-1e553e8ba733",
+  "published_at": "2026-04-02T17:55:29Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Moonlake: Causal World Models should be Multimodal, Interactive, and Efficient — with Chris Manning and Fan-yun Sun",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/moonlake"
+}

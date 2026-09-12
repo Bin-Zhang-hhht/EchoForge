@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610584/7de81331ff68322b159c0782b75af74a.mp3",
+  "description": "We are reupping this episode after LMArena announced their fresh Series A (https://www.theinformation.com/articles/ai-evaluation-startup-lmarena-valued-1-7-billion-new-funding-round?rc=luxwz4), raising $150m at a $1.7B valuation, with $30M annualized consumption revenue (aka $2.5m MRR) after their September evals product launch. —- From building LMArena in a Berkeley basement to raising $100M and becoming the de facto leaderboard for frontier AI, Anastasios Angelopoulos returns to Latent Space to recap 2025 in one of the most influential platforms in AI—trusted by millions of users, every major lab, and the entire industry to answer one question: which model is actually best for real-world use cases? We caught up with Anastasios live at NeurIPS 2025 to dig into the origin story (spoiler: it started as an academic project incubated by Anjney Midha at a16z, who formed an entity and gave grants before they even committed to starting a company), why they decided to spin out instead of stay",
+  "duration_seconds": 1442,
+  "guid": "substack:post:186610584",
+  "item_id": "latent-space-2d46cda3d1b8",
+  "published_at": "2026-01-06T16:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[State of Evals] LMArena's $1.7B Vision — Anastasios Angelopoulos, LMArena",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/state-of-evals-lmarenas-17b-vision"
+}

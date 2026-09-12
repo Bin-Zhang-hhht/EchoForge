@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610557/c925c47e33b1d08b87213416fdb3b3b8.mp3",
+  "description": "From investing through the modern data stack era (DBT, Fivetran, and the analytics explosion) to now investing at the frontier of AI infrastructure and applications at Amplify Partners, Sarah Catanzaro has spent years at the intersection of data, compute, and intelligence—watching categories emerge, merge, and occasionally disappoint. We caught up with Sarah live at NeurIPS 2025 to dig into the state of AI startups heading into 2026: why $100M+ seed rounds with no near-term roadmap are now the norm (and why that terrifies her), what the DBT-Fivetran merger really signals about the modern data stack (spoiler: it’s not dead, just ready for IPO), how frontier labs are using DBT and Fivetran to manage training data and agent analytics at scale, why data catalogs failed as standalone products but might succeed as metadata services for agents, the consumerization of AI and why personalization (memory, continual learning, K-factor) is the 2026 unlock for retention and growth, why she thinks R",
+  "duration_seconds": 1722,
+  "guid": "substack:post:186610557",
+  "item_id": "latent-space-69cd519be46e",
+  "published_at": "2025-12-30T14:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[State of AI Startups] Memory/Learning, RL Envs & DBT-Fivetran — Sarah Catanzaro, Amplify",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/state-of-ai-startups-memorylearning"
+}

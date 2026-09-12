@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/18215934/7a5ead9b.mp3",
+  "description": "Python 3.14 is here and continues Python’s evolution toward greater performance, scalability, and usability. The new release formally supports free-threaded, no-GIL mode, introduces template string literals, and implements deferred evaluation of type annotations. It also includes new debugging and profiling tools, along with many other features. Łukasz Langa is the CPython Developer in Residence at the Python Software Foundation, and he joins Sean Falconer to discuss the 3.14 release, the future of free threading, type system improvements, Python’s growing role in AI, and how the language continues to evolve while maintaining its commitment to backward compatibility. Sean’s been an academic, startup founder, and Googler. He has published works covering a wide range of topics from AI to quantum computing. Currently, Sean is an AI Entrepreneur in Residence at Confluent where he works on AI strategy and thought leadership. You can connect with Sean on LinkedIn. Please click here to see th",
+  "duration_seconds": 2820,
+  "guid": "https://softwareengineeringdaily.com/?p=20464",
+  "item_id": "software-engineering-daily-a66d02dcdf47",
+  "published_at": "2026-02-10T10:00:18Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Python 3.14 with Łukasz Langa",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/python-3-14-with-lukasz-langa/"
+}

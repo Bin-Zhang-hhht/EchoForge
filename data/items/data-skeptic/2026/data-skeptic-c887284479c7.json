@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/Andreea_No_Ads_V1.mp3?dest-id=201630",
+  "description": "News recommendation algorithms influence far more than what stories we click—they can shape our understanding of the world. In this episode, Kyle Polich speaks with Andreea Iana about responsible AI, filter bubbles, multilingual news recommendation, and her open-source NewsRecLib framework for evaluating recommender systems. They explore why bigger models aren't always better and how future recommendation systems can balance personalization with diversity and societal impact.",
+  "duration_seconds": 2766,
+  "guid": "fbd7a702-19b3-4940-808f-ee3aeeb71c89",
+  "item_id": "data-skeptic-c887284479c7",
+  "published_at": "2026-07-02T15:00:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "News Recommendations",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/news-recommendations"
+}

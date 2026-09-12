@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610577/1c67d698a72366b17c184a249d44225b.mp3",
+  "description": "From undergraduate research seminars at Princeton to winning Best Paper award at NeurIPS 2025, Kevin Wang, Ishaan Javali, Michał Bortkiewicz, Tomasz Trzcinski, Benjamin Eysenbach defied conventional wisdom by scaling reinforcement learning networks to 1,000 layers deep—unlocking performance gains that the RL community thought impossible. We caught up with the team live at NeurIPS to dig into the story behind RL1000: why deep networks have worked in language and vision but failed in RL for over a decade (spoiler: it’s not just about depth, it’s about the objective), how they discovered that self-supervised RL (learning representations of states, actions, and future states via contrastive learning) scales where value-based methods collapse, the critical architectural tricks that made it work (residual connections, layer normalization, and a shift from regression to classification), why scaling depth is more parameter-efficient than scaling width (linear vs. quadratic growth), how Jax and",
+  "duration_seconds": 1699,
+  "guid": "substack:post:186610577",
+  "item_id": "latent-space-cb5eaa26f30a",
+  "published_at": "2026-01-02T16:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[NeurIPS Best Paper] 1000 Layer Networks for Self-Supervised RL — Kevin Wang et al, Princeton",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/neurips-best-paper-1000-layer-networks"
+}

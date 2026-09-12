@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/191603783/4e2737f43fd32eff8a5975657f782aaa.mp3",
+  "description": "Mar 23 update for Latent Spacenauts: this episode was recorded before the Dreamer team announced they were joining Meta Superintelligence Labs, and it turned out to be the last interview they did before the news became public. Consider this a snapshot from just before the transition! In 2024, David Singleton left Stripe and joined forces with Hugo Barra for a buzzy stealth startup named /dev/agents. This month they emerged out as Dreamer, a consumer-first platform to discover, build, and use AI agents and agentic apps, centered on a personal “Sidekick” that helps users customize experiences via natural language. Sidekick is nothing less than an “agent that builds agents”, with all the complexity that that entails: You’ve seen many many website builder, app builder, and even agent builder startups by now, but our favorite detail is the sheer amount of work that has gone into the “full stack” nature of the platform, including shipping their own SDK, logging, database, prompt management, ",
+  "duration_seconds": 3815,
+  "guid": "substack:post:191603783",
+  "item_id": "latent-space-fc5d7f4833ee",
+  "published_at": "2026-03-20T21:03:23Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Dreamer: the Personal Agent OS — David Singleton",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/dreamer"
+}

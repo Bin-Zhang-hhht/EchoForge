@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/1214b0ee/89cc670e.mp3",
+  "description": "The web has quietly become one of the most capable platforms for game development. Advances in WebAssembly, WebGL, and WebGPU have given developers tools that rival native desktop performance, while game engines like Unity and Godot have added robust web export pipelines. However, building games for the browser comes with its own set of constraints including file size, browser compatibility, and the need to quickly capture and maintain the player’s attention. Erik Dubbelboer is a Principal Engineer at Poki which is a web games platform serving over 100 million monthly users. He’s also a game developer himself, with titles including Silly Skies and Village Builder. His unusual position building developer tools that power the platform, while also shipping games on it, gives him a rare perspective on what it actually takes to succeed in web game development. In this episode, Erik joins Joe Nash to discuss the history of web games from the Flash era to today’s renaissance, how WebAssembly ",
+  "duration_seconds": 3248,
+  "guid": "https://softwareengineeringdaily.com/?p=22285",
+  "item_id": "software-engineering-daily-8db01813dc98",
+  "published_at": "2026-06-04T09:00:28Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Web Native Game Development",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/web-native-game-development/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/195067855/708627edff5e672fd6cb54ad90b94b0c.mp3",
+  "description": "Early bird discounts for the San Francisco World’s Fair, the biggest AIE gathering of the year, end today - prices will go up by ~$500 tonight so do please lock in ASAP! From near-universal AI tool adoption inside Shopify to internal systems for ML experimentation, auto-research, customer simulation, and ultra-low-latency search, Mikhail Parakhin joins us for a deep dive into what it actually looks like when a 20-year-old, $200B software company goes all-in on AI. We cover why Shopify has become much more vocal about its internal stack, what changed after the December model-quality inflection, and why the real bottleneck in AI coding is no longer generation, but review, CI/CD, and deployment stability. We also go inside Tangle, Tangent, SimGym, which are three major AI initiatives that Shopify is doing to make experimentation reproducible, optimization automatic, customer behavior simulatable, and search and catalog intelligence faster and cheaper at scale. Along the way, Mikhail expla",
+  "duration_seconds": 4345,
+  "guid": "substack:post:195067855",
+  "item_id": "latent-space-60572721233e",
+  "published_at": "2026-04-22T19:33:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Shopify’s AI Phase Transition: 2026 Usage Explosion, Unlimited Opus-4.6 Token Budget, Tangle, Tangent, SimGym — with Mikhail Parakhin, Shopify CTO",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/shopify"
+}

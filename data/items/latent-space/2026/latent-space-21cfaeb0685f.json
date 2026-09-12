@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/207941607/06ca3e4bd112d187109d3b25b2c9d8fc.mp3",
+  "description": "Bet on information If test loss flatlines after 1.5B parameters while training loss continues to drop as you scale, that tells you that your model is limited by the amount of information in your data. Training on a single, smallish data set exposed an information gap: the 3.1B model falls off the scaling trend. Neither parameters nor compute will improve performance past this wall. For predicting changes to gene expression, you need more information rich data. This is what Chu and Bo’s teams have done, and here is what ~30x the information buys you: Now we can scale with parameters and training compute! We don’t know how much this effort costed, but we can guess that data collection experiments and infrastructure was a few tens of millions, and compute + headcount + research was a few million. The budget looks like a RL rollout budget, rather than a data rich pre-training one. We were lucky enough to have the two central figures in this story on our podcast. Taking the lead from Ci Chu",
+  "duration_seconds": 5387,
+  "guid": "substack:post:207941607",
+  "item_id": "latent-space-21cfaeb0685f",
+  "published_at": "2026-07-21T19:34:06Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬Causal Models Need Causal Data - Xaira’s X-Cell model for Drug Discovery (Bo Wang & Ci Chu, Chief Discovery Officer & Chief AI Scientist)",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/xaira"
+}

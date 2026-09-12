@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/188928663/d1b8836e5d38b238ccf001345a411fc7.mp3",
+  "description": "Olivia Watkins (Frontier Evals team) and Mia Glaese (VP of Research at OpenAI, leading the Codex, human data, and alignment teams) discuss a new blog post (https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/) arguing that SWE-Bench Verified—long treated as a key “North Star” coding benchmark—has become saturated and highly contaminated, making it less useful for measuring real coding progress. SWE-Bench Verified originated as a major OpenAI-led cleanup of the original Princeton SWE-Bench benchmark, including a large human review effort with nearly 100 software engineers and multiple independent reviews to curate ~500 higher-quality tasks. But recent findings show that many remaining failures can reflect unfair or overly narrow tests (e.g., requiring specific naming or unspecified implementation details) rather than true model inability, and cite examples suggesting contamination such as models recalling repository-specific implementation details or task identifiers. ",
+  "duration_seconds": 1572,
+  "guid": "substack:post:188928663",
+  "item_id": "latent-space-a85e41e713ca",
+  "published_at": "2026-02-23T20:03:11Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "⚡️The End of SWE-Bench Verified — Mia Glaese & Olivia Watkins, OpenAI Frontier Evals & Human Data",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/swe-bench-dead"
+}

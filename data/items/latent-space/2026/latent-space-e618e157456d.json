@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/200078058/56912def1d75ae2fd41c2c564dfe08cf.mp3",
+  "description": "We’re announcing AIEWF speakers this week! Take the AI Engineering Survey! Today’s guest Ethan first joined us for the LS Paper Club as the lead on NVIDIA Cosmos World Model, but then joined xAI and built Grok Imagine in 3 months: He comes back on Latent Space with some nuclear hot takes: that Video Models primarily get their intelligence from LLMs, not from training on video data, and that the next frontier for truly interactive, realtime, long-horizon world models is to work on LLMs (perhaps Interaction Models as well…) Put it this way: In the near term, the next Sora won’t be a better video model, but a video agent. Generative Media may more closely follow the evolution of AI coding which went from focusing on one-shot output performance and cost, to multiturn reasoning and planning models for agents and systems that can plan, edit, test, debug, and submit PRs. At a certain point, coding models got so good that the only significant next step to improve performance was handling the o",
+  "duration_seconds": 6206,
+  "guid": "substack:post:200078058",
+  "item_id": "latent-space-e618e157456d",
+  "published_at": "2026-06-01T15:41:48Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Why Video Agent models are next — Ethan He, xAI Grok Imagine",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/video-agents"
+}

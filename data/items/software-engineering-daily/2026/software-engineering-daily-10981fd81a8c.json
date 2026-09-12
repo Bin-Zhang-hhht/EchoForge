@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/7d61b5d5/40dbc9d6.mp3",
+  "description": "Modern cloud-native systems are built on highly dynamic, distributed infrastructure where containers spin up and down constantly, services communicate across clusters, and traditional networking assumptions break down. Linux networking was designed decades ago around static IPs and linear rule processing, which makes it increasingly difficult to achieve scale in Kubernetes environments. At the same time, modifying the Linux kernel to keep up with these demands is slow, risky, and impractical for most organizations. The Extended Berkeley Packet Filter, or eBPF, is a Linux kernel technology that allows sandboxed programs to run safely inside the kernel without modifying kernel source code or loading kernel modules. Cilium is an open-source, cloud-native networking platform that’s built on eBPF, and provides, secures, and observes connectivity between workloads in Kubernetes and other distributed environments. Bill Mulligan is a maintainer in the Cilium ecosystem and a member of the team ",
+  "duration_seconds": 3450,
+  "guid": "https://softwareengineeringdaily.com/?p=21329",
+  "item_id": "software-engineering-daily-10981fd81a8c",
+  "published_at": "2026-03-26T09:00:17Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Cilium, eBPF, and Modern Kubernetes Networking with Bill Mulligan",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/cilium-ebpf-and-modern-kubernetes-networking-with-bill-mulligan/"
+}

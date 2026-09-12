@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/187696911/8242b1558c99b0e7e719726396b7f736.mp3",
+  "description": "This podcast features Gabriele Corso and Jeremy Wohlwend, co-founders of Boltz and authors of the Boltz Manifesto, discussing the rapid evolution of structural biology models from AlphaFold to their own open-source suite, Boltz-1 and Boltz-2. The central thesis is that while single-chain protein structure prediction is largely “solved” through evolutionary hints, the next frontier lies in modeling complex interactions (protein-ligand, protein-protein) and generative protein design, which Boltz aims to democratize via open-source foundations and scalable infrastructure. Full Video Pod On YouTube! Timestamps * 00:00 Introduction to Benchmarking and the “Solved” Protein Problem * 06:48 Evolutionary Hints and Co-evolution in Structure Prediction * 10:00 The Importance of Protein Function and Disease States * 15:31 Transitioning from AlphaFold 2 to AlphaFold 3 Capabilities * 19:48 Generative Modeling vs. Regression in Structural Biology * 25:00 The “Bitter Lesson” and Specialized AI Archite",
+  "duration_seconds": 4867,
+  "guid": "substack:post:187696911",
+  "item_id": "latent-space-ff65a972d559",
+  "published_at": "2026-02-12T02:12:14Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬Beyond AlphaFold: How Boltz is Open-Sourcing the Future of Drug Discovery",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/boltz"
+}

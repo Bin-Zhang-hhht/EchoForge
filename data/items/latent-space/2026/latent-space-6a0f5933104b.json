@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/194810752/1b92bce4d49858354007a47c48e4e6d4.mp3",
+  "description": "Today, we explain this piece of “clickbait” from our guest! TL;DR: 95% of cancer treatments fail to pass clinical trials, but it may be a matching problem — if we better understood what patients have which tumors which will respond to which treatments, success rates improve dramatically and millions of lives can be saved — with the treatments we ALREADY have. See our full episode dropping today: Why Big Pharma is licensing AI Models Tolstoy famously wrote, ‘All healthy cells are alike; each cancer cell is unhappy in its own way.’ Or something like that. Cancer might be the most misunderstood disease out there. It’s not one disease, it’s a family of diseases. Hundreds, maybe thousands, of unique diseases each with its own underlying biology. With this lens, saying you’ll “cure cancer” is like saying you’ll solve legos. We keep hearing AI will cure cancer, but sadly it may not be so easy. Today’s guests — Ron Alfa and Daniel Bear from Noetik — thinks they can use AI to break through a co",
+  "duration_seconds": 5121,
+  "guid": "substack:post:194810752",
+  "item_id": "latent-space-6a0f5933104b",
+  "published_at": "2026-04-20T16:17:17Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬 Training Transformers to solve 95% failure rate of Cancer Trials — Ron Alfa & Daniel Bear, Noetik",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/noetik"
+}

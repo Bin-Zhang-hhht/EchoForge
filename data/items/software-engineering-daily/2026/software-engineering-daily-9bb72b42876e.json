@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/87ec7b87/55e6f37d.mp3",
+  "description": "WebAssembly, or WASM, has grown from a low-level compilation target for C and C++ into one of the most influential technologies in modern computing. It now powers browser applications, edge compute platforms, embedded systems, and a growing ecosystem of languages targeting a portable and secure execution model. Andreas Rossberg is a programming languages researcher and former member of the V8 team at Google. Andreas helped architect WebAssembly from its earliest concepts through its most recent milestone releases, including the groundbreaking 3.0 spec that introduces garbage collection, richer reference types, and major steps toward multi-language interoperability. In this episode, Andreas joins Kevin Ball to explore the history of WebAssembly, the constraints that shaped its earliest design, the major turning points in versions 1.0, 2.0, and 3.0, and what’s coming next for WebAssembly. Kevin Ball or KBall, is the vice president of engineering at Mento and an independent coach for engi",
+  "duration_seconds": 3673,
+  "guid": "https://softwareengineeringdaily.com/?p=20423",
+  "item_id": "software-engineering-daily-9bb72b42876e",
+  "published_at": "2026-01-20T10:00:24Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "WebAssembly 3.0 with Andreas Rossberg",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/webassembly-3-0-with-andreas-rossberg/"
+}

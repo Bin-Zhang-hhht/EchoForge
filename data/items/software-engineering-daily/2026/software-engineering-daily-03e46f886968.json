@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/40a4aa02/4f78b502.mp3",
+  "description": "Yacht Club Games is the studio behind the acclaimed Shovel Knight franchise. Their latest release is Mina the Hollower, which is a top-down action RPG inspired by classic Zelda and Castlevania titles. After many years in development, the game recently launched to widespread critical acclaim. David D’Angelo is a lead programmer at Yacht Club Games. In this episode, David joins Joe Nash to discuss the custom C++ engine built for Mina the Hollower, how the team approached Game Boy Color art constraints and audio in a modern rendering pipeline, the game’s Castlevania-inspired combat philosophy, how the open world manages saving and collision without load screens, and more. Sponsorship inquiries: sponsor@softwareengineeringdaily.com The post Mina the Hollower appeared first on Software Engineering Daily.",
+  "duration_seconds": 2628,
+  "guid": "https://softwareengineeringdaily.com/?p=22330",
+  "item_id": "software-engineering-daily-03e46f886968",
+  "published_at": "2026-06-25T09:00:14Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Mina the Hollower",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/mina-the-hollower/"
+}

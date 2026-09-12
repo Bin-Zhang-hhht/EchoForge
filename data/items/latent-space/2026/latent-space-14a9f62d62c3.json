@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/188504140/c66a34d6406cd1b378cffe52d8a8c00b.mp3",
+  "description": "Tickets for AIEi Miami and AIE Europe are live, with first wave speakers announced! From pioneering software-defined networking to backing many of the most aggressive AI model companies of this cycle, Martin Casado and Sarah Wang sit at the center of the capital, compute, and talent arms race reshaping the tech industry. As partners at a16z investing across infrastructure and growth, they’ve watched venture and growth blur, model labs turn dollars into capability at unprecedented speed, and startups raise nine-figure rounds before monetization.Martin and Sarah join us to unpack the new financing playbook for AI: why today’s rounds are really compute contracts in disguise, how the “raise → train → ship → raise bigger” flywheel works, and whether foundation model companies can outspend the entire app ecosystem built on top of them. They also share what’s underhyped (boring enterprise software), what’s overheated (talent wars and compensation spirals), and the two radically different futu",
+  "duration_seconds": 3318,
+  "guid": "substack:post:188504140",
+  "item_id": "latent-space-14a9f62d62c3",
+  "published_at": "2026-02-19T16:46:53Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Bitter Lessons in Venture vs Growth: Anthropic vs OpenAI, Noam Shazeer, World Labs, Thinking Machines, Cursor, ASIC Economics — Martin Casado & Sarah Wang of a16z",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/a16z"
+}

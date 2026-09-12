@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/199994886/ba6647aab39199a4ad19cb037e6a8011.mp3",
+  "description": "In 2025, seven-month-old startup Axiom solved all 12 of the problems Putnam exam (scoring 8/12 in the time limit) a prestigious undergraduate math exam. The 12/12 score is better than the top undergraduates (110/120) and the closest AI system that reported a result (DeepSeek 103/120), although it is unclear what the people and other systems would have scored with more time. Nonetheless, the Putnam exam is legendary for its difficulty, with the median score typically being 0 or 1 points. Taken by itself, this seems like a minor feather in the cap of AI; one of a long series of accomplishments by AI systems in elite competitions with humans, starting with Deep Blue beating Kasparov. Fast forward to mid-2026, and Claude Code is eating the world. In 2024 Anthropic’s bet on code and enterprise looked like a more pragmatic niche play vs. OpenAI’s better models and massive consume scale. Today, Amodei’s all in bet on acceleration via code (images and video be damned) seems prescient. Despite ",
+  "duration_seconds": 5584,
+  "guid": "substack:post:199994886",
+  "item_id": "latent-space-2a3d4505258d",
+  "published_at": "2026-06-03T19:27:49Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "🔬Scaling Past Informal AI - Carina Hong, Axiom Math",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/axiom"
+}

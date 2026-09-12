@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/17a19249/634b69d4.mp3",
+  "description": "AI coding agents are rapidly reshaping how software is built, reviewed, and maintained. As large language model capabilities continue to increase, the bottleneck in software development is shifting away from code generation toward planning, review, deployment, and coordination. This shift is driving a new class of agentic systems that operate inside constrained environments, reason over long time horizons, and integrate across tools like IDEs, version control systems, and issue trackers. OpenAI is at the forefront of AI research and product development. In 2025, the company released Codex, which is an agentic coding system designed to work safely inside sandboxed environments while collaborating across the modern software development stack. Thibault Sottiaux is the Codex engineering lead and Ed Bayes is the Codex product designer. In this episode, they join Kevin Ball to discuss how Codex is built, the co-evolution of models and harnesses, multi-agent futures, Codex’s open-source CLI, ",
+  "duration_seconds": 3010,
+  "guid": "https://softwareengineeringdaily.com/?p=20430",
+  "item_id": "software-engineering-daily-2c52690ad88a",
+  "published_at": "2026-01-29T10:00:58Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "OpenAI and Codex with Thibault Sottiaux and Ed Bayes",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/openai-and-codex-with-thibault-sottiaux-and-ed-bayes/"
+}

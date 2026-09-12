@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/ac8cc0c7/65cd6757.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer unpack the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, they cover Anthropic’s controversial “Mythos” security model and what it means for vulnerability discovery at scale. They also discuss recent layoffs at Snap and Meta, and how AI investment pressures are reshaping hiring, organizational priorities, and the economics of big tech. Gregor and Sean then zoom out to examine the massive wave of AI infrastructure spending—hundreds of billions in capex across Amazon, Google, Microsoft, and Meta, and what it signals about the future of cloud platforms, model providers, and the engineers who build on top of them. They explore the emerging entanglement between model labs and infrastructure providers, the evolving role of engineers in an AI-native world, and the growing gap between rapid AI adoption and security readiness. Fin",
+  "duration_seconds": 3166,
+  "guid": "https://softwareengineeringdaily.com/?p=21826",
+  "item_id": "software-engineering-daily-9ffd7311ca4c",
+  "published_at": "2026-05-07T09:00:58Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: Anthropic’s Mythos, Supply Chain Hacks, and the AI Spending Surge",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sednews-anthropics-mythos-supply-chain-hacks-and-the-ai-spending-surge/"
+}

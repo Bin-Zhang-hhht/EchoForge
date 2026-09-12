@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/c80422ba/097b1f52.mp3",
+  "description": "FreeBSD is one of the longest-running and most influential open-source operating systems in the world. It was born from the Berkeley Software Distribution in the early 1990s, it has powered everything from high-performance networking infrastructure to game consoles and content delivery networks. Over three decades, it has evolved through major architectural shifts, from symmetric multiprocessing and kernel scalability to modern storage systems and predictable release engineering. John Baldwin has spent more than 25 years working on FreeBSD as a developer, contributor, and consultant. In this episode, John joins Gregor Vand to discuss the origins of FreeBSD, how its governance model differs from other open-source projects, its role inside systems like Netflix’s CDN and the PlayStation 4, the challenges of maintaining a 30-year-old codebase, and much more. Gregor Vand is a security-focused technologist, having previously been a CTO across cybersecurity, cyber insurance and general softwa",
+  "duration_seconds": 3811,
+  "guid": "https://softwareengineeringdaily.com/?p=21341",
+  "item_id": "software-engineering-daily-f62617bcba22",
+  "published_at": "2026-03-31T09:00:47Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "FreeBSD with John Baldwin",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/freebsd-with-john-baldwin/"
+}

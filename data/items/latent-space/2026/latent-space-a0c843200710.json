@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/187741497/443b8df57e77c5522b031c52b1302c0d.mp3",
+  "description": "From rewriting Google’s search stack in the early 2000s to reviving sparse trillion-parameter models and co-designing TPUs with frontier ML research, Jeff Dean has quietly shaped nearly every layer of the modern AI stack. As Chief AI Scientist at Google and a driving force behind Gemini, Jeff has lived through multiple scaling revolutions from CPUs and sharded indices to multimodal models that reason across text, video, and code. Jeff joins us to unpack what it really means to “own the Pareto frontier,” why distillation is the engine behind every Flash model breakthrough, how energy (in picojoules) not FLOPs is becoming the true bottleneck, what it was like leading the charge to unify all of Google’s AI teams, and why the next leap won’t come from bigger context windows alone, but from systems that give the illusion of attending to trillions of tokens. We discuss: * Jeff’s early neural net thesis in 1990: parallel training before it was cool, why he believed scaling would win decades e",
+  "duration_seconds": 5011,
+  "guid": "substack:post:187741497",
+  "item_id": "latent-space-a0c843200710",
+  "published_at": "2026-02-12T22:02:35Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Owning the AI Pareto Frontier — Jeff Dean",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/jeffdean"
+}

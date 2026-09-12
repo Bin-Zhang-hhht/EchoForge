@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/aae95d2b/eb858c65.mp3",
+  "description": "The terminal has been a constant in software development for decades. It has remained largely unchanged while everything around it transformed. However, as AI agents have become central to the developer workflow, the terminal is emerging as a natural home for agentic development, and a new category of tooling is forming around it. Warp is a popular Rust-based terminal and agentic development environment. The company recently open-sourced its codebase and launched Oz, its cloud agent infrastructure product aimed at helping enterprises automate software development at scale. Zach Lloyd is the co-founder and CEO of Warp, and a former principal engineer at Google where he led engineering on the Google Docs suite. In this episode, Zach joins Gregor Vand to discuss how Warp has evolved over the years, why the terminal is better suited than the IDE for agentic development, how Oz approaches the governance and auditability challenges enterprises face with AI agents, and more. Sponsorship inqui",
+  "duration_seconds": 3141,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9831",
+  "item_id": "software-engineering-daily-362db6aeb977",
+  "published_at": "2026-08-06T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "The Terminal as an Agentic Interface",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/the-terminal-as-an-agentic-interface/"
+}

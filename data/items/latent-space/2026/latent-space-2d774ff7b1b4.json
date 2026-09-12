@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/189159777/9da6fbe2f2d5b3d14c2227e41401719c.mp3",
+  "description": "This is a free preview of a paid episode. To hear more, visit www.latent.space AIE Europe CFP and AIE World’s Fair paper submissions for CAIS peer review are due TODAY - do not delay! Last call ever. We’re excited to welcome METR for their first LS Pod, hopefully the first of many: METR are keepers of currently the single most infamous chart in AI: But every Latent Space reader should be sophisticated enough to know that the details matter and that hype and hyperbole go hand in hand in AI social media, because the millions of impressions that got, by people who don’t understand or care about the nuances, disclaimers, and error bars, far outreaches the 69k views on the corrections by the people who actually made the chart: There’s a lot of nuance both in making benchmarks (as we discovered with OpenAI on our SWE-Bench Verified podcast) and in extrapolating results from them, especially where exponentials and sigmoids are concerned. METR’s Long Horizons work itself has known biases that ",
+  "duration_seconds": 3374,
+  "guid": "substack:post:189159777",
+  "item_id": "latent-space-2d774ff7b1b4",
+  "published_at": "2026-02-27T19:17:52Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "METR’s Joel Becker on exponential Time Horizon Evals, Threat Models, and the Limits of AI Productivity",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/metr"
+}

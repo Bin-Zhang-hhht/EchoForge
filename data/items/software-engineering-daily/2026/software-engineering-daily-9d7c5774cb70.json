@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/659507eb/f3111c33.mp3",
+  "description": "AI coding tools have dramatically accelerated the pace of development, and the bottleneck in the software development lifecycle has shifted to code validation and testing. However, the conventional tools and workflows that QA teams have relied on were not designed for a world where a single engineer can generate thousands of lines of code in a day. SmartBear is a software quality platform spanning test automation, API lifecycle management, and observability. The company recently launched an AI-native QA platform called BearQ, which deploys autonomous agents that explore web applications, learns their structure and behavior, and authors and maintains test cases continuously. Fitz Nowlan is the VP of AI and Architecture at SmartBear and the co-founder of Reflect, which is a web testing platform acquired by SmartBear in 2024. In this episode, Fitz joins Kevin Ball to discuss why web UI testing is uniquely challenging, how BearQ’s multi-agent architecture coordinates exploration and testin",
+  "duration_seconds": 3315,
+  "guid": "https://softwareengineeringdaily.com/?p=21805",
+  "item_id": "software-engineering-daily-9d7c5774cb70",
+  "published_at": "2026-05-05T09:00:16Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SmartBear and Multi-Agent QA",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/smartbear-and-multi-agent-qa/"
+}

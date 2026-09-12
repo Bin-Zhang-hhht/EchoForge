@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/199607874/583bc5ffc268ed91c9847c65cd631492.mp3",
+  "description": "The new AIEWF website is live! CFPs close in 2 days and we will run our first New Engineer Orientation this weekend, get your tickets booked ASAP as they -will- sell out. Take the AI Engineering Survey and get >$2k in credits and free AIE WF tickets! One of the central tensions in the agents industry is that even while there are major decacorn agent labs like Sierra, Decagon, Notion and Cursor being built up, it is also true that it has never been easier to DIY agents, with a plethora of agent frameworks like LangGraph and Pydantic and Flue, and managed agents from Anthropic and Gemini and Amazon. There has been a wave of companies building their own background agents from Shopify to Stripe to Paradigm to Razorpay, and even Cognition’s friends Ramp have built their own coding agent with other friend Modal. You’d think Cognition might feel a bit threatened, but they’re not - even after all this, they were way oversubscribed for the $1B Series D they just announced: Walden Yan, coiner of",
+  "duration_seconds": 4082,
+  "guid": "substack:post:199607874",
+  "item_id": "latent-space-d7ba23cfabdf",
+  "published_at": "2026-05-28T18:41:24Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "The Age of Async Agents — Cognition's Walden Yan & OpenInspect's Cole Murray",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/cognition"
+}

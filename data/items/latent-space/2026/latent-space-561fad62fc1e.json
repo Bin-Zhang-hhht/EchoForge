@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/198575235/fbd2be59f0c8aad59a022f3709b9b930.mp3",
+  "description": "Take the 2026 AI Engineering Survey and get >$2k in credits and AIE WF tickets! This was recorded before Railway suffered a major GCP outage on May 19, despite being a multi-AZ, multi-zone mesh ring, with HA fiber interconnects between their Metal GCP AWS, because workload discoverability was unintentionally still tied to GCP. All has been resolved with a post-mortem. Railway did not start as an AI infrastructure company. It was founded in 2020 years before agents became the default way people thought about deploying software. Jake Cooper, formerly at Bloomberg and Uber, started Railway with a simple obsession: the activation energy to ship something to production should be near zero. Push code, get a URL, iterate. No Docker files, no Kubernetes manifests, no Ansible scripts stacked on Ansible scripts. For years, this was a slow grind. Railway spent its first 18 months hand-acquiring its first 100 users with Jake personally greeting every Discord signup on a second monitor. Today, Rail",
+  "duration_seconds": 5314,
+  "guid": "substack:post:198575235",
+  "item_id": "latent-space-561fad62fc1e",
+  "published_at": "2026-05-20T22:42:06Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Railway: The Agent-Native Cloud — Jake Cooper",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/railway"
+}

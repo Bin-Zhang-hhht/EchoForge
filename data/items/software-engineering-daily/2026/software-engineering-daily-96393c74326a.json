@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/9a743e72/e2543576.mp3",
+  "description": "Observability emerged from the need to understand complex software systems, and involves tracking metrics, logs, and traces so engineers can detect and diagnose problems before they affect users. However, modern applications often encompass hundreds of services, containers, and dependencies, generating more observability data than dashboards and alerts alone can effectively surface. New Relic is a leading observability platform, with a history that spans the full arc of modern software operations. Today they are working to apply AI to move observability beyond passive monitoring toward active intelligence, where systems can surface what matters, reduce alert noise, and ultimately take autonomous action before problems reach engineers or users. Nic Benders is the Chief Technology Strategist at New Relic, where he has worked for 16 years. In this episode, Nic joins Lee Atchison to discuss the evolution of observability from dashboards and alerts to AI-driven intelligence, how LLMs and st",
+  "duration_seconds": 2778,
+  "guid": "https://softwareengineeringdaily.com/?p=21763",
+  "item_id": "software-engineering-daily-96393c74326a",
+  "published_at": "2026-04-14T09:00:43Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "New Relic and Agentic DevOps with Nic Benders",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/new-relic-and-agentic-devops-with-nic-benders/"
+}

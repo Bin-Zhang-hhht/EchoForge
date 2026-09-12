@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/6654aa05/60f3545d.mp3",
+  "description": "The Model Context Protocol, or MCP, gives developers a common way to expose tools, data, and capabilities to large language models, and it has quickly become an important standard in agentic AI. FastMCP is an open source project stewarded by the team at Prefect, which is an orchestration platform for AI and data workflows. The FastMCP project builds on MCP to provide high-level, ergonomic abstractions for Python developers to rapidly build and deploy MCP servers and applications. Jeremiah Lowin is the founder and CEO of Prefect, and Adam Azzam is the VP of Product at the company. In this episode, Jeremiah and Adam join Gregor Vand to discuss the origin story of FastMCP, the three pillars of the framework, the architectural decisions behind FastMCP 3.0, and much more. Gregor Vand is a security-focused technologist, having previously been a CTO across cybersecurity, cyber insurance and general software engineering companies. He is based in Singapore and can be found via his profile at va",
+  "duration_seconds": 3966,
+  "guid": "https://softwareengineeringdaily.com/?p=21755",
+  "item_id": "software-engineering-daily-a5809420504a",
+  "published_at": "2026-04-07T09:00:21Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "FastMCP with Adam Azzam and Jeremiah Lowin",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/fastmcp-with-adam-azzam-and-jeremiah-lowin/"
+}

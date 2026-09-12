@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/195264855/e730559c6a6ef350c27ba6b333130c57.mp3",
+  "description": "Today, we check in a year after the first Unsupervised Learning x Latent Space Crossover special to discuss everything that has changed (there is a lot) in the world of AI. This episode was recorded just after AIE Europe, but before the Cursor-xAI deal. Unsupervised Learning is a podcast that interviews the sharpest minds in AI about what’s real today, what will be real in the future and what it means for businesses and the world - helping builders, researchers and founders deconstruct and understand the biggest breakthroughs. Thanks to Jacob and the UL production team for hosting and editing this! Jacob Effron * LinkedIn: https://www.linkedin.com/in/jacobeffron/ * X: https://x.com/jacobeffron Full Episode on Their YouTube We discuss: * swyx’s view from the center of the AI engineering zeitgeist: OpenClaw, harness engineering, context engineering, evals, observability, GPUs, multimodality, and why conference tracks now reveal what matters most in AI * Whether AI infrastructure has fina",
+  "duration_seconds": 3292,
+  "guid": "substack:post:195264855",
+  "item_id": "latent-space-fc1920aa7af8",
+  "published_at": "2026-04-23T19:37:19Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "AIE Europe Debrief + Agent Labs Thesis: Unsupervised Learning x Latent Space Crossover Special (2026)",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/unsupervised-learning-2026"
+}

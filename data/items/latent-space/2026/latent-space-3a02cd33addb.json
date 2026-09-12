@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/202758604/450849f7afd2f8a05057e4744d0eba68.mp3",
+  "description": "AI Engineer World’s Fair regular bird tix will sell out ~today! Join us next week ahead of the Late Bird price hike and get >$40,000 in sponsor credits for attending! Thanks to the US Government issuing an export control directive on Mythos and Fable, the risks of jailbreaks and (industry term) indirect prompt injection are suddenly the talk of the town, though we have been covering AI security for a few years now, from Hackaprompt to the enigmatic Pliny the Elder. Zico Kolter, member of OpenAI’s board of directors on the Safety & Security Committee, and Matt Fredrikson, CMU professor and CEO of Gray Swan, co-authored the definitive paper on Indirect Prompt Injections, and Gray Swan were cited authorities on the Mythos model card, directly investigating the exact capabilities that are under scrutiny right now: We seized the opportunity to ask them the state of AI Red Teaming, and Shade, the adversarial red teaming tool that Anthropic used to evaluate the robustness of their models agai",
+  "duration_seconds": 3983,
+  "guid": "substack:post:202758604",
+  "item_id": "latent-space-3a02cd33addb",
+  "published_at": "2026-06-22T21:06:55Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Red-Teaming after Mythos — Zico Kolter & Matt Fredrikson, Gray Swan",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/gray-swan"
+}

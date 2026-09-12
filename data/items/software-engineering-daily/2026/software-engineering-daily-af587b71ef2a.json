@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/a9a0f980/08805644.mp3",
+  "description": "Open-weight models are AI systems whose trained parameters are publicly released, which allows developers to run, fine-tune, and deploy them independently rather than accessing them only through a hosted API. While closed-weight models from companies like OpenAI or Anthropic are delivered as managed services, open-weight models give organizations direct control over how the models are deployed and used. Importantly, the performance of these models is steadily improving and they’ve become credible alternatives for production workloads, with advantages in customization and data privacy. ​ Fireworks AI is building a platform focused on serving and customizing open-weight models at scale. The platform includes optimized inference infrastructure, multi-hardware support across NVIDIA and AMD, and reinforcement fine-tuning capabilities. ​ Benny Chen is a Co-Founder of Fireworks AI. In this episode, he joins Gregor Vand to discuss his path from Meta’s ML infrastructure teams to co-founding Fir",
+  "duration_seconds": 3014,
+  "guid": "https://softwareengineeringdaily.com/?p=21794",
+  "item_id": "software-engineering-daily-af587b71ef2a",
+  "published_at": "2026-04-28T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Open-Weight AI Models",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/open-weight-ai-models/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/0c0643e0/0905844b.mp3",
+  "description": "In episode 32 of Recsperts, I’m joined by my colleague Sasha Fedintsev, Staff Applied Scientist at Wolt (DoorDash), working across personalization and ads, to unpack the realities of building large-scale recommender systems in food, grocery, and retail delivery. Together, we discuss the specifics of personalization in the delivery domain, and the models and ideas that power Wolt’s recommender system across 30+ markets - where theory quickly meets messy, high-stakes practice. We explore what makes this domain fundamentally different from traditional e-commerce: strong locality constraints, real-time context, and a heavy skew toward repurchasing behavior. Sasha explains how these factors break many textbook approaches - like standard collaborative filtering - and require creative adaptations such as clustering strategies and multi-stage ranking systems optimized for latency, all while respecting locality constraints. We also discuss the evolution of recommendation approaches over time - ",
+  "duration_seconds": 6530,
+  "guid": "542efa7b-ae23-4d78-8147-5d5c806f7a37",
+  "item_id": "recsperts-4c0f1fc9805a",
+  "published_at": "2026-05-12T11:05:05Z",
+  "reason": null,
+  "source_id": "recsperts",
+  "source_name": "Recsperts",
+  "status": "pending",
+  "title": "#32: RecSys in the Delivery Industry at Wolt with Sasha Fedintsev",
+  "transcript_url": "https://share.transistor.fm/s/0c0643e0/transcript.txt",
+  "url": "https://share.transistor.fm/s/0c0643e0"
+}

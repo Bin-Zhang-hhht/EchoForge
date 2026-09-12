@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/9d157a1b/d3175cb9.mp3",
+  "description": "Autonomous driving is not just a big tech or closed-source game, it's becoming accessible through open innovation and real-world deployment. Dan and Chris sit down with Harald Schäfer, CTO at Comma AI, to explore how OpenPilot is bringing self-driving to everyday vehicles using open source AI. We dive into the intersection of machine learning, robotics, and simulation, including how world models are enabling training at scale and shaping the future of autonomy. Featuring: Harald Schäfer – LinkedIn Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Daniel Whitenack – Website, GitHub, X Links: Comma Upcoming Events: Register for upcoming webinars here!",
+  "duration_seconds": 2764,
+  "guid": "be951332-169e-43b4-8963-277b2a1b86ee",
+  "item_id": "practical-ai-01453b672b79",
+  "published_at": "2026-04-16T09:00:00Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Open Source Self-Driving with Comma AI",
+  "transcript_url": "https://share.transistor.fm/s/9d157a1b/transcription",
+  "url": "https://share.transistor.fm/s/9d157a1b"
+}

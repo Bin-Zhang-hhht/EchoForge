@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610590/b986ed2096ba7f55a1fbad46cd0076d2.mp3",
+  "description": "From shipping Gemini Deep Think and IMO Gold to launching the Reasoning and AGI team in Singapore, Yi Tay has spent the last 18 months living through the full arc of Google DeepMind’s pivot from architecture research to RL-driven reasoning—watching his team go from a dozen researchers to 300+, training models that solve International Math Olympiad problems in a live competition, and building the infrastructure to scale deep thinking across every domain, and driving Gemini to the top of the leaderboards across every category. Yi Returns to dig into the inside story of the IMO effort and more! We discuss: * Yi’s path: Brain → Reka → Google DeepMind → Reasoning and AGI team Singapore, leading model training for Gemini Deep Think and IMO Gold * The IMO Gold story: four co-captains (Yi in Singapore, Jonathan in London, Jordan in Mountain View, and Tong leading the overall effort), training the checkpoint in ~1 week, live competition in Australia with professors punching in problems as they ",
+  "duration_seconds": 5525,
+  "guid": "substack:post:186610590",
+  "item_id": "latent-space-f5b1cb44fa40",
+  "published_at": "2026-01-23T16:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Captaining IMO Gold, Deep Think, On-Policy RL, Feeling the AGI in Singapore — Yi Tay",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/captaining-imo-gold-deep-think-on"
+}

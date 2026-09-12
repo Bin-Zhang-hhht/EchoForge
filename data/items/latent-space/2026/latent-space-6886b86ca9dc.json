@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/189277598/36ab9328e1269f3111b0531cb589dc26.mp3",
+  "description": "Swyx joined SAIL! Thank you SAIL Media, Prof. Tom Yeh, 8Lee, Hamid Bagheri, c9n, and many others for tuning into SAIL Live #6 with Nathan Lambert and Sebastian Raschka, PhD. Sharing here for the LS paid subscribers. We covered: This is a public episode. If you'd like to discuss this with other subscribers or get access to bonus episodes, visit www.latent.space/subscribe",
+  "duration_seconds": 3137,
+  "guid": "substack:post:189277598",
+  "item_id": "latent-space-6886b86ca9dc",
+  "published_at": "2026-02-26T20:39:42Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[LIVE] Anthropic Distillation & How Models Cheat (SWE-Bench Dead) | Nathan Lambert & Sebastian Raschka",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/paid-anthropic-distillation-and-how"
+}

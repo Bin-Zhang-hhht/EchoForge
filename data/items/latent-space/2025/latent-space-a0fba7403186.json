@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/186610569/3c925296f32115c0d7354d7da15dcee7.mp3",
+  "description": "From creating SWE-bench in a Princeton basement to shipping CodeClash, SWE-bench Multimodal, and SWE-bench Multilingual, John Yang has spent the last year and a half watching his benchmark become the de facto standard for evaluating AI coding agents—trusted by Cognition (Devin), OpenAI, Anthropic, and every major lab racing to solve software engineering at scale. We caught up with John live at NeurIPS 2025 to dig into the state of code evals heading into 2026: why SWE-bench went from ignored (October 2023) to the industry standard after Devin’s launch (and how Walden emailed him two weeks before the big reveal), how the benchmark evolved from Django-heavy to nine languages across 40 repos (JavaScript, Rust, Java, C, Ruby), why unit tests as verification are limiting and long-running agent tournaments might be the future (CodeClash: agents maintain codebases, compete in arenas, and iterate over multiple rounds), the proliferation of SWE-bench variants (SWE-bench Pro, SWE-bench Live, SWE",
+  "duration_seconds": 1065,
+  "guid": "substack:post:186610569",
+  "item_id": "latent-space-a0fba7403186",
+  "published_at": "2025-12-31T16:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "[State of Code Evals] After SWE-bench, Code Clash & SOTA Coding Benchmarks recap — John Yang",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/state-of-code-evals-after-swe-bench"
+}

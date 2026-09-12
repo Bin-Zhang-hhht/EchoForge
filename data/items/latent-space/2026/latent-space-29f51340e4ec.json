@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/194195821/10f31b379fbf657fd80757e3b4244e4f.mp3",
+  "description": "For all those who missed out on London, see you in Miami next week! Notion, the knowledge work decacorn, has been building AI tooling since before ChatGPT, with many hits from Q&A in 2023 and unified AI in 2024 and Meeting Notes in 2025. At the end of their last Make user conference, Ryan Nystrom teased Notion 3.0’s Custom Agents - and they are finally embracing the Agent Lab playbook! Sarah Sachs and Simon Last of Notion join us for a deep dive into how Notion built Custom Agents, why it took years and multiple rebuilds to get right, and what it means to turn a productivity tool into an agent-native system of record for enterprise work. We go inside the product, engineering, evals, pricing, and org design decisions behind one of the most ambitious AI product efforts in software today — from early failed tool-calling experiments in 2022 to agent harnesses, progressive tool disclosure, meeting notes as data capture, and the long-term vision for software factories and agentic work. We di",
+  "duration_seconds": 4637,
+  "guid": "substack:post:194195821",
+  "item_id": "latent-space-29f51340e4ec",
+  "published_at": "2026-04-15T00:31:14Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Notion’s Token Town: 5 Rebuilds, 100+ Tools, MCP vs CLIs and the Software Factory Future — Simon Last & Sarah Sachs of Notion",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/notion"
+}

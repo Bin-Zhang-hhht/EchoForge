@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/203293676/dd012c693ce8a0df476abdb30707f110.mp3",
+  "description": "We’re excited to have Databricks join us at AIEWF, among hundreds of the top companies in the AI Engineer ecosystem. LS subscribers can use their discount to get past the late bird pricing and access over $50k in sponsor offers! Everyone is still talking about Satya’s Frontier Ecosystems post, but few have actually built a (now $175 billion) frontier ecosystem and cloud like our guests today. From open-sourcing the layer above coding agents to rethinking databases for the agent era, Databricks cofounders Matei Zaharia and Reynold Xin are pushing the company beyond the lakehouse into a full data-and-AI operating system. In this episode, Matei and Reynold join swyx at the 2026 Data + AI Summit to unpack Omnigent, LTAP, Lakebase, agent security, open formats, Mosaic, and why databases may matter more than ever once AI agents start doing real work. We go deep on Omnigent: Databricks’ open-source meta-harness for combining, controlling, and sharing agents across Claude Code, Codex, Cursor, ",
+  "duration_seconds": 4132,
+  "guid": "substack:post:203293676",
+  "item_id": "latent-space-d40a3ddb630a",
+  "published_at": "2026-06-24T18:53:16Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Why the Frontier Ecosystem must be Open — Matei Zaharia and Reynold Xin, Databricks",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/databricks"
+}

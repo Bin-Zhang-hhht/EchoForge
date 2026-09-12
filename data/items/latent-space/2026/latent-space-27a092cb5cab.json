@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/200249307/b006a03717ddcc40eb59c02b49063879.mp3",
+  "description": "I’m excited to work with Microsoft once again as the presenting sponsors of the AI Engineer World’s Fair! We’ll streaming live from MS Build today for a special crossover pod with our friends at No Priors and the one and only Satya Nadella. However we did not hold back with this interview - we asked all the burning questions about uptime and Copilot that we know you have in your minds. Lets go! For almost two decades, GitHub has been the home of software, where both open source and closed flow, through commits, pull requests, reviews, actions, etc. This ecosystem flourished as open-source maintainers and contributors would continue shipping code for the benefit of the community. However as coding agents began to ship mass quantities of code - growing 1400% in 2026, it marked a new era that was both extremely exciting and challenging for GitHub. While these agents help more people ship more projects, they also significantly increase the floor of how much code is shipped, how often it is",
+  "duration_seconds": 5007,
+  "guid": "substack:post:200249307",
+  "item_id": "latent-space-27a092cb5cab",
+  "published_at": "2026-06-02T16:48:21Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "GitHub's plan for Agents — Kyle Daigle, GitHub",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/github"
+}

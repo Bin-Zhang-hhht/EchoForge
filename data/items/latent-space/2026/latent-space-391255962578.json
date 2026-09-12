@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/187000315/45fdd1fce3ff7c69d24a13281311b152.mp3",
+  "description": "From Palantir and Two Sigma to building Goodfire into the poster-child for actionable mechanistic interpretability, Mark Bissell (Member of Technical Staff) and Myra Deng (Head of Product) are trying to turn “peeking inside the model” into a repeatable production workflow by shipping APIs, landing real enterprise deployments, and now scaling the bet with a recent $150M Series B funding round at a $1.25B valuation. In this episode, we go far beyond the usual “SAEs are cool” take. We talk about Goodfire’s core bet: that the AI lifecycle is still fundamentally broken because the only reliable control we have is data and we post-train, RLHF, and fine-tune by “slurping supervision through a straw,” hoping the model picks up the right behaviors while quietly absorbing the wrong ones. Goodfire’s answer is to build a bi-directional interface between humans and models: read what’s happening inside, edit it surgically, and eventually use interpretability during training so customization isn’t ju",
+  "duration_seconds": 4081,
+  "guid": "substack:post:187000315",
+  "item_id": "latent-space-391255962578",
+  "published_at": "2026-02-06T22:45:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "The First Mechanistic Interpretability Frontier Lab — Myra Deng & Mark Bissell of Goodfire AI",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/goodfire"
+}

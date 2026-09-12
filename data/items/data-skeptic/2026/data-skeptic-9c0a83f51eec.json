@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/mgln.ai/e/35/traffic.libsyn.com/secure/dataskeptic/Ervin_No_Ads_V1.mp3?dest-id=201630",
+  "description": "Ervin Dervishaj, a PhD student at the University of Copenhagen, discusses his research on disentangled representation learning in recommender systems, finding that while disentanglement strongly correlates with interpretability, it doesn't consistently improve recommendation performance. The conversation explores how disentanglement acts as a regularizer that can enhance user trust and interpretability at the potential cost of some accuracy, and touches on the future of large language models in denoising user interaction data.",
+  "duration_seconds": 1833,
+  "guid": "b293451c-46c4-49bb-b926-b03e948bf926",
+  "item_id": "data-skeptic-9c0a83f51eec",
+  "published_at": "2026-03-10T13:56:00Z",
+  "reason": null,
+  "source_id": "data-skeptic",
+  "source_name": "Data Skeptic",
+  "status": "pending",
+  "title": "Disentanglement and Interpretability in Recommender Systems",
+  "transcript_url": null,
+  "url": "https://dataskeptic.com/blog/episodes/2026/disentanglement-and-interpretability-in-recommender-systems"
+}

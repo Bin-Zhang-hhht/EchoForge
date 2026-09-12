@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/1b8e65f4/5f10a20b.mp3",
+  "description": "AI is moving fast from research to real-world deployment, and when things go wrong, the consequences are no longer hypothetical. In this episode, Sean McGregor, co-founder of the AI Verification & Evaluation Research Institute and also the founder of the AI Incident Database, joins Chris and Dan to discuss AI safety, verification, evaluation, and auditing. They explore why benchmarks often fall short, what red-teaming at DEFCON reveals about machine learning risks, and how organizations can better assess and manage AI systems in practice. Featuring: Sean McGregor– LinkedIn Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Daniel Whitenack – Website, GitHub, X Links: AI Verification & Evaluation Research Institute AI Incident Database 38th convening of IAAI BenchRisk State of Global AI Incident Reporting Upcoming Events: Register for upcoming webinars here!",
+  "duration_seconds": 2572,
+  "guid": "fcbe89dc-70d4-4351-bc8a-ee570292ae36",
+  "item_id": "practical-ai-d454822f3795",
+  "published_at": "2026-02-13T15:57:56Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "AI incidents, audits, and the limits of benchmarks",
+  "transcript_url": "https://share.transistor.fm/s/1b8e65f4/transcription",
+  "url": "https://share.transistor.fm/s/1b8e65f4"
+}

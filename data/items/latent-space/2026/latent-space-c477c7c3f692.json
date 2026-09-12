@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/202359797/7d6863592b786561d5ce8ed820585ddb.mp3",
+  "description": "Last 4 days before regular tickets sell out at AI Engineer World’s Fair - this is the single biggest gathering of AI Engineers, Founders, Leaders, and Researchers in the world. Attendees get >$5000 worth of sponsor credits and talk tracks are looking FANTASTIC. Join us! The AI scaling debate always focuses on the question of “how do we get more GPUs?” but the better question may be: how do we make the most of ones we already have. The fact that a frontier lab like xAI could be running at sub-10% MFU (Model FLOPs Utilization) is just a hint at what the real problem may be. For context, older frontier-scale training runs were already much higher than 10%. GPT-3 was around 21% MFU. Gopher was around 32%. Megatron-Turing NLG was around 30%. PaLM reached around 46%. And our guest Anjney says best-in-class MFU today is closer to 60–70%. It’s not necessarily that xAI is uniquely incompetent (it’s clear they have talented folks) but rather the priorities may be flipped in the GPU arms race. Wh",
+  "duration_seconds": 3565,
+  "guid": "substack:post:202359797",
+  "item_id": "latent-space-c477c7c3f692",
+  "published_at": "2026-06-18T17:30:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "The Professor of Outputmaxxing — Anjney Midha, AMP",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/anj"
+}

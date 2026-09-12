@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/4bbde192/f444e728.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer unpack the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, they cover the viral rise of OpenClaw and its founder’s move to OpenAI, OpenAI’s exploration of ads inside ChatGPT, and Alibaba’s push into agent-powered commerce during Lunar New Year. They also discuss Mistral’s acquisition of Koyeb to deepen its compute stack, the growing competition between ChatGPT, Claude, and Gemini, and what these moves signal about monetization, infrastructure, and control in the AI arms race. Gregor and Sean then dive deep into the rapid acceleration of agentic engineering. They examine how tools like Claude Code and Codex are compressing the idea-to-production cycle, what multi-agent orchestration means for software teams, whether the era of the “10x engineer” is ending, and how organizational structures may need to evolve as coding shift",
+  "duration_seconds": 3428,
+  "guid": "https://softwareengineeringdaily.com/?p=21290",
+  "item_id": "software-engineering-daily-44e3a8d4c67b",
+  "published_at": "2026-03-03T10:00:14Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: OpenClaw Goes Viral, Mistral’s Compute Play, and the Agent Arms Race",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-openclaw-goes-viral-mistrals-compute-play-and-the-agent-arms-race/"
+}

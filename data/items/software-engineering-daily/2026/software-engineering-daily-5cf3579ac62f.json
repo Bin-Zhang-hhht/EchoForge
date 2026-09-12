@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/169be734/10cb2bdf.mp3",
+  "description": "Modern software development is more complex than ever. Teams work across different operating systems, chip architectures, and cloud environments, each with its own dependency quirks and version mismatches. Ensuring that code runs reproducibly across these environments has become a major challenge that’s made even harder by growing concerns around software supply chain security. Nix is a powerful open-source package manager that builds software in controlled, declarative environments where dependencies are explicitly defined and reproducible. Its functional approach has made it a gold standard for reproducible builds, but it can also be difficult to learn and adopt. Flox is a company that builds on top of Nix, with increased supply chain security and abstractions that streamline the developer experience. Michael Stahnke is the VP of Engineering at Flox and formerly worked at companies including Caterpillar, Puppet, and CircleCI. He joins the podcast with Kevin Ball to talk about Flox, b",
+  "duration_seconds": 3316,
+  "guid": "https://softwareengineeringdaily.com/?p=20375",
+  "item_id": "software-engineering-daily-5cf3579ac62f",
+  "published_at": "2026-01-08T10:00:47Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Flox, Nix, and Reproducible Software Systems with Michael Stahnke",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/flox-nix-and-reproducible-software-systems-with-michael-stahnke/"
+}

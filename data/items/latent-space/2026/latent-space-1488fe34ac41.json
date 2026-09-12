@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://api.substack.com/feed/podcast/190477229/547dbb1e74e5465c243c3af0599b15cd.mp3",
+  "description": "Join Kyle, Nader, Vibhu, and swyx live at NVIDIA GTC next week! Now that AIE Europe tix are ~sold out, our attention turns to Miami and World’s Fair! The definitive AI Accelerator chip company has more than 10xed this AI Summer: And is now a $4.4 trillion megacorp… that is somehow still moving like a startup. We are blessed to have a unique relationship with our first ever NVIDIA guests: Kyle Kranen who gave a great inference keynote at the first World’s Fair and is one of the leading architects of NVIDIA Dynamo (a Datacenter scale inference framework supporting SGLang, TRT-LLM, vLLM), and Nader Khalil, a friend of swyx from our days in Celo in The Arena, who has been drawing developers at GTC since before they were even a glimmer in the eye of NVIDIA: Nader discusses how NVIDIA Brev has drastically reduced the barriers to entry for developers to get a top of the line GPU up and running, and Kyle explains NVIDIA Dynamo as a data center scale inference engine that optimizes serving by s",
+  "duration_seconds": 5017,
+  "guid": "substack:post:190477229",
+  "item_id": "latent-space-1488fe34ac41",
+  "published_at": "2026-03-10T06:40:22Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "NVIDIA's AI Engineers: Agent Inference at Planetary Scale and \"Speed of Light\" — Nader Khalil (Brev), Kyle Kranen (Dynamo)",
+  "transcript_url": null,
+  "url": "https://www.latent.space/p/nvidia-brev-dynamo"
+}
