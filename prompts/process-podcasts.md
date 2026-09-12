@@ -1,6 +1,6 @@
 # Process Podcast Batch
 
-This run processes a candidate window into at most three public machine digests. Follow `AGENTS.md`, `docs/product.md`, `docs/architecture.md`, and `templates/post.md`.
+This run processes a candidate window into at most three public machine digests. Follow `AGENTS.md`, `docs/architecture.md`, and `templates/post.md`.
 
 ## 1. Preflight
 
@@ -61,6 +61,6 @@ For ASR, first run the `asr-reserve` command above, then use `--input-type video
 5. Commit only related public files. Use the normal branch synchronization flow; stop on conflicts and never force-push.
 6. Distinguish committed or pushed content from a successful Pages deployment. Only report deployment after observing the remote workflow and page.
 
-Temporary ASR audio may be removed only after its transcript is saved durably, material checks pass, required listening questions are resolved, and the backup requirement has been met. Private channel drafts remain marked for human review and are never published by this task.
+Temporary ASR audio may be removed only after its transcript is saved durably, material checks pass, required listening questions are resolved, and the backup requirement has been met. Human editorial drafts stay local and are never published by this task.
 
 Finish with counts and reasons for processed, ignored, failed, and budget-deferred items, plus test, backup, push, and deployment status.

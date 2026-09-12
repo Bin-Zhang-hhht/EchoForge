@@ -6,7 +6,7 @@
 
 *A personal radar that turns technical podcast episodes into traceable Chinese digests.*
 
-[浏览文章](https://bin-zhang-hhht.github.io/EchoForge/) · [产品文档](docs/product.md) · [架构文档](docs/architecture.md) · [关键决策](docs/decisions.md) · [RSS 来源清单](docs/podcast-sources.md)
+[浏览文章](https://bin-zhang-hhht.github.io/EchoForge/) · [架构文档](docs/architecture.md) · [RSS 来源清单](docs/podcast-sources.md)
 
 <img src=".github/assets/banner-workflow.png" alt="播客信号汇入本地私有保存的完整逐字稿，再提炼成关联原文、经过核查的中文精编" width="100%" />
 
@@ -70,7 +70,7 @@ echoforge/
 ├── prompts/               # 本地闲时任务操作说明
 ├── templates/             # 文章模板
 ├── site/                  # VitePress 站点：首页最近整理、全部文章、标签页与文章
-├── docs/                  # 产品 / 架构 / 关键决策 / 来源清单
+├── docs/                  # 架构文档 / RSS 来源清单
 ├── local-library/         # 本地长期逐字稿资产，不入 Git
 └── .cache/                # 临时音频与可重建中间文件，不入 Git
 ```
