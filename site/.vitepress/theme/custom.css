@@ -86,3 +86,19 @@
     margin-right: 5px;
   }
 }
+
+/* Generated list pages: the title leads, metadata lines recede, entries breathe. */
+.article-list .vp-doc li > ul > li:nth-child(n + 2),
+.article-list .vp-doc h3 + p + p,
+.article-list .vp-doc h3 + p + p + p {
+  color: var(--vp-c-text-3);
+  font-size: 13px;
+}
+
+.article-list .vp-doc div > ul > li {
+  margin-bottom: 14px;
+}
+
+.article-list .vp-doc div > ul > li:last-child {
+  margin-bottom: 0;
+}

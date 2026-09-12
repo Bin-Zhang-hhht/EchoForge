@@ -153,7 +153,8 @@ function buildAllArticlesPage(articles) {
     .join('\n\n');
 
   const body = sections || '> 还没有可发布的文章。';
-  return `---\nlayout: doc\ntitle: 全部文章\nprev: false\nnext: false\n---\n\n# 全部文章\n\nEchoForge 已发布的中文技术播客笔记，按整理年份分组，年份内按整理日期倒序。每篇文章都提供一句话摘要、节目来源、阅读时长和主题标签。\n\n${body}\n`;
+  return `---\nlayout: doc
+pageClass: article-list\ntitle: 全部文章\nprev: false\nnext: false\n---\n\n# 全部文章\n\nEchoForge 已发布的中文技术播客笔记，按整理年份分组，年份内按整理日期倒序。每篇文章都提供一句话摘要、节目来源、阅读时长和主题标签。\n\n${body}\n`;
 }
 
 async function loadItems() {
@@ -210,6 +211,7 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
   const lines = [
     '---',
     'layout: doc',
+    'pageClass: article-list',
     'title: EchoForge',
     'prev: false',
     'next: false',
@@ -380,13 +382,15 @@ async function buildIndex() {
   const tagList = tagEntries.length
     ? tagEntries.map(([tag, taggedArticles]) => `- [${escapeMarkdown(tag)}](./${tagHref(tag)}) · ${taggedArticles.length} 篇`).join('\n')
     : '> 还没有带标签的文章。\n';
-  const tagsOutput = `---\nlayout: doc\ntitle: 标签\nprev: false\nnext: false\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记，标签按文章数排序。单篇文章通常保留 2～4 个标签。\n\n${tagList}\n`;
+  const tagsOutput = `---\nlayout: doc
+pageClass: article-list\ntitle: 标签\nprev: false\nnext: false\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记，标签按文章数排序。单篇文章通常保留 2～4 个标签。\n\n${tagList}\n`;
 
   await mkdir(tagsDirectory, { recursive: true });
   await writeFile(tagsPath, tagsOutput, 'utf8');
 
   for (const [tag, taggedArticles] of tagEntries) {
-    const page = `---\nlayout: doc\ntitle: ${yamlQuote(tag)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(tag)}\n\n标签「${escapeMarkdown(tag)}」下的中文技术播客笔记，按整理日期倒序。\n\n${taggedArticles.map((article) => articleLink(article, '../../posts/')).join('\n')}\n`;
+    const page = `---\nlayout: doc
+pageClass: article-list\ntitle: ${yamlQuote(tag)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(tag)}\n\n标签「${escapeMarkdown(tag)}」下的中文技术播客笔记，按整理日期倒序。\n\n${taggedArticles.map((article) => articleLink(article, '../../posts/')).join('\n')}\n`;
     const tagDirectory = join(tagsDirectory, tag);
     await mkdir(tagDirectory, { recursive: true });
     await writeFile(join(tagDirectory, 'index.md'), page, 'utf8');
@@ -411,7 +415,8 @@ async function buildIndex() {
           )
           .join('\n')
       : '> 暂无已发布文章。';
-    const page = `---\nlayout: doc\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n已整理 ${source.articleCount} 期。\n\n## 已整理内容\n\n${sections}\n`;
+    const page = `---\nlayout: doc
+pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n已整理 ${source.articleCount} 期。\n\n## 已整理内容\n\n${sections}\n`;
     const sourceDirectory = join(postsDirectory, source.id);
     await mkdir(sourceDirectory, { recursive: true });
     await writeFile(join(sourceDirectory, 'index.md'), page, 'utf8');
