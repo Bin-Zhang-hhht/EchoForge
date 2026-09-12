@@ -60,3 +60,10 @@
   content: 'ⓘ ';
   margin-right: 2px;
 }
+
+/* 「速读」紧贴信息卡：去掉 VitePress 给 h2 的分段线和留白，信息卡下边缘即分隔 */
+.vp-doc h1 + blockquote + h2 {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
