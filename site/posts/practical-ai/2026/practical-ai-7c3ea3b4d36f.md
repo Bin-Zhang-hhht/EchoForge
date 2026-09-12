@@ -15,11 +15,11 @@ tags: [AI Agent, Computer Use, MCP]
 
 > 节目发布：2026-09-10 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 全文 2006 字 · 预计阅读 6 分钟 · 处理模型：gpt-5.6-sol
+> 全文 2006 字 · 预计阅读 6 分钟
 >
 > 标签：[AI Agent](/tags/AI%20Agent/) [Computer Use](/tags/Computer%20Use/) [MCP](/tags/MCP/)
 >
-> AI 编辑整理，请以原始节目为准。
+> 处理模型：gpt-5.6-sol · AI 编辑整理，请以原始节目为准。
 
 
 ## 速读

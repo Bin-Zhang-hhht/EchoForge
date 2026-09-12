@@ -56,9 +56,10 @@ DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 META_DATES_PATTERN = re.compile(
     r"^> 节目发布：(\d{4}-\d{2}-\d{2}) · 逐字稿获取：(\d{4}-\d{2}-\d{2}) · 笔记整理：(\d{4}-\d{2}-\d{2})$"
 )
-META_COUNTS_PATTERN = re.compile(r"^> 全文 (\d+) 字 · 预计阅读 (\d+) 分钟 · 处理模型：(\S+)$")
+META_COUNTS_PATTERN = re.compile(r"^> 全文 (\d+) 字 · 预计阅读 (\d+) 分钟$")
 META_TAGS_PREFIX = "> 标签："
 META_TAGS_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((/tags/[^)]+/)\)")
+META_DISCLAIMER_PATTERN = re.compile(rf"^>?\s*处理模型：(\S+) · {re.escape(DISCLAIMER)}$")
 LOCATOR_ITEM_PATTERN = re.compile(r"^\s{2,}-\s+(.+)$")
 NON_LOCATORS = {"不适用", "无", "N/A", "n/a"}
 READING_SPEED_CHARS_PER_MINUTE = 400
@@ -209,8 +210,8 @@ def _strip_hard_break(line: str) -> str:
     return stripped[:-1].rstrip() if stripped.endswith("\\") else stripped
 
 
-def article_meta_block(body: str) -> tuple[re.Match[str] | None, re.Match[str] | None, str | None]:
-    dates = counts = tags_line = None
+def article_meta_block(body: str) -> tuple[re.Match[str] | None, re.Match[str] | None, str | None, str | None]:
+    dates = counts = tags_line = model = None
     for line in strip_fenced_code(body).splitlines():
         stripped = _strip_hard_break(line)
         if dates is None and META_DATES_PATTERN.fullmatch(stripped):
@@ -219,7 +220,9 @@ def article_meta_block(body: str) -> tuple[re.Match[str] | None, re.Match[str] |
             counts = META_COUNTS_PATTERN.fullmatch(stripped)
         elif tags_line is None and stripped.startswith(META_TAGS_PREFIX):
             tags_line = stripped
-    return dates, counts, tags_line
+        elif model is None and META_DISCLAIMER_PATTERN.fullmatch(stripped):
+            model = META_DISCLAIMER_PATTERN.fullmatch(stripped).group(1)
+    return dates, counts, tags_line, model
 
 
 def article_word_count(body: str) -> int:
@@ -227,7 +230,7 @@ def article_word_count(body: str) -> int:
         META_DATES_PATTERN,
         META_COUNTS_PATTERN,
         re.compile(r"^>\s*$"),
-        re.compile(rf"^>?\s*{re.escape(DISCLAIMER)}\s*$"),
+        META_DISCLAIMER_PATTERN,
     )
     tags_prefix = re.compile(r"^>\s*标签：")
     lines = [
@@ -312,7 +315,7 @@ def validate_body(post: Post, root: Path) -> list[str]:
                 f"{location}: 来源与定位 must contain a real source locator list under 定位 (one timestamp or phrase per line)"
             )
 
-        dates, counts, tags_line = article_meta_block(body)
+        dates, counts, tags_line, model_line = article_meta_block(body)
         if dates is None or counts is None:
             errors.append(
                 f"{location}: missing article meta blockquote (节目发布/逐字稿获取/笔记整理 and 全文/预计阅读 lines)"
@@ -336,13 +339,18 @@ def validate_body(post: Post, root: Path) -> list[str]:
                     f"{location}: meta blockquote 预计阅读 must be {expected_minutes} 分钟 "
                     f"({READING_SPEED_CHARS_PER_MINUTE} characters per minute)"
                 )
-            if counts.group(3) != fields.get("model"):
-                errors.append(f"{location}: meta blockquote 处理模型 must equal frontmatter model")
             stripped_body = strip_fenced_code(body)
             meta_index = stripped_body.find(dates.group(0))
             first_section = re.search(r"^##[ \t]+", stripped_body, re.MULTILINE)
             if first_section and (meta_index == -1 or meta_index > first_section.start()):
                 errors.append(f"{location}: meta blockquote must sit directly under the H1 title, before the first section")
+
+        if model_line is None:
+            errors.append(
+                f"{location}: meta blockquote must end with a 处理模型：<model> · {DISCLAIMER} line"
+            )
+        elif model_line != fields.get("model"):
+            errors.append(f"{location}: meta blockquote 处理模型 must equal frontmatter model")
 
         tags = fields.get("tags")
         if not isinstance(tags, list) or not tags or any(not str(tag).strip() for tag in tags):
