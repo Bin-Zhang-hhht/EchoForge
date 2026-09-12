@@ -1,12 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4a63d0"/>
-      <stop offset="1" stop-color="#3451b2"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="15" fill="url(#tile)"/>
-  <path d="M46.5 6 48.5 10.5 53 12.5 48.5 14.5 46.5 19 44.5 14.5 40 12.5 44.5 10.5Z" fill="#ffffff"/>
-  <path d="M16 21L51 21Q54 21 54 24L54 27Q54 30 51 30L40 30L40 36L47 36Q51 36 51 39.5L51 40.5Q51 43 48 43L19 43Q16 43 16 40.5L16 39.5Q16 36 20 36L28 36L28 30L22 30Q13 30 8 33.5Q9.5 27.5 16 21Z"
-        fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">EchoForge — 声波汇入文本</title>
+  <rect width="64" height="64" rx="16" fill="#3451b2"/>
+  <g fill="#64e4f2">
+    <rect x="10" y="28" width="4" height="8" rx="2"/>
+    <rect x="17" y="22" width="4" height="20" rx="2"/>
+  </g>
+  <path d="M28 16H49V23H32V28H45V35H32V41H49V48H28A3 3 0 0 1 25 45V19A3 3 0 0 1 28 16Z" fill="#ffffff"/>
 </svg>

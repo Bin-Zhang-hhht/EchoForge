@@ -1,19 +1,16 @@
-
-
 # EchoForge · 技术播客
 
-
 [![test](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml) [![collect](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml) [![deploy](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+<div align="center">
+  <img src=".github/assets/banner-workflow.png" alt="播客信号汇入本地私有保存的完整逐字稿，再提炼成关联原文、经过核查的中文精编" width="100%" />
+</div>
 
 从公开 Podcast RSS 发现技术访谈，在本地保存完整逐字稿并生成可追溯的中文精编——先看重点观点与边界，再决定是否回听。
 
 *A personal radar that turns technical podcast episodes into traceable Chinese digests.*
 
-[产品文档](docs/product.md) · [架构文档](docs/architecture.md) · [执行计划](docs/implementation-plan.md) · [RSS 来源清单](docs/podcast-sources.md)
-
-<div align="center">
-  <img src=".github/assets/banner.svg" alt="EchoForge · 技术播客中文阅读雷达" width="100%" />
-</div>
+[浏览文章](https://bin-zhang-hhht.github.io/EchoForge/) · [产品文档](docs/product.md) · [架构文档](docs/architecture.md) · [执行计划](docs/implementation-plan.md) · [RSS 来源清单](docs/podcast-sources.md)
 
 ## 内容与体验
 
