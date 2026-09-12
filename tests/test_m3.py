@@ -93,7 +93,11 @@ def write_post(posts_dir: Path, value: dict[str, object], content: str) -> Path:
     return target
 
 
-def article(value: dict[str, object], body_extra: str = "") -> str:
+def article(value: dict[str, object], body_extra: str = "", transcript: bool = True) -> str:
+    transcript_field = f"transcript_url: {TRANSCRIPT_URL}\n" if transcript else ""
+    source_link = f"🎧 [收听原节目]({value['url']})"
+    if transcript:
+        source_link += f" · 📄 [查看官方逐字稿]({TRANSCRIPT_URL})"
     frontmatter = f"""---
 item_id: {value['item_id']}
 title: 测试文章
@@ -105,8 +109,7 @@ model: GLM
 source_url: {value['url']}
 source_name: {value['source_name']}
 input_type: official_transcript
-transcript_url: {TRANSCRIPT_URL}
-summary: 测试文章摘要
+{transcript_field}summary: 测试文章摘要
 prev: false
 next: false
 tags: [推荐系统, 测试]
@@ -119,13 +122,11 @@ tags: [推荐系统, 测试]
 >
 > 节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 阅读约 1 分钟
+> 全文共 0 字 · 阅读约 0 分钟
 >
 > 标签：[推荐系统](/tags/推荐系统/) [测试](/tags/测试/)
 >
-> 🎧 [收听原节目]({value['url']})
->
-> 📄 [查看官方逐字稿]({TRANSCRIPT_URL})
+> {source_link}
 
 ## 速读
 
@@ -151,11 +152,13 @@ tags: [推荐系统, 测试]
 """
     words = check.article_word_count(body)
     minutes = check.reading_minutes(words)
-    return frontmatter + body.replace("> 阅读约 1 分钟", f"> 阅读约 {minutes} 分钟", 1)
+    return frontmatter + body.replace(
+        "> 全文共 0 字 · 阅读约 0 分钟", f"> 全文共 {words} 字 · 阅读约 {minutes} 分钟", 1
+    )
 
 
-def valid_article(value: dict[str, object], body_extra: str = "") -> str:
-    return article(value, body_extra).replace("DateIgnored: no\n", "")
+def valid_article(value: dict[str, object], body_extra: str = "", transcript: bool = True) -> str:
+    return article(value, body_extra, transcript).replace("DateIgnored: no\n", "")
 
 
 def reviewed_timing(duration: float = 3600.0) -> archive.TimingCoverage:
@@ -689,18 +692,94 @@ def test_check_requires_meta_blockquote_with_accurate_word_count(tmp_path: Path)
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
 
-    stripped = re.sub(r"> (节目发布|阅读约)[^\n]*\n", "", valid_article(value))
+    stripped = re.sub(r"> (节目发布|全文共)[^\n]*\n", "", valid_article(value))
     write_post(posts, value, stripped)
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
     assert any("missing article meta blockquote" in error for error in errors)
 
-    write_post(posts, value, re.sub(r"阅读约 \d+ 分钟", "阅读约 99 分钟", valid_article(value)))
+    wrong_words = re.sub(r"全文共 \d+ 字", "全文共 1 字", valid_article(value))
+    write_post(posts, value, wrong_words)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("全文共 must be" in error for error in errors)
+
+    write_post(posts, value, re.sub(r"· 阅读约 \d+ 分钟", "· 阅读约 99 分钟", valid_article(value)))
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
     assert any("阅读约 must be" in error for error in errors)
 
     write_post(posts, value, valid_article(value))
     errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
     assert not any("meta blockquote" in error for error in errors)
+
+
+def test_check_validates_meta_source_line_and_optional_transcript(tmp_path: Path) -> None:
+    value = item(status="processed")
+    write_item(tmp_path, value)
+    posts = tmp_path / "site" / "posts"
+
+    # An article without a public transcript keeps only the audio link.
+    write_post(posts, value, valid_article(value, transcript=False))
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert not any("meta blockquote" in error for error in errors)
+
+    # A transcript link is rejected when frontmatter declares no transcript_url.
+    no_field = valid_article(value, transcript=False)
+    no_field = re.sub(
+        re.escape(f"> 🎧 [收听原节目]({value['url']})"),
+        f"> 🎧 [收听原节目]({value['url']}) · 📄 [查看官方逐字稿]({TRANSCRIPT_URL})",
+        no_field,
+    )
+    write_post(posts, value, no_field)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("must not link an unavailable official transcript" in error for error in errors)
+
+    # A mismatched transcript URL is rejected (only the body link changes).
+    write_post(
+        posts,
+        value,
+        valid_article(value).replace(
+            f"📄 [查看官方逐字稿]({TRANSCRIPT_URL})",
+            "📄 [查看官方逐字稿](https://example.com/transcripts/other.vtt)",
+        ),
+    )
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("transcript link must equal transcript_url" in error for error in errors)
+
+    # Splitting the two source links across separate lines is rejected.
+    split = valid_article(value).replace(
+        f"> 🎧 [收听原节目]({value['url']}) · 📄 [查看官方逐字稿]({TRANSCRIPT_URL})",
+        f"> 🎧 [收听原节目]({value['url']})\n>\n> 📄 [查看官方逐字稿]({TRANSCRIPT_URL})",
+    )
+    write_post(posts, value, split)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("transcript link must equal transcript_url" in error for error in errors)
+
+    # Repeating the source line is rejected.
+    duplicated = valid_article(value).replace(
+        f"> 🎧 [收听原节目]({value['url']}) · 📄 [查看官方逐字稿]({TRANSCRIPT_URL})",
+        f"> 🎧 [收听原节目]({value['url']}) · 📄 [查看官方逐字稿]({TRANSCRIPT_URL})\n>\n> 🎧 [收听原节目]({value['url']}) · 📄 [查看官方逐字稿]({TRANSCRIPT_URL})",
+    )
+    write_post(posts, value, duplicated)
+    errors, _, _ = check.run_checks(tmp_path, tracked_paths=[])
+    assert any("exactly one 收听原节目 line" in error for error in errors)
+
+
+def test_article_word_count_and_reading_minutes_rules() -> None:
+    body = (
+        "> 节目发布：2026-09-11 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11\n"
+        "> 全文共 99 字 · 阅读约 1 分钟\n"
+        "> 标签：[推荐系统](/tags/推荐系统/)\n"
+        "> 🎧 [收听原节目](https://example.com/episode) · 📄 [查看官方逐字稿](https://example.com/transcript)\n"
+        "\n"
+        "正文 [链接文字](https://example.com/very/long/target) 内容\n"
+        "- 整理模型：GLM\n"
+        "- AI 编辑整理，请以原始节目为准。\n"
+    )
+    # Metadata lines are excluded, link text counts, and link targets do not.
+    assert check.article_word_count(body) == len("正文链接文字内容")
+    assert check.reading_minutes(0) == 1
+    assert check.reading_minutes(1) == 1
+    assert check.reading_minutes(400) == 1
+    assert check.reading_minutes(401) == 2
 
 
 def test_check_requires_tag_line_matching_frontmatter(tmp_path: Path) -> None:

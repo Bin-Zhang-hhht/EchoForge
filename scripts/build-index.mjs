@@ -11,7 +11,9 @@ const tagsDirectory = join(projectRoot, 'site', 'tags');
 const tagsPath = join(tagsDirectory, 'index.md');
 const homePath = join(projectRoot, 'site', 'index.md');
 const sidebarDataPath = join(projectRoot, 'site', '.vitepress', 'sidebar.data.json');
+const postsOrderPath = join(projectRoot, 'site', '.vitepress', 'posts-order.json');
 const dataDirectory = join(projectRoot, 'data', 'items');
+const collectedAtPath = join(projectRoot, 'data', 'collected-at.json');
 const publicDirectory = join(projectRoot, 'site', 'public');
 const siteBase = '/EchoForge/';
 
@@ -170,7 +172,26 @@ async function loadItems() {
   return items;
 }
 
-function buildHomePage(articles, items, tagCount) {
+async function loadCollectedAt() {
+  try {
+    const data = JSON.parse(await readFile(collectedAtPath, 'utf8'));
+    return typeof data.last_collected_at === 'string' ? data.last_collected_at : null;
+  } catch {
+    return null;
+  }
+}
+
+function formatChinaTime(iso) {
+  const date = new Date(iso);
+  if (!iso || Number.isNaN(date.getTime())) {
+    return null;
+  }
+  const shifted = new Date(date.getTime() + 8 * 60 * 60 * 1000);
+  const pad = (value) => String(value).padStart(2, '0');
+  return `${shifted.getUTCFullYear()}-${pad(shifted.getUTCMonth() + 1)}-${pad(shifted.getUTCDate())} ${pad(shifted.getUTCHours())}:${pad(shifted.getUTCMinutes())}`;
+}
+
+function buildHomePage(articles, items, tagCount, collectedAt) {
   const realArticles = articles.filter((article) => article.input_type !== 'demo');
   const sources = buildSourceStats(realArticles, items);
   const latestDate = realArticles.length ? realArticles[0].date : null;
@@ -178,11 +199,14 @@ function buildHomePage(articles, items, tagCount) {
   const tagEntries = [...new Set(realArticles.flatMap((article) => article.tags))].sort((left, right) =>
     left.localeCompare(right, 'zh-CN')
   );
-  const totalSeconds = items.reduce(
+  // `ignored` episodes are not part of the collection readers can process, so exclude them here.
+  const collectedItems = items.filter((item) => item.status !== 'ignored');
+  const totalSeconds = collectedItems.reduce(
     (sum, item) => sum + (typeof item.duration_seconds === 'number' ? item.duration_seconds : 0),
     0
   );
   const hours = Math.round(totalSeconds / 3600);
+  const collectedAtText = formatChinaTime(collectedAt);
   const lines = [
     '---',
     'layout: doc',
@@ -246,8 +270,10 @@ function buildHomePage(articles, items, tagCount) {
     '',
     '## 运行统计',
     '',
-    `已发布 ${realArticles.length} 篇文章 · ${tagCount} 个主题标签 · ${sources.filter((source) => source.articleCount > 0).length} 档节目已整理 · 收录约 ${hours} 小时音频`,
-    latestDate ? `最近整理：${latestDate}` : '最近整理：暂无',
+    `- 已收录 ${sources.length} 档节目，共 ${collectedItems.length} 期，约 ${hours} 小时音频`,
+    `- 已发布 ${realArticles.length} 篇文章，提炼 ${tagCount} 个主题标签`,
+    `- 最近收录时间：${collectedAtText ?? '暂无'}`,
+    `- 最近整理时间：${latestDate ?? '暂无'}`,
     ''
   );
   return lines.join('\n');
@@ -256,6 +282,10 @@ function buildHomePage(articles, items, tagCount) {
 function buildSourceStats(articles, items) {
   const sources = new Map();
   for (const item of items) {
+    // `ignored` episodes are deliberately excluded from what readers can process.
+    if (item.status === 'ignored') {
+      continue;
+    }
     const id = item.source_id;
     if (!sources.has(id)) {
       sources.set(id, { id, name: item.source_name ?? id, itemCount: 0, articleCount: 0, latest: null });
@@ -308,7 +338,7 @@ async function buildIndex() {
       return {
         ...frontmatter,
         tags: parseTags(frontmatter.tags),
-        reading_minutes: (source.match(/阅读约 (\d+) 分钟/) ?? [])[1] ?? '1',
+        reading_minutes: (source.match(/全文共 \d+ 字 · 阅读约 (\d+) 分钟/) ?? [])[1] ?? '1',
         path: articlePath,
         slug
       };
@@ -363,7 +393,8 @@ async function buildIndex() {
   }
   console.log(`Generated ${relative(projectRoot, tagsPath)} and ${tagEntries.length} tag page(s).`);
 
-  await writeFile(homePath, `${buildHomePage(articles, items, tagMap.size)}\n`, 'utf8');
+  const collectedAt = await loadCollectedAt();
+  await writeFile(homePath, `${buildHomePage(articles, items, tagMap.size, collectedAt)}\n`, 'utf8');
   console.log(`Generated ${relative(projectRoot, homePath)}.`);
 
   const sources = buildSourceStats(
@@ -407,6 +438,15 @@ async function buildIndex() {
   await mkdir(dirname(sidebarDataPath), { recursive: true });
   await writeFile(sidebarDataPath, `${JSON.stringify(sidebar, null, 2)}\n`, 'utf8');
   console.log(`Generated ${relative(projectRoot, sidebarDataPath)}.`);
+
+  // Chronology for the article pager: newest first, the same order as the 全部文章 page.
+  // `text` is the key VitePress frontmatter prev/next expects.
+  const postsOrder = articles
+    .filter((article) => article.input_type !== 'demo')
+    .map((article) => ({ text: article.title, link: `/posts/${article.slug}` }));
+  await mkdir(dirname(postsOrderPath), { recursive: true });
+  await writeFile(postsOrderPath, `${JSON.stringify(postsOrder, null, 2)}\n`, 'utf8');
+  console.log(`Generated ${relative(projectRoot, postsOrderPath)}.`);
 }
 
 buildIndex().catch((error) => {

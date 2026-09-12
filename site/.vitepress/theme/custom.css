@@ -52,13 +52,11 @@
 }
 
 /* Public source links are explicit actions, while staying visually quieter than the title. */
-.vp-doc h1 + blockquote p:nth-child(5),
-.vp-doc h1 + blockquote p:nth-child(6) {
+.vp-doc h1 + blockquote p:nth-child(5) {
   margin-top: 8px;
 }
 
-.vp-doc h1 + blockquote p:nth-child(5) a,
-.vp-doc h1 + blockquote p:nth-child(6) a {
+.vp-doc h1 + blockquote p:nth-child(5) a {
   color: var(--vp-c-brand-1);
   font-weight: 500;
 }

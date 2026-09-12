@@ -11,8 +11,6 @@ input_type: official_transcript
 transcript_url: https://share.transistor.fm/s/72586f97/transcription
 summary: 'Computer-Use 已能处理没有 API 的网页流程，但付款、企业系统和高风险写操作仍需要分级授权、人工确认、审计和错误恢复；MCP 与网页操作更像互补。'
 tags: [AI Agent, Computer Use, MCP]
-prev: false
-next: false
 ---
 
 # 当代理开始替你操作网页：Computer-Use、企业边界与代理商业
@@ -21,13 +19,11 @@ next: false
 >
 > 节目发布：2026-09-10 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 阅读约 6 分钟
+> 全文共 2118 字 · 阅读约 6 分钟
 >
 > 标签：[AI Agent](/tags/AI%20Agent/) [Computer Use](/tags/Computer%20Use/) [MCP](/tags/MCP/)
 >
-> 🎧 [收听原节目](https://share.transistor.fm/s/72586f97)
->
-> 📄 [查看官方逐字稿](https://share.transistor.fm/s/72586f97/transcription)
+> 🎧 [收听原节目](https://share.transistor.fm/s/72586f97) · 📄 [查看官方逐字稿](https://share.transistor.fm/s/72586f97/transcription)
 
 ## 速读
 
@@ -70,11 +66,11 @@ MCP 代表一种标准化连接方向：由系统提供稳定接口，让 Agent 
 ## 来源与定位
 
 - 原始节目：[Computer-Use Agents and the Future of the Agentic Internet](https://share.transistor.fm/s/72586f97)
-- 定位：
-  - 个人 Computer-Use 案例 `00:14:06–00:22:38`
-  - 企业采用与安全 `00:22:38–00:30:57`
-  - 模型与 harness `00:34:26–00:41:19`
-  - 代理商业及其反例 `00:41:42–00:54:57`
+- 定位：官方逐字稿自带 [时:分:秒] 时间戳，以下定位取自归档逐字稿。
+  - 个人 Computer-Use 案例（00:14:06–00:22:38）
+  - 企业采用与安全（00:22:38–00:30:57）
+  - 模型与 harness（00:34:26–00:41:19）
+  - 代理商业及其反例（00:41:42–00:54:57）
 
 ## 整理说明
 

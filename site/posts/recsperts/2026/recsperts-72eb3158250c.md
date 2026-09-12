@@ -11,8 +11,6 @@ input_type: official_transcript
 transcript_url: https://share.transistor.fm/s/c07c7bf6/transcript.txt
 summary: '有用的推荐不等于高准确率或高点击率，必须结合具体情境、长期关系、真实用户实验和多方利益相关者来定义价值，再选择模型和指标。'
 tags: [推荐系统, 产品指标]
-prev: false
-next: false
 ---
 
 # 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值
@@ -21,13 +19,11 @@ next: false
 >
 > 节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
-> 阅读约 7 分钟
+> 全文共 2813 字 · 阅读约 8 分钟
 >
 > 标签：[推荐系统](/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/) [产品指标](/tags/%E4%BA%A7%E5%93%81%E6%8C%87%E6%A0%87/)
 >
-> 🎧 [收听原节目](https://share.transistor.fm/s/c07c7bf6)
->
-> 📄 [查看官方逐字稿](https://share.transistor.fm/s/c07c7bf6/transcript.txt)
+> 🎧 [收听原节目](https://share.transistor.fm/s/c07c7bf6) · 📄 [查看官方逐字稿](https://share.transistor.fm/s/c07c7bf6/transcript.txt)
 
 ## 速读
 
@@ -70,12 +66,12 @@ Konstan 认为，推荐问题只在一部分上是机器学习或计算问题。
 ## 来源与定位
 
 - 原始节目：[#33: Useful Recommender Systems and 20 Years of RecSys with Joseph Konstan](https://share.transistor.fm/s/c07c7bf6)
-- 定位：官方 transcript 无时间戳，以下为可在全文中搜索的原文短语。
-  - 可搜索 `buy bananas and bread`
-  - `optimize for value`
-  - `longitudinal testing`
-  - `what links people click on`
-  - `multi-stakeholder, multi-sided recommendation problems` 与 `immerse yourself in an application`
+- 定位：官方 transcript 无时间戳，以下定位以可在全文中搜索的原文短语标注。
+  - 准确率与价值的差别：超市思想实验（`buy bananas and bread`、`optimize for value`）
+  - 代理指标的时间尺度：个性化邮件退订与长期关系（`longitudinal testing`、`what can I squeeze out of my customer this quarter?`）
+  - 真实用户平台的实验边界：行为记录不只是点击（`where do they dwell`、`what links people click on`）
+  - 推荐系统是多方参与的完整系统（`multi-stakeholder, multi-sided recommendation problems`）
+  - 先理解应用与痛点，再选模型（`immerse yourself in an application`）
 
 ## 整理说明
 

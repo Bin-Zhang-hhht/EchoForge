@@ -68,12 +68,13 @@ DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 META_DATES_PATTERN = re.compile(
     r"^> 节目发布：(\d{4}-\d{2}-\d{2}) · 逐字稿获取：(\d{4}-\d{2}-\d{2}) · 笔记整理：(\d{4}-\d{2}-\d{2})$"
 )
-META_COUNTS_PATTERN = re.compile(r"^> 阅读约 (\d+) 分钟$")
+META_COUNTS_PATTERN = re.compile(r"^> 全文共 (\d+) 字 · 阅读约 (\d+) 分钟$")
 META_TAGS_PREFIX = "> 标签："
 META_TAGS_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((/tags/[^)]+/)\)")
 META_SHOW_PATTERN = re.compile(r"^> 节目：\[([^\]]+)\]\((/posts/[^)]+/)\)$")
-META_AUDIO_PATTERN = re.compile(r"^> 🎧 \[收听原节目\]\(([^)]+)\)$")
-META_TRANSCRIPT_PATTERN = re.compile(r"^> 📄 \[查看官方逐字稿\]\(([^)]+)\)$")
+META_SOURCE_PATTERN = re.compile(
+    r"^> 🎧 \[收听原节目\]\(([^)]+)\)(?: · 📄 \[查看官方逐字稿\]\(([^)]+)\))?$"
+)
 META_MODEL_PATTERN = re.compile(r"^- 整理模型：.+$")
 META_NOTE_PATTERN = re.compile(rf"^- {re.escape(DISCLAIMER)}$")
 LOCATOR_ITEM_PATTERN = re.compile(r"^\s{2,}-\s+(.+)$")
@@ -257,8 +258,7 @@ def article_word_count(body: str) -> int:
         META_COUNTS_PATTERN,
         re.compile(r"^>\s*$"),
         META_SHOW_PATTERN,
-        META_AUDIO_PATTERN,
-        META_TRANSCRIPT_PATTERN,
+        META_SOURCE_PATTERN,
         META_MODEL_PATTERN,
         META_NOTE_PATTERN,
     )
@@ -349,7 +349,7 @@ def validate_body(post: Post, root: Path) -> list[str]:
         dates, counts, tags_line = article_meta_block(body)
         if dates is None or counts is None:
             errors.append(
-                f"{location}: missing article meta blockquote (节目发布/逐字稿获取/笔记整理 and 阅读约 line)"
+                f"{location}: missing article meta blockquote (节目发布/逐字稿获取/笔记整理 and 全文共/阅读约 line)"
             )
         else:
             if (
@@ -360,7 +360,11 @@ def validate_body(post: Post, root: Path) -> list[str]:
                 errors.append(f"{location}: meta blockquote dates must equal frontmatter published_at/transcribed_at/date")
             computed_words = article_word_count(post.body)
             expected_minutes = reading_minutes(computed_words)
-            if int(counts.group(1)) != expected_minutes:
+            if int(counts.group(1)) != computed_words:
+                errors.append(
+                    f"{location}: meta blockquote 全文共 must be {computed_words} 字"
+                )
+            if int(counts.group(2)) != expected_minutes:
                 errors.append(
                     f"{location}: meta blockquote 阅读约 must be {expected_minutes} 分钟 "
                     f"({READING_SPEED_CHARS_PER_MINUTE} characters per minute)"
@@ -378,24 +382,24 @@ def validate_body(post: Post, root: Path) -> list[str]:
         if not any(match and match.group(1) == fields.get("source_name") for match in show_lines):
             errors.append(f"{location}: meta blockquote must identify the source show")
 
-        source_links = [
-            match.group(1)
+        source_matches = [
+            match
             for line in strip_fenced_code(body).splitlines()
-            if (match := META_AUDIO_PATTERN.fullmatch(_strip_hard_break(line)))
+            if (match := META_SOURCE_PATTERN.fullmatch(_strip_hard_break(line)))
         ]
-        if source_links != [fields.get("source_url")]:
-            errors.append(f"{location}: meta blockquote must contain one exact 收听原节目 source_url link")
-
-        transcript_links = [
-            match.group(1)
-            for line in strip_fenced_code(body).splitlines()
-            if (match := META_TRANSCRIPT_PATTERN.fullmatch(_strip_hard_break(line)))
-        ]
-        transcript_url = fields.get("transcript_url")
-        if transcript_url is None and transcript_links:
-            errors.append(f"{location}: meta blockquote must not link an unavailable official transcript")
-        elif transcript_url is not None and transcript_links != [transcript_url]:
-            errors.append(f"{location}: meta blockquote transcript link must equal transcript_url")
+        if len(source_matches) != 1:
+            errors.append(
+                f"{location}: meta blockquote must contain exactly one 收听原节目 line, with an optional official transcript on the same line"
+            )
+        else:
+            source_link, transcript_link = source_matches[0].groups()
+            if source_link != fields.get("source_url"):
+                errors.append(f"{location}: meta blockquote 收听原节目 link must equal source_url")
+            transcript_url = fields.get("transcript_url")
+            if transcript_url is None and transcript_link is not None:
+                errors.append(f"{location}: meta blockquote must not link an unavailable official transcript")
+            elif transcript_url is not None and transcript_link != transcript_url:
+                errors.append(f"{location}: meta blockquote transcript link must equal transcript_url")
 
         tags = fields.get("tags")
         if not isinstance(tags, list) or not tags or any(not str(tag).strip() for tag in tags):

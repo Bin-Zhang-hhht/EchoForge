@@ -187,12 +187,10 @@ input_type: official_transcript
 transcript_url: https://example.com/transcripts/123
 summary: 一句话说明这篇文章为什么值得看。
 tags: [Agent]
-prev: false
-next: false
 ---
 ```
 
-非演示文章必须填写 `item_id`、`title`、`date`、`published_at`、`transcribed_at`、`model`、`source_url`、`source_name`、`input_type`、`summary` 和非空 `tags`。演示文章只允许使用 `demo-vitepress-site` 及 `input_type: demo`，可省略这些内容字段。`transcript_url` 是可选字段，只有在确有官方公开逐字稿时才填写，不能放私人链接。`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期；`transcribed_at` 是逐字稿获取日期，只公开日期本身；`model` 记录实际生成该篇精编的处理模型。
+非演示文章必须填写 `item_id`、`title`、`date`、`published_at`、`transcribed_at`、`model`、`source_url`、`source_name`、`input_type`、`summary` 和非空 `tags`。演示文章只允许使用 `demo-vitepress-site` 及 `input_type: demo`，可省略这些内容字段，并用 `prev: false`、`next: false` 关闭页脚导航。`transcript_url` 是可选字段，只有在确有官方公开逐字稿时才填写，不能放私人链接。`input_type` 可记录 `official_transcript` 或 `video_agent_kit_asr`。`date` 是笔记整理日期；`published_at` 是节目原始发布日期；`transcribed_at` 是逐字稿获取日期，只公开日期本身；`model` 记录实际生成该篇精编的处理模型。非演示文章不手写 `prev`/`next`：构建时由生成器输出的 `posts-order.json`（按整理日期倒序的全站文章顺序）配合 `transformPageData` 自动注入文末「上一篇 / 下一篇」（上一篇为更新一篇，下一篇为更早一篇）。
 
 正文 H1 下方紧跟一个元信息引用块（按空 `>` 行分隔；站点样式表把它渲染为浅底信息卡）：
 
@@ -201,18 +199,16 @@ next: false
 >
 > 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
 >
-> 阅读约 N 分钟
+> 全文共 N 字 · 阅读约 M 分钟
 >
 > 标签：[标签](/tags/标签/) [标签](/tags/标签/)
 >
-> 🎧 [收听原节目](https://example.com/episode)
->
-> 📄 [查看官方逐字稿](https://example.com/transcript)
+> 🎧 [收听原节目](https://example.com/episode) · 📄 [查看官方逐字稿](https://example.com/transcript)
 ```
 
-日期必须与 frontmatter 对应字段一致；`阅读约 N 分钟` 由正文非元信息内容按每分钟 400 个非空白字符计算，最少 1 分钟，`check.py` 负责确定性复核。文章必须提供一个精确的原节目链接；只有 frontmatter 存在公开 `transcript_url` 时才显示并校验官方逐字稿链接。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。模型信息不放在顶部，而是写入文末「整理说明」，并与 frontmatter `model` 一致。演示文章不要求元信息引用块、标签行、model 或来源入口。
+日期必须与 frontmatter 对应字段一致；`全文共 N 字 · 阅读约 M 分钟` 由正文非元信息内容按每分钟 400 个非空白字符计算（链接文字计入、链接目标不计入），最少 1 分钟，`check.py` 同时确定性复核字数和分钟数。文章必须恰好提供一条原节目链接；只有 frontmatter 存在公开 `transcript_url` 时才在同一行追加并校验官方逐字稿链接，缺少该字段时不得出现逐字稿链接。标签行按 frontmatter `tags` 的顺序列出，每项链接到 `/tags/<标签>/`（链接目标中的空格写作 `%20`，校验按解码后比较）。模型信息不放在顶部，而是写入文末「整理说明」，并与 frontmatter `model` 一致。演示文章不要求元信息引用块、标签行、model 或来源入口。
 
-正文采用“速读 → 主题正文 → 来源与定位 → 整理说明”的结构。来源与定位的 `- 定位：` 是列表，一个时间点或可搜索短语一行，与文章核心断言一一对应；不允许把全部定位挤成一行。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
+正文采用“速读 → 主题正文 → 来源与定位 → 整理说明”的结构。来源与定位的 `- 定位：` 以一句定位方式说明开头（官方逐字稿、ASR 或无时间戳原文短语），随后每行一条 `- 说明（00:14:06–00:22:38）`，说明在前、时间在后，单点写 `（00:08:10 起）`，与文章核心断言一一对应；时间戳统一补零为 HH:MM:SS，正文引用在句末追加（`00:14:06–00:22:38`，多段用中文逗号分隔），来源无可靠时间戳时全文改用可搜索原文短语并在定位说明中声明。不允许把全部定位挤成一行，不允许推算或伪造时间戳。关键证据直接放在文章对应段落或文末，不额外建设 evidence 数据库。完整逐字稿不复制到公开文章或 Git 仓库。
 
 ### 3.5 人工编辑内容
 
@@ -236,7 +232,7 @@ next: false
 → 输出采集摘要 → 有变化才提交并推送 main
 ```
 
-摘要包括各来源是否成功、本次新增、过滤数量和当前待处理数量，写到 Actions 运行摘要，不向飞书等外部渠道发送消息。每次采集结束时 collect 把运行时刻写入 `data/collected-at.json`（UTC，精确到秒），采集工作流把该文件与 `data/items` 一起提交；站点首页不展示待处理数量或采集运行时间，只展示公开文章整理日期和构建时统计。
+摘要包括各来源是否成功、本次新增、过滤数量和当前待处理数量，写到 Actions 运行摘要，不向飞书等外部渠道发送消息。每次采集结束时 collect 把运行时刻写入 `data/collected-at.json`（UTC，精确到秒），采集工作流把该文件与 `data/items` 一起提交；站点首页的「运行统计」据此显示「最近收录时间」（UTC+8，精确到分钟），并显示已收录节目与期数、音频小时数、已发布文章数与主题标签数。首页不展示待处理数量，运行统计中的期数排除 `ignored` 条目。
 
 使用内置 `GITHUB_TOKEN`，权限只需 `contents: write`。同类采集任务串行执行。单一来源请求失败时记录原因并继续其他来源；所有启用来源都失败时工作流报错，不能把它报告为“今日没有更新”。
 
@@ -312,7 +308,7 @@ VitePress 按 Markdown 文件生成页面；使用默认主题并通过少量 `t
 
 首页 `site/index.md` 由 `build-index.mjs` 生成：第一屏呈现项目定位，随后展示最近整理的 5 篇文章（摘要、节目、阅读时长和标签），再提供主题、节目页、关于说明与靠后的运行统计。运行统计从 `data/items` 与文章现算，首页不展示待处理数量。首页、文章列表、标签页、节目页和侧边栏都是派生产物，不提交 Git。
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成唯一文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序），并生成标签总览与各标签页、各节目页以及侧边栏配置。文章列表、标签页和节目页都提供摘要、阅读时长和必要的来源信息；导航使用「全部文章」「标签」和节目入口，避免文档章节式的上一篇/下一篇关系。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成唯一文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序），并生成标签总览与各标签页、各节目页、侧边栏配置，以及供文章页脚注入上一篇/下一篇的 `posts-order.json`。文章列表、标签页和节目页都提供摘要、阅读时长和必要的来源信息；顶栏与侧边栏使用「全部文章」「标签」和节目入口，文章页脚按全站整理时间顺序提供「上一篇 / 下一篇」（列表页、标签页、节目页和演示文章不参与）。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
 
