@@ -80,7 +80,7 @@ echoforge/
 │   ├── decisions.md
 │   └── podcast-sources.md         # 人工维护的来源池，不是运行时自动发现模块
 ├── local-library/                # 本地长期内容资产，不提交 Git
-│   └── <source_id>/<item_id>/
+│   └── <source_id>/<year>/<item_id>/
 │       ├── metadata.yaml
 │       ├── transcript.md         # 人工阅读用完整逐字稿
 │       ├── transcript.json       # 有结构化时间戳时保留；没有则不伪造
@@ -158,7 +158,7 @@ sources:
 
 ### 3.3 本地逐字稿资产
 
-每期处理成功后，在 `local-library/<source_id>/<item_id>/` 至少保留：
+每期处理成功后，在 `local-library/<source_id>/<year>/<item_id>/` 至少保留（年份取条目 `published_at` 的年份，无日期进 `unknown`，与 `data/items` 和 `site/posts` 的分片规则同源）：
 
 - `metadata.yaml`：最小记录，包括来源获取方式、URL、获取时间、可用性说明和内容检查结论；不建设 evidence 数据库；
 - `transcript.md`：完整逐字稿，供人工阅读、公众号编辑和视频选段；

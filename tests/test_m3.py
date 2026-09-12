@@ -186,7 +186,7 @@ def test_archive_writes_private_assets_and_is_idempotent(tmp_path: Path) -> None
     )
 
     assert created
-    assert target == tmp_path / "local-library" / "fixture" / ITEM_ID
+    assert target == tmp_path / "local-library" / "fixture" / "2026" / ITEM_ID
     assert (target / "transcript.md").read_text(encoding="utf-8").startswith("# A Complete Fixture Episode")
     assert (target / "transcript.vtt").read_bytes() == payload
     metadata = yaml.safe_load((target / "metadata.yaml").read_text(encoding="utf-8"))
@@ -518,7 +518,7 @@ def test_check_rejects_status_mismatch_executable_markdown_and_private_assets(tm
         tmp_path,
         tracked_paths=[
             "site/posts/fixture/2026/fixture-aaaaaaaaaaaa.md",
-            "local-library/fixture/fixture-aaaaaaaaaaaa/transcript.md",
+            "local-library/fixture/2026/fixture-aaaaaaaaaaaa/transcript.md",
             "notes/wechat-draft.md",
         ],
     )

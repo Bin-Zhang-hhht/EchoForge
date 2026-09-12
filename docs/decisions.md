@@ -230,3 +230,12 @@ M3 验收期间用户提出三点结构要求：根目录太乱、`data/items` �
 - `sources.yaml` 中 Software Engineering Daily 的 `include_keywords` 置空，首批五个源全部全量收集；上一轮的整词匹配保留，作为未来高流量源的可用粗闸。
 - 未知日期配额改为只对实际新建的文件计数：每源每次运行最多新收 3 条，已入库条目不再占用配额，无日期积压按每天 3 条自然流入直到收完，不再被 Feed 顺序前 3 条永久占位。
 - 每批本地任务先梳理整个候选窗口（`pending.py --limit 10`）：明显不相关的标 `ignored` 并写 reason，预算不足保持 `pending`，其余在 3 篇文章 / 1 次新 ASR / 120 分钟预算内处理；ASR 仍是官方稿不可得时的最后手段。采集器与 `pending.py` 代码不变，栈即发布时间倒序的候选窗口。
+
+## 16. 私有归档按来源与年份分片（v0.9 续）
+
+用户指出 `local-library/` 未跟随 v0.9 的分片决策（2026-09-12）：
+
+- 私有归档路径从 `<source_id>/<item_id>/` 改为 `<source_id>/<year>/<item_id>/`，年份取条目 `published_at` 的年份、无日期进 `unknown`，与 `data/items`、`site/posts` 共用同一条分片规则（`pending.item_year`），公开与私有资产共享同一个定位心智模型。
+- `archive_transcript.py` 归档目标路径同步，`test_m3.py` 路径断言更新；`.batches/` 是批次簿记不是条目，保持在库根。
+- 迁移既有 6 个条目目录（data-skeptic 1、practical-ai 4、recsperts 1，全部 2026）为纯文件系统移动；`local-library/` 不提交 Git，无历史处理。
+- 分支模型同时收敛为单 main：本地 `design` 分支删除，后续批次处理与站点改动都直接在 main 上进行。

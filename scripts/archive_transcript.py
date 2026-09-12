@@ -657,7 +657,7 @@ def archive_transcript(
 ) -> tuple[Path, bool]:
     transcript, timing, raw_name, measured_audio_seconds = convert_transcript(payload, source_format)
     validate_timing_coverage(item, timing, timestamp_coverage)
-    target = library_dir / str(item["source_id"]) / str(item["item_id"])
+    target = library_dir / str(item["source_id"]) / pending.item_year(item) / str(item["item_id"])
     digest = hashlib.sha256(payload).hexdigest()
 
     if target.exists():
