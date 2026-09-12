@@ -4,9 +4,27 @@
 
 # EchoForge · 技术播客
 
-从公开 Podcast RSS 发现技术访谈，在本地保存完整逐字稿并生成可追溯的中文精编，通过 GitHub Pages 提供个人技术信息雷达。核心目标是帮助自己决定是否值得收听或回听：先看重点观点、依据与边界，而不是替代完整收听。
+<div align="center">
+
+[![test](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/test.yml)
+[![collect](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/collect.yml)
+[![deploy](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bin-Zhang-hhht/EchoForge/actions/workflows/deploy.yml)
+
+从公开 Podcast RSS 发现技术访谈，在本地保存完整逐字稿并生成可追溯的中文精编——先看重点观点与边界，再决定是否回听。
+
+*A personal radar that turns technical podcast episodes into traceable Chinese digests.*
+
+[产品文档](docs/product.md) · [架构文档](docs/architecture.md) · [执行计划](docs/implementation-plan.md) · [RSS 来源清单](docs/podcast-sources.md)
+
+</div>
 
 > 文档基线：v0.9 · 2026-09-12。M1、M2 已完成统一 Docker 环境的本地验证；M3 已完成三篇真实内容的本地处理、复核与站点构建，最终验收仍等待远端 Pages / Actions、私有备份恢复和用户阅读验证。未观察到的远端或用户侧结果不记为成功。
+
+## 内容与体验
+
+- **先判断，再回听**：每篇精编遵循「速读 → 主题正文 → 来源与定位」结构，开头说明这期讲什么、适合谁、最值得关注的点。
+- **可追溯**：关键观点附时间段或可搜索的原文定位，并标注处理模型与「AI 编辑整理，请以原始节目为准」。
+- **多入口浏览**：本周速览看最新整理，全部文章按年份回溯，标签页按主题聚合，节目页按播客归档；内置本地搜索。
 
 ## 它如何工作
 
@@ -52,15 +70,25 @@ data/items/<source>/<year>/<item_id>.json   ← 状态机：pending / processed 
 
 `site-build` 生成站点，`collector-test` 运行采集器和 M3 测试，`content-check` 检查公开内容与 Git 边界，`collect` 写入挂载的输出目录，`pending` 验证并列出候选。Compose 服务把当前工作区的脚本、配置、测试或站点内容只读挂入锁定依赖镜像，因此直接运行与先构建后运行检查的都是当前文件。`scripts/test-in-docker.sh` 是本地和 `.github/workflows/test.yml` 共同使用的完整测试入口。Docker 是开发测试基线，不是网站或采集器的长期运行服务。
 
-## 文档
+## 项目结构
 
-1. [产品文档](docs/product.md)：目标、首版边界、内容质量与处理预算。
-2. [审查与决策记录](docs/decisions.md)：关键取舍及 v0.8 调整理由。
-3. [架构文档](docs/architecture.md)：目录、文件契约、检查与发布流程。
-4. [执行计划](docs/implementation-plan.md)：M1～M3 实施顺序和验收标准。
-5. [Podcast RSS 来源清单](docs/podcast-sources.md)：人工维护的来源池及首批五个 Feed。
+```text
+echoforge/
+├── .github/workflows/     # collect：每日采集；deploy：构建部署；test：共享测试入口
+├── config/sources.yaml    # 当前启用的 RSS 白名单与过滤条件
+├── data/items/            # 每期元信息与处理状态，按来源与年份分片
+├── scripts/               # 采集、检查、归档与索引生成
+├── prompts/               # 本地闲时任务操作说明
+├── templates/             # 文章模板
+├── site/                  # VitePress 站点：本周速览、全部文章、标签页与文章
+├── docs/                  # 产品 / 架构 / 执行计划 / 决策 / 来源清单
+├── local-library/         # 本地长期逐字稿资产，不入 Git
+└── .cache/                # 临时音频与可重建中间文件，不入 Git
+```
 
-文档文件名统一使用英文，正文保留中文。日常规则以产品文档为准，具体契约和验收分别见架构文档与执行计划。
+## 技术栈
+
+**VitePress**（默认主题 + 少量主题扩展）· **Python**（feedparser、PyYAML）· **Docker Compose**（统一的构建与测试基线）· **GitHub Actions + Pages**（采集与发布）
 
 ## 路线图
 
@@ -70,4 +98,4 @@ data/items/<source>/<year>/<item_id>.json   ← 状态机：pending / processed 
 | M2 | 首批五个 RSS 的元信息采集与状态保留 | 已完成 Docker 本地验证，Actions 待验证 |
 | M3 | 三篇真实笔记、逐字稿资产、质量门与一次用户阅读验收 | 三篇内容已完成本地闭环；远端部署、备份恢复与用户阅读验收待完成 |
 
-当前可通过 Docker 构建含主页统计、标签总览、标签页与节目导航、一篇演示和三篇真实精编的 VitePress 站点，运行 41 项测试，采集五个 Feed 并查看剩余 16 条待处理项。M3 本批使用两份官方 transcript 和一次 Video Agent Kit ASR，三篇文章均经过完整源材料复核；私有逐字稿、音频和批次记录未进入 Git。远端工作流和部署状态只有实际运行后才会更新。
+当前可通过 Docker 构建含主页统计、本周速览、按年分组的全部文章、标签页与节目导航、一篇演示和三篇真实精编的 VitePress 站点，运行 41 项测试，采集五个 Feed 并查看剩余 16 条待处理项。M3 本批使用两份官方 transcript 和一次 Video Agent Kit ASR，三篇文章均经过完整源材料复核；私有逐字稿、音频和批次记录未进入 Git。远端工作流和部署状态只有实际运行后才会更新。

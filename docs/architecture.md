@@ -62,7 +62,8 @@ echoforge/
 │   ├── public/
 │   │   └── logo.svg              # 站点标识与 favicon
 │   ├── posts/
-│   │   ├── index.md              # 构建生成，不提交 Git
+│   │   ├── index.md              # 构建生成的本周速览（最近 7 天），不提交 Git
+│   │   ├── all/index.md          # 构建生成的全部文章（按年份分组），不提交 Git
 │   │   ├── demo-vitepress-site.md  # M1 演示文章，直接位于 posts 根目录
 │   │   └── <source_id>/
 │   │       ├── index.md          # 构建生成的节目页，不提交 Git
@@ -301,7 +302,7 @@ VitePress 按 Markdown 文件生成页面；使用默认导航、页面目录、
 
 首页 `site/index.md` 由 `build-index.mjs` 生成：精编数、待处理数、覆盖节目和收录总时长等统计在构建时从 `data/items` 与文章现算；节目卡按精编数排序，无精编的节目显示收录情况；横幅图自动探测 `site/public/banner.*`（png/jpg/jpeg/webp/avif/svg），存在时写入 `hero.image`。首页统计是最近一次构建的快照，随文章更新同批生效。首页与文章列表、标签页、节目页、侧边栏一样都是派生产物，不提交 Git，不由 Agent 手工维护。
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期生成 `site/posts/index.md`。`site/tags/index.md` 是标签总览页：一行一个标签、附文章数，按文章数排序；同时为每个标签生成 `site/tags/<标签>/index.md`，列出该标签下的文章，与文章页元信息块中的标签行互链。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径。节目页、文章列表、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成两个列表页：`site/posts/index.md` 是本周速览（列出最近 7 天整理的非演示精编，空窗口时指向全部文章）；`site/posts/all/index.md` 是全部文章（按整理年份分组，年份内倒序）。`site/tags/index.md` 是标签总览页：一行一个标签、附文章数，按文章数排序；同时为每个标签生成 `site/tags/<标签>/index.md`，列出该标签下的文章，与文章页元信息块中的标签行互链。它同时为每个有已发布文章的来源生成节目页 `site/posts/<source_id>/index.md`（按年份分组、整理日期倒序），并把侧边栏配置写入 `site/.vitepress/sidebar.data.json`：导航组（本周速览、全部文章、标签）加节目组（按文章数排序），由 `config.mts` 导入并应用到 `/posts/` 与 `/tags/` 路径，顶栏「文章」入口即本周速览。节目页、速览与列表页、标签页与侧边栏都是可重复生成的派生产物，不提交 Git，不由 Agent 手工维护。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 VitePress 自带能力，不引入 Pagefind、外部搜索服务或向量库。[V3]
 

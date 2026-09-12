@@ -126,6 +126,61 @@ function articleLink(article, linkPrefix) {
   return lines.join('\n');
 }
 
+function localDateString(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function buildWeeklyPage(articles) {
+  const today = localDateString(new Date());
+  const cutoff = localDateString(new Date(Date.now() - 7 * 24 * 60 * 60 * 1000));
+  const weeklyArticles = articles.filter(
+    (article) => article.input_type !== 'demo' && article.date >= cutoff && article.date <= today
+  );
+
+  const lines = [
+    '---',
+    'layout: doc',
+    'title: 本周速览',
+    '---',
+    '',
+    '# 本周速览',
+    '',
+    `最近 7 天整理的中文技术播客精编（截至 ${today}）。要看更早的内容请前往[全部文章](./all/)。`,
+    ''
+  ];
+  if (weeklyArticles.length) {
+    lines.push(...weeklyArticles.map((article) => articleLink(article, './')), '');
+  } else {
+    lines.push(`> 最近 7 天没有新整理的精编。已有内容见[全部文章](./all/)。`, '');
+  }
+  return lines.join('\n');
+}
+
+function buildAllArticlesPage(articles) {
+  const byYear = new Map();
+  for (const article of articles) {
+    const year = article.date.slice(0, 4);
+    if (!byYear.has(year)) {
+      byYear.set(year, []);
+    }
+    byYear.get(year).push(article);
+  }
+
+  const sections = [...byYear.keys()]
+    .sort((left, right) => right.localeCompare(left))
+    .map(
+      (year) =>
+        `## ${year}\n\n${byYear.get(year).map((article) => articleLink(article, '../')).join('\n')}`
+    )
+    .join('\n\n');
+
+  const body = sections || '> 还没有可发布的文章。';
+  return `---\nlayout: doc\ntitle: 全部文章\n---\n\n# 全部文章\n\nEchoForge 已发布的全部中文技术播客笔记，按整理年份分组，年份内按整理日期倒序。\n\n${body}\n`;
+}
+
 async function loadItems() {
   const entries = await readdir(dataDirectory, { withFileTypes: true, recursive: true });
   const items = [];
@@ -326,15 +381,15 @@ async function buildIndex() {
     return left.item_id.localeCompare(right.item_id, 'en');
   });
 
-  const list = articles.length
-    ? articles.map((article) => articleLink(article, './')).join('\n')
-    : '> 还没有可发布的文章。\n';
+  const weeklyPage = buildWeeklyPage(articles);
+  await writeFile(indexPath, weeklyPage, 'utf8');
+  console.log(`Generated ${relative(projectRoot, indexPath)}.`);
 
-  const output = `---\nlayout: doc\ntitle: 文章\n---\n\n# 文章\n\n这里列出 EchoForge 已发布的中文技术播客笔记。文章按整理日期倒序排列。\n\n${list}\n`;
-
-  await mkdir(postsDirectory, { recursive: true });
-  await writeFile(indexPath, output, 'utf8');
-  console.log(`Generated ${relative(projectRoot, indexPath)} from ${articles.length} article(s).`);
+  const allPage = buildAllArticlesPage(articles);
+  const allDirectory = join(postsDirectory, 'all');
+  await mkdir(allDirectory, { recursive: true });
+  await writeFile(join(allDirectory, 'index.md'), allPage, 'utf8');
+  console.log(`Generated ${relative(projectRoot, join(postsDirectory, 'all', 'index.md'))}.`);
 
   const tagMap = new Map();
   for (const article of articles) {
@@ -396,7 +451,8 @@ async function buildIndex() {
     {
       text: '导航',
       items: [
-        { text: '全部文章', link: '/posts/' },
+        { text: '本周速览', link: '/posts/' },
+        { text: '全部文章', link: '/posts/all/' },
         { text: '标签', link: '/tags/' }
       ]
     }
