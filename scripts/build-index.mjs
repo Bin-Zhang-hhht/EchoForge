@@ -326,11 +326,6 @@ async function buildHomePage(articles, items, tagCount) {
   }
   lines.push('---', '');
 
-  const latest = realArticles.slice(0, 3);
-  if (latest.length) {
-    lines.push('## 最新精编', '', ...latest.map((article) => articleLink(article, './posts/')), '');
-  }
-
   await writeFile(homePath, `${lines.join('\n')}\n`, 'utf8');
   console.log(`Generated ${relative(projectRoot, homePath)} with ${features.length} feature card(s).`);
 }
