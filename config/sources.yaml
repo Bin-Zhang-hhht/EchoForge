@@ -35,16 +35,6 @@ sources:
     name: Software Engineering Daily
     url: https://softwareengineeringdaily.com/feed/podcast/
     enabled: true
-    include_keywords:
-      - AI
-      - agent
-      - LLM
-      - recommendation
-      - ranking
-      - database
-      - distributed
-      - infrastructure
-      - compiler
-      - DevOps
+    include_keywords: []
     exclude_keywords: []
     min_duration_minutes: null

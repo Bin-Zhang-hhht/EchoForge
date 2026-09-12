@@ -16,6 +16,7 @@ import time
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
+from functools import lru_cache
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
@@ -342,13 +343,19 @@ def entry_description(entry: Mapping[str, Any]) -> str:
     return ""
 
 
+@lru_cache(maxsize=None)
+def keyword_pattern(keyword: str) -> re.Pattern[str]:
+    """Case-insensitive whole-word pattern; allows a simple plural suffix."""
+    return re.compile(r"(?<!\w)" + re.escape(keyword.casefold()) + r"(?:es|s)?(?!\w)")
+
+
 def matches_keywords(text: str, source: Source) -> bool:
     searchable = text.casefold()
-    excludes = tuple(keyword.casefold() for keyword in source.exclude_keywords)
-    if any(keyword in searchable for keyword in excludes):
+    if any(keyword_pattern(keyword).search(searchable) for keyword in source.exclude_keywords):
         return False
-    includes = tuple(keyword.casefold() for keyword in source.include_keywords)
-    return not includes or any(keyword in searchable for keyword in includes)
+    if not source.include_keywords:
+        return True
+    return any(keyword_pattern(keyword).search(searchable) for keyword in source.include_keywords)
 
 
 def build_item(entry: Mapping[str, Any], source: Source) -> tuple[dict[str, Any] | None, str | None]:
@@ -516,12 +523,13 @@ def collect_source(
     now: datetime,
     timeout: float,
     retries: int,
+    lookback_days: int,
     fetcher: Callable[[str, float, int], bytes],
 ) -> SourceSummary:
     summary = SourceSummary(source.source_id, source.name, "success")
     entries = parse_feed(fetcher(source.url, timeout, retries))
     summary.entries = len(entries)
-    cutoff = now.astimezone(timezone.utc) - timedelta(days=DEFAULT_LOOKBACK_DAYS)
+    cutoff = now.astimezone(timezone.utc) - timedelta(days=lookback_days)
     unknown_date_accepted = 0
 
     for entry in entries:
@@ -552,9 +560,10 @@ def collect_source(
                 summary.filtered += 1
                 continue
 
-        if published is None:
+        created = write_item(output_dir, item)
+        if created and published is None:
             unknown_date_accepted += 1
-        if write_item(output_dir, item):
+        if created:
             summary.new += 1
         else:
             summary.existing += 1
@@ -630,12 +639,15 @@ def collect(
     now: datetime,
     timeout: float = DEFAULT_TIMEOUT_SECONDS,
     retries: int = DEFAULT_RETRIES,
+    lookback_days: int = DEFAULT_LOOKBACK_DAYS,
     fetcher: Callable[[str, float, int], bytes] = fetch_feed,
 ) -> tuple[int, list[SourceSummary], str]:
     if timeout <= 0:
         raise CollectorError("timeout must be positive")
     if retries < 0:
         raise CollectorError("retries must be non-negative")
+    if lookback_days < 1:
+        raise CollectorError("lookback days must be at least 1")
     sources = [source for source in load_sources(config_path) if source.enabled]
     if not sources:
         raise CollectorError("config has no enabled sources")
@@ -646,7 +658,7 @@ def collect(
     summaries: list[SourceSummary] = []
     for source in sources:
         try:
-            summary = collect_source(source, output_dir, now, timeout, retries, fetcher)
+            summary = collect_source(source, output_dir, now, timeout, retries, lookback_days, fetcher)
         except Exception as error:
             summary = SourceSummary(source.source_id, source.name, "error", error=str(error))
         summaries.append(summary)
@@ -661,6 +673,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-dir", type=Path, default=Path("data/items"))
     parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
     parser.add_argument("--retries", type=int, default=DEFAULT_RETRIES)
+    parser.add_argument(
+        "--lookback-days",
+        type=int,
+        default=DEFAULT_LOOKBACK_DAYS,
+        help="Intake window in days (default 30); raise it for local cold starts or outage backfill.",
+    )
     return parser
 
 
@@ -673,6 +691,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             datetime.now(timezone.utc),
             timeout=args.timeout,
             retries=args.retries,
+            lookback_days=args.lookback_days,
         )
     except CollectorError as error:
         summary = f"## EchoForge podcast collection\n\nCollection failed: {error}\n"

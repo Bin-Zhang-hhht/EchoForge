@@ -14,7 +14,7 @@ Work milestone by milestone from `docs/implementation-plan.md`. Use the reposito
 
 ## Processing Contract
 
-- Use `docker compose run --rm pending --limit 10` only as the candidate window.
+- Use `docker compose run --rm pending --limit 10` only as the candidate window. Review the whole window each batch before selecting work: mark clearly irrelevant items `ignored` with a reason, then pick the batch's articles and ASR from the remaining candidates.
 - Per batch, create at most 3 public articles, start at most 1 new ASR job, and keep new ASR source duration at or below 120 minutes.
 - Prefer an already archived usable transcript, then an RSS/official publisher transcript. Use Video Agent Kit ASR only when no complete usable official transcript exists, the audio duration is known, and the batch budget permits it.
 - Confirm episode identity, transcript rather than summary, completeness, readability, and timestamp coverage when timestamps and episode duration exist. Tool success and file existence are not evidence of usability.

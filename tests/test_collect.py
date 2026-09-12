@@ -169,7 +169,50 @@ def test_plain_html_episode_link_is_not_inferred_as_transcript() -> None:
     assert collect.entry_transcript_url(entry) is None
 
 
-def test_unknown_dates_are_limited_to_first_three_in_feed_order(tmp_path: Path) -> None:
+def test_keywords_match_whole_words_with_plural_not_substrings() -> None:
+    source = collect.Source(
+        "fixture",
+        "Fixture",
+        "https://example.com/feed",
+        True,
+        ("AI", "agent", "database"),
+        ("sponsor",),
+        None,
+    )
+
+    assert collect.matches_keywords("Talking about AI agents", source)
+    assert collect.matches_keywords("AI-native databases in production", source)
+    assert collect.matches_keywords("HTTP user-agent headers", source)
+    assert not collect.matches_keywords("email deliverability", source)
+    assert not collect.matches_keywords("available training details", source)
+    assert not collect.matches_keywords("OpenAI and Gemini news", source)
+    assert not collect.matches_keywords("sponsored by nobody", source)
+
+
+def test_lookback_days_extends_intake_window(tmp_path: Path) -> None:
+    config = tmp_path / "sources.yaml"
+    output = tmp_path / "items"
+    url = "https://example.com/collector.xml"
+    write_config(config, [{"id": "fixture", "name": "Fixture", "url": url}])
+    fetcher = fixture_fetcher({url: "collector.xml"})
+
+    exit_code, summaries, _ = collect.collect(
+        config,
+        output,
+        NOW,
+        lookback_days=120,
+        fetcher=fetcher,
+    )
+
+    assert exit_code == 0
+    assert summaries[0].status == "success"
+    assert "guid-old" in {item["guid"] for item in load_output(output)}
+
+    with pytest.raises(collect.CollectorError):
+        collect.collect(config, tmp_path / "items2", NOW, lookback_days=0, fetcher=fetcher)
+
+
+def test_unknown_dates_are_limited_to_three_new_per_run(tmp_path: Path) -> None:
     config = tmp_path / "sources.yaml"
     output = tmp_path / "items"
     url = "https://example.com/unknown.xml"
@@ -189,6 +232,29 @@ def test_unknown_dates_are_limited_to_first_three_in_feed_order(tmp_path: Path) 
     assert {item["guid"] for item in items} == {"unknown-1", "unknown-2", "unknown-3"}
     assert all(item["published_at"] is None for item in items)
     assert {path.parent.name for path in output.rglob("*.json")} == {pending.UNKNOWN_YEAR}
+
+
+def test_unknown_dates_admit_only_new_writes_across_runs(tmp_path: Path) -> None:
+    config = tmp_path / "sources.yaml"
+    output = tmp_path / "items"
+    url = "https://example.com/unknown.xml"
+    write_config(config, [{"id": "unknown", "name": "Unknown", "url": url}])
+    fetcher = fixture_fetcher({url: "unknown_dates.xml"})
+
+    collect.collect(config, output, NOW, fetcher=fetcher)
+    exit_code, summaries, _ = collect.collect(config, output, NOW, fetcher=fetcher)
+
+    assert exit_code == 0
+    assert summaries[0].new == 2
+    assert summaries[0].existing == 3
+    assert summaries[0].filtered == 0
+    assert {item["guid"] for item in load_output(output)} == {
+        "unknown-1",
+        "unknown-2",
+        "unknown-3",
+        "unknown-4",
+        "unknown-5",
+    }
 
 
 def test_description_is_plain_text_and_truncated(tmp_path: Path) -> None:
