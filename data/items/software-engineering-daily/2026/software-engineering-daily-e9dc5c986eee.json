@@ -5,10 +5,10 @@
   "guid": "https://softwareengineeringdaily.com/?p=21759",
   "item_id": "software-engineering-daily-e9dc5c986eee",
   "published_at": "2026-04-09T09:00:53Z",
-  "reason": null,
+  "reason": "官方逐字稿链接指向错误文件：该集页面 Download the transcript 链接为 SED1911-DeepMind.txt（RAG 主题、时长 37:44），与本集（Mobile App Security with Ryan Lloyd，54 分钟）身份不符，且页面上无其他逐字稿来源；无 ASR 预算，无法取得可用逐字稿",
   "source_id": "software-engineering-daily",
   "source_name": "Software Engineering Daily",
-  "status": "pending",
+  "status": "failed",
   "title": "Mobile App Security with Ryan Lloyd",
   "transcript_url": null,
   "url": "https://softwareengineeringdaily.com/podcasts/mobile-app-security-with-ryan-lloyd/"
