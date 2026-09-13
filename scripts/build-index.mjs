@@ -458,12 +458,21 @@ pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: fa
   }
   console.log(`Generated ${sources.filter((source) => source.articleCount > 0).length} show page(s).`);
 
+  const years = [
+    ...new Set(articles.filter((article) => article.input_type !== 'demo').map((article) => article.date.slice(0, 4)))
+  ].sort((left, right) => right.localeCompare(left));
   const sidebar = [
     {
       text: '导航',
       items: [
         { text: '最近整理', link: '/recent/' },
-        { text: '全部文章', link: '/posts/' },
+        {
+          text: '全部文章',
+          link: '/posts/',
+          collapsed: false,
+          // VitePress slugifies digit-leading headings like 「## 2026」 to _2026.
+          items: years.map((year) => ({ text: year, link: `/posts/#_${year}` }))
+        },
         { text: '标签', link: '/tags/' }
       ]
     }
