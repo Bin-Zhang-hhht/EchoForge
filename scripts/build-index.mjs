@@ -9,6 +9,8 @@ const postsDirectory = join(projectRoot, 'site', 'posts');
 const indexPath = join(postsDirectory, 'index.md');
 const tagsDirectory = join(projectRoot, 'site', 'tags');
 const tagsPath = join(tagsDirectory, 'index.md');
+const recentDirectory = join(projectRoot, 'site', 'recent');
+const recentPath = join(recentDirectory, 'index.md');
 const podcastsDirectory = join(projectRoot, 'site', 'podcasts');
 const podcastsIndexPath = join(podcastsDirectory, 'index.md');
 const homePath = join(projectRoot, 'site', 'index.md');
@@ -136,11 +138,30 @@ function localDateString(date) {
   return `${year}-${month}-${day}`;
 }
 
+function buildRecentPage(articles) {
+  const recent = articles.filter((candidate) => candidate.input_type !== 'demo').slice(0, 5);
+  const entries = recent.length
+    ? recent
+        .map((article) =>
+          [
+            `### [${escapeMarkdown(article.title)}](/posts/${article.path})`,
+            '',
+            escapeMarkdown(article.summary),
+            '',
+            `${escapeMarkdown(article.source_name ?? article.source_url)} · 阅读约 ${readingMinutes(article)} 分钟 · ${articleTags(article)}`,
+            '',
+            `节目发布：${article.published_at ?? '日期未知'} · 整理：${article.date}`
+          ].join('\n')
+        )
+        .join('\n\n')
+    : '> 还没有可发布的文章。';
+  return `---\nlayout: doc
+pageClass: article-list\ntitle: 最近整理\nprev: false\nnext: false\n---\n\n# 最近整理\n\n最新整理的中文技术播客笔记：一句话摘要、节目来源、阅读时长和主题标签，帮助快速判断哪些值得细读。\n\n${entries}\n\n[查看全部文章 →](/posts/)\n`;
+}
+
 function buildAllArticlesPage(articles) {
-  const realArticles = articles.filter((candidate) => candidate.input_type !== 'demo');
-  const recent = realArticles.slice(0, 5);
   const byYear = new Map();
-  for (const article of realArticles) {
+  for (const article of articles.filter((candidate) => candidate.input_type !== 'demo')) {
     const year = article.date.slice(0, 4);
     if (!byYear.has(year)) {
       byYear.set(year, []);
@@ -148,20 +169,17 @@ function buildAllArticlesPage(articles) {
     byYear.get(year).push(article);
   }
 
-  const yearSections = [...byYear.keys()]
+  const sections = [...byYear.keys()]
     .sort((left, right) => right.localeCompare(left))
     .map(
       (year) =>
-        `### ${year}\n\n${byYear.get(year).map((article) => articleLink(article, './')).join('\n')}`
+        `## ${year}\n\n${byYear.get(year).map((article) => articleLink(article, './')).join('\n')}`
     )
     .join('\n\n');
 
-  const recentSection = recent.length
-    ? recent.map((article) => articleLink(article, './')).join('\n')
-    : '> 还没有可发布的文章。';
-  const body = yearSections || '> 还没有可发布的文章。';
+  const body = sections || '> 还没有可发布的文章。';
   return `---\nlayout: doc
-pageClass: article-list\ntitle: 文章\nprev: false\nnext: false\n---\n\n# 文章\n\nEchoForge 已发布的中文技术播客笔记。最近整理收录最新的 5 篇；全部文章按整理年份分组，年份内按整理日期倒序。每篇文章都提供一句话摘要、节目来源、阅读时长和主题标签。\n\n## 最近整理\n\n${recentSection}\n\n## 全部文章\n\n${body}\n`;
+pageClass: article-list\ntitle: 全部文章\nprev: false\nnext: false\n---\n\n# 全部文章\n\nEchoForge 已发布的中文技术播客笔记，按整理年份分组，年份内按整理日期倒序。每篇文章都提供一句话摘要、节目来源、阅读时长和主题标签。\n\n${body}\n`;
 }
 
 async function loadItems() {
@@ -203,7 +221,6 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
   const realArticles = articles.filter((article) => article.input_type !== 'demo');
   const sources = buildSourceStats(realArticles, items);
   const latestDate = realArticles.length ? realArticles[0].date : null;
-  const recent = realArticles.slice(0, 5);
   // `ignored` episodes are not part of the collection readers can process, so exclude them here.
   const collectedItems = items.filter((item) => item.status !== 'ignored');
   const totalSeconds = collectedItems.reduce(
@@ -226,39 +243,13 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
     '    alt: EchoForge',
     '  actions:',
     '    - text: 浏览文章',
-    '      link: /posts/',
+    '      link: /recent/',
     '      theme: brand',
     '    - text: 浏览节目',
     '      link: /podcasts/',
     '      theme: alt',
     '---',
     '',
-    '## 最近整理',
-    ''
-  ];
-
-  if (recent.length) {
-    for (const article of recent) {
-      lines.push(
-        `### [${escapeMarkdown(article.title)}](/posts/${article.path})`,
-        '',
-        escapeMarkdown(article.summary),
-        '',
-        `${escapeMarkdown(article.source_name ?? article.source_url)} · 阅读约 ${readingMinutes(article)} 分钟 · ${articleTags(article)}`,
-        '',
-        `节目发布：${article.published_at ?? '日期未知'} · 整理：${article.date}`,
-        '',
-        '---',
-        ''
-      );
-    }
-    // The trailing rule after the last entry separates 运行统计 visually; drop the final hr.
-    lines.splice(lines.length - 3, 3, '');
-  } else {
-    lines.push('暂无已发布文章。', '');
-  }
-
-  lines.push(
     '## 运行统计',
     '',
     `- 已收录 ${sources.length} 档节目，共 ${collectedItems.length} 期，约 ${hours} 小时音频`,
@@ -266,7 +257,7 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
     `- 最近收录时间：${collectedAtText ?? '暂无'}`,
     `- 最近整理时间：${latestDate ?? '暂无'}`,
     ''
-  );
+  ];
   return lines.join('\n');
 }
 
@@ -366,6 +357,10 @@ async function buildIndex() {
   await writeFile(indexPath, buildAllArticlesPage(articles), 'utf8');
   console.log(`Generated ${relative(projectRoot, indexPath)}.`);
 
+  await mkdir(recentDirectory, { recursive: true });
+  await writeFile(recentPath, buildRecentPage(articles), 'utf8');
+  console.log(`Generated ${relative(projectRoot, recentPath)}.`);
+
   const tagMap = new Map();
   for (const article of articles.filter((candidate) => candidate.input_type !== 'demo')) {
     for (const tag of article.tags) {
@@ -454,6 +449,7 @@ pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: fa
     {
       text: '导航',
       items: [
+        { text: '最近整理', link: '/recent/' },
         { text: '全部文章', link: '/posts/' },
         { text: '标签', link: '/tags/' }
       ]

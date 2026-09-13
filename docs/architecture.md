@@ -48,11 +48,11 @@ echoforge/
 │   │   │   ├── index.mts
 │   │   │   └── custom.css
 │   │   └── sidebar.data.json     # 构建生成的侧边栏配置，不提交 Git
-│   ├── index.md                  # 构建生成的首页（Hero 定位、最近整理与运行统计），不提交 Git
+│   ├── index.md                  # 构建生成的首页（Hero 定位与运行统计），不提交 Git
 │   ├── public/
 │   │   └── logo.svg              # 站点标识与 favicon
 │   ├── posts/
-│   │   ├── index.md              # 构建生成的文章列表（最近整理 + 全部文章），不提交 Git
+│   │   ├── index.md              # 构建生成的全部文章列表，不提交 Git
 │   │   ├── demo-vitepress-site.md  # 演示文章，直接位于 posts 根目录
 │   │   └── <source_id>/
 │   │       └── <year>/
@@ -61,6 +61,8 @@ echoforge/
 │   │   ├── index.md              # 构建生成的节目总览，不提交 Git
 │   │   └── <source_id>/
 │   │       └── index.md          # 构建生成的节目页，不提交 Git
+│   ├── recent/
+│   │   └── index.md              # 构建生成的最近整理页，不提交 Git
 │   └── tags/
 │       └── index.md              # 构建生成的标签页，不提交 Git
 ├── docs/
@@ -249,9 +251,9 @@ tags: [Agent]
 
 VitePress 按 [Markdown 文件生成页面](https://vitepress.dev/guide/routing)；使用默认主题并通过少量 `theme/` CSS 调整文章元信息卡与移动端排版，不制作自定义 Vue 组件。
 
-首页 `site/index.md` 由 `build-index.mjs` 生成：第一屏是 VitePress `layout: home` 的 Hero（站点标识、一句话定位、简介和「浏览文章 / 浏览节目」两个入口），随后展示最近整理的 5 篇文章（摘要、节目、阅读时长和标签）与运行统计。运行统计从 `data/items` 与文章现算，首页不展示待处理数量。首页、文章列表、节目页、标签页和侧边栏都是派生产物，不提交 Git。
+首页 `site/index.md` 由 `build-index.mjs` 生成：第一屏是 VitePress `layout: home` 的 Hero（站点标识、一句话定位、简介和「浏览文章 / 浏览节目」两个入口，浏览文章直达最近整理页），页面其余部分只有运行统计。运行统计从 `data/items` 与文章现算，首页不展示待处理数量。最近整理是独立页面 `site/recent/index.md`，展示最新 5 篇文章（摘要、节目、阅读时长和标签）并链接到全部文章。首页、文章列表、最近整理、节目页、标签页和侧边栏都是派生产物，不提交 Git。
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成唯一文章列表 `site/posts/index.md`（顶部「最近整理」收录最新 5 篇，随后按整理年份分组、年份内倒序），并生成标签总览与各标签页、`site/podcasts/` 下的节目总览与各节目页、侧边栏配置，以及供文章页脚注入上一篇/下一篇的 `posts-order.json`。文章正文里的「节目」链接与侧边栏节目入口统一指向 `/podcasts/<source_id>/`；构建时会清理旧版本生成在 `site/posts/<source_id>/index.md` 的节目页，避免新旧位置并存。顶栏使用「文章」「节目」「标签」三个入口。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成：全部文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序）、最近整理页 `site/recent/index.md`（最新 5 篇）、标签总览与各标签页、`site/podcasts/` 下的节目总览与各节目页、侧边栏配置，以及供文章页脚注入上一篇/下一篇的 `posts-order.json`。文章正文里的「节目」链接与侧边栏节目入口统一指向 `/podcasts/<source_id>/`；侧边栏导航提供「最近整理」「全部文章」「标签」；构建时会清理旧版本生成在 `site/posts/<source_id>/index.md` 的节目页，避免新旧位置并存。顶栏使用「文章」「节目」「标签」三个入口。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 [VitePress 内置本地搜索](https://vitepress.dev/reference/default-theme-search)，不引入 Pagefind、外部搜索服务或向量库。
 

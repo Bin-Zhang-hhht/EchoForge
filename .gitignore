@@ -12,6 +12,7 @@ site/index.md
 site/posts/index.md
 site/posts/*/index.md
 site/podcasts/
+site/recent/
 site/tags/index.md
 site/tags/*/index.md
 

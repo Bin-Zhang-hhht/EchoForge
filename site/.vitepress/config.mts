@@ -31,7 +31,8 @@ export default defineConfig({
     sidebar: {
       '/posts/': sidebar,
       '/tags/': sidebar,
-      '/podcasts/': sidebar
+      '/podcasts/': sidebar,
+      '/recent/': sidebar
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/Bin-Zhang-hhht/EchoForge' }],
     search: {
