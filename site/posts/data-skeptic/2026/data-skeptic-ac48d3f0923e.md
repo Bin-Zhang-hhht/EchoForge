@@ -1,6 +1,6 @@
 ---
 item_id: data-skeptic-ac48d3f0923e
-title: '如果推荐算法像 App 一样可以自选：S\'mores 模拟器与"小众 vs 主流"实验'
+title: "如果推荐算法像 App 一样可以自选：S'mores 模拟器与「小众 vs 主流」实验"
 date: '2026-09-13'
 published_at: '2026-02-18'
 transcribed_at: '2026-09-13'
@@ -8,11 +8,11 @@ model: 'GLM-5.3-Flash'
 source_url: 'https://dataskeptic.com/blog/episodes/2026/niche-vs-mainstream'
 source_name: 'Data Skeptic'
 input_type: video_agent_kit_asr
-summary: '科罗拉多大学博尔德分校的 Anas Buhayh 介绍 S\'mores 模拟器：把"算法商店"搬进仿真环境后，小众用户换上小众推荐器即获更高效用，小众内容方获得曝光，代价由谁承担则是设计核心。'
+summary: "科罗拉多大学博尔德分校的 Anas Buhayh 介绍 S'mores 模拟器：把「算法商店」搬进仿真环境后，小众用户换上小众推荐器即获更高效用，小众内容方获得曝光，代价由谁承担则是设计核心。"
 tags: [推荐系统, AI 治理]
 ---
 
-# 如果推荐算法像 App 一样可以自选：S'mores 模拟器与"小众 vs 主流"实验
+# 如果推荐算法像 App 一样可以自选：S'mores 模拟器与「小众 vs 主流」实验
 
 > 节目：[Data Skeptic](/posts/data-skeptic/)
 >
