@@ -54,6 +54,9 @@ global_exclude_keywords:
   - mass surveillance
   - government surveillance
   - proxy economy
+  - age verification
+  - free speech
+  - legislative
 
 sources:
   - id: recsperts
