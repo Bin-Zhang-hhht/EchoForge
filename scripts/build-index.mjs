@@ -446,7 +446,7 @@ pageClass: article-list\ntitle: 节目\nprev: false\nnext: false\n---\n\n# 节�
       ? sourceArticles
           .map(
             (article) =>
-              `- [${escapeMarkdown(article.title)}](/posts/${article.path})\n  - ${escapeMarkdown(article.summary)}\n  - 整理日期：${article.date} · 阅读约 ${readingMinutes(article)} 分钟`
+              `- [${escapeMarkdown(article.title)}](/posts/${article.path})\n  - ${escapeMarkdown(article.summary)}\n  - 节目发布：${article.published_at ?? '日期未知'} · 整理日期：${article.date} · 阅读约 ${readingMinutes(article)} 分钟`
           )
           .join('\n')
       : '> 暂无已发布文章。';
