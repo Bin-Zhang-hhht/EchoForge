@@ -5,10 +5,10 @@
   "guid": "substack:post:189149291",
   "item_id": "latent-space-b73cff6779df",
   "published_at": "2026-02-25T17:36:18Z",
-  "reason": null,
+  "reason": "音频不可用：条目 audio_url（官方 RSS enclosure，post 189149291）返回的转码音频实为另一期 MCP 主题节目（5958s），与本期 CuspAI 访谈（官方时长 2036s）不符；经 latent.space 官方重定向与 post API 双重核实为出版方侧音频错配，无法获得本期音频，无法成稿",
   "source_id": "latent-space",
   "source_name": "Latent Space",
-  "status": "pending",
+  "status": "failed",
   "title": "🔬Searching the Space of All Possible Materials — Prof. Max Welling, CuspAI",
   "transcript_url": null,
   "url": "https://www.latent.space/p/cuspai"
