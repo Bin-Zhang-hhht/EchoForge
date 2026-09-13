@@ -28,7 +28,7 @@ data/items/<source>/<year>/<item_id>.json   ← 状态机：pending / processed 
 用户本地投放闲时任务，Transcript-first 取得完整逐字稿
 （官方逐字稿优先；不可用时才在许可与预算内做 ASR）
         ↓
-完整逐字稿长期保存在 local-library/（私有，不入 Git，独立备份）
+完整逐字稿长期保存在 local-library/（私有，不入 Git）
         ↓
 机器精编 site/posts/<source>/<year>/<item_id>.md
         ↓

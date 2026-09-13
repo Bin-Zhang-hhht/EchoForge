@@ -59,10 +59,9 @@ For ASR, first run the `asr-reserve` command above, then use `--input-type video
 1. Run `docker compose run --rm content-check`.
 2. Run `sh scripts/test-in-docker.sh`, which uses the same services as GitHub Actions.
 3. Confirm no transcript, audio, subtitle, editorial note, draft, credential, `local-library/`, or `.cache/` path is tracked or staged.
-4. Verify the private backup contains the episode transcript and any editorial notes; for the first M3 acceptance, restore one transcript and note into a separate temporary location and compare them.
-5. Commit only related public files. Use the normal branch synchronization flow; stop on conflicts and never force-push.
-6. Distinguish committed or pushed content from a successful Pages deployment. Only report deployment after observing the remote workflow and page.
+4. Commit only related public files. Use the normal branch synchronization flow; stop on conflicts and never force-push.
+5. Distinguish committed or pushed content from a successful Pages deployment. Only report deployment after observing the remote workflow and page.
 
-Temporary ASR audio may be removed only after its transcript is saved durably, material checks pass, required listening questions are resolved, and the backup requirement has been met. Human editorial drafts stay local and are never published by this task.
+Temporary ASR audio may be removed only after its transcript is saved durably, material checks pass, and required listening questions are resolved. Human editorial drafts stay local and are never published by this task.
 
-Finish with counts and reasons for processed, ignored, failed, pending items awaiting human judgment (`需人工判断：`), and budget-deferred items, plus test, backup, push, and deployment status.
+Finish with counts and reasons for processed, ignored, failed, pending items awaiting human judgment (`需人工判断：`), and budget-deferred items, plus test, push, and deployment status.
