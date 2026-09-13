@@ -268,7 +268,7 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
   lines.push(
     '## 关于 EchoForge',
     '',
-    'EchoForge 将公开技术播客整理成中文精编：先提炼关键观点和适用边界，再保留节目链接、时间戳或可搜索原文短语，方便读者回查。私人逐字稿、音频缓存和内部处理资料不会公开。',
+    'EchoForge 将公开技术播客整理成中文精编：先提炼关键观点和适用边界，再保留节目链接、时间戳或可搜索原文短语，方便读者回查。',
     '',
     '## 运行统计',
     '',
