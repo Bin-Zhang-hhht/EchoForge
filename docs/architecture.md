@@ -94,6 +94,11 @@ echoforge/
 当前启用 5 个 Feed：Recsperts、Data Skeptic、Latent Space、Practical AI 和 Software Engineering Daily，全部全量收集。其他来源是否加入，只通过人工修改 `sources.yaml` 完成。
 
 ```yaml
+global_exclude_keywords:
+  - autonomous weapons
+  - geopolitics
+  - election
+
 sources:
   - id: example-podcast
     name: Example Podcast
@@ -104,7 +109,7 @@ sources:
     min_duration_minutes: null
 ```
 
-包含词为空表示接受该来源的所有候选，否则对清洗后的标题与简短简介做不区分大小写的整词匹配（允许常见复数后缀，如 `agent` 命中 `agents`；连字符分隔的片段如 `user-agent` 中的 `agent` 也算命中），命中任一词即可。排除词优先。采集侧关键词只是高流量源的粗闸，主题取舍主要发生在本地候选梳理（见第 5 节）。已知时长低于 `min_duration_minutes` 才过滤，时长未知不因缺失而丢弃；支持秒数和 `HH:MM:SS` 等常见格式，无法解析则视为未知。首版每次只接收最近 30 天的节目，本地手动运行可用 `--lookback-days` 加大窗口，用于新源冷启动或中断后的补采；已入库的待处理条目不会因此被删除。日期优先使用 published，缺失时使用 updated，统一为 UTC ISO-8601，无法解析的日期视为未知。每个来源每次运行最多新收 3 条未知日期条目（只对实际新建的文件计数，已入库条目不占配额），按 Feed 顺序处理；历史回填以后再做。
+`global_exclude_keywords` 在每个来源的 `exclude_keywords` 之前合并，对所有来源生效，适合维护明确属于军事或政治主题的高置信词组。它不应容纳在技术语境中高频出现的宽词（如 `policy`、`war`、`government`、国家名）；这些候选仍须在人工审查阶段按内容政策判断。包含词为空表示接受该来源的所有候选，否则对清洗后的标题与简短简介做不区分大小写的整词匹配（允许常见复数后缀，如 `agent` 命中 `agents`；连字符分隔的片段如 `user-agent` 中的 `agent` 也算命中），命中任一词即可。排除词优先。采集侧关键词只是高流量源的粗闸，主题取舍主要发生在本地候选梳理（见第 5 节）。已知时长低于 `min_duration_minutes` 才过滤，时长未知不因缺失而丢弃；支持秒数和 `HH:MM:SS` 等常见格式，无法解析则视为未知。首版每次只接收最近 30 天的节目，本地手动运行可用 `--lookback-days` 加大窗口，用于新源冷启动或中断后的补采；已入库的待处理条目不会因此被删除。日期优先使用 published，缺失时使用 updated，统一为 UTC ISO-8601，无法解析的日期视为未知。每个来源每次运行最多新收 3 条未知日期条目（只对实际新建的文件计数，已入库条目不占配额），按 Feed 顺序处理；历史回填以后再做。
 
 每个新 Feed 进入 `sources.yaml` 前做一次最小 smoke test：能访问、能被所选 RSS 解析库解析、能读到节目/单集标题，并能获得 GUID、episode URL 等至少一种稳定标识。Podcast Feed 若提供 enclosure/audio URL 或 transcript URL，则正常提取；缺失字段不由采集器猜测。采集器只访问 Feed 本身，不跟进音频或 transcript URL。
 

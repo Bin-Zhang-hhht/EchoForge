@@ -189,6 +189,48 @@ def test_keywords_match_whole_words_with_plural_not_substrings() -> None:
     assert not collect.matches_keywords("sponsored by nobody", source)
 
 
+def test_global_exclusions_apply_to_every_source_and_preserve_whole_word_matching(tmp_path: Path) -> None:
+    config = tmp_path / "sources.yaml"
+    config.write_text(
+        "\n".join(
+            [
+                "global_exclude_keywords:",
+                "  - Congress",
+                "  - missile",
+                "sources:",
+                "  - id: fixture",
+                "    name: Fixture",
+                "    url: https://example.com/feed",
+                "    enabled: true",
+                "    include_keywords: []",
+                "    exclude_keywords:",
+                "      - sponsor",
+                "    min_duration_minutes: null",
+            ]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    source = collect.load_sources(config)[0]
+
+    assert source.exclude_keywords == ("Congress", "missile", "sponsor")
+    assert not collect.matches_keywords("Congress debates AI", source)
+    assert not collect.matches_keywords("Missiles and drones", source)
+    # Whole-word matching keeps "sponsored" and "Congressional" accepted; with no
+    # include keywords an unexcluded candidate is admitted.
+    assert collect.matches_keywords("Sponsored by nobody", source)
+    assert collect.matches_keywords("Congressional tooling is not political content", source)
+
+
+def test_global_exclusions_must_be_a_keyword_list(tmp_path: Path) -> None:
+    config = tmp_path / "sources.yaml"
+    config.write_text("global_exclude_keywords: military\nsources: []\n", encoding="utf-8")
+
+    with pytest.raises(collect.CollectorError, match="global_exclude_keywords must be a list of strings"):
+        collect.load_sources(config)
+
+
 def test_lookback_days_extends_intake_window(tmp_path: Path) -> None:
     config = tmp_path / "sources.yaml"
     output = tmp_path / "items"

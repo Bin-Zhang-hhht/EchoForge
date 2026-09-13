@@ -396,6 +396,13 @@ def build_item(entry: Mapping[str, Any], source: Source) -> tuple[dict[str, Any]
     }, None
 
 
+def keyword_list(value: Any, field: str) -> tuple[str, ...]:
+    """Validate, normalize, and de-duplicate configured keyword strings."""
+    if not isinstance(value, list) or any(not isinstance(item, str) or not item.strip() for item in value):
+        raise CollectorError(f"{field} must be a list of strings")
+    return tuple(dict.fromkeys(item.strip() for item in value))
+
+
 def load_sources(path: Path) -> list[Source]:
     try:
         raw = yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -407,6 +414,8 @@ def load_sources(path: Path) -> list[Source]:
     rows = raw.get("sources") if isinstance(raw, Mapping) else None
     if not isinstance(rows, list):
         raise CollectorError("config must contain a sources list")
+
+    global_exclude_keywords = keyword_list(raw.get("global_exclude_keywords", []), "global_exclude_keywords")
 
     sources: list[Source] = []
     seen_ids: set[str] = set()
@@ -428,12 +437,6 @@ def load_sources(path: Path) -> list[Source]:
         if not isinstance(enabled, bool):
             raise CollectorError(f"source {source_id} enabled must be true or false")
 
-        def keywords(key: str) -> tuple[str, ...]:
-            value = row.get(key, [])
-            if not isinstance(value, list) or any(not isinstance(item, str) or not item.strip() for item in value):
-                raise CollectorError(f"source {source_id} {key} must be a list of strings")
-            return tuple(item.strip() for item in value)
-
         minimum = row.get("min_duration_minutes")
         if minimum is not None and (isinstance(minimum, bool) or not isinstance(minimum, (int, float)) or minimum < 0):
             raise CollectorError(f"source {source_id} min_duration_minutes must be null or non-negative")
@@ -445,8 +448,9 @@ def load_sources(path: Path) -> list[Source]:
                 name=name.strip(),
                 url=url,
                 enabled=enabled,
-                include_keywords=keywords("include_keywords"),
-                exclude_keywords=keywords("exclude_keywords"),
+                include_keywords=keyword_list(row.get("include_keywords", []), f"source {source_id} include_keywords"),
+                exclude_keywords=global_exclude_keywords
+                + keyword_list(row.get("exclude_keywords", []), f"source {source_id} exclude_keywords"),
                 min_duration_minutes=float(minimum) if minimum is not None else None,
             )
         )

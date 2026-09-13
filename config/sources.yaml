@@ -1,3 +1,60 @@
+# Applied to every source before a candidate is persisted. These terms identify
+# a subject that is unambiguously political or military; broad technical terms
+# such as "policy", "war", "government", and country names remain subject to
+# the mandatory candidate review because they produce false positives.
+global_exclude_keywords:
+  - armed forces
+  - autonomous weapons
+  - weapons systems
+  - weapon system
+  - military
+  - militarization
+  - militia
+  - missile
+  - airstrike
+  - drone strike
+  - bombing
+  - invasion
+  - insurgency
+  - ceasefire
+  - terrorism
+  - terrorist
+  - NATO
+  - Pentagon
+  - national security
+  - global security
+  - Ukraine
+  - Gaza
+  - Palestine
+  - West Bank
+  - Hamas
+  - Hezbollah
+  - Taliban
+  - Houthi
+  - Kremlin
+  - political campaign
+  - politics
+  - political
+  - election
+  - electoral
+  - Congress
+  - Senate
+  - parliament
+  - geopolitics
+  - diplomacy
+  - sanctions
+  - embargo
+  - coup
+  - dictatorship
+  - authoritarianism
+  - impeachment
+  - referendum
+  - democracy
+  - censorship
+  - mass surveillance
+  - government surveillance
+  - proxy economy
+
 sources:
   - id: recsperts
     name: Recsperts
