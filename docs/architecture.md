@@ -253,7 +253,7 @@ VitePress 按 [Markdown 文件生成页面](https://vitepress.dev/guide/routing)
 
 首页 `site/index.md` 由 `build-index.mjs` 生成：第一屏是 VitePress `layout: home` 的 Hero（站点标识、一句话定位、简介和「浏览文章 / 浏览节目」两个入口，浏览文章直达最近整理页），页面其余部分只有运行统计。运行统计从 `data/items` 与文章现算，首页不展示待处理数量。最近整理是独立页面 `site/recent/index.md`，展示最新 5 篇文章（摘要、节目、阅读时长和标签）并链接到全部文章。首页、文章列表、最近整理、节目页、标签页和侧边栏都是派生产物，不提交 Git。
 
-`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成：全部文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序）、最近整理页 `site/recent/index.md`（最新 5 篇）、标签总览与各标签页、`site/podcasts/` 下的节目总览与各节目页、侧边栏配置，以及供文章页脚注入上一篇/下一篇的 `posts-order.json`。文章正文里的「节目」链接与侧边栏节目入口统一指向 `/podcasts/<source_id>/`；侧边栏导航提供「最近整理」「全部文章」「标签」；构建时会清理旧版本生成在 `site/posts/<source_id>/index.md` 的节目页，避免新旧位置并存。顶栏使用「文章」「节目」「标签」三个入口。
+`build-index.mjs` 在构建前递归扫描 `site/posts/`（含 `<source_id>/<year>/` 子目录）的 frontmatter，按整理日期倒序排序后生成：全部文章列表 `site/posts/index.md`（按整理年份分组，年份内倒序）、最近整理页 `site/recent/index.md`（最新 5 篇）、标签总览与各标签页、`site/podcasts/` 下的节目总览与各节目页（同样按整理年份分节）、侧边栏配置，以及供文章页脚注入上一篇/下一篇的 `posts-order.json`。文章正文里的「节目」链接与侧边栏节目入口统一指向 `/podcasts/<source_id>/`；侧边栏导航提供「最近整理」「全部文章」「标签」，全部文章与每档节目均可展开年份子级并锚到对应分组；构建时会清理旧版本生成在 `site/posts/<source_id>/index.md` 的节目页，避免新旧位置并存。顶栏使用「文章」「节目」「标签」三个入口。
 
 搜索直接启用 `themeConfig.search.provider: 'local'`，使用 [VitePress 内置本地搜索](https://vitepress.dev/reference/default-theme-search)，不引入 Pagefind、外部搜索服务或向量库。
 
