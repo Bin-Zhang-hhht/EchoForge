@@ -58,6 +58,10 @@ services:
     entrypoint:
       - python
       - scripts/archive_transcript.py
+    # api.substack.com 的 DNS 在本网络被污染成非公网地址,SSRF 防护会拒绝归档;
+    # 固定为 Cloudflare 真实任播地址(与 web 查询的公共 DNS 记录一致)。
+    extra_hosts:
+      - "api.substack.com:104.18.37.200"
     volumes:
       - ./scripts:/workspace/scripts:ro
       - ./data/items:/workspace/data/items:ro
