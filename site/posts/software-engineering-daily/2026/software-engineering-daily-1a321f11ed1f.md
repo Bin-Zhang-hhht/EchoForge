@@ -15,7 +15,7 @@ tags: [AI Agent, 企业 AI, 开发者工具]
 
 # 给 Agent 组织上下文：Unblocked 的 context engine 与真相漂移难题
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-05 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

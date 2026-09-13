@@ -15,7 +15,7 @@ tags: [AI Agent, 开源, 编程语言]
 
 # 谦逊、Rue 与一百个圣诞 PR：Steve Klabnik 谈代理化编程
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-03-17 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

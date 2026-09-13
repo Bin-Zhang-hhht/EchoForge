@@ -118,7 +118,7 @@ tags: [推荐系统, 测试]
 """
     body = f"""# 测试文章
 
-> 节目：[Fixture Podcast](/posts/fixture/)
+> 节目：[Fixture Podcast](/podcasts/fixture/)
 >
 > 节目发布：{str(value['published_at'])[:10]} · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
@@ -671,7 +671,7 @@ def test_check_rejects_misplaced_public_content(tmp_path: Path) -> None:
     assert any("notes.txt" in error and "site/posts articles must use" in error for error in errors)
 
 
-def test_check_accepts_generated_source_index_pages(tmp_path: Path) -> None:
+def test_check_rejects_generated_source_index_pages_under_posts(tmp_path: Path) -> None:
     value = item(status="processed")
     write_item(tmp_path, value)
     posts = tmp_path / "site" / "posts"
@@ -682,7 +682,7 @@ def test_check_accepts_generated_source_index_pages(tmp_path: Path) -> None:
 
     errors, item_count, post_count = check.run_checks(tmp_path, tracked_paths=[])
 
-    assert errors == []
+    assert any("site/posts articles must use" in error for error in errors)
     assert item_count == 1
     assert post_count == 1
 

@@ -15,7 +15,7 @@ tags: [企业 AI, 组织转型]
 
 # 欧洲创业生态的飞轮与"Softmageddon"：Octopus Ventures 视角
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-05-26 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

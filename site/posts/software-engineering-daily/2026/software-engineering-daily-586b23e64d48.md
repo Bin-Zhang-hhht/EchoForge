@@ -15,7 +15,7 @@ tags: [开源, 供应链安全, 企业 AI]
 
 # 供应链攻击日常化之后：Chainguard 的从源构建、SBOM 覆盖率与机器速度补丁
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-08-04 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

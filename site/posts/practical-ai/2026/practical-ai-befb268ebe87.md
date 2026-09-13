@@ -15,7 +15,7 @@ tags: [AI Agent, 企业 AI]
 
 # 我和两个 AI 共同创办了一家公司：Shell Game 主持人的极限实验
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-02-02 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

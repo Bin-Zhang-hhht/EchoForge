@@ -15,7 +15,7 @@ tags: [多模态, 基础模型]
 
 # 从去噪到「视觉智能」：Black Forest Labs 联创谈图像生成这四年
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-07-02 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

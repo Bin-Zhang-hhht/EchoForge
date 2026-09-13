@@ -15,7 +15,7 @@ tags: [AI Agent, MCP, A2A, 开放标准]
 
 # 给智能体标准一个中立的家：走进 Agentic AI 基金会
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-08-28 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

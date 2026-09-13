@@ -15,7 +15,7 @@ tags: [AI Agent, 企业 AI, AI 架构]
 
 # AWS 的 Agentic DevOps：工程师仍是审计者，根因准确率与责任边界
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-16 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

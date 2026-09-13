@@ -15,7 +15,7 @@ tags: [AI 治理, 产品指标]
 
 # AI 事件数据库创始人：安全的第一性原理与基准「对账」
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-02-13 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

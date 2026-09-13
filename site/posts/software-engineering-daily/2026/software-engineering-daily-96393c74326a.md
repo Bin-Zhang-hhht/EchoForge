@@ -15,7 +15,7 @@ tags: [AI Agent, 企业 AI, AI 架构]
 
 # New Relic 的四个时代：从插桩到"行动时代"与可观测性的尽头
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-04-14 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

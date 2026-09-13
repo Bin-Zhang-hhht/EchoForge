@@ -15,7 +15,7 @@ tags: [AI Agent, 产品指标, 企业 AI]
 
 # BearQ 的多 agent QA：三类 agent、并发测试数据难题与"建在沙上"
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-05-05 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

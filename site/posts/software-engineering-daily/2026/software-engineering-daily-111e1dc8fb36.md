@@ -15,7 +15,7 @@ tags: [LLM, 基础模型, 数据库]
 
 # 表格数据也需要自己的基础模型：Kumo.ai 的关系深度学习
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-06-23 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

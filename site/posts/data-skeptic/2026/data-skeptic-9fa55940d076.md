@@ -14,7 +14,7 @@ tags: [推荐系统, AI 治理, 隐私]
 
 # Auto-Like：用强化学习"养"出一个问题内容信息流
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-06-17 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

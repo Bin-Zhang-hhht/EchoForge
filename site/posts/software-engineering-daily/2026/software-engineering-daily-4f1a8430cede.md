@@ -15,7 +15,7 @@ tags: [Rust, 分布式系统, 数据库]
 
 # 把数据库的确定性带进分布式编程：CALM 定理与 Hydro 的类型系统
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-09-10 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

@@ -14,7 +14,7 @@ tags: [AI Agent, 评估, LLM]
 
 # SWE-bench 之后：代码评估的现状与 Code Clash 的锦标赛实验
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2025-12-31 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

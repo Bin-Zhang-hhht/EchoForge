@@ -15,7 +15,7 @@ tags: [组织转型, 企业 AI, AI 素养]
 
 # 当工作变成「认知综合」：德勤首席创新官谈脆弱性、反脆弱与神经运动员
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-02-18 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

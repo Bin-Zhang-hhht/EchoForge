@@ -14,7 +14,7 @@ tags: [推荐系统, 评估, LLM]
 
 # 从 Netflix Prize 到"我们真的在进步吗"：推荐系统的起源故事与评估陷阱
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-08-18 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [LLM, 开源, AI 架构]
 
 # 模型战争是个伪命题：当模型成为大宗商品，价值转移到哪里
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-05-07 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

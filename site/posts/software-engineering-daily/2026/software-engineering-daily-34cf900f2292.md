@@ -15,7 +15,7 @@ tags: [基础模型, 开源, 企业 AI, 产品指标]
 
 # 失控 AI、Token 经济与 Kimi 时刻：开源权重如何改变模型采购
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-08-11 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

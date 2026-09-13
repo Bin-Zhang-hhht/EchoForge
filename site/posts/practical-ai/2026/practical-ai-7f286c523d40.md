@@ -15,7 +15,7 @@ tags: [AI 架构, 边缘计算]
 
 # 约束即创造：Edge Impulse 工程师谈边缘 AI 的运行法则
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-03-25 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

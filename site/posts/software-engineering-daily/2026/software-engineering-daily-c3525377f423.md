@@ -15,7 +15,7 @@ tags: [企业 AI, 组织转型]
 
 # 东南亚创业的估值数学与身份危机：从 copycat 到全球第一天
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-28 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

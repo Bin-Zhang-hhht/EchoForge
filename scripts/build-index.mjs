@@ -1,4 +1,4 @@
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -9,6 +9,8 @@ const postsDirectory = join(projectRoot, 'site', 'posts');
 const indexPath = join(postsDirectory, 'index.md');
 const tagsDirectory = join(projectRoot, 'site', 'tags');
 const tagsPath = join(tagsDirectory, 'index.md');
+const podcastsDirectory = join(projectRoot, 'site', 'podcasts');
+const podcastsIndexPath = join(podcastsDirectory, 'index.md');
 const homePath = join(projectRoot, 'site', 'index.md');
 const sidebarDataPath = join(projectRoot, 'site', '.vitepress', 'sidebar.data.json');
 const postsOrderPath = join(projectRoot, 'site', '.vitepress', 'posts-order.json');
@@ -135,8 +137,10 @@ function localDateString(date) {
 }
 
 function buildAllArticlesPage(articles) {
+  const realArticles = articles.filter((candidate) => candidate.input_type !== 'demo');
+  const recent = realArticles.slice(0, 5);
   const byYear = new Map();
-  for (const article of articles.filter((candidate) => candidate.input_type !== 'demo')) {
+  for (const article of realArticles) {
     const year = article.date.slice(0, 4);
     if (!byYear.has(year)) {
       byYear.set(year, []);
@@ -144,17 +148,20 @@ function buildAllArticlesPage(articles) {
     byYear.get(year).push(article);
   }
 
-  const sections = [...byYear.keys()]
+  const yearSections = [...byYear.keys()]
     .sort((left, right) => right.localeCompare(left))
     .map(
       (year) =>
-        `## ${year}\n\n${byYear.get(year).map((article) => articleLink(article, './')).join('\n')}`
+        `### ${year}\n\n${byYear.get(year).map((article) => articleLink(article, './')).join('\n')}`
     )
     .join('\n\n');
 
-  const body = sections || '> 还没有可发布的文章。';
+  const recentSection = recent.length
+    ? recent.map((article) => articleLink(article, './')).join('\n')
+    : '> 还没有可发布的文章。';
+  const body = yearSections || '> 还没有可发布的文章。';
   return `---\nlayout: doc
-pageClass: article-list\ntitle: 全部文章\nprev: false\nnext: false\n---\n\n# 全部文章\n\nEchoForge 已发布的中文技术播客笔记，按整理年份分组，年份内按整理日期倒序。每篇文章都提供一句话摘要、节目来源、阅读时长和主题标签。\n\n${body}\n`;
+pageClass: article-list\ntitle: 文章\nprev: false\nnext: false\n---\n\n# 文章\n\nEchoForge 已发布的中文技术播客笔记。最近整理收录最新的 5 篇；全部文章按整理年份分组，年份内按整理日期倒序。每篇文章都提供一句话摘要、节目来源、阅读时长和主题标签。\n\n## 最近整理\n\n${recentSection}\n\n## 全部文章\n\n${body}\n`;
 }
 
 async function loadItems() {
@@ -197,9 +204,6 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
   const sources = buildSourceStats(realArticles, items);
   const latestDate = realArticles.length ? realArticles[0].date : null;
   const recent = realArticles.slice(0, 5);
-  const tagEntries = [...new Set(realArticles.flatMap((article) => article.tags))].sort((left, right) =>
-    left.localeCompare(right, 'zh-CN')
-  );
   // `ignored` episodes are not part of the collection readers can process, so exclude them here.
   const collectedItems = items.filter((item) => item.status !== 'ignored');
   const totalSeconds = collectedItems.reduce(
@@ -210,18 +214,24 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
   const collectedAtText = formatChinaTime(collectedAt);
   const lines = [
     '---',
-    'layout: doc',
-    'pageClass: article-list',
+    'layout: home',
+    'pageClass: home-page',
     'title: EchoForge',
-    'prev: false',
-    'next: false',
+    'hero:',
+    '  name: EchoForge',
+    '  text: 读懂值得听的技术播客',
+    '  tagline: 中文精编、关键观点与原文定位，帮助你快速判断哪些内容值得深入阅读或回听。',
+    '  image:',
+    '    src: /logo.svg',
+    '    alt: EchoForge',
+    '  actions:',
+    '    - text: 浏览文章',
+    '      link: /posts/',
+    '      theme: brand',
+    '    - text: 浏览节目',
+    '      link: /podcasts/',
+    '      theme: alt',
     '---',
-    '',
-    '# EchoForge',
-    '',
-    '读懂值得听的技术播客。',
-    '',
-    '中文精编、关键观点与原文定位，帮助你快速判断哪些内容值得深入阅读或回听。',
     '',
     '## 最近整理',
     ''
@@ -242,34 +252,13 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
         ''
       );
     }
+    // The trailing rule after the last entry separates 运行统计 visually; drop the final hr.
+    lines.splice(lines.length - 3, 3, '');
   } else {
     lines.push('暂无已发布文章。', '');
   }
-  lines.push('[查看全部文章 →](/posts/)', '', '## 浏览主题', '');
-  if (tagEntries.length) {
-    lines.push(tagEntries.map((tag) => `[${escapeMarkdown(tag)}](/tags/${tagHref(tag)})`).join(' · '), '');
-  } else {
-    lines.push('暂无主题标签。', '');
-  }
-
-  lines.push('## 收录节目', '');
-  for (const source of sources) {
-    const sourceLink = source.articleCount ? `/posts/${source.id}/` : null;
-    lines.push(
-      sourceLink ? `### [${escapeMarkdown(source.name)}](${sourceLink})` : `### ${escapeMarkdown(source.name)}`,
-      '',
-      escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`),
-      '',
-      `已整理 ${source.articleCount} 期 · 收录 ${source.itemCount} 期`,
-      ''
-    );
-  }
 
   lines.push(
-    '## 关于 EchoForge',
-    '',
-    'EchoForge 将公开技术播客整理成中文精编：先提炼关键观点和适用边界，再保留节目链接、时间戳或可搜索原文短语，方便读者回查。',
-    '',
     '## 运行统计',
     '',
     `- 已收录 ${sources.length} 档节目，共 ${collectedItems.length} 期，约 ${hours} 小时音频`,
@@ -326,7 +315,20 @@ async function listArticlePaths() {
     .sort((left, right) => left.localeCompare(right, 'en'));
 }
 
+async function removeStaleGeneratedFiles() {
+  // Show pages used to be generated as site/posts/<source_id>/index.md; they now live under
+  // site/podcasts/. Remove leftovers so local rebuilds never serve both locations.
+  const entries = await readdir(postsDirectory, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      await rm(join(postsDirectory, entry.name, 'index.md'), { force: true });
+    }
+  }
+  await rm(podcastsDirectory, { recursive: true, force: true });
+}
+
 async function buildIndex() {
+  await removeStaleGeneratedFiles();
   const articlePaths = await listArticlePaths();
   const items = await loadItems();
 
@@ -405,19 +407,44 @@ pageClass: article-list\ntitle: ${yamlQuote(tag)}\nprev: false\nnext: false\n---
     articles.filter((article) => article.input_type !== 'demo'),
     items
   );
+
+  const podcastSections = sources.length
+    ? sources
+        .map((source) => {
+          const sourceLink = source.articleCount ? `/podcasts/${source.id}/` : null;
+          const heading = sourceLink
+            ? `### [${escapeMarkdown(source.name)}](${sourceLink})`
+            : `### ${escapeMarkdown(source.name)}`;
+          return [
+            heading,
+            '',
+            escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`),
+            '',
+            `已整理 ${source.articleCount} 期 · 收录 ${source.itemCount} 期`,
+            ''
+          ].join('\n');
+        })
+        .join('\n')
+    : '> 还没有收录节目。';
+  const podcastsPage = `---\nlayout: doc
+pageClass: article-list\ntitle: 节目\nprev: false\nnext: false\n---\n\n# 节目\n\nEchoForge 收录的技术播客。「已整理」是已发布中文精编的期数，「收录」是进入处理流程的期数；点开节目名可浏览各期笔记。\n\n${podcastSections}\n`;
+  await mkdir(podcastsDirectory, { recursive: true });
+  await writeFile(podcastsIndexPath, podcastsPage, 'utf8');
+  console.log(`Generated ${relative(projectRoot, podcastsIndexPath)}.`);
+
   for (const source of sources.filter((candidate) => candidate.articleCount > 0)) {
     const sourceArticles = articles.filter((article) => article.path.startsWith(`${source.id}/`));
     const sections = sourceArticles.length
       ? sourceArticles
           .map(
             (article) =>
-              `- [${escapeMarkdown(article.title)}](./${article.path.slice(source.id.length + 1)})\n  - ${escapeMarkdown(article.summary)}\n  - 整理日期：${article.date} · 阅读约 ${readingMinutes(article)} 分钟`
+              `- [${escapeMarkdown(article.title)}](/posts/${article.path})\n  - ${escapeMarkdown(article.summary)}\n  - 整理日期：${article.date} · 阅读约 ${readingMinutes(article)} 分钟`
           )
           .join('\n')
       : '> 暂无已发布文章。';
     const page = `---\nlayout: doc
-pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n已整理 ${source.articleCount} 期。\n\n## 已整理内容\n\n${sections}\n`;
-    const sourceDirectory = join(postsDirectory, source.id);
+pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n[← 全部节目](/podcasts/)\n\n已整理 ${source.articleCount} 期。\n\n## 已整理内容\n\n${sections}\n`;
+    const sourceDirectory = join(podcastsDirectory, source.id);
     await mkdir(sourceDirectory, { recursive: true });
     await writeFile(join(sourceDirectory, 'index.md'), page, 'utf8');
   }
@@ -437,7 +464,7 @@ pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: fa
       text: '节目',
       items: sources
         .filter((source) => source.articleCount > 0)
-        .map((source) => ({ text: source.name, link: `/posts/${source.id}/` }))
+        .map((source) => ({ text: source.name, link: `/podcasts/${source.id}/` }))
     });
   }
   await mkdir(dirname(sidebarDataPath), { recursive: true });

@@ -14,7 +14,7 @@ tags: [企业 AI, AI Agent, AI 架构]
 
 # 一亿美元种子轮与"RL 环境是噱头"：AI 创投的 2025 现场判断
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2025-12-30 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

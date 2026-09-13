@@ -15,7 +15,7 @@ tags: [AI Agent, AI 架构, 企业 AI]
 
 # 形式方法作为 Agent 护栏：Byron Cook 谈自动推理的 1000 倍生产力
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-05-19 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

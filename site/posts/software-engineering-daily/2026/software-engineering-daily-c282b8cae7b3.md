@@ -15,7 +15,7 @@ tags: [AI Agent, 开源, 企业 AI]
 
 # AURA：用声明式 agent 框架把 SRE 从救火队员变成可靠性架构师
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-14 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [开发者工具, 产品指标]
 
 # Mina the Hollower：Yacht Club 的自研引擎、位置学战斗与七轮 NG+
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-06-25 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

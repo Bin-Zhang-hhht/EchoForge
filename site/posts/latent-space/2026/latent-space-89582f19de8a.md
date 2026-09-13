@@ -15,7 +15,7 @@ tags: [LLM, AI 架构, 基础模型]
 
 # Baseten 推理工程大师课：量化误差抵消、10 倍提速与 Rubin 时代的系统问题
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-08-03 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

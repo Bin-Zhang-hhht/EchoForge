@@ -71,7 +71,7 @@ META_DATES_PATTERN = re.compile(
 META_COUNTS_PATTERN = re.compile(r"^> 全文共 (\d+) 字 · 阅读约 (\d+) 分钟$")
 META_TAGS_PREFIX = "> 标签："
 META_TAGS_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((/tags/[^)]+/)\)")
-META_SHOW_PATTERN = re.compile(r"^> 节目：\[([^\]]+)\]\((/posts/[^)]+/)\)$")
+META_SHOW_PATTERN = re.compile(r"^> 节目：\[([^\]]+)\]\((/podcasts/[^)]+/)\)$")
 META_SOURCE_PATTERN = re.compile(
     r"^> 🎧 \[收听原节目\]\(([^)]+)\)(?: · 📄 \[查看官方逐字稿\]\(([^)]+)\))?$"
 )
@@ -317,7 +317,7 @@ def validate_body(post: Post, root: Path) -> list[str]:
         errors.append(f"{location}: executable Vue template syntax is not allowed")
     for raw_target in markdown_link_targets(body):
         target = raw_target.strip("<>")
-        if target.startswith("#") or re.match(r"^/(posts|tags)/", target):
+        if target.startswith("#") or re.match(r"^/(posts|tags|podcasts)/", target):
             continue
         if not pending.is_public_http_url(target):
             errors.append(f"{location}: Markdown links and images must use public http(s) URLs")
@@ -520,13 +520,13 @@ def validate_directory_contents(root: Path, items_dir: Path, posts_dir: Path) ->
             if path.is_dir():
                 continue
             rel_parts = path.relative_to(posts_dir).parts
-            generated_index = path.name == "index.md" and len(rel_parts) in {1, 2}
+            generated_index = path.name == "index.md" and len(rel_parts) == 1
             flat_demo = len(rel_parts) == 1 and path.name == f"{DEMO_ITEM_ID}.md"
             if path.suffix != ".md" or (len(rel_parts) != 3 and not (generated_index or flat_demo)):
                 errors.append(
                     f"{relative(path, root)}: site/posts articles must use <source_id>/<year>/<item_id>.md layout "
-                    "(only index.md and the demo article may sit directly in site/posts, "
-                    "and index.md may also sit in a source directory)"
+                    "(only index.md and the demo article may sit directly in site/posts; "
+                    "generated show pages live in site/podcasts)"
                 )
     return errors
 

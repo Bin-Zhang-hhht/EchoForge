@@ -15,7 +15,7 @@ tags: [LLM, 产品指标, 组织转型]
 
 # AI 编程转变的炒作与现实：96% 的信任鸿沟与 Great Toil Shift
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-04-23 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [LLM, AI Agent, AI 架构]
 
 # 模型只是函数：Agent、Harness 与多代理架构的入门底图
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-08-06 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

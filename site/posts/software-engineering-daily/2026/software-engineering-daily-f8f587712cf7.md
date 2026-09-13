@@ -15,7 +15,7 @@ tags: [AI Agent, 开发者工具, 组织转型]
 
 # Gas Town 与 Beads：Steve Yegge 的 agent 编排实验与 AI 生存公式
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-02-12 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

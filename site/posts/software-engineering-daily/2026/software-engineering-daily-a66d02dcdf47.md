@@ -15,7 +15,7 @@ tags: [编程语言, 开发者工具]
 
 # Python 3.14 与 free-threading：Łukasz Langa 谈 t-strings、注解延迟求值与弃用哲学
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-02-10 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

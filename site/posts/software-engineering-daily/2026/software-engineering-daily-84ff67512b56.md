@@ -15,7 +15,7 @@ tags: [Rust, 开发者工具, 开源]
 
 # Biome 的取舍哲学：从 Rome 倒闭到"插件有代价"的工具链设计
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-06-18 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

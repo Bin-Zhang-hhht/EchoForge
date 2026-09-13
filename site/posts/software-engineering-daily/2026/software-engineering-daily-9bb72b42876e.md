@@ -15,7 +15,7 @@ tags: [开发者工具, 编程语言, 开放标准]
 
 # WebAssembly 3.0：GC、形式化规格与"低级但不能更低"的设计哲学
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-01-20 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

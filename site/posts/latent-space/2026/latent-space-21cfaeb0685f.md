@@ -15,7 +15,7 @@ tags: [AI for Science, 基础模型, 评估]
 
 # 因果模型需要因果数据：Xaira 的 X-Cell 与基因组尺度扰动实验
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-07-21 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

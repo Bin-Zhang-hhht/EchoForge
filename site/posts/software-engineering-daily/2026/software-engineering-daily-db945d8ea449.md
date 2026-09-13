@@ -15,7 +15,7 @@ tags: [企业 AI, 组织转型, 产品指标]
 
 # 企业 AI 的钱为何不增值：Scale AI 眼中的三层断点与 6% 赢家
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-08-25 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

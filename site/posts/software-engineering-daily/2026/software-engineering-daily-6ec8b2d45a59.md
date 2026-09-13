@@ -15,7 +15,7 @@ tags: [开发者工具, 产品指标]
 
 # Skate Story：玻璃恶魔、自研滑板物理与"Boss 战花了五年"
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-17 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [AI Agent, Computer Use, MCP]
 
 # 当代理开始替你操作网页：Computer-Use、企业边界与代理商业
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-09-10 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >

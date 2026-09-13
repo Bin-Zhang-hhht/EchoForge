@@ -14,7 +14,7 @@ tags: [推荐系统, LLM]
 
 # 推荐系统到底该优化什么：从点击之外的目标到 LLM 的边界
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-09-01 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

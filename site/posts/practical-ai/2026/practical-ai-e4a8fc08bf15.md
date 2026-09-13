@@ -15,7 +15,7 @@ tags: [AI 素养, 组织转型, 企业 AI]
 
 # 从用户到非技术构建者：AI 素养的 L0–L3 分层
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-08-25 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

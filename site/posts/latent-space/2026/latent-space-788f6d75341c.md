@@ -15,7 +15,7 @@ tags: [AI Agent, 产品指标, 企业 AI]
 
 # 从 Codex 到所有人：ChatGPT Work 的共享 harness、Sites 与生产力度量
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-07-28 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

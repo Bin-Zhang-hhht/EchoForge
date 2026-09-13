@@ -15,7 +15,7 @@ tags: [AI Agent, AI 治理, 企业 AI]
 
 # 当 Agent 进驻企业网络：把零信任从静态清单变成动态防御
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-06-11 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

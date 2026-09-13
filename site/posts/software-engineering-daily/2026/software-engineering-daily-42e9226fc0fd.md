@@ -14,7 +14,7 @@ tags: [RAG, LLM, AI 架构]
 
 # DeepMind 把 RAG 做成了"上传即用"：File Search 背后的取舍
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-12 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

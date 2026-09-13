@@ -102,3 +102,16 @@
 .article-list .vp-doc div > ul > li:last-child {
   margin-bottom: 0;
 }
+
+/* Home markdown sections sit right under the hero; tighten the gap so 最近整理 reads as part of the page. */
+.home-page .vp-doc h2 {
+  margin-top: 24px;
+}
+
+.home-page .vp-doc h2 + h3 {
+  margin-top: 24px;
+}
+
+.home-page .vp-doc hr {
+  margin: 20px 0;
+}

@@ -15,7 +15,7 @@ tags: [开发者工具, 开源, 分布式系统]
 
 # Cilium 与 eBPF：基于身份的网络、service mesh 之辩与"杀死这个词"
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-26 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

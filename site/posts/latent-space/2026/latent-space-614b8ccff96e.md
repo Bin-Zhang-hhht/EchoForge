@@ -15,7 +15,7 @@ tags: [AI Agent, 评估, 企业 AI]
 
 # 模拟人类行为，不等于预测未来：Simile 的行为基础模型与验证边界
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-08-21 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [开源, LLM, 企业 AI]
 
 # 「氛围编码杀死开源」？一位经济学家的三支柱与一场对照实验
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-04-02 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

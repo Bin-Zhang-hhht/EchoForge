@@ -15,7 +15,7 @@ tags: [RAG, AI Agent, AI 架构]
 
 # 上下文即资产：Pinecone Nexus 用数据库思路重做检索
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-09-03 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

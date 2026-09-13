@@ -15,7 +15,7 @@ tags: [开发者工具, 产品指标]
 
 # Games That Push Back：Bennett Foddy 论难度、物理装置与"发现的玩法"
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-24 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

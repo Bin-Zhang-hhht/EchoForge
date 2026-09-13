@@ -15,7 +15,7 @@ tags: [推荐系统, AI 架构]
 
 # 外卖推荐为什么难：Wolt 如何把「失败」的 NCF 调成生产级模型
 
-> 节目：[Recsperts](/posts/recsperts/)
+> 节目：[Recsperts](/podcasts/recsperts/)
 >
 > 节目发布：2026-05-12 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

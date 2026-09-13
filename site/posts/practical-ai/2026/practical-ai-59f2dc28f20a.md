@@ -15,7 +15,7 @@ tags: [MCP, AI Agent, AI 架构]
 
 # Kubernetes 联创谈 MCP 平台化：运行时、注册表、网关与控制平面
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-05-28 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

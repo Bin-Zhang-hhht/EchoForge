@@ -15,7 +15,7 @@ tags: [推荐系统, LLM]
 
 # LinkedIn 信息流重构：把推荐当序列建模，以及 LLM 落地的真实代价
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-08-18 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

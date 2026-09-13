@@ -15,7 +15,7 @@ tags: [开源, 开发者工具, 编程语言]
 
 # Prettier 的历史与哲学：确定性格式化、注释难题与"完成后"的开源
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-19 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

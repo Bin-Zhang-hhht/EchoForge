@@ -14,7 +14,7 @@ tags: [推荐系统, 可解释性, LLM]
 
 # 解释了也没用？求职推荐系统里的"健康摩擦"实验
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-02-02 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

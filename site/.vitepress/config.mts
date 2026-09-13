@@ -24,13 +24,14 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     nav: [
-      { text: '首页', link: '/' },
       { text: '文章', link: '/posts/' },
+      { text: '节目', link: '/podcasts/' },
       { text: '标签', link: '/tags/' }
     ],
     sidebar: {
       '/posts/': sidebar,
-      '/tags/': sidebar
+      '/tags/': sidebar,
+      '/podcasts/': sidebar
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/Bin-Zhang-hhht/EchoForge' }],
     search: {

@@ -14,7 +14,7 @@ tags: [基础模型, 评估, AI Agent]
 
 # 把 RL 网络做到一千层深：NeurIPS 最佳论文背后的判断与巧合
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-01-02 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

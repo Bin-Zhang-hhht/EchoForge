@@ -14,7 +14,7 @@ tags: [评估, LLM, 产品指标]
 
 # LMArena 的商业化与底线：排行榜不卖、预发布测试不停
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-01-06 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

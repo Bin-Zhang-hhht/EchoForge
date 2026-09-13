@@ -15,7 +15,7 @@ tags: [AI for Science, 基础模型, 科学计算]
 
 # 为物理学造基础模型：Anima Anandkumar 谈神经算子、天气与数字孪生
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-08-26 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

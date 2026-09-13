@@ -15,7 +15,7 @@ tags: [AI Agent, LLM, 开源]
 
 # 会成长的 Agent：Nous Research 谈 Hermes Agent、开源变局与「像对外星人下指令」
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-05-21 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

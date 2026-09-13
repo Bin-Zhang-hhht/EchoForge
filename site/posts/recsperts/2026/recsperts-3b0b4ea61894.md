@@ -15,7 +15,7 @@ tags: [推荐系统, 产品指标]
 
 # 为惊喜设计，而不是制造惊喜：推荐系统里的 Serendipity 完整框架
 
-> 节目：[Recsperts](/posts/recsperts/)
+> 节目：[Recsperts](/podcasts/recsperts/)
 >
 > 节目发布：2026-01-28 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

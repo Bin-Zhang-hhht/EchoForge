@@ -15,7 +15,7 @@ tags: [AI Agent, 开发者工具, AI 架构]
 
 # 给 Agent 一个"假密钥"：Docker Sandboxes 的 microVM 边界与威胁模型
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-30 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

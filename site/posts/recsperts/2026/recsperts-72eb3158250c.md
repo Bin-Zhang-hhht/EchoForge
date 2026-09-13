@@ -15,7 +15,7 @@ tags: [推荐系统, 产品指标]
 
 # 推荐系统要优化的不是点击：Joseph Konstan 谈有用性与长期价值
 
-> 节目：[Recsperts](/posts/recsperts/)
+> 节目：[Recsperts](/podcasts/recsperts/)
 >
 > 节目发布：2026-09-01 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >

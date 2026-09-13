@@ -15,7 +15,7 @@ tags: [AI Agent, LLM, 开发者工具]
 
 # OpenAI 内部的 Codex：每个 PR 都由 Agent 审查之后
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-01-29 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

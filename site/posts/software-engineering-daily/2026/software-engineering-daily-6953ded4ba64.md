@@ -15,7 +15,7 @@ tags: [企业 AI, 开发者工具, 产品指标]
 
 # Capital One 的开发者赋能：度量陷阱、受监管环境下的敏捷与"开卷考试"
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-01-13 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

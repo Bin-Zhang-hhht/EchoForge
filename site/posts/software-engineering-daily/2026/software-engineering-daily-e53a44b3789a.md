@@ -15,7 +15,7 @@ tags: [组织转型, 企业 AI]
 
 # 不可腐化的公司：Eric Ries 论使命、结构完整性与长期主义
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-09 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

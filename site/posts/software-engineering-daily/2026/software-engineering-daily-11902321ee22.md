@@ -15,7 +15,7 @@ tags: [AI Agent, 开发者工具, 开源]
 
 # 零信任的个人 Agent：NanoClaw 的沙箱、凭证外置与 fork 生态
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-21 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

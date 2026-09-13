@@ -15,7 +15,7 @@ tags: [企业 AI, AI 架构, 数据主权, AI 治理]
 
 # 别只盯着模型：企业 AI 需要的是架构思维
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-09-03 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

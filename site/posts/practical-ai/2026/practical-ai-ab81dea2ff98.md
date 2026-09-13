@@ -15,7 +15,7 @@ tags: [LLM, 企业 AI, AI 治理]
 
 # Allbirds 卖鞋改卖算力之后：Neo Cloud、Mythos 传闻与 token 军备竞赛
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-04-23 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

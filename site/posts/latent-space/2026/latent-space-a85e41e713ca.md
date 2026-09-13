@@ -14,7 +14,7 @@ tags: [AI Agent, 评估, LLM]
 
 # OpenAI 停用 SWE-Bench Verified：饱和、污染与下一个基准
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-02-23 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

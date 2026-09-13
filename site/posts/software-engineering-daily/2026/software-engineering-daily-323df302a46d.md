@@ -15,7 +15,7 @@ tags: [TypeScript, 编程语言, 开发者工具]
 
 # TypeScript 7 落地：Go 重写的十倍提速与推迟到 7.1 的 API 边界
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-08-27 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-12
 >

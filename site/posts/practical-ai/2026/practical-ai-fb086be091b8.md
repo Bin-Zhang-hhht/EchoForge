@@ -15,7 +15,7 @@ tags: [企业 AI, AI 架构, 组织转型]
 
 # IBM 单日暴跌 25% 之后：后 Agent 时代的企业经济学怎么走
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-07-23 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [AI 治理, AI 架构]
 
 # 在模型内部装摄像头：把 AI 安全做成「千分之一成本」的尝试
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-01-20 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

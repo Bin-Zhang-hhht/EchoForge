@@ -14,7 +14,7 @@ tags: [RAG, AI 架构, LLM]
 
 # 向量相似度不够用了：Vespa 用张量检索重做相关性排序
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-05-12 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [标签]
 
 # <中文文章标题>
 
-> 节目：[<Podcast 名称>](/posts/<source-id>/)
+> 节目：[<Podcast 名称>](/podcasts/<source-id>/)
 >
 > 节目发布：YYYY-MM-DD · 逐字稿获取：YYYY-MM-DD · 笔记整理：YYYY-MM-DD
 >

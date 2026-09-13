@@ -15,7 +15,7 @@ tags: [AI Agent, 企业 AI, 可解释性]
 
 # Grafana 的 AI 原生可观测性：开源语料优势、知识图谱与"信任但验证"
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-07-02 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

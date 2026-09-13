@@ -14,7 +14,7 @@ tags: [推荐系统, 可解释性, 评估]
 
 # 解耦表征能让推荐更可解释，但不会让它更准
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-03-10 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

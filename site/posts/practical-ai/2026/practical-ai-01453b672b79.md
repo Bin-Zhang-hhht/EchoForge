@@ -15,7 +15,7 @@ tags: [AI 架构, 开源]
 
 # 把任何车变成自动驾驶：Comma AI 的开源路线与世界模型训练法
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-04-16 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

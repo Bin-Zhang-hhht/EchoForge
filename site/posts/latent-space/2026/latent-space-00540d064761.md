@@ -14,7 +14,7 @@ tags: [企业 AI, LLM, AI Agent]
 
 # Satya Nadella：私有 eval 是最大的 IP，SaaS 要学会拆开再装回去
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-06-03 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

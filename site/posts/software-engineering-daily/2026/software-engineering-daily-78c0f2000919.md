@@ -15,7 +15,7 @@ tags: [开发者工具, 产品指标]
 
 # 给 Dome Keeper 加多人模式：Godot 的非确定性物理与"信任客户端"的取舍
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-06-11 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

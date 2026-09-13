@@ -15,7 +15,7 @@ tags: [LLM, 开源, 基础模型]
 
 # 模型工厂方法论：Poolside 的流式数据、行为增益与开放权重赌注
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-07-23 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

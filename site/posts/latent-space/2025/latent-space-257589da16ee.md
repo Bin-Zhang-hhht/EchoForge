@@ -14,7 +14,7 @@ tags: [基础模型, 评估, AI Agent]
 
 # 从 GPT-4.1 到 5.1：后训练真正的主战场在数据不在算法
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2025-12-31 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [开源, AI 治理, 组织转型]
 
 # 开源可持续性：砖墙而非 Jenga 塔，以及企业赞助的激励难题
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-05-14 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

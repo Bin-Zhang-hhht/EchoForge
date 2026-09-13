@@ -15,7 +15,7 @@ tags: [推荐系统, 可解释性]
 
 # 用户不是数据点：Elisabeth Lex 谈心理学感知的推荐系统
 
-> 节目：[Recsperts](/posts/recsperts/)
+> 节目：[Recsperts](/podcasts/recsperts/)
 >
 > 节目发布：2026-02-19 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

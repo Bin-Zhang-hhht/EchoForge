@@ -15,7 +15,7 @@ tags: [开发者工具, 产品指标]
 
 # Web 原生游戏复兴：Poki 的竖屏优先、即时上手与文件体积经济学
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-06-04 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

@@ -15,7 +15,7 @@ tags: [MCP, AI Agent, 开发者工具]
 
 # FastMCP 的三个十年之问：装饰器、code mode 与 MCP 的企业重心
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-04-07 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

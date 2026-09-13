@@ -14,7 +14,7 @@ tags: [推荐系统, AI 治理]
 
 # 如果推荐算法像 App 一样可以自选：S'mores 模拟器与「小众 vs 主流」实验
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-02-18 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

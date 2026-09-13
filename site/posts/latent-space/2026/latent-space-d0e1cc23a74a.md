@@ -15,7 +15,7 @@ tags: [AI for Science, 基础模型, 评估]
 
 # 从结构预测到抗体设计：Chai Discovery 如何把制药变成工程学科
 
-> 节目：[Latent Space](/posts/latent-space/)
+> 节目：[Latent Space](/podcasts/latent-space/)
 >
 > 节目发布：2026-08-11 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

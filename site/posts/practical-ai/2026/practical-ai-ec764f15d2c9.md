@@ -15,7 +15,7 @@ tags: [AI 治理, AI Agent, 企业 AI]
 
 # 给 Agent 上保险之前：AIUC-1 如何把「安全」变成可审计的东西
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-06-25 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

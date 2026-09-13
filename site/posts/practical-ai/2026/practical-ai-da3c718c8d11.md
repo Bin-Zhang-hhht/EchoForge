@@ -15,7 +15,7 @@ tags: [AI Agent, AI 架构, 企业 AI]
 
 # Agent 离开笔记本之后：耐久性、Harness 与重放实验的工程清单
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-07-09 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

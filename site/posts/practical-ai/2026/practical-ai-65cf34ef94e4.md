@@ -15,7 +15,7 @@ tags: [AI 架构, AI Agent, LLM]
 
 # 当 GPU 以万计：CoreWeave 视角里 AI 基础设施与通用云的分野
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-07-17 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

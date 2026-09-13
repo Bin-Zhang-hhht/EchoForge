@@ -15,7 +15,7 @@ tags: [开发者工具, 编程语言, 开源]
 
 # Marimo 的响应式 notebook：从 hidden state 到可复现、可执行、可分享
 
-> 节目：[Software Engineering Daily](/posts/software-engineering-daily/)
+> 节目：[Software Engineering Daily](/podcasts/software-engineering-daily/)
 >
 > 节目发布：2026-03-10 · 逐字稿获取：2026-09-13 · 笔记整理：2026-09-13
 >

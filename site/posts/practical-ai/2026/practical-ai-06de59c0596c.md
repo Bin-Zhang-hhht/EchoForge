@@ -15,7 +15,7 @@ tags: [AI Agent, LLM, 企业 AI]
 
 # 2025 是代理之年，2026 是系统之年：年度双人对谈
 
-> 节目：[Practical AI](/posts/practical-ai/)
+> 节目：[Practical AI](/podcasts/practical-ai/)
 >
 > 节目发布：2026-01-09 · 逐字稿获取：2026-09-12 · 笔记整理：2026-09-13
 >

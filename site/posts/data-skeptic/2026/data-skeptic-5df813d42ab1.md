@@ -14,7 +14,7 @@ tags: [推荐系统, 隐私, 可解释性]
 
 # 推荐系统不只预测点击：信任、操纵与用户选择权
 
-> 节目：[Data Skeptic](/posts/data-skeptic/)
+> 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
 > 节目发布：2026-09-09 · 逐字稿获取：2026-09-11 · 笔记整理：2026-09-11
 >
