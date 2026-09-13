@@ -104,6 +104,14 @@ function escapeMarkdown(text) {
   return text.replace(/([\\[\]])/g, '\\$1');
 }
 
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function yamlQuote(value) {
   return `'${String(value).replace(/'/g, "''")}'`;
 }
@@ -376,11 +384,16 @@ async function buildIndex() {
       rightArticles.length - leftArticles.length || leftTag.localeCompare(rightTag, 'zh-CN')
   );
 
-  const tagList = tagEntries.length
-    ? tagEntries.map(([tag, taggedArticles]) => `- [${escapeMarkdown(tag)}](./${tagHref(tag)}) · ${taggedArticles.length} 篇`).join('\n')
-    : '> 还没有带标签的文章。\n';
+  const tagCloud = tagEntries.length
+    ? `<div class="tag-cloud">\n${tagEntries
+        .map(
+          ([tag, taggedArticles]) =>
+            `<a class="tag-pill" href="./${tagHref(tag)}"><span class="tag-name">${escapeHtml(tag)}</span><span class="tag-count">${taggedArticles.length}</span></a>`
+        )
+        .join('\n')}\n</div>`
+    : '> 还没有带标签的文章。';
   const tagsOutput = `---\nlayout: doc
-pageClass: article-list\ntitle: 标签\nprev: false\nnext: false\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记，标签按文章数排序。单篇文章通常保留 2～4 个标签。\n\n${tagList}\n`;
+pageClass: article-list\ntitle: 标签\nprev: false\nnext: false\n---\n\n# 标签\n\n按标签浏览 EchoForge 已发布的中文技术播客笔记：胶囊按文章数排序，右侧数字是标签下的文章数。单篇文章通常保留 2～4 个标签。\n\n${tagCloud}\n`;
 
   await mkdir(tagsDirectory, { recursive: true });
   await writeFile(tagsPath, tagsOutput, 'utf8');
@@ -438,7 +451,7 @@ pageClass: article-list\ntitle: 节目\nprev: false\nnext: false\n---\n\n# 节�
           .join('\n')
       : '> 暂无已发布文章。';
     const page = `---\nlayout: doc
-pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n[← 全部节目](/podcasts/)\n\n已整理 ${source.articleCount} 期。\n\n## 已整理内容\n\n${sections}\n`;
+pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n已整理 ${source.articleCount} 期 · 收录 ${source.itemCount} 期\n\n## 已整理内容\n\n${sections}\n`;
     const sourceDirectory = join(podcastsDirectory, source.id);
     await mkdir(sourceDirectory, { recursive: true });
     await writeFile(join(sourceDirectory, 'index.md'), page, 'utf8');

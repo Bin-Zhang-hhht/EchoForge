@@ -115,3 +115,51 @@
 .home-page .vp-doc hr {
   margin: 20px 0;
 }
+
+/* Tag index: count-sorted pills that wrap into rows; each pill splits into name (left) and count (right). */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 8px;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.tag-pill:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--vp-c-brand-soft);
+  text-decoration: none;
+}
+
+.tag-pill .tag-name {
+  padding: 4px 13px;
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.tag-pill .tag-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  padding: 4px 11px;
+  background-color: var(--vp-c-bg-soft);
+  border-left: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-2);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}

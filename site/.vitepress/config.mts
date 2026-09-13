@@ -24,7 +24,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     nav: [
-      { text: '文章', link: '/posts/' },
+      { text: '文章', link: '/recent/' },
       { text: '节目', link: '/podcasts/' },
       { text: '标签', link: '/tags/' }
     ],
