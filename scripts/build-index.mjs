@@ -269,6 +269,10 @@ function buildHomePage(articles, items, tagCount, collectedAt) {
   return lines.join('\n');
 }
 
+function showListEntry(article) {
+  return `- [${escapeMarkdown(article.title)}](/posts/${article.path})\n  - ${escapeMarkdown(article.summary)}\n  - 节目发布：${article.published_at ?? '日期未知'} · 整理日期：${article.date} · 阅读约 ${readingMinutes(article)} 分钟`;
+}
+
 function buildSourceStats(articles, items) {
   const sources = new Map();
   for (const item of items) {
@@ -442,16 +446,25 @@ pageClass: article-list\ntitle: 节目\nprev: false\nnext: false\n---\n\n# 节�
 
   for (const source of sources.filter((candidate) => candidate.articleCount > 0)) {
     const sourceArticles = articles.filter((article) => article.path.startsWith(`${source.id}/`));
-    const sections = sourceArticles.length
-      ? sourceArticles
+    const byYear = new Map();
+    for (const article of sourceArticles) {
+      const year = article.date.slice(0, 4);
+      if (!byYear.has(year)) {
+        byYear.set(year, []);
+      }
+      byYear.get(year).push(article);
+    }
+    const sections = byYear.size
+      ? [...byYear.keys()]
+          .sort((left, right) => right.localeCompare(left))
           .map(
-            (article) =>
-              `- [${escapeMarkdown(article.title)}](/posts/${article.path})\n  - ${escapeMarkdown(article.summary)}\n  - 节目发布：${article.published_at ?? '日期未知'} · 整理日期：${article.date} · 阅读约 ${readingMinutes(article)} 分钟`
+            (year) =>
+              `## ${year}\n\n${byYear.get(year).map((article) => showListEntry(article)).join('\n')}`
           )
-          .join('\n')
+          .join('\n\n')
       : '> 暂无已发布文章。';
     const page = `---\nlayout: doc
-pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n已整理 ${source.articleCount} 期 · 收录 ${source.itemCount} 期\n\n## 已整理内容\n\n${sections}\n`;
+pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: false\n---\n\n# ${escapeMarkdown(source.name)}\n\n${escapeMarkdown(sourceDescriptions[source.id] ?? `${source.name} 的中文技术播客内容。`)}\n\n已整理 ${source.articleCount} 期 · 收录 ${source.itemCount} 期\n\n${sections}\n`;
     const sourceDirectory = join(podcastsDirectory, source.id);
     await mkdir(sourceDirectory, { recursive: true });
     await writeFile(join(sourceDirectory, 'index.md'), page, 'utf8');
@@ -482,7 +495,22 @@ pageClass: article-list\ntitle: ${yamlQuote(source.name)}\nprev: false\nnext: fa
       text: '节目',
       items: sources
         .filter((source) => source.articleCount > 0)
-        .map((source) => ({ text: source.name, link: `/podcasts/${source.id}/` }))
+        .map((source) => {
+          const showYears = [
+            ...new Set(
+              articles
+                .filter((article) => article.path.startsWith(`${source.id}/`))
+                .map((article) => article.date.slice(0, 4))
+            )
+          ].sort((left, right) => right.localeCompare(left));
+          return {
+            text: source.name,
+            link: `/podcasts/${source.id}/`,
+            collapsed: true,
+            // VitePress slugifies digit-leading headings like 「## 2026」 to _2026.
+            items: showYears.map((year) => ({ text: year, link: `/podcasts/${source.id}/#_${year}` }))
+          };
+        })
     });
   }
   await mkdir(dirname(sidebarDataPath), { recursive: true });
