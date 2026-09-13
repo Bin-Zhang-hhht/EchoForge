@@ -8,6 +8,7 @@ This run processes a candidate window into at most three public machine digests.
 2. Use the repository Docker services for tests and builds.
 3. Run `COLLECT_OUTPUT_DIR=./data/items docker compose run --rm pending --limit 10` and treat the result as a candidate window, not a quota.
 4. Select no more than three article candidates. Record the current batch's ASR count and ASR source duration before doing any transcription.
+5. Apply the content policy to every candidate. Military content covers armed forces, weapons and arms, defense or military projects (including battlefield or military AI applications), and armed conflicts; political content covers elections and party politics, government policy and regulatory disputes, geopolitics, and ideology-driven conflict. An item whose main subject or substantial sections fall into either category is `ignored` with a reason prefixed `内容政策：`. A passing mention inside an otherwise technical episode does not count as substantial. When you cannot confidently classify an item, do not decide it yourself: keep it `pending` with a reason starting `需人工判断：` plus a one-line concern, and leave it out of this batch's selection.
 
 ## 2. Resolve A Full Transcript
 
@@ -50,7 +51,8 @@ For ASR, first run the `asr-reserve` command above, then use `--input-type video
 7. Preserve evidence, examples, limits, disagreement, uncertainty, and speaker attribution. Use source timestamps when real; otherwise use a recognizable transcript section or phrase. Do not invent locators.
 8. Explicitly review core claims, numbers, causality, recommendations, conditions, uncertainty, attribution, and every locator against the archived full transcript. Mark added explanation as editorial context.
 9. Remove unverifiable peripheral assertions. If an unresolved assertion is central, delete the article and mark the item `failed` with the reason.
-10. Once the transcript is usable, review is complete, and article checks pass, update only that item's `status` to `processed` and keep `reason` null.
+10. Re-check the content policy against the full transcript before publishing: if the episode turns out substantially military or political in a way candidate review could not see, discard the draft and set the item `ignored` with a `内容政策：` reason; if the classification is uncertain, keep the item `pending` with a `需人工判断：` reason and do not publish.
+11. Once the transcript is usable, review is complete, and article checks pass, update only that item's `status` to `processed` and keep `reason` null.
 
 ## 4. Check, Build, And Commit
 
@@ -63,4 +65,4 @@ For ASR, first run the `asr-reserve` command above, then use `--input-type video
 
 Temporary ASR audio may be removed only after its transcript is saved durably, material checks pass, required listening questions are resolved, and the backup requirement has been met. Human editorial drafts stay local and are never published by this task.
 
-Finish with counts and reasons for processed, ignored, failed, and budget-deferred items, plus test, backup, push, and deployment status.
+Finish with counts and reasons for processed, ignored, failed, pending items awaiting human judgment (`需人工判断：`), and budget-deferred items, plus test, backup, push, and deployment status.
