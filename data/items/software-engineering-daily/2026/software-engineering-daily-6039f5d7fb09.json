@@ -5,10 +5,10 @@
   "guid": "https://softwareengineeringdaily.com/?p=22362",
   "item_id": "software-engineering-daily-6039f5d7fb09",
   "published_at": "2026-07-07T09:00:41Z",
-  "reason": null,
+  "reason": "内容政策：本期头条及后续讨论以政府出口管制、监管标准与美中英模型政策为主线之一（约三成篇幅），属政策边界中的政府政策与地缘政治实质内容，超出技术摘要范围。",
   "source_id": "software-engineering-daily",
   "source_name": "Software Engineering Daily",
-  "status": "pending",
+  "status": "ignored",
   "title": "SED News: Restricted Models, IDE Wars, and the DeepMind Mafia",
   "transcript_url": null,
   "url": "https://softwareengineeringdaily.com/podcasts/sed-news-restricted-models-ide-wars-and-the-deepmind-mafia/"
