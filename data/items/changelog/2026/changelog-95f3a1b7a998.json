@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/677/the-changelog-677.mp3",
+  "description": "Steve Ruiz joins us for a deep-dive on tldraw (a very good free whiteboard) and the business he's built selling SDKs that help others build very good whiteboards (and more) with tldraw's high-performance web canvas. Along the way, we discuss the excitement/fear we share about keeping our agents busy, how SDK and infra companies are affected differently by agentic software than SaaS companies, how Steve is approaching the coming era of internal tooling, what will happen when we equip LLMs with an infinite canvas, and more.",
+  "duration_seconds": 6611,
+  "guid": "changelog.com/1/2817",
+  "item_id": "changelog-95f3a1b7a998",
+  "published_at": "2026-02-19T15:30:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Selling SDKs in the era of many Claudes (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/677"
+}

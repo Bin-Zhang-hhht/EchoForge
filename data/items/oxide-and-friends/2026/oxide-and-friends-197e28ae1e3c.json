@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/31855e83/5f3bbb22.mp3",
+  "description": "AI is an existential topic for all aspects of education--for none more so than Computer Science. Bryan and Adam were joined by Kathi Fisler and Shriram Krishnamurthi, professors of Computer Science at Brown, to discuss their experimental introductory course that strongly incorporates agentic programming. What do students take away from their \"smoke the whole pack\" approach? In addition to Bryan Cantrill and Adam Leventhal, speakers included Shriram Krishnamurthi, Kathi Fisler, and Will. Some of the topics we hit on, in the order that we hit them: OxF s5e29: AI in Higher Education with Michael Littman Greenspun's tenth rule Andy van Dam Brown CS15 Tetris Wesleyan Tetris Generating Programs Trivially: Student Use of Large Language Models Data-Centricity: A Challenge and Opportunity for Computing Education -- Shriram Krishnamurthi and Kathi Fisler LLMs ⭢ Regular Expressions, Responsibly! If we got something wrong or missed something, please file a PR! Our next show will likely be on Monda",
+  "duration_seconds": 5361,
+  "guid": "7f96b025-8b53-4468-87e0-a4d591bf2cf6",
+  "item_id": "oxide-and-friends-197e28ae1e3c",
+  "published_at": "2026-05-10T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "pending",
+  "title": "AI in Computer Science Education",
+  "transcript_url": "https://share.transistor.fm/s/31855e83/transcription",
+  "url": "https://share.transistor.fm/s/31855e83"
+}

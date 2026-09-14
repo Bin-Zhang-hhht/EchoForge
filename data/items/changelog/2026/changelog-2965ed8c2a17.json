@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/682/the-changelog-682.mp3",
+  "description": "This week I'm talking with Max Stoiber, currently working on ChatGPT's plugin directory and app platform at OpenAI. We discuss the hundreds of open source projects nobody remembers alongside the big ones like react-boilerplate and styled-components, how Spectrum became part of GitHub and eventually helped shape GitHub Discussions, the founder growth that came from building Stellate, the GraphQL cache that turned into a dual acquisition by Shopify and The Guild, and why ChatGPT apps feel like a new surface for software.",
+  "duration_seconds": 6388,
+  "guid": "changelog.com/1/2829",
+  "item_id": "changelog-2965ed8c2a17",
+  "published_at": "2026-06-05T19:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "From open source hits to OpenAI (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/682"
+}

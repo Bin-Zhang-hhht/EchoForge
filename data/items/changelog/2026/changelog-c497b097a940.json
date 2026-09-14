@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/680/the-changelog-680.mp3",
+  "description": "Today on the show I’m talking with Amelia Wattenberger — designer, data-viz veteran, ex-GitHub Next, and now designing Intent at Augment Code. What if the last 30% of any software project is about to become the hardest part you’ve ever done? That’s the argument Amelia is making today. We discuss the identity crisis developers are having as agents take over the keyboard, the epic redesign of developer tooling in this agent-first world, the arc from autocomplete to chat to CLI back to UI, why Intent treats a workspace as their core primitive not a chat thread, the tradeoffs between one-worktree-per-agent vs. one-worktree-per-task, and why she thinks prototyping just got easier but finishing got harder.",
+  "duration_seconds": 5812,
+  "guid": "changelog.com/1/2822",
+  "item_id": "changelog-c497b097a940",
+  "published_at": "2026-04-24T20:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Exploring with agents (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/680"
+}

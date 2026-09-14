@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/friends/130/changelog--friends-130.mp3",
+  "description": "This week I'm talking with Adam Jacob, founder of System Initiative and creator of Swamp, about what happens when AI agents change the entire shape of software development. We discuss how he went from an 18-person team down to five and shipped Swamp 900 times in four weeks, why he brought User Acceptance Testing (UAT) testing back from the 90s, why software architecture (and domain-driven design) suddenly matters more than knowing how to write code, the live demo where I pointed Swamp at my Proxmox box and watched it write its own automation (blew my mind!!), and why he'll never accept a pull request to Swamp, ever.",
+  "duration_seconds": 8760,
+  "guid": "changelog.com/17/2824",
+  "item_id": "changelog-cc11a2f92efe",
+  "published_at": "2026-05-13T21:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Automation at the speed of Swamp (Friends)",
+  "transcript_url": null,
+  "url": "https://changelog.com/friends/130"
+}

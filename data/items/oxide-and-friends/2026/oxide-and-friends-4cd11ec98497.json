@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/a0279501/af2ca3b6.mp3",
+  "description": "Brogrammer Garry Tan has been boasting about \"writing\" tens of thousands of lines of code each day as the paragon of productivity. Is this really the right way to think about building systems? Bryan and Adam were joined by Polish software engineer, Gregorein, who took a closer look into what Tan was generating to discuss what was found. In addition to Bryan Cantrill and Adam Leventhal, our guest (who we introduced a mere 4 minutes in) was gregorein. Some of the topics we hit on, in the order that we hit them: Gregorein's twitter thread Bryan's blog: The Peril of Laziness Lost PRs needed! If we got something wrong or missed something, please file a PR! Our next show will likely be on Monday at 5p Pacific Time on our Discord server; stay tuned to our Mastodon feeds for details, or subscribe to this calendar. We'd love to have you join us, as we always love to hear from new speakers!",
+  "duration_seconds": 5484,
+  "guid": "2c88a3c4-4fd1-430c-a217-298a3554930f",
+  "item_id": "oxide-and-friends-4cd11ec98497",
+  "published_at": "2026-05-03T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "pending",
+  "title": "Are LLMs Insufficently Lazy?",
+  "transcript_url": "https://share.transistor.fm/s/a0279501/transcription",
+  "url": "https://share.transistor.fm/s/a0279501"
+}

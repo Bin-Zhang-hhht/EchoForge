@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/678/the-changelog-678.mp3",
+  "description": "Burke Holland works on GitHub Copilot by day and codes with his AI agents always. Early January, Burke posted about how Opus 4.5 changed everything. We were all still buzzing from the holiday-season 2x usage bump Claude gave us, and Opus 4.5 felt like a genuine step function in capability. Burke and I get into all the details. Opus 4.5 may have started the fire, but GPT-5.3 Codex is certainly living up to the hype.",
+  "duration_seconds": 6240,
+  "guid": "changelog.com/1/2820",
+  "item_id": "changelog-052e0943feed",
+  "published_at": "2026-02-27T22:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Opus 4.5 changed everything (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/678"
+}

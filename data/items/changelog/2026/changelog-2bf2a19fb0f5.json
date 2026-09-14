@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/675/the-changelog-675.mp3",
+  "description": "In May of 2025, Docker launched Hardened Images, a secure, minimal, production-ready set of images. In December, they made DHI freely available and open source to everyone who builds software. On this episode, we're joined by Tushar Jain, EVP of Engineering at Docker to learn all about it.",
+  "duration_seconds": 4609,
+  "guid": "changelog.com/1/2809",
+  "item_id": "changelog-2bf2a19fb0f5",
+  "published_at": "2026-02-04T20:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Setting Docker Hardened Images free (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/675"
+}

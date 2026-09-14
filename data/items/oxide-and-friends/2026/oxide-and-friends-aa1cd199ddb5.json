@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/de217423/dbd430b3.mp3",
+  "description": "Bryan and Adam were joined by Grady Booch, software engineering pioneer and living legend, to speak about the past present and future of software engineering. History doesn't repeat itself, but it does rhyme! In addition to Bryan Cantrill and Adam Leventhal, we were joined by special guest, Grady Booch. Some of the topics we hit on, in the order that we hit them (some LLM assistance): SAGE as foundational real-time distributed system Software crisis demand outpaced ability to build reliable systems Margaret Hamilton (SAGE → Apollo) and the term “software engineering” UML Rational Software founded (1982); acquired by IBM (2003) OO overshot via inheritance; core idea (objects as cognitive units) endured LLMs are unreliable narrators - they cannot do abductive reasoning Architecture = decisions with high cost of change Core skills persist: abstraction, coupling, cohesion, judgment Fear cycles repeat; fundamentals endure Grady's Book Recommendations The Sciences of the Artificial — Herbert",
+  "duration_seconds": 3292,
+  "guid": "71f6398f-5fbc-4450-805d-f71c3efd6dca",
+  "item_id": "oxide-and-friends-aa1cd199ddb5",
+  "published_at": "2026-02-07T15:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "pending",
+  "title": "Software Engineering Past, Present, and Future with Grady Booch",
+  "transcript_url": "https://share.transistor.fm/s/de217423/transcription",
+  "url": "https://share.transistor.fm/s/de217423"
+}

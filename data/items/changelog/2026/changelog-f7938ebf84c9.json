@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/685/the-changelog-685.mp3",
+  "description": "This week I'm joined by Peer Richelsen, co-founder of Cal.com. What if the majority of open source repositories are already compromised and we just don't know it yet? That's the theory Peer brings to the table this week. We dig into how AI has flattened the knowledge graph to the point that a 16-year-old can vibe hack a power station just as easily as their mom can vibe code an iOS app, why the reporting culture that has kept open source safe all these years is collapsing under AI generated noise, Cal.com's move to fork its own codebase and take the sensitive parts private, and the eye opening reality that shipping \"$1 of AI tokens for pennies on the dollar\" is now a common startup business model.",
+  "duration_seconds": 6872,
+  "guid": "changelog.com/1/2836",
+  "item_id": "changelog-f7938ebf84c9",
+  "published_at": "2026-09-03T20:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Forking Cal.com to closed source (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/685"
+}
