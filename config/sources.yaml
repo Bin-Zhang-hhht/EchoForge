@@ -98,3 +98,19 @@ sources:
     include_keywords: []
     exclude_keywords: []
     min_duration_minutes: null
+
+  - id: changelog
+    name: The Changelog
+    url: https://changelog.com/podcast/feed
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
+
+  - id: oxide-and-friends
+    name: Oxide and Friends
+    url: https://feeds.transistor.fm/oxide-and-friends
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
