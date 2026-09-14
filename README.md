@@ -45,6 +45,7 @@ data/items/<source>/<year>/<item_id>.json   ← 状态机：pending / processed 
  docker compose run --rm site-build           # 生成 VitePress 产物
  docker compose run --rm collector-test       # 采集器和测试
  docker compose run --rm content-check        # 公开内容与 Git 边界检查
+ docker compose run --rm workflow-lint        # Actions 工作流语法检查
  docker compose run --rm collect              # 只获取 RSS 元信息
  docker compose run --rm pending --limit 10   # 候选窗口
 ```

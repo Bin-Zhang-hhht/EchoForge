@@ -15,7 +15,7 @@ GitHub Actions 的 `collect.yml` 每日读取 RSS、去重过滤，把元信息�
 
 ## 2. 技术与目录
 
-采集使用 Python 和现成 RSS 解析库；网站使用 VitePress 默认主题。依赖选兼容的稳定版本并锁定，不把框架预览版作为必需条件。本地测试与 GitHub Actions 统一通过项目 Dockerfile 和 Compose 服务运行，使用相同基础镜像、锁文件和命令；不以本机 Node/Python 环境作为验收依据。Docker 用于构建、测试和批次任务，不建设常驻容器服务。
+采集使用 Python 和现成 RSS 解析库；网站使用 VitePress 默认主题。依赖选兼容的稳定版本并锁定，不把框架预览版作为必需条件。本地测试与 GitHub Actions 统一通过项目 Dockerfile 和 Compose 服务运行，使用相同基础镜像、锁文件和命令；不以本机 Node/Python 环境作为验收依据。Docker 用于构建、测试和批次任务，不建设常驻容器服务。`workflow-lint` 服务用 actionlint 检查 `.github/workflows/` 语法，是共享测试入口的最后一步。
 
 ```text
 echoforge/
@@ -35,8 +35,10 @@ echoforge/
 │   ├── pending.py                # 输出待处理条目及数量
 │   ├── archive_transcript.py       # 审核确认、格式转换、完整性与归档幂等检查
 │   ├── reserve_asr.py              # 转写前原子预约本批唯一 ASR 名额
+│   ├── purge_items.py              # 清理指定条目的本地数据与公开文章（默认只读预览）
 │   ├── check.py                    # 少量数据、文章及安全检查
-│   └── build-index.mjs           # 从 Markdown 生成文章列表与标签页
+│   ├── build-index.mjs           # 从 Markdown 生成文章列表与标签页
+│   └── test-in-docker.sh         # 本地与 CI 共用的完整测试入口
 ├── prompts/
 │   └── process-podcasts.md       # 本地闲时任务操作说明
 ├── templates/
@@ -175,7 +177,7 @@ title: 从一次访谈看 Agent 的实际落地难点
 date: '2026-09-10'
 published_at: '2026-09-08'
 transcribed_at: '2026-09-10'
-model: GLM
+model: GLM-5.3 Flash
 source_url: https://example.com/episodes/123
 source_name: Example Podcast
 input_type: official_transcript
@@ -246,6 +248,7 @@ tags: [Agent]
 - 新 ASR 必须在转写前经 `asr-reserve` 原子预约：预约写入私有 `local-library/.batches/<batch_id>/asr.json`，用原子目录创建阻止同一批第二期 ASR；归档时比较预约、RSS 时长与 Video Agent Kit JSON 的 `audio_duration_seconds`。带时间戳材料由归档器自动检查 cue 顺序、首尾覆盖和最大内部空洞，统计写入私有 manifest；人工确认不能替代这些确定性检查。
 - 逐字稿获取与可用性检查见 3.3，音频清理门与两道发布检查见第 7 节；`processed` 仅表示材料可用且检查完成，不表示部署成功或独立事实认证。
 - 采集与本地编辑可能同时发生：提交前后用正常 Git 同步流程，出现冲突即停止交由用户处理；采集器不改已有条目，不建设锁服务。完整转录不因“中文改写”而公开；没有可用 transcript 且 ASR 失败时记录 `failed`，不根据标题和简介生成文章。
+- 内容政策条目需彻底移除时用 `purge_items.py`：默认只读预览将删除的元信息、公开文章与本地归档路径，确认后加 `--execute` 执行；仅用于内容政策清理，不用于常规回退。
 
 ## 6. 网站实现
 
