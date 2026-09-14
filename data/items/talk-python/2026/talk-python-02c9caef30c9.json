@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/556/updates-on-djangos-async-story.mp3",
+  "description": "For years, \"Django and async\" came with an asterisk. The docs themselves warned you off it. Scary performance notes, a story that felt half-finished. Well, that story just got rewritten, literally, and the person who rewrote it is here to tell you why the old framing was wrong. Carlton Gibson is a former Django Fellow, sat on the security team for eight years, and he's on the steering council. On this episode we get into the async topic doc rewrite, what actually remains versus what was just fear, the new Tasks framework in 6.0, DB-level cascades and fetch modes landing in 6.1, and why free-threading is the bet that's about to pay off big for Django. If you've been told Django's async story isn't ready, this is the episode that puts that myth to bed.",
+  "duration_seconds": 3896,
+  "guid": "8f34633d-ca82-4bf6-9787-deb8237824a0",
+  "item_id": "talk-python-02c9caef30c9",
+  "published_at": "2026-07-26T16:49:09Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#556: Updates on Django's Async Story",
+  "transcript_url": "https://talkpython.fm/episodes/show/556/updates-on-djangos-async-story.vtt",
+  "url": "https://talkpython.fm/episodes/show/556/updates-on-djangos-async-story"
+}

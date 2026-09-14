@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/558/hyper-personal-software-with-python.mp3",
+  "description": "Every company has one. The little internal tool that Jane built back in 2021, and then Jane left. Nobody understands it, nobody will touch it. There are two unwritten rules around it: don't change it, it's working. And if you break it, you bought it. That's dark-matter enterprise software. For every app you can actually see, there are ten of these sitting in the shadows, frozen. Michael Booth thinks that just changed. He read my article on hyper-personal software and ran with it, writing about hyper-team software: small teams inside big companies finally building the tools that were never going to get built. We cover where this works, where it quietly goes wrong, and the guardrails that keep it from turning into a mess. Let's get into it.",
+  "duration_seconds": 3733,
+  "guid": "feee3df7-8579-4f93-b882-4ce893bbbc90",
+  "item_id": "talk-python-21003a846c25",
+  "published_at": "2026-08-10T13:21:27Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#558: Hyper-Personal Software with Python",
+  "transcript_url": "https://talkpython.fm/episodes/show/558/hyper-personal-software-with-python.vtt",
+  "url": "https://talkpython.fm/episodes/show/558/hyper-personal-software-with-python"
+}

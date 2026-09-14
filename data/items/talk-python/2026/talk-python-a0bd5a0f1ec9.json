@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/538/python-in-digital-humanities.mp3",
+  "description": "Digital humanities sounds niche, until you realize it can mean a searchable archive of U.S. amendment proposals, Irish folklore, or pigment science in ancient art. Today I’m talking with David Flood from Harvard’s DARTH team about an unglamorous problem: What happens when the grant ends but the website can’t. His answer, static sites, client-side search, and sneaky Python. Let’s dive in.",
+  "duration_seconds": 4347,
+  "guid": "d2d5a764-5adf-4a2b-9dc7-e6c60c9c4f7d",
+  "item_id": "talk-python-a0bd5a0f1ec9",
+  "published_at": "2026-02-28T21:28:36Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#538: Python in Digital Humanities",
+  "transcript_url": "https://talkpython.fm/episodes/show/538/python-in-digital-humanities.vtt",
+  "url": "https://talkpython.fm/episodes/show/538/python-in-digital-humanities"
+}

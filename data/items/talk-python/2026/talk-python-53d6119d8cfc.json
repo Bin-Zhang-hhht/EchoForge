@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/555/marimo-pair-a-canvas-for-agent-developers-collaboration.mp3",
+  "description": "Coding agents have gotten really good at one kind of work. You scope a feature, edit some files, run the tests, ship it. It all happens on disk. But that is not how data work feels. You load something, you look at it, you run a cell, you watch how it responds, and you decide the next move from whatever is sitting in memory. And until now, your agent couldn't see any of that. It only saw the files. Never the live state. This episode, that wall comes down. marimo pair drops a coding agent right inside a running notebook, with full access to every variable Python is holding in memory. The notebook becomes a shared canvas. You point, it runs the code. You tell it to zoom in on the Picasso paintings, and the chart just updates. No MCP tools to wire up, no schema to describe. Just Python, and an agent that can finally see what you see. Trevor Manz is back to walk us through it.",
+  "duration_seconds": 3899,
+  "guid": "cbc86335-3bdb-4b4f-b894-006ee4467d32",
+  "item_id": "talk-python-53d6119d8cfc",
+  "published_at": "2026-07-13T17:07:43Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#555: Marimo Pair - A Canvas for Agent + Developers Collaboration",
+  "transcript_url": "https://talkpython.fm/episodes/show/555/marimo-pair-a-canvas-for-agent-developers-collaboration.vtt",
+  "url": "https://talkpython.fm/episodes/show/555/marimo-pair-a-canvas-for-agent-developers-collaboration"
+}

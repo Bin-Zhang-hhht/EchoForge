@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/544/wheel-next-packaging-peps.mp3",
+  "description": "When you pip install a package with compiled code, the wheel you get is built for CPU features from 2009. Want newer optimizations like AVX2? Your installer has no way to ask for them. GPU support? You're on your own configuring special index URLs. The result is fat binaries, nearly gigabyte-sized wheels, and install pages that read like puzzle books. A coalition from NVIDIA, Astral, and QuanSight has been working on Wheel Next: A set of PEPs that let packages declare what hardware they need and let installers like uv pick the right build automatically. Just uv pip install torch and it works. I sit down with Jonathan Dekhtiar from NVIDIA, Ralf Gommers from Quansight and the NumPy and SciPy teams, and Charlie Marsh, founder of Astral and creator of uv, to dig into all of it.",
+  "duration_seconds": 4277,
+  "guid": "7609be68-a48e-4d9c-be78-cad5b673ce48",
+  "item_id": "talk-python-46c260d9907f",
+  "published_at": "2026-04-10T16:56:54Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#544: Wheel Next + Packaging PEPs",
+  "transcript_url": "https://talkpython.fm/episodes/show/544/wheel-next-packaging-peps.vtt",
+  "url": "https://talkpython.fm/episodes/show/544/wheel-next-packaging-peps"
+}

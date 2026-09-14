@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/557/security-of-everything-at-pycon-2026.mp3",
+  "description": "Security has always been the vegetables of software. Everyone agrees it matters, and somehow it never quite makes it onto the plate. At PyCon US this year, that changed. For the first time ever, security got its own dedicated, day-long track, one of just two at the whole conference, sitting right next to AI. And the room was packed to the back wall. On this episode, I'm joined by the three people at the center of it. Seth Larson, Security Developer in Residence at the Python Software Foundation and, very recently, a CPython core developer. Juanita Gomez, a PhD researcher at UC Santa Cruz in open source security, who co-chaired the track. And Mike Fiedler, PyPI's Safety and Security Engineer, one of the very few people paid full-time to keep the packages you install safe. We use the arc of the track's talks to take the temperature of Python security right now: supply chain attacks, dependency cooldowns, zero trust, SBOMs, and the push to bring Rust into CPython. And why not one of us th",
+  "duration_seconds": 4080,
+  "guid": "07175995-241e-467a-b7e7-9984404cee58",
+  "item_id": "talk-python-f2507e9e4efe",
+  "published_at": "2026-08-02T15:37:33Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#557: Security of everything at PyCon 2026",
+  "transcript_url": "https://talkpython.fm/episodes/show/557/security-of-everything-at-pycon-2026.vtt",
+  "url": "https://talkpython.fm/episodes/show/557/security-of-everything-at-pycon-2026"
+}

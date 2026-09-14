@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/542/zensical-a-modern-static-site-generator.mp3",
+  "description": "If you've built documentation in the Python ecosystem, chances are you've used Martin Donath's work. His Material for MKDocs powers docs for FastAPI, uv, AWS, OpenAI, and tens of thousands of other projects. But when MKDocs 2.0 took a direction that would break Material and 300 ecosystem plugins, Martin went back to the drawing board. The result is Zensical: A new static site generator with a Rust core, differential builds in milliseconds instead of minutes, and a migration path designed to bring the whole community along.",
+  "duration_seconds": 3843,
+  "guid": "f92a67b6-c6b9-4ecb-94b4-5b0535b61278",
+  "item_id": "talk-python-4aa808faea3d",
+  "published_at": "2026-03-25T20:55:16Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#542: Zensical - a modern static site generator",
+  "transcript_url": "https://talkpython.fm/episodes/show/542/zensical-a-modern-static-site-generator.vtt",
+  "url": "https://talkpython.fm/episodes/show/542/zensical-a-modern-static-site-generator"
+}

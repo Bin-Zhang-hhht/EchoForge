@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/546/self-hosting-apps-for-python-people.mp3",
+  "description": "The cloud is convenient until it isn't. You upload your photos, sync your contacts, click through the cookie banners. Then prices go up again or you read about a family that lost their entire Google account over a medical photo sent to a doctor. At some point, the question shifts from \"why would I run this myself?\" to \"why aren't I?\" My guest this week is Alex Kretzschmar, head of DevRel at Tailscale, longtime host of the Self-Hosted podcast, and co-founder of Linuxserver.io. We cover what self-hosting really means in 2026, the apps worth running yourself like Immich and Home Assistant, why Docker Compose ties it all together, and how Tailscale lets you reach any of it from anywhere, without opening a single port. If you've been thinking about pulling your digital life back behind your own walls, this is your roadmap.",
+  "duration_seconds": 3792,
+  "guid": "6206e406-59dc-434c-8bc3-8d9198263607",
+  "item_id": "talk-python-d490b5d835d1",
+  "published_at": "2026-04-27T19:53:07Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#546: Self hosting apps for Python people",
+  "transcript_url": "https://talkpython.fm/episodes/show/546/self-hosting-apps-for-python-people.vtt",
+  "url": "https://talkpython.fm/episodes/show/546/self-hosting-apps-for-python-people"
+}

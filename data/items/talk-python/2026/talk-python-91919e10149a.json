@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/559/12-things-you-should-and-shouldnt-do-in-aws.mp3",
+  "description": "Your site is down. It's 3am. Is it a bug, a bill, or a breach? You can't tell yet, and everyone is watching you find out. Matt Lea has spent fifteen years being the person companies call when an outage is costing them real money per hour, and his whole argument is that everything you'd want in that moment gets decided months earlier, on ordinary afternoons, when someone chose the convenient thing. We walk his top twelve dos and don'ts in AWS - infrastructure as code, IAM roles instead of access keys, private subnets, no wildcards, no public buckets - and I push on which of them actually matter if you're one person on a small VPS. Then we get to Cloud War Games, where Matt breaks things on purpose so your team's first real incident isn't their first incident. Let's get into it.",
+  "duration_seconds": 4071,
+  "guid": "56b7e80e-442f-4988-8299-f04aa9dd5398",
+  "item_id": "talk-python-91919e10149a",
+  "published_at": "2026-08-19T18:57:47Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#559: 12 Things You Should (and Shouldn't) Do in AWS",
+  "transcript_url": "https://talkpython.fm/episodes/show/559/12-things-you-should-and-shouldnt-do-in-aws.vtt",
+  "url": "https://talkpython.fm/episodes/show/559/12-things-you-should-and-shouldnt-do-in-aws"
+}

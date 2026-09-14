@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/543/deep-agents-langchains-sdk-for-agents-that-plan-and-delegate.mp3",
+  "description": "When you type a question into ChatGPT, the model only has what you typed to work with. But tools like Claude Code can plan, iterate, test, and recover from mistakes. They work more like we do. The difference is the agent harness: Planning tools, file system access, sub-agents, and carefully crafted system prompts that turn a raw LLM into something genuinely capable. Sydney Runkle is back on Talk Python representing LangChain and their new open source library, Deep Agents: A framework for building your own deep agents with plain Python functions, middleware hooks, and MCP support. This is how the magic works under the hood.",
+  "duration_seconds": 3833,
+  "guid": "bead07bd-8e68-49fe-bb16-6adcd5fffadd",
+  "item_id": "talk-python-dccdbce49654",
+  "published_at": "2026-04-01T17:20:51Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#543: Deep Agents: LangChain's SDK for Agents That Plan and Delegate",
+  "transcript_url": "https://talkpython.fm/episodes/show/543/deep-agents-langchains-sdk-for-agents-that-plan-and-delegate.vtt",
+  "url": "https://talkpython.fm/episodes/show/543/deep-agents-langchains-sdk-for-agents-that-plan-and-delegate"
+}

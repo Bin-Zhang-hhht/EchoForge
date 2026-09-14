@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/533/web-frameworks-in-prod-by-their-creators.mp3",
+  "description": "Today on Talk Python, the creators behind FastAPI, Flask, Django, Quart, and Litestar get practical about running apps based on their framework in production. Deployment patterns, async gotchas, servers, scaling, and the stuff you only learn at 2 a.m. when the pager goes off. For Django, we have Carlton Gibson and Jeff Triplet. For Flask, we have David Lord and Phil Jones, and on team Litestar we have Janek Nouvertné and Cody Fincher, and finally Sebastián Ramírez from FastAPI is here. Let’s jump in.",
+  "duration_seconds": 3718,
+  "guid": "cb5a4648-41ce-41aa-b2e1-852e081e39a0",
+  "item_id": "talk-python-a84fc19f26c2",
+  "published_at": "2026-01-05T08:00:00Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#533: Web Frameworks in Prod by Their Creators",
+  "transcript_url": "https://talkpython.fm/episodes/show/533/web-frameworks-in-prod-by-their-creators.vtt",
+  "url": "https://talkpython.fm/episodes/show/533/web-frameworks-in-prod-by-their-creators"
+}

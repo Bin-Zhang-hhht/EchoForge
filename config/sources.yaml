@@ -98,3 +98,11 @@ sources:
     include_keywords: []
     exclude_keywords: []
     min_duration_minutes: null
+
+  - id: talk-python
+    name: Talk Python To Me
+    url: https://talkpython.fm/episodes/rss
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null

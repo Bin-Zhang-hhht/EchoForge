@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/545/owasp-top-10-2025-list-for-python-devs.mp3",
+  "description": "The OWASP Top 10 just got a fresh update, and there are some big changes: supply chain attacks, exceptional condition handling, and more. Tanya Janca is back on Talk Python to walk us through every single one of them. And we're not just talking theory, we're going to turn Claude Code loose on a real open source project and see what it finds. Let's do it.",
+  "duration_seconds": 3963,
+  "guid": "ad2ed150-9db8-4d48-a866-3998d2eb3aec",
+  "item_id": "talk-python-aca2f62df671",
+  "published_at": "2026-04-16T20:24:50Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#545: OWASP Top 10 (2025 List) for Python Devs",
+  "transcript_url": "https://talkpython.fm/episodes/show/545/owasp-top-10-2025-list-for-python-devs.vtt",
+  "url": "https://talkpython.fm/episodes/show/545/owasp-top-10-2025-list-for-python-devs"
+}

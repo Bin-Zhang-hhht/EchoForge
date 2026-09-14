@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/561/tonio-a-multi-threaded-async-runtime-for-python.mp3",
+  "description": "How many cores does your machine have, 10, 18? Your async Python code uses just one of them. That isn't a bug in asyncio. That's the design, and optimizing event loops to be faster by 20% doesn't change it. So Giovanni Barillari started over. Joe is the creator of Granian, the Rust-based server that powers Talk Python. His new project is TonIO, an async runtime written from scratch for free-threaded Python. Real threads, a handful of primitives instead of asyncio's pile of them, and it flat out refuses to start if the GIL is on.",
+  "duration_seconds": 4547,
+  "guid": "08c23683-c51c-4af4-bac1-dedc3a0566a9",
+  "item_id": "talk-python-78aee6e4f886",
+  "published_at": "2026-09-04T07:33:34Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#561: TonIO, a Multi-threaded Async Runtime for Python",
+  "transcript_url": "https://talkpython.fm/episodes/show/561/tonio-a-multi-threaded-async-runtime-for-python.vtt",
+  "url": "https://talkpython.fm/episodes/show/561/tonio-a-multi-threaded-async-runtime-for-python"
+}

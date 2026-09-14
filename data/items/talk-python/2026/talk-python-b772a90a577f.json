@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/552/astral-joins-openai.mp3",
+  "description": "OpenAI just acquired Astral, the company behind uv, Ruff, and ty. And if your first thought was \"wait, is uv toast?\", you are not alone. But here's the twist Charlie Marsh shared with me: he thinks they may ship more open source at OpenAI than they ever did at Astral. On this episode, we get into the acquisition, the mixed feelings, the future of your favorite Python tools, and what it's like to build right at the center of the AI universe.",
+  "duration_seconds": 3908,
+  "guid": "595ea528-1b91-4dc0-b052-959e065dd696",
+  "item_id": "talk-python-b772a90a577f",
+  "published_at": "2026-06-17T15:20:03Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#552: Astral joins OpenAI",
+  "transcript_url": "https://talkpython.fm/episodes/show/552/astral-joins-openai.vtt",
+  "url": "https://talkpython.fm/episodes/show/552/astral-joins-openai"
+}

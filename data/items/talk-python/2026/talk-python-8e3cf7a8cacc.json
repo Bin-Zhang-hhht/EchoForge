@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/534/diskcache-your-secret-python-perf-weapon.mp3",
+  "description": "Your cloud SSD is sitting there, bored, and it would like a job. Today we’re putting it to work with DiskCache, a simple, practical cache built on SQLite that can speed things up without spinning up Redis or extra services. Once you start to see what it can do, a universe of possibilities opens up. We're joined by Vincent Warmerdam to dive into DiskCache.",
+  "duration_seconds": 4440,
+  "guid": "370e4b13-d471-4753-ae6e-f167b9b28237",
+  "item_id": "talk-python-8e3cf7a8cacc",
+  "published_at": "2026-01-13T05:32:21Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#534: diskcache: Your secret Python perf weapon",
+  "transcript_url": "https://talkpython.fm/episodes/show/534/diskcache-your-secret-python-perf-weapon.vtt",
+  "url": "https://talkpython.fm/episodes/show/534/diskcache-your-secret-python-perf-weapon"
+}

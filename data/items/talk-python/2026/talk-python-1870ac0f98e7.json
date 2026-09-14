@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/539/catching-up-with-the-python-typing-council.mp3",
+  "description": "You're adding type hints to your Python code, your editor is happy, autocomplete is working great. But then you switch tools and suddenly there are red squiggles everywhere. Who decides what a float annotation actually means? Or whether passing None where an int is expected should be an error? It turns out there's a five-person council dedicated to exactly these questions -- and two brand-new Rust-based type checkers are raising the bar. On this episode, I sit down with three members of the Python Typing Council -- Jelle Zijlstra, Rebecca Chen, and Carl Meyer -- to learn how the type system is governed, where the spec and the type checkers agree and disagree, and get the council's official advice on how much typing is just enough.",
+  "duration_seconds": 3701,
+  "guid": "3101b740-d2a3-4823-8734-ecc2080e0356",
+  "item_id": "talk-python-1870ac0f98e7",
+  "published_at": "2026-03-06T16:58:04Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#539: Catching up with the Python Typing Council",
+  "transcript_url": "https://talkpython.fm/episodes/show/539/catching-up-with-the-python-typing-council.vtt",
+  "url": "https://talkpython.fm/episodes/show/539/catching-up-with-the-python-typing-council"
+}

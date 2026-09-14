@@ -19,7 +19,7 @@
 | `gradient-dissent` | Gradient Dissent | ML / AI Infra | `https://feeds.captivate.fm/gradient-dissent/` |
 | `dwarkesh` | Dwarkesh Podcast | AI / 深度访谈 | `https://api.substack.com/feed/podcast/69345.rss` |
 | `interconnects` | Interconnects | Open Models / RL | `https://api.substack.com/feed/podcast/48206.rss` |
-| `talk-python` | Talk Python To Me | Python / 后端 | `https://talkpython.fm/episodes/rss` |
+| `talk-python` \* | Talk Python To Me | Python / 后端 | `https://talkpython.fm/episodes/rss` |
 
 带 \* 为当前已启用。
 

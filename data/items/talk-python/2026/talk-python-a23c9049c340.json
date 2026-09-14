@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/548/event-sourcing-design-pattern.mp3",
+  "description": "What if your database worked more like Git? Every change captured as an immutable event you can replay, instead of a single mutating row that quietly forgets its own history. That's event sourcing, and Chris May is back on Talk Python, fresh off our Datastar panel, to walk us through what it actually looks like in Python. We'll cover the core patterns, the libraries to reach for, when not to use it, and why event sourcing turns out to be a surprisingly good fit for AI-assisted coding.",
+  "duration_seconds": 4129,
+  "guid": "44e7259d-959f-4a48-a6fb-6cb730097336",
+  "item_id": "talk-python-a23c9049c340",
+  "published_at": "2026-05-11T16:36:29Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#548: Event Sourcing Design Pattern",
+  "transcript_url": "https://talkpython.fm/episodes/show/548/event-sourcing-design-pattern.vtt",
+  "url": "https://talkpython.fm/episodes/show/548/event-sourcing-design-pattern"
+}

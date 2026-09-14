@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/535/pyview-real-time-python-web-apps.mp3",
+  "description": "Building on the web is like working with the perfect clay. It’s malleable and can become almost anything. But too often, frameworks try to hide the web’s best parts away from us. Today, we’re looking at PyView, a project that brings the real-time power of Phoenix LiveView directly into the Python world. I'm joined by Larry Ogrodnek to dive into PyView.",
+  "duration_seconds": 4076,
+  "guid": "e7bd68d7-ec59-4683-b9b5-5bff82df9e0e",
+  "item_id": "talk-python-259b143ba4f2",
+  "published_at": "2026-01-23T19:29:41Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#535: PyView: Real-time Python Web Apps",
+  "transcript_url": "https://talkpython.fm/episodes/show/535/pyview-real-time-python-web-apps.vtt",
+  "url": "https://talkpython.fm/episodes/show/535/pyview-real-time-python-web-apps"
+}

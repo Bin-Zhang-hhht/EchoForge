@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/549/great-docs.mp3",
+  "description": "Your documentation has two audiences now - humans reading the rendered HTML, and AI agents trying to make sense of your library. Rich Iannone and Michael Chow from Posit are back on Talk Python with a brand new Python documentation tool called Great Docs that takes both seriously. Rich is the creator of Great Tables, and before that the R package GT, the man has a serious eye for design, and he's pointed that energy at the Python docs ecosystem. We'll talk about how Great Docs spins up a polished site in three commands, why every page ships as Markdown for your favorite LLM, how it leans on Quarto for executable code blocks and tabbed install sections, and where it lands against Sphinx, MkDocs, and Zensical. Plus, you'll meet Tablin. Here we go.",
+  "duration_seconds": 4020,
+  "guid": "1552cdec-fbb2-4786-ba9d-e80f4ecb2401",
+  "item_id": "talk-python-14f26961162c",
+  "published_at": "2026-05-25T22:11:29Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#549: Great Docs",
+  "transcript_url": "https://talkpython.fm/episodes/show/549/great-docs.vtt",
+  "url": "https://talkpython.fm/episodes/show/549/great-docs"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/550/ai-contributions-and-maintainer-load-in-open-source.mp3",
+  "description": "You wake up, brew the coffee, open GitHub, and there it is. Another pull request on your open source project. Thirteen thousand lines added. No issue filed first. No discussion. Just \"here, please review this for me.\" Over the past year, GitHub activity has spiked roughly twelve times in a few short months, and a huge chunk of that signal is landing on the same small group of maintainers who were already stretched thin. The curl bug bounty got buried under AI-generated noise. Jazzband, the home of Django classics like pip-tools and the Django debug toolbar, hit what its maintainer called an \"apocalypse\" and started sunsetting. Even CPython just shipped fresh guidelines on AI-assisted contributions this week. So what does all of this actually look like from the receiving end of the pull request? On this episode, Paolo Melchiorre joins us to tell that story from inside the maintainer's chair. Paolo is a director of the Django Software Foundation, an organizer of PyCon Italy, a Django Gir",
+  "duration_seconds": 3762,
+  "guid": "fa2e0132-3c2b-4741-aa1b-f9812bc93d2f",
+  "item_id": "talk-python-420527bcbf08",
+  "published_at": "2026-05-30T15:43:47Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#550: AI Contributions and Maintainer Load in Open Source",
+  "transcript_url": "https://talkpython.fm/episodes/show/550/ai-contributions-and-maintainer-load-in-open-source.vtt",
+  "url": "https://talkpython.fm/episodes/show/550/ai-contributions-and-maintainer-load-in-open-source"
+}

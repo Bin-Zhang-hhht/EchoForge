@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/554/trustworthy-ai-in-healthcare-and-longevity.mp3",
+  "description": "You ask an AI a question and it answers with total confidence. Most of the time, a confidently wrong answer is just an annoyance. But what if the question is medical, and there's a real patient on the other end? In that world, a hallucination isn't a bug, it's a patient-safety event. Sumit Gundawar is a London-based software engineer who builds the clinical platform for a UK longevity and aesthetic-medicine clinic, and his whole argument is that in high-stakes AI, the model is the easy part. Earning trust is the real engineering. We dig into grounding, refusal logic, human-in-the-loop design, and the messy frontier of longevity and biohacking, plus a live demo of an assistant that refuses to answer when it can't back up the claim. Let's get into it.",
+  "duration_seconds": 3640,
+  "guid": "126623d8-741e-4b14-bdca-a75ec70774f9",
+  "item_id": "talk-python-b886184c2a6d",
+  "published_at": "2026-07-10T05:10:31Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#554: Trustworthy AI in Healthcare and Longevity",
+  "transcript_url": "https://talkpython.fm/episodes/show/554/trustworthy-ai-in-healthcare-and-longevity.vtt",
+  "url": "https://talkpython.fm/episodes/show/554/trustworthy-ai-in-healthcare-and-longevity"
+}

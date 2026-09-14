@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/560/building-a-research-os-from-django-to-30-000-samples.mp3",
+  "description": "In 2020, a gastroenterologist in Glasgow did the math on his new research study and came up with 30,000 samples, arriving over two years from three cities and a dozen hospitals. He asked around about how researchers keep track of that. The answer was Microsoft Excel. Shaun Chuah had written some HTML by hand in Notepad back in high school and that was about the whole of his programming experience, so he opened the Django tutorial and started reading. Six years later that app is Foundry120, holding 10 terabytes of clinical and genomics data with an agentic AI running on top of it.",
+  "duration_seconds": 3769,
+  "guid": "cfdb8bc8-cb52-411f-ae9e-fae7c49d3bc0",
+  "item_id": "talk-python-d85d908115bc",
+  "published_at": "2026-08-26T20:04:24Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#560: Building a Research OS: From Django to 30,000 Samples",
+  "transcript_url": "https://talkpython.fm/episodes/show/560/building-a-research-os-from-django-to-30-000-samples.vtt",
+  "url": "https://talkpython.fm/episodes/show/560/building-a-research-os-from-django-to-30-000-samples"
+}

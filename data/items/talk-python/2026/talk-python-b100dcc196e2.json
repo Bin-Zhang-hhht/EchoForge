@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/551/stroll-down-startup-lane-2026.mp3",
+  "description": "If you've ever been to PyCon, you know one of the best parts of the expo hall is Startup Row, a stretch of booths where early-stage companies built on Python show off what they're creating. But only attendees get to walk that lane, so let's bring it to everyone. In this episode, we stroll down Startup Row together. We kick things off with the organizers, Jason and Shay, who share the program's origin story going back to Paul Graham and the PSF, plus some surprising stats, including two unicorns among the alumni. Then we meet five startups: Tetrix, bringing AI to institutional investing in private markets. Arcjet, security that lives inside your app as an SDK. Phemeral.dev, serverless hosting built for Python web apps. CapiscIO, an identity and authority layer for AI agents. And Pixeltable, a multimodal database from Marcel Kornacker, co-creator of Apache Parquet. See if you can spot the theme running through them all. Let's go for a walk.",
+  "duration_seconds": 6534,
+  "guid": "9e521725-b3d5-4996-82c0-49c6ea838fcb",
+  "item_id": "talk-python-b100dcc196e2",
+  "published_at": "2026-06-11T20:16:11Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#551: Stroll Down Startup Lane - 2026",
+  "transcript_url": "https://talkpython.fm/episodes/show/551/stroll-down-startup-lane-2026.vtt",
+  "url": "https://talkpython.fm/episodes/show/551/stroll-down-startup-lane-2026"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/536/fly-inside-fastapi-cloud.mp3",
+  "description": "You've built your FastAPI app, it's running great locally, and now you want to share it with the world. But then reality hits -- containers, load balancers, HTTPS certificates, cloud consoles with 200 options. What if deploying was just one command? That's exactly what Sebastian Ramirez and the FastAPI Cloud team are building. On this episode, I sit down with Sebastian, Patrick Arminio, Savannah Ostrowski, and Jonathan Ehwald to go inside FastAPI Cloud, explore what it means to build a \"Pythonic\" cloud, and dig into how this commercial venture is actually making FastAPI the open-source project stronger than ever.",
+  "duration_seconds": 4020,
+  "guid": "a30b35f4-82b5-4aa3-8ebb-15665244225f",
+  "item_id": "talk-python-0529083f2e63",
+  "published_at": "2026-02-10T23:17:41Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#536: Fly inside FastAPI Cloud",
+  "transcript_url": "https://talkpython.fm/episodes/show/536/fly-inside-fastapi-cloud.vtt",
+  "url": "https://talkpython.fm/episodes/show/536/fly-inside-fastapi-cloud"
+}

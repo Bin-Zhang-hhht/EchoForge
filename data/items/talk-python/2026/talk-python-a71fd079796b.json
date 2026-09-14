@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/562/ducklake-the-lakehouse-thats-just-sql-and-parquet.mp3",
+  "description": "How many files does your query read before it reads any data? On some data lakes, you go through JSON and metadata files first, just to learn which Parquet files matter. DuckLake asks one SQL question instead. The metadata lives in a real database. The data stays in plain Parquet. That's the entire format. Pedro Holanda joined DuckDB in 2018, when it was still a research prototype at CWI. He's the lead DuckLake developer. Guillermo Sanchez Dionis works on DuckLake and the new Quack protocol. With Quack as the catalog, DuckLake handles 200 transactions a second under heavy contention. No other open table format comes close.",
+  "duration_seconds": 4269,
+  "guid": "f5e9a8a4-babf-4247-916d-b8f157e2953a",
+  "item_id": "talk-python-a71fd079796b",
+  "published_at": "2026-09-10T14:59:40Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#562: DuckLake: The Lakehouse That's Just SQL and Parquet",
+  "transcript_url": "https://talkpython.fm/episodes/show/562/ducklake-the-lakehouse-thats-just-sql-and-parquet.vtt",
+  "url": "https://talkpython.fm/episodes/show/562/ducklake-the-lakehouse-thats-just-sql-and-parquet"
+}
