@@ -5,10 +5,10 @@
   "guid": "ff8c3054-f26a-428b-8b3b-bbac799c9e89",
   "item_id": "talk-python-4b89ca959bf6",
   "published_at": "2026-06-26T22:32:43Z",
-  "reason": null,
+  "reason": "内容政策：完整逐字稿含实质段落讨论美国政府限制模型访问、政府与 Anthropic 争端及武器用途，超出技术节目顺带提及范围。",
   "source_id": "talk-python",
   "source_name": "Talk Python To Me",
-  "status": "pending",
+  "status": "ignored",
   "title": "#553: All of our tools",
   "transcript_url": "https://talkpython.fm/episodes/show/553/all-of-our-tools.vtt",
   "url": "https://talkpython.fm/episodes/show/553/all-of-our-tools"
