@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/db9c733b/0079b7d3.mp3",
+  "description": "What do LLMs mean for the future of software engineering? Will vibe-coded AI slop be the norm? Will software engineers simply be less in-demand? Rain and David join Bryan and Adam to discuss how rigorous use of LLMs can make for much more robust systems. In addition to Bryan Cantrill and Adam Leventhal, we were joined by Rain Paharia, and David Crespo. Previously, on Oxide and Friends: OxF s03e08 – Does a GPT future need software engineers OxF s04e04 – Helios OxF s05e28 – Systems Software in the Large OxF s04e20 – Pragmatic LLM Usage with Nicholas Carlini Some of the topics we hit on, in the order that we hit them: The issue Bryan was fixing iddqd: the crate Rain built Ghostty David's bugs: 1 2 3 Rain's nextest bug: SIGTTOU when test spawns interactive shell Oxide RFD 619: Managing types across Dropshot API versions drift: the crate Adam built If we got something wrong or missed something, please file a PR! Our next show will likely be on Monday at 5p Pacific Time on our Discord server",
+  "duration_seconds": 5556,
+  "guid": "2e1b4e66-1da3-43c0-83ec-fed097c29afd",
+  "item_id": "oxide-and-friends-1d11404fa214",
+  "published_at": "2026-01-15T15:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "processed",
+  "title": "Engineering Rigor in the LLM Age",
+  "transcript_url": "https://share.transistor.fm/s/db9c733b/transcription",
+  "url": "https://share.transistor.fm/s/db9c733b"
+}

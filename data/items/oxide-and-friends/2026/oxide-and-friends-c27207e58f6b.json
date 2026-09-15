@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/3da80cf3/8a0241f0.mp3",
+  "description": "Simon Willison joined Bryan and Adam to discuss a wild couple of weeks in AI. First, we have a high-profile, AI-induced, AI-diagnosed security incident. Next we have the rise of frontier-class open-weights models. Who's for or against open weights? Do they make for a more or less secure future? Exciting times! In addition to Bryan Cantrill and Adam Leventhal, our special guest was Simon Willison. Previously, on Oxide and Friends: OxF: Shell Game with Evan Ratliff OxF: Discovering the XZ Backdoor with Andres Freund OxF: Predictions 2025 OxF: Predictions 2026!! OxF: Bookclub: How Life Works by Philip Ball OxF: OpenAI's Boardroom Brawl Some of the topics we hit on, in the order that we hit them: Gerald the turkey terrorizes Oakland's rose garden ABC7: Gerald the turkey and the Morcom Rose Garden APD cautions residents after aggressive wild turkey attacks elderly Alamedan Hawking radiation DHH's racist complaints Grok's \"MechaHitler\" antisemitic spree Simon on Grok aka \"MechaHitler\" Huggin",
+  "duration_seconds": 5040,
+  "guid": "27edfef6-4772-4434-95b9-31e8a373ccf2",
+  "item_id": "oxide-and-friends-c27207e58f6b",
+  "published_at": "2026-07-31T14:00:00Z",
+  "reason": "需人工判断：主体为开源权重模型的技术讨论，但含相当篇幅的美国政策与生物武器历史段落，边界情形待人工审查",
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "pending",
+  "title": "The Open Weight Revolution with Simon Willison",
+  "transcript_url": "https://share.transistor.fm/s/3da80cf3/transcription",
+  "url": "https://share.transistor.fm/s/3da80cf3"
+}

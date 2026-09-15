@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/679/the-changelog-679.mp3",
+  "description": "Adam talks with Tailscale co-founder and Chief Strategy Officer David Carney about where Tailscale is headed next: TSIDP, TSNet, multiple tailnets, and Aperture. They get into clickless auth (via TSIDP), TSNet apps, multiple tailnets for isolation and control, and Aperture, Tailscale’s private AI gateway for API key management, observability, and agent security.",
+  "duration_seconds": 6135,
+  "guid": "changelog.com/1/2821",
+  "item_id": "changelog-bbe349f9168d",
+  "published_at": "2026-03-11T20:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "From Tailnet to platform (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/679"
+}

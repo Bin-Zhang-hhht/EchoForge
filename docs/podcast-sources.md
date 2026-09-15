@@ -13,9 +13,9 @@
 | `cognitive-revolution` | The Cognitive Revolution | Frontier AI / Agent | `https://feeds.megaphone.fm/RINTP3108857801` |
 | `developer-voices` | Developer Voices | 数据库 / 编程语言 / 系统 | `https://feeds.zencastr.com/f/oSn1i316.rss` |
 | `agentic-conversations` | Agentic Conversations | Agent / MLOps | `https://anchor.fm/s/174cb1b8/podcast/rss` |
-| `changelog` | The Changelog | Open Source / DevTools | `https://changelog.com/podcast/feed` |
+| `changelog` \* | The Changelog | Open Source / DevTools | `https://changelog.com/podcast/feed` |
 | `no-priors` | No Priors | AI / 创业 | `https://feeds.megaphone.fm/nopriors` |
-| `oxide-and-friends` | Oxide and Friends | 系统 / Infra | `https://feeds.transistor.fm/oxide-and-friends` |
+| `oxide-and-friends` \* | Oxide and Friends | 系统 / Infra | `https://feeds.transistor.fm/oxide-and-friends` |
 | `gradient-dissent` | Gradient Dissent | ML / AI Infra | `https://feeds.captivate.fm/gradient-dissent/` |
 | `dwarkesh` | Dwarkesh Podcast | AI / 深度访谈 | `https://api.substack.com/feed/podcast/69345.rss` |
 | `interconnects` | Interconnects | Open Models / RL | `https://api.substack.com/feed/podcast/48206.rss` |

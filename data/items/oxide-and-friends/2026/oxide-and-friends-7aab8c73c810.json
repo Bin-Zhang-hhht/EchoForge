@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/d176e5fe/8cba8c0d.mp3",
+  "description": "The Oxide rack contains within it a distributed system that needs to trust itself. But how is this trust built? Bryan and Adam were joined by colleagues Andrew and Finch to explore how Trust Quorum was designed, built, and verified. In addition to Bryan Cantrill and Adam Leventhal, we were joined by Oxide colleagues, Andrew Stone, and Finch Foner. Previously, on Oxide and Friends: OxF s06e02 - Engineering Rigor in the LLM Age OxF s03e17 - Software Verificationpalooza OxF s06e02 - Engineering Rigor in the LLM Age OxF s05e20 - Debugger-Driven Development Some of the topics we hit on, in the order that we hit them: Oxide RFD 238: Trust Quorum and Rack Unlock PRs needed! If we got something wrong or missed something, please file a PR! Our next show will likely be on Monday at 5p Pacific Time on our Discord server; stay tuned to our Mastodon feeds for details, or subscribe to this calendar. We'd love to have you join us, as we always love to hear from new speakers!",
+  "duration_seconds": 5172,
+  "guid": "d95cbc76-b35a-49c8-b988-9e7be844411e",
+  "item_id": "oxide-and-friends-7aab8c73c810",
+  "published_at": "2026-04-04T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "processed",
+  "title": "Building a Quorum of Trust in the Oxide Rack",
+  "transcript_url": "https://share.transistor.fm/s/d176e5fe/transcription",
+  "url": "https://share.transistor.fm/s/d176e5fe"
+}

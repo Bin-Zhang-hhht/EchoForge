@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/676/the-changelog-676.mp3",
+  "description": "Paul Dix joins us to discuss the InfluxDB co-founder's journey adapting to an agentic world. Paul sent his AI coding agents on various real-world side quests and shares all his findings: what's going to prod, what's not, and why he's (at least for a bit) back to coding by hand. Update: He's back to letting the AIs write code, but with a lot more oversight. For now…",
+  "duration_seconds": 5791,
+  "guid": "changelog.com/1/2814",
+  "item_id": "changelog-f0a70ab56ac0",
+  "published_at": "2026-02-11T20:30:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Building the machine that builds the machine (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/676"
+}

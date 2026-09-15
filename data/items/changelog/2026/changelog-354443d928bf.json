@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/684/the-changelog-684.mp3",
+  "description": "Sam Lambert is back after 4 years and he does not hold back! We cover $5 PlanetScale Postgres, the Neki \"do-over\" of Vitess, agents shipping schema changes through deploy requests, rolling back a 500TB table in seconds, and the very real question of whether to open source any of it. Plus: why he thinks the sleeping, lazy giants should be broken up.",
+  "duration_seconds": 6137,
+  "guid": "changelog.com/1/2831",
+  "item_id": "changelog-354443d928bf",
+  "published_at": "2026-08-25T19:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "processed",
+  "title": "Postgres at PlanetScale (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/684"
+}

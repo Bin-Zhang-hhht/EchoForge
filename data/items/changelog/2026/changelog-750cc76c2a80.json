@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/friends/124/changelog--friends-124.mp3",
+  "description": "Gerhard is back for Kaizen 22! We're diving deep into those pesky out-of-memory errors, analyzing our new Pipedream instance status checker, and trying to figure out why someone in Asia downloads a single episode so much.",
+  "duration_seconds": 6067,
+  "guid": "changelog.com/17/2803",
+  "item_id": "changelog-750cc76c2a80",
+  "published_at": "2026-01-17T00:45:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Kaizen! Let it crash (Friends)",
+  "transcript_url": "https://changelog.com/friends/124/transcript",
+  "url": "https://changelog.com/friends/124"
+}

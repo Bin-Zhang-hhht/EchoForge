@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/news/180/changelog-news-180.mp3",
+  "description": "Mitchell Hashimoto's trust management system for open source, Nicholas Carlini has a team of Claudes build a C compiler, Stephan Schwab recounts the history of attempted developer replacement, NanClaw is an alternative to OpenClaw, and Sophie Koonin can't wrap her head around so many people going so hard on LLM-generated code.",
+  "duration_seconds": 455,
+  "guid": "changelog.com/16/2813",
+  "item_id": "changelog-2e3cffc64465",
+  "published_at": "2026-02-09T19:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Vouch for an open source web of trust (News)",
+  "transcript_url": "https://changelog.com/news/180/transcript",
+  "url": "https://changelog.com/news/180"
+}

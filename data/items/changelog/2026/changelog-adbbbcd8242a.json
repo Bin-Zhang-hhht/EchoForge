@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/683/the-changelog-683.mp3",
+  "description": "Haroon Meer is back! Haroon is the Founder of Thinkst, the ~50-person bootstrapped company behind Canary and Canarytokens — honeypots and tripwires you sprinkle inside your network and forget about until an attacker touches one. We talk about the AWS API key token attackers just can't resist trying, the real credit card token backed by an actual bank partnership, Breadcrumbs (their brand-new feature that leads intruders straight to your canaries), a live demo where a hardware Canary becomes a Synology NAS in one click, and how a company with zero outbound sales and no price increase in ten years quietly passed $22.5 million in ARR.",
+  "duration_seconds": 7608,
+  "guid": "changelog.com/1/2823",
+  "item_id": "changelog-adbbbcd8242a",
+  "published_at": "2026-07-21T19:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Canary tokens and digital tripwires (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/683"
+}

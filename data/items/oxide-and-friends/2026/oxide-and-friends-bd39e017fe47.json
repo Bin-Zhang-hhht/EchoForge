@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/ada46428/e306ac3b.mp3",
+  "description": "Oxide ships a rack scale system--how to test the manufacturing of the backplane and switches? Previously we've been using a collection of sacrificial servers, but this was unwieldy, expensive, and unscalable--all big problems as we ramp up manufacturing to 100s a month! Enter \"Reverso\", an extremely simple test fixture, that uncovered an extremely complex bug. In addition to Bryan Cantrill and Adam Leventhal, speakers included Oxide colleagues, Robert \"RFK\" Keith, Adam \"The Hammer\" Suczewski, and Matt Keeter. Previously, on Oxide and Friends: OxF s01e26 - The Pragmatism of Hubris OxF s01e24 - The Sidecar Switch OxF s03e13 - The Network Behind the Network OxF s05e23 - Adventures in Data Corruption Some of the topics we hit on, in the order that we hit them: Adam Leventhal, Hardware Engineer dendrite Paddle-to-the-Sea PRs needed! If we got something wrong or missed something, please file a PR! Our next show will likely be on Monday at 5p Pacific Time on our Discord server; stay tuned to ",
+  "duration_seconds": 4016,
+  "guid": "5ddddf68-4c8a-4b43-ae18-67d68838c828",
+  "item_id": "oxide-and-friends-bd39e017fe47",
+  "published_at": "2026-05-16T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "processed",
+  "title": "The Tale of Reverso",
+  "transcript_url": "https://share.transistor.fm/s/ada46428/transcription",
+  "url": "https://share.transistor.fm/s/ada46428"
+}

@@ -1,0 +1,15 @@
+{
+ "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/news/184/changelog-news-184.mp3",
+ "description": "Astral is joining OpenAI, which says a lot about where the center of gravity is moving for developer tools, LiteLLM got hit by a nasty supply-chain attack, and OpenCode blew up as the latest serious open source swing at the coding-agent stack. We've also got Rust doing a very public reality check on its own pain points, WorkOS pushing AuthKit into CLI auth, Ryan Lizza using AI to build an open source TurboTax alternative, and a fresh httpx fork that turns open source maintenance drama into a real dependency story. If nothing else, this week was a good reminder that tools, trust, and control all move together.",
+ "duration_seconds": 648,
+ "guid": "changelog.com/16/2827",
+ "item_id": "changelog-25dd0135e19d",
+ "published_at": "2026-03-27T20:00:00Z",
+ "reason": null,
+ "source_id": "changelog",
+ "source_name": "The Changelog",
+ "status": "processed",
+ "title": "Astral has been acquired by OpenAI (News)",
+ "transcript_url": null,
+ "url": "https://changelog.com/news/184"
+}

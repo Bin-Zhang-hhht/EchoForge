@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/4810d351/1dfe6de1.mp3",
+  "description": "We've been hosting a live show weekly on Mondays at 5p for about an hour, and recording them all; here is the recording. How do you test configurations you haven't built yet? Steve, Andrew, and Rain join Bryan and Adam to talk about the transformative power of the Oxide emulation environment, VOXEL, and how it has accelerated development in many domains. In addition to Bryan Cantrill and Adam Leventhal, speakers included Steve Karam, Andrew Stone, and Rain Paharia. Previously, on Oxide and Friends: OxF s03e06 - Rack-scale Networking (P4 and DDM with Ry Goodfellow) OxF s01e26 - The Pragmatism of Hubris (with Cliff Biffle) OxF s03e09 - Get You a State Machine for Great Good (Wicket with Andrew Stone) OxF s01e25 - Tales from the Bringup Lab OxF s01e18 - Dijkstra's Tweetstorm OxF s03e31 - Hiring Processes with Gergely Orosz Some of the topics we hit on, in the order that we hit them: voxel -- Virtual OXide Emulation Lab: emulated rack deployments on one Helios host (omicron on Falcon/propo",
+  "duration_seconds": 5088,
+  "guid": "8f4f9033-7551-4c18-98f1-e08d8a9b8895",
+  "item_id": "oxide-and-friends-12c65557d7e3",
+  "published_at": "2026-09-11T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "processed",
+  "title": "Emulating Oxide: How Faux Can You Go?",
+  "transcript_url": "https://share.transistor.fm/s/4810d351/transcription",
+  "url": "https://share.transistor.fm/s/4810d351"
+}

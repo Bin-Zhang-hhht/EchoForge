@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/674/the-changelog-674.mp3",
+  "description": "As the creator and long-time maintainer of ESLint, Nicholas Zakas is well-positioned to criticize GitHub's recent response to npm's insecurity. He found the response insufficient, and has other ideas on how GitHub could secure npm better. On this episode, Nicholas details these ideas, paints a bleak picture of npm alternatives like JSR, and shares our frustration that such a critical piece of internet infrastructure feels neglected.",
+  "duration_seconds": 4871,
+  "guid": "changelog.com/1/2805",
+  "item_id": "changelog-9e925492d7a7",
+  "published_at": "2026-01-29T15:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Securing npm is table stakes (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/674"
+}
