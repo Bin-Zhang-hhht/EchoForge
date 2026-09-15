@@ -5,10 +5,10 @@
   "guid": "changelog.com/17/2812",
   "item_id": "changelog-11125578e391",
   "published_at": "2026-02-06T21:30:00Z",
-  "reason": "需人工判断：节目描述涉及航空航天组织，需核对完整逐字稿以确认是否包含实质军事或国防项目内容",
+  "reason": "内容政策：人工复核后负责人决定不处理该条，因其涉及航空航天组织等无法在边界内确认的内容",
   "source_id": "changelog",
   "source_name": "The Changelog",
-  "status": "pending",
+  "status": "ignored",
   "title": "It's a renaissance woman's world (Friends)",
   "transcript_url": null,
   "url": "https://changelog.com/friends/127"
