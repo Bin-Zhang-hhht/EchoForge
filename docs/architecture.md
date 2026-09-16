@@ -98,7 +98,7 @@ echoforge/
 
 所有实际采集来源在 `config/sources.yaml` 维护，不为一种来源拆一套配置系统。经过人工调研的来源池单独记录在 [Podcast RSS源清单](podcast-sources.md)；运行时不读取该文档，也不自动发现新源。
 
-当前启用 8 个 Feed：Recsperts、Data Skeptic、Latent Space、Practical AI、Software Engineering Daily、Talk Python To Me、The Changelog 和 Oxide and Friends，全部全量收集。其他来源是否加入，只通过人工修改 `sources.yaml` 完成。
+当前启用 9 个 Feed：Recsperts、Data Skeptic、Latent Space、Practical AI、Software Engineering Daily、Talk Python To Me、The Changelog、Oxide and Friends 和 Software Engineering Radio，全部全量收集。其他来源是否加入，只通过人工修改 `sources.yaml` 完成。
 
 ```yaml
 global_exclude_keywords:

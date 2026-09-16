@@ -9,7 +9,7 @@
 | `latent-space` \* | Latent Space | AI Engineering / Agent | `https://api.substack.com/feed/podcast/1084089.rss` |
 | `practical-ai` \* | Practical AI | LLM / ML 工程 | `https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm` |
 | `software-engineering-daily` \* | Software Engineering Daily | 软件工程 / 系统 | `https://softwareengineeringdaily.com/feed/podcast/` |
-| `software-engineering-radio` | Software Engineering Radio | 软件工程 / 架构 | `https://rss.libsyn.com/shows/21070/destinations/23379.xml` |
+| `software-engineering-radio` \* | Software Engineering Radio | 软件工程 / 架构 | `https://rss.libsyn.com/shows/21070/destinations/23379.xml` |
 | `cognitive-revolution` | The Cognitive Revolution | Frontier AI / Agent | `https://feeds.megaphone.fm/RINTP3108857801` |
 | `developer-voices` | Developer Voices | 数据库 / 编程语言 / 系统 | `https://feeds.zencastr.com/f/oSn1i316.rss` |
 | `agentic-conversations` | Agentic Conversations | Agent / MLOps | `https://anchor.fm/s/174cb1b8/podcast/rss` |

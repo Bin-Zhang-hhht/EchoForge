@@ -122,3 +122,11 @@ sources:
     include_keywords: []
     exclude_keywords: []
     min_duration_minutes: null
+
+  - id: software-engineering-radio
+    name: Software Engineering Radio
+    url: https://rss.libsyn.com/shows/21070/destinations/23379.xml
+    enabled: true
+    include_keywords: []
+    exclude_keywords: []
+    min_duration_minutes: null
