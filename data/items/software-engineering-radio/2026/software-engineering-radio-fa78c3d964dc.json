@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/737-owen-mcgirr-software-accessibility.mp3?dest-id=23379",
+  "description": "Owen McGirr, creator of SayIt!, Switchify, and an entrepreneur who builds inclusive technology, speaks with SE Radio host Gavin Henry about software accessibility. For this episode, Gavin emailed the questions to Owen, who prepared his answers and generated the audio programmatically using text-to-speech. Owen discusses what accessibility is, different ways a user might interact with software, how accessibility is currently handled between various operating systems, the technical challenges of creating SayIt! and Switchify, plus what developers can do to improve accessibility. This episode explores access methods, what good accessibility means, eye gaze, touch, voice, keyboards, scanning, switches, radaring, screen overlays, iOS accessibility, Android accessibility, which OSes have better support, AI testing, what vendors can do to improve, what developers can do to improve and what two things a developer can do immediately to test their software accessibility.",
+  "duration_seconds": 3069,
+  "guid": "b261f718-301b-497e-9250-baa9fd378dd4",
+  "item_id": "software-engineering-radio-fa78c3d964dc",
+  "published_at": "2026-09-09T21:36:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 737: Owen McGirr on Software Accessibility",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/09/se-radio-737-owen-mcgirr-on-software-accessibility/"
+}

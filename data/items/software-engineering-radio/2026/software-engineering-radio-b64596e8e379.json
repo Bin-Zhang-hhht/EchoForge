@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/707-subhajit-paul-erp-automation.mp3?dest-id=23379",
+  "description": "In this episode, Subhajit Paul joins SE Radio host Kanchan Shringi to discuss how enterprise resource planning (ERP) systems work in practice and where machine learning and generative AI are beginning to fit into real-world ERP environments. Subhajit grounds the conversation in ERP fundamentals, explaining core business flows such as order-to-cash, procure-to-pay, and plan-to-produce, and why ERP systems are central to running large enterprises. He then walks through the realities of ERP implementation, sharing examples of both successful and failed projects and highlighting common challenges around testing, process coverage, integrations, and change management. The discussion also explores how AI is being applied in ERP today, including practical ML use cases such as inventory optimization and anomaly detection, as well as emerging generative AI and agent-based approaches. Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 3587,
+  "guid": "d6293a22-b48b-4ca2-83c3-d47dea09c05e",
+  "item_id": "software-engineering-radio-b64596e8e379",
+  "published_at": "2026-02-12T00:02:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 707: Subhajit Paul on ERP Automation and AI",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/02/se-radio-707-subhajit-paul-on-erp-automation-and-ai/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/733-max-corbridge-securing-ai-agents.mp3?dest-id=23379",
+  "description": "Max Corbridge, an ethical hacker and red teamer who is co-founder and CEO of Secure Agentics, speaks with SE Radio host Amey Ambade about how AI agents get attacked and what engineers can actually do to defend them. Drawing on years of offensive security work, Corbridge frames agents as a new and largely undefended attack surface: the industry has handed AI systems autonomy and the ability to act in the real world while carrying forward prompt injection, a flaw the frontier labs themselves describe as effectively unsolvable. He likens the moment to the early, lawless days of the web, when SQL injection was everywhere and adoption ran far ahead of security. The conversation builds from first principles as Corbridge explains what separates an agent from ordinary software and why three properties make them hard to secure: they are non-deterministic, their language-model core can be coerced, and they are increasingly interconnected through MCP servers, other agents, databases, and email. T",
+  "duration_seconds": 3609,
+  "guid": "ab711e78-76cb-4b87-b53c-0c26fd3839e6",
+  "item_id": "software-engineering-radio-1f794d57e11b",
+  "published_at": "2026-08-13T21:51:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 733: Max Corbridge on Securing AI Agents",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/08/se-radio-733-max-corbridge-on-securing-ai-agents/"
+}

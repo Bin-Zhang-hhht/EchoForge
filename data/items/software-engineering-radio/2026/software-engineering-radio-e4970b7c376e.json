@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/706-murat-erder-eoin-woods-continuous-architecture.mp3?dest-id=23379",
+  "description": "Murat Erder, CTO for Financial Services at Valtech in Europe, and Eoin Woods, independent consultant in the field of software architecture, join host Giovanni Asproni to talk about Continuous Architecture—an approach to software design where architectural decisions are made and refined continuously throughout the lifecycle of a system, instead of up front in a big design phase. The show starts with a definition of Continuous Architecture and a description of the six principles underpinning it. Following that is an explanation of the main reasons and advantages of this approach, which finishes with some hints on how to get started using it. During the conversation, they explore several key points, including how to empower teams to take architectural decisions and recording those decisions; using feedback loops to refine the architecture; the role of software architects and architectural governance; the importance of focusing on quality requirements; and the impact of artificial intellig",
+  "duration_seconds": 3469,
+  "guid": "87a93569-d0f3-4118-8b6c-2fbacaedec90",
+  "item_id": "software-engineering-radio-e4970b7c376e",
+  "published_at": "2026-01-27T23:41:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 705: Murat Erder and Eoin Woods on Continuous Architecture",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/01/se-radio-705-murat-erder-and-eoin-woods-on-continuous-architecture/"
+}

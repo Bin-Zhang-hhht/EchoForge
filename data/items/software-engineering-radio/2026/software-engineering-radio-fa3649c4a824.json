@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/734-sathiesh-veera-engineering-data-protection-guardrails.mp3?dest-id=23379",
+  "description": "Sathiesh Veera, a GenAI Solutions Architect at At&T, speaks with host Brijesh Ammanath about the data-protection guardrails required when using LLMs. The core issue is that LLMs sit outside the cloud tenant in most enterprise AI deployments, which means that data leaves the company's perimeter with every prompt, RAG retrieval, and tool call. Contractual agreements can restrict the data that LLM vendors are allowed to use for training and audits, but they don't stop prompt injection or unintended exposure as company data is often shared to LLMs via natural language queries, APIs, tool and function calls, and MCPs. Sathiesh discusses ways to employ security measures and data filtering at each layer to conform to data security policies and protect the data.",
+  "duration_seconds": 2552,
+  "guid": "40f618a6-82a9-4bcd-8c19-2aa1531e997d",
+  "item_id": "software-engineering-radio-fa3649c4a824",
+  "published_at": "2026-08-19T21:38:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 734: Sathiesh Veera on Engineering Data-Protection Guardrails with LLMs",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/08/se-radio-734-sathiesh-veera-on-engineering-data-protection-guardrails-with-llms/"
+}

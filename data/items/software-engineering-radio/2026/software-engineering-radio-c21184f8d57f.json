@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/711-scott-hanselman-ai-assisted-dev-tools.mp3?dest-id=23379",
+  "description": "Scott Hanselman, the VP of Developer Community at Microsoft, speaks with host Jeremy Jung about AI-assisted coding. They start by considering how the tools are a progression from syntax highlighting and autocomplete. Scott describes the ambiguity and non-determinism of agentic loops, why vague high-level prompts usually don't give good results, and the need to express intent and steer the models. He explains how knowing fundamentals helps you create better plans and know what to ask the models, and how to treat agents differently based on your knowledge level. He discusses his experience porting Windows Live Writer to a modern .NET stack, and defining success and providing tools for models to verify their work. Finally, he explains why you need to read and understand generated code in production environments, plus methods for sandboxing agents.",
+  "duration_seconds": 3735,
+  "guid": "257cbd70-5474-4df2-bceb-5f7dc9797a03",
+  "item_id": "software-engineering-radio-c21184f8d57f",
+  "published_at": "2026-03-11T19:57:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 711: Scott Hanselman on AI-Assisted Development Tools",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/03/se-radio-711-scott-hanselman-on-ai-assisted-development-tools/"
+}

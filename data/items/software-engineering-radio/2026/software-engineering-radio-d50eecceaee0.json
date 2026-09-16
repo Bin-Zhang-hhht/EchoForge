@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/720-martin-dilger-eventsourcing.mp3?dest-id=23379",
+  "description": "Martin Dilger, founder and CEO of Nebuilt GmbH, speaks with host Giovanni Asproni about event sourcing -- a software architecture pattern in which, rather than storing just the current state of your data, you store a sequence of events that represents every change that has ever happened in the system. This episode starts by introducing the vocabulary around event sourcing, highlighting its relationship with event modeling, event streaming, and event storming. Martin describes some of the pros and cons of the approach, including which systems it is most suitable for. The conversation ends with guidance how to get started with event sourcing, for both greenfield and legacy systems.",
+  "duration_seconds": 3336,
+  "guid": "e5b25dbe-1ac3-4016-a763-c0b3eac634fc",
+  "item_id": "software-engineering-radio-d50eecceaee0",
+  "published_at": "2026-05-13T21:20:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 720: Martin Dilger on Understanding Eventsourcing",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/05/se-radio-720-martin-dilger-on-understanding-eventsourcing/"
+}

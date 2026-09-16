@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/719-birol-yildiz-agentic-ai-sre.mp3?dest-id=23379",
+  "description": "Birol Yildiz, CEO and co-founder of iLert, joins host Kanchan Shringi to explore how iLert built an AI SRE — an autonomous agent for handling production incidents — and what the experience revealed about building AI agents in the real world. Birol explains why incident response is a fundamentally agentic problem, where the unpredictability of novel incidents makes rule-based runbooks insufficient and reasoning models essential. He describes how the AI SRE evolved from an early browser-based approach to its current architecture, built around two key ingredients: reasoning models and the Model Context Protocol. The conversation examines the four layers of the AI SRE in depth: an orchestration layer that routes requests and abstracts model providers; a knowledge layer built on plain text memory and agentic search rather than vector databases; an evaluation framework based on recorded live investigations replayed against new model versions; and a human-in-the-loop constraint layer. The epi",
+  "duration_seconds": 3237,
+  "guid": "469b9647-5f4b-41e8-9f4c-f68fc6b07c7b",
+  "item_id": "software-engineering-radio-4c30b5375e14",
+  "published_at": "2026-05-06T20:54:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 719: Birol Yildiz on Building an Agentic AI SRE",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/05/se-radio-719-birol-yildiz-on-building-an-agentic-ai-sre/"
+}

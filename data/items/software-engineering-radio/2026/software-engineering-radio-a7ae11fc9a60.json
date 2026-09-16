@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/706-chez-rabinovich-observability-tool-migration-techniques.mp3?dest-id=23379",
+  "description": "Yechezkel \"Chez\" Rabinovich, CTO and co-founder at Groundcover, joins SE Radio host Brijesh Ammanath to discuss the key challenges in migrating observability toolsets. The episode starts with a look at why customers might seek to migrate their existing Observability stack, and then Chez explains some approaches and techniques for doing so. The discussion turns to OpenTelemetry, including what it is and how Groundcover helps with the migration of dashboards, monitors, pipelines, and integrations that are proprietary to vendor products. Chez describes methods for validating a successful migration, as well as metrics and signals that engineering teams can use to assess the migration health. Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 2353,
+  "guid": "ba99779d-c4e7-41ae-9a9e-e8d7d79c3a68",
+  "item_id": "software-engineering-radio-a7ae11fc9a60",
+  "published_at": "2026-02-04T19:36:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 706: Yechezkel \"Chez\" Rabinovich on Observability Tool Migration Techniques",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/02/se-radio-706-yechezkel-chez-rabinovich-on-observability-tool-migration-techniques/"
+}

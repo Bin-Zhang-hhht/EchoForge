@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/723-dave-arlie-linux-kernel-maintenance.mp3?dest-id=23379",
+  "description": "Dave Airlie, a Distinguished Engineer at Red Hat, speaks with host Gregory M. Kapfhammer about Linux kernel maintenance. After over-viewing the scale and structure of the Linux kernel, they dive deep into the review and validation of kernel patches, drawing on examples from the GPU subsystem. After discussing the features and benefits of the Linux kernel's maintenance model, they also explore kernel maintenance best practices and the supporting tools for these practices. Dave and Gregory also discuss topics such as the integration of Rust code in the Linux kernel and the ways in which AI-driven code review are influencing kernel maintenance.",
+  "duration_seconds": 4167,
+  "guid": "1940406d-9087-4f1f-b32d-d994141eccbd",
+  "item_id": "software-engineering-radio-c5266bac145a",
+  "published_at": "2026-06-03T22:06:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 723: Dave Airlie on Linux Kernel Maintenance",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/06/se-radio-723-dave-airlie-on-linux-kernel-maintenance/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/735-vivek-yadav-regression-testing-microservices.mp3?dest-id=23379",
+  "description": "Vivek Yadav, an engineering manager at the payment company Stripe, speaks with host Adi Narayan about building regression testing for microservices. Drawing on his work estimating network costs for card payments, Vivek explains why unit and integration tests fall short when a single transaction's cost can depend on 100+ parameters across card networks, countries, and merchant types. He describes Stripe's approach: structuring services so that core logic is stateless and separated from I/O, then wrapping that logic in an Apache Spark job that replays historical transactions from cold storage to compare old versus new outputs at a granular, per-transaction level. This allows Stripe to validate major migrations with far more confidence and speed than a traditional shadow-rollout, and it now doubles as a tool for assessing network rule changes, debugging incidents, and even showing customers how a pricing change will affect their costs. The episode closes by noting the same pattern applies",
+  "duration_seconds": 3546,
+  "guid": "71fa6ba8-3666-430c-8e94-0089d2de05ca",
+  "item_id": "software-engineering-radio-9c3b9587e50a",
+  "published_at": "2026-08-26T20:25:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 735: Vivek Yadav on Regression Testing Microservices",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/08/se-radio-735-vivek-yadav-on-regression-testing-microservices/"
+}

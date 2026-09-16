@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/712-dan-lorenc-sigstore.mp3?dest-id=23379",
+  "description": "Dan Lorenc, co-founder and CEO of Chainguard, joins host Priyanka Raghavan to explore Sigstore and its role in securing the software supply chain. They unpack the challenges of supply chain security, including verifying the origin and integrity of software artifacts, and explain the problems Sigstore is designed to solve. The conversation goes under the hood to examine how Sigstore works, covering key components such as code signing, verification, the certificate authority model, and transparency logs—often compared conceptually to blockchain for their auditability. The episode also highlights real-world adoption, community resources for getting started, and closes with a discussion of Chainguard Images and how development teams can use them to build with more secure base images. This episode is sponsored by IEEE Computer Society.",
+  "duration_seconds": 2344,
+  "guid": "2cb268c1-7be5-4f88-a6be-b5ad9c792f94",
+  "item_id": "software-engineering-radio-3d8c8af0cbe0",
+  "published_at": "2026-03-18T23:22:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 712: Dan Lorenc on Sigstore",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/03/se-radio-712-dan-lorenc-on-sigstore/"
+}

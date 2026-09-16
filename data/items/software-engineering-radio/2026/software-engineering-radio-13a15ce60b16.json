@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/702-derick-schaefer-modern-clis.mp3?dest-id=23379",
+  "description": "Derick Schaefer, author of CLI: A Practical Guide to Creating Modern Command-Line Interfaces, talks with host Robert Blumen about command-line interfaces old and new. Starting with a short review of the origin of commands in the early unix systems, they trace the evolution of commands into modern CLIs. Following the historic rise, fall, and re-emergence of CLIs, they consider innovative examples such as git, github, WordPress, and warp. Schaefer clarifies whether commands are the same as CLIs and then discusses a range of topics, including implementation languages, packages in the golang ecosystem for CLI development, CLIs and APIs, CLIs and AIs, AI tooling versus MCP, the object-command pattern, command flags, API authentication, whether CLIs should be stateless, and output formats - json, rich text. Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 2885,
+  "guid": "5294562e-4c39-4ff0-8a36-636461826278",
+  "item_id": "software-engineering-radio-13a15ce60b16",
+  "published_at": "2026-01-07T23:11:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 702: Derick Schaefer on Modern CLIs",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/01/se-radio-702-derick-schaefer-on-modern-clis/"
+}

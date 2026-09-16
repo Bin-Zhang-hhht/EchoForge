@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/732-jason-gorman-effective-ai-software-development.mp3?dest-id=23379",
+  "description": "Jason Gorman, a software development expert and founder of Codemanship, joins host Giovanni Asproni to explore how best to use AI in software development. They start by considering how established technical practices — test-driven development, modularization, continuous integration, and continuous reviews — become more important, not less, when working with AI assistance. These practices help address several key limitations of LLMs, including keeping context windows as small as possible. Looking at AI's impact on team productivity, Jason offers some practical advice for teams to introduce AI tools into their workflows. The episode also explores spec-driven development, agentic programming, and the importance of writing readable, understandable code — even when it's AI-generated. Finally, Jason and Giovanni look at emerging research into the cognitive downsides of over-reliance on AI, and what developers can do about it.",
+  "duration_seconds": 3462,
+  "guid": "ac4b78a7-e212-431c-aa51-cd7a142d05f2",
+  "item_id": "software-engineering-radio-029c279ec299",
+  "published_at": "2026-08-05T19:38:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 732: Jason Gorman on The Effective Use of AI For Software Development",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/08/se-radio-732-jason-gorman-on-the-effective-use-of-ai-for-software-development/"
+}

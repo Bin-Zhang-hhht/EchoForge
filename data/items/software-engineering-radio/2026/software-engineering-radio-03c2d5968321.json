@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/724-jure-leskovec-relational-graph-models.mp3?dest-id=23379",
+  "description": "Jure Leskovec, Professor of Computer Science at Stanford University and Chief Scientist at Kumo.ai, speaks with host Sriram Panyam about relational and graph language models and their transformative impact on enterprise decision-making and predictive modeling. Jure begins by establishing the critical importance of predictive modeling across industries - from fraud detection in financial institutions to customer churn prediction, lifetime value estimation, product recommendations, and healthcare risk assessment. He notes that while AI has made remarkable advances in natural language understanding and computer vision, predictive modeling over enterprise operational data stored in relational databases has been largely left behind, still relying on 30-year-old machine learning approaches that are expensive, time-consuming, and require manual feature engineering. His proposed solution to the fundamental problem with current approaches is relational deep learning and relational transformers.",
+  "duration_seconds": 3732,
+  "guid": "7fdc4fd8-0419-47cc-a81d-c03453d99f08",
+  "item_id": "software-engineering-radio-03c2d5968321",
+  "published_at": "2026-06-10T21:52:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 724: Jure Leskovec on Relational Graph and Foundational Models",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/06/se-radio-724-jure-leskovec-on-relational-graph-and-foundational-models/"
+}

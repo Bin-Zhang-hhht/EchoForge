@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/714-costa-alexoglou-remote-pair-programming.mp3?dest-id=23379",
+  "description": "Costa Alexoglou, co-founder of the open source Hopp pair-programming application, talks with host Brijesh Ammanath about remote pair programming. They start with a quick introduction to pair programming and its importance to software development before discussing the various problems with the current toolset available and the challenges that tool developers face for enabling pair programming. They consider the key features necessary for a good pair-programming tool, and then Costa describes the journey of building Hopp and the challenges faced while building it.",
+  "duration_seconds": 3087,
+  "guid": "724f7d0d-a916-4e4c-a914-538690c7fd32",
+  "item_id": "software-engineering-radio-0fbd6051fe80",
+  "published_at": "2026-04-01T21:26:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 714: Costa Alexoglou on Remote Pair Programming",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/04/se-radio-714-costa-alexoglou-on-remote-pair-programming/"
+}

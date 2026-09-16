@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/718-will-sentance-js-modernization.mp3?dest-id=23379",
+  "description": "Will Sentance, educator and co-founder of Codesmith, joins SE Radio's Adi Narayan to discuss the evolution of JavaScript and modern best practices. They begin with JavaScript's origins as a simple scripting language and its growth into the backbone of modern web development, highlighting the core theme of the \"don't break the web\" constraint. The requirement that JavaScript must remain backward-compatible has shaped everything from naming decisions (e.g., flat instead of flatten) to the introduction of Symbols as a collision-safe way to extend objects. Will explains how the TC39 group uses the open-source community as a filtration system, absorbing user land patterns (like those from Lodash or Moment) into the standard library only once demand is proven. The upcoming Temporal API is highlighted as a major win for native date/time handling. On the engine side, Will discusses the shift toward monomorphic object shapes in the V8 JavaScript engine for better just-in-time (JIT) compiler per",
+  "duration_seconds": 3523,
+  "guid": "ef1f9678-07bd-438d-a575-2ea5d912b43e",
+  "item_id": "software-engineering-radio-426ae4277d12",
+  "published_at": "2026-04-29T16:54:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 718: Will Sentance on JS Modernization",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/04/se-radio-718-will-sentance-on-js-modernization/"
+}

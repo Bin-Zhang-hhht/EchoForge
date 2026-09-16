@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/730-birgitta-boeckler-harness-engineering.mp3?dest-id=23379",
+  "description": "Birgitta Boeckeler, a Distinguished Engineer and consultant focused on AI-assisted software delivery at Thoughtworks, joins host Priyanka Raghavan for a deep dive into harnesses for AI agents. The episode begins by unpacking the concept of harnesses and harness engineering before exploring the core building blocks — guides and sensors — that help AI agents operate more reliably in engineering environments. Priyanka and Birgitta discuss practical implementations of harnesses in real-world workflows, including the use of guides with .MD files and sensors with tools such as SonarQube and Semgrep, which steer agent behavior. The episode also explores how harnesses integrate with existing CI/CD pipelines and pull-request processes. Birgitta describes how stronger harnesses can improve trust in AI-generated code, while emphasizing that harnesses themselves require continuous maintenance as underlying foundation models evolve. The episode concludes with a thoughtful discussion on accountabili",
+  "duration_seconds": 3254,
+  "guid": "9d080688-7aaf-4eb6-bbc0-cc24d879ab6b",
+  "item_id": "software-engineering-radio-9ca6a7d65f75",
+  "published_at": "2026-07-22T21:17:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 730: Birgitta Boeckeler on Harness Engineering for AI Agents",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/07/se-radio-730-birgitta-boeckeler-on-harness-engineering-for-ai-agents/"
+}

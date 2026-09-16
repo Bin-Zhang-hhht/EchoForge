@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/726-sam-kingsley-the-swagger-ecosystem.mp3?dest-id=23379",
+  "description": "Scott Kingsley, a VP of Engineering at SmartBear, speaks with host Gregory Kapfhammer about the Swagger ecosystem. They discuss the user interface, editor, and Swagger CodeGen and how these tools support the creation and documentation of OpenAPI-compatible APIs. Scott describes how Swagger fits into frameworks like FastAPI, as well as how Swagger APIs can be exposed through the Model Context Protocol (MCP). The discussion closes with best practices for designing and testing APIs and the role that APIs play in a landscape in which AI agents are building and interacting with APIs.",
+  "duration_seconds": 3150,
+  "guid": "0470335f-e72e-45ef-8f46-162096df8474",
+  "item_id": "software-engineering-radio-8d95c59cb5bb",
+  "published_at": "2026-06-24T23:09:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 726: Scott Kingsley on the Swagger Ecosystem",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/06/se-radio-726-scott-kingsley-on-the-swagger-ecosystem/"
+}

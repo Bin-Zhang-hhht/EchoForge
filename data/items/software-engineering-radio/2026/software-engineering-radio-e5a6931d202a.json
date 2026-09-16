@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/710-marc-brooker-spec-driven-ai-dev.mp3?dest-id=23379",
+  "description": "Marc Brooker, VP and Distinguished Engineer at AWS, joins host Kanchan Shringi to explore specification-driven development as a scalable alternative to prompt-by-prompt \"vibe coding\" in AI-assisted software engineering. Marc explains how accelerating code generation shifts the bottleneck to requirements, design, testing, and validation, making explicit specifications the central artifact for maintaining quality and velocity over time. He describes how specifications can guide both code generation and automated testing, including property-based testing, enabling teams to catch regressions earlier and reason about behavior without relying on line-by-line code review. The conversation examines how spec-driven development fits into modern SDLC practices; how AI agents can support design, code review, documentation, and testing; and why managing context is now one of the hardest problems in agentic development. Marc shares examples from AWS, including building drivers and cloud services usi",
+  "duration_seconds": 3807,
+  "guid": "7c6f4a9b-2813-4e21-a443-c2ef2224238f",
+  "item_id": "software-engineering-radio-e5a6931d202a",
+  "published_at": "2026-03-04T22:37:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 710: Marc Brooker on Spec-Driven AI Dev",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/03/se-radio-710-marc-brooker-on-spec-driven-ai-dev/"
+}

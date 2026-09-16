@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/736-sahil-walia-apache-iceberg.mp3?dest-id=23379",
+  "description": "Sahil Walia, Senior Technical Architect at Snowflake, joins host Robert Blumen for a deep dive into Apache Iceberg. The conversation covers OLAP, data formats, data lakes and lake houses, Iceberg as a data format, columnar storage, use cases, reference implementation, read/write, how Iceberg structures metadata, indexing, query planning and performance issues.",
+  "duration_seconds": 3087,
+  "guid": "539d9006-9eb5-4569-9bea-1e8d66cf65c3",
+  "item_id": "software-engineering-radio-0bd9e489b729",
+  "published_at": "2026-09-03T18:51:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 736: Sahil Walia on Apache Iceberg",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/09/se-radio-736-sahil-walia-on-apache-iceberg/"
+}

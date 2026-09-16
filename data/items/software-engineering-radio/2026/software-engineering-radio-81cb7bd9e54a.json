@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/721a-rob-moffat-risk-first-development.mp3?dest-id=23379",
+  "description": "In this episode, Rob Moffat, author of Risk-First Software Development and chief technical architect at the FinTech Open Source Software Foundation (FINOS), speaks with host Brijesh Ammanath about how all of software development is actually risk management. Rob introduces the concept of 'risk-first software development,' which sits in the context of existing methodologies like scrum and kanban. Showcasing multiple real-world project patterns to illustrate how things can go wrong when risk is ignored, he makes the case for why risk should be the primary lens behind every development decision, from architecture to prioritization. Through various examples, he shows how every developer action can be viewed as a risk trade-off and why making that explicit can lead to better outcomes. The conversation takes a deep dive into the risk-first framework and how teams can apply it in their existing processes.",
+  "duration_seconds": 3151,
+  "guid": "7e1c4b1b-7849-4deb-b0ed-be46b0c86fa5",
+  "item_id": "software-engineering-radio-81cb7bd9e54a",
+  "published_at": "2026-05-20T20:43:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 721: Rob Moffat on Risk-First Software Development",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/05/se-radio-721-rob-moffat-on-risk-first-software-development/"
+}

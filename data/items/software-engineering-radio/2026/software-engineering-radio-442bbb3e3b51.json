@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/717-eric-tschetter-decoupling-observability.mp3?dest-id=23379",
+  "description": "In this episode, host Amey Ambade sits with Eric Tschetter, co-founder of Apache Druid and Chief Architect at Imply, to dissect the critical move toward Decoupling Observability. To begin, they define three pillars—logs, metrics, and traces—and consider why the rise of microservices has made traditional, tightly coupled stacks a major source of pain. Such coupled systems can lead to issues such as vendor lock-in, prohibitive scaling costs, and operational complexity. Drawing parallels to the Business Intelligence world's separation, Tschetter presents an architectural solution with four distinct layers: Ingest/Route, Data Storage, Query/Compute, and Visualization. This framework aims to provide flexibility to combat the limitations of monolithic observability tools. The conversation moves into the practical challenges and significant benefits of this decoupled model, focusing heavily on data portability and the role of technologies such as OpenTelemetry in standardizing schemas so that",
+  "duration_seconds": 3613,
+  "guid": "f9d780af-270d-484c-8114-204bf7c43913",
+  "item_id": "software-engineering-radio-442bbb3e3b51",
+  "published_at": "2026-04-23T00:21:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 717: Eric Tschetter on Decoupling Observability",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/04/se-radio-717-eric-tschetter-on-decoupling-observability/"
+}

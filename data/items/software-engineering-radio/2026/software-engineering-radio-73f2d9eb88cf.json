@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/708-jens-gustedt-c-lang-2026.mp3?dest-id=23379",
+  "description": "Jens Gustedt, author of Modern C, senior scientist at the French National Institute for Computer Science and Control (INRIA), deputy director of the ICube lab, and former co-editor of the ISO C standard, speaks with SE Radio host Gavin Henry about the past 5 years in C, C2Y, and C23. They discuss what has happened in the C world since we last spoke 5 years ago, including how the latest C standard is going and what to expect. Jens discusses how the latest changes in the Modern C book apply to you, how a C transition header can help you get up to C23 if you're not there already, and presents a comprehensive approach for program failure. This episode explores C2Y, C23, bit-precise types, stdckdint.h, stdbit.h, 128 bit types, enumeration types, nullptr, Syntactic annotations, auto and typeof keywords, if let, as well as what's being added and removed in C2Y (possibly called \"C28\"), and Gustedt's four categories of program failure. Brought to you by IEEE Computer Society and IEEE Software m",
+  "duration_seconds": 3567,
+  "guid": "c59264d1-3f04-43c9-bbcf-7e4221867586",
+  "item_id": "software-engineering-radio-73f2d9eb88cf",
+  "published_at": "2026-02-19T23:19:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 708: Jens Gustedt on C in 2026",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/02/se-radio-708-jens-gustedt-on-c-in-2026/"
+}

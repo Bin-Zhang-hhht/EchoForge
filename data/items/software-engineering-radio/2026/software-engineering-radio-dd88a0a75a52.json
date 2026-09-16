@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/703-sahaj-garg-low-latency-ai.mp3?dest-id=23379",
+  "description": "In this episode, Sahaj Garg, CTO of wispr.ai, joins SE Radio host Robert Blumen to talk about the challenges of building low-latency AI applications. They discuss latency's effect on consumer behavior as well as interactive applications. The conversation explores how to measure latency and how scale impacts it. Then Sahaj and Robert shift to themes around AI, including whether \"AI\" means LLMs or something broader, as they look at latency requirements and challenges around subtypes of AI applications. The final part of the episode explores techniques for managing latency in AI: speed vs accuracy trade-offs; speed vs cost; latency vs cost; choosing the right model; reducing quantization; distillation; and guessing + validating. Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 3290,
+  "guid": "58111508-6983-451c-b211-4388f4e38f8c",
+  "item_id": "software-engineering-radio-dd88a0a75a52",
+  "published_at": "2026-01-14T17:25:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 703: Sahaj Garg on Low Latency AI",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/01/se-radio-702-derick-schaefer-on-modern-clis/"
+}

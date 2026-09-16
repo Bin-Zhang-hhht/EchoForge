@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/713-hector-ramon-jimenez-gui-library-in-rust.mp3?dest-id=23379",
+  "description": "Héctor Ramón Jiménez, creator of iced, an Elm-inspired, cross-platform GUI toolkit for Rust, speaks with SE Radio host Gavin Henry about building a GUI library in Rust. Héctor discusses why he created iced, what was needed, the process required to paint on the screen across different operating systems, how multi-operating systems are handled, and what the iced testing ecosystem is like. This episode explores the Elm architecture, how iced compares to other frameworks, what the core components of iced are, Elements, asynchronous functions, state, threads, 3d rendering, headless mode testing, end-to-end testing, test recorders, runtime emulators, ice test syntax, example apps, tiny-skia, DirectX, Vulkan, Metal, winit, wgpu, egui, tauri, comet, and why Android and iOS support is hard.",
+  "duration_seconds": 3549,
+  "guid": "4d5a8ceb-a647-460d-9bc2-9941b6c31ce5",
+  "item_id": "software-engineering-radio-dc43913a4d4b",
+  "published_at": "2026-03-25T21:42:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 713: Héctor Ramón Jiménez on Building a GUI library in Rust",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/03/se-radio-713-hector-ramon-jimenez-on-building-a-gui-library-in-rust/"
+}

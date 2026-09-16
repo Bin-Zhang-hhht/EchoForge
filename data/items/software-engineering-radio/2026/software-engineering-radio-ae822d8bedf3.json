@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/728-clare-liguori-aws-strand-sdk.mp3?dest-id=23379",
+  "description": "Clare Liguori, a Senior Principal Engineer who works on developer tooling and agentic AI at Amazon Web Services, speaks with host Sri Panyam about the Amazon Strands Agents SDK. This episode explores the philosophy, design decisions, and emerging patterns behind building production-grade AI agents. Clare frames any agent as three core components: a model, a set of tools, and a prompt. During this interview, she describes the origin story of Strands, the model-driven approach vs. workflows and custom orchestration, steering hooks, tools and MCP, sub-agents and multi-agents, memory layers, production readiness, testing and evaluation starting with use cases where trajectories can be evaluated deterministically, and anti-patterns for newcomers. She describes what's next for Strands, and offers some closing advice for getting results from working with agents",
+  "duration_seconds": 4119,
+  "guid": "938a88ad-f0d8-49eb-827d-93c6c300b7b5",
+  "item_id": "software-engineering-radio-ae822d8bedf3",
+  "published_at": "2026-07-08T19:42:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 728: Clare Liguori on AWS Strands SDK for AI Agents",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strand-sdk-for-ai-agents/"
+}

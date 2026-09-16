@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/709-bryan-cantrill-oxide-computer-control-planes.mp3?dest-id=23379",
+  "description": "Bryan Cantrill, the co-founder and CTO of Oxide Computer company, speaks with host Jeremy Jung about challenges in deploying hardware on-premises at scale. They discuss the difficulty of building up Samsung data centers with off-the-shelf hardware, how vendors silently replace components that cause performance problems, and why AWS and Google build their own hardware. Bryan describes the security vulnerabilities and poor practices built into many baseboard management controllers, the purpose of a control plane, and his experiences building one in NodeJS while struggling with the runtime's future during his time at Joyent. He explains why Oxide chose to use Rust for its control plane and the OpenSolaris-based Illumos as the operating system for their vertically integrated rack-scale hardware, which is designed to help address a number of these key challenges. Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 3902,
+  "guid": "e431a750-1103-49e6-9a2f-a3bdbc13940b",
+  "item_id": "software-engineering-radio-2f2d215e2394",
+  "published_at": "2026-02-26T19:42:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 709: Bryan Cantrill on the Data Center Control Plane",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/02/se-radio-709-bryan-cantrill-on-the-data-center-control-plane/"
+}

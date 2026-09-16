@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/715-sahaj-garg-ambiguity-human-input.mp3?dest-id=23379",
+  "description": "Sahaj Garg, co-founder and CTO of Wispr, a voice-to-text AI that turns speech into polished writing, talks with host Amey Ambade about designing systems for the ambiguity that's inherent in human input (text, voice, multimodal). Sahaj focuses on concrete architectural and training strategies for building robust AI systems. This episode examines the problem of ambiguity, where it shows up, building robust systems, personalization, communicating uncertainty, and evaluation. The conversation starts by exploring the difference between inherent and reducible ambiguity, major categories of ambiguity including lexical, syntactic, and pragmatic, and the additional sources of ambiguity in voice, such as homophones and accents. Garg details how to build systems through model training, including providing additional context and constructing datasets for good annotation. They discuss personalization with a focus on \"revealed preferences\"—learning from user behavior without explicit feedback—and fi",
+  "duration_seconds": 2882,
+  "guid": "053ccc57-b3a9-4554-bf9b-a56f2c536aae",
+  "item_id": "software-engineering-radio-73b071524aee",
+  "published_at": "2026-04-08T22:39:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 715: Sahaj Garg on Designing for Ambiguity in Human Input",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/04/se-radio-715-sahaj-garg-on-designing-for-ambiguity-in-human-input/"
+}

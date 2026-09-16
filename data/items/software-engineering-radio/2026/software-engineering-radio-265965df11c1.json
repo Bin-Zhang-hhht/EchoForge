@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/716-martin-kleppman-local-first-software.mp3?dest-id=23379",
+  "description": "Martin Kleppmann, Associate Professor at the University of Cambridge and author of the best-selling O'Reilly book Designing Data-Intensive Applications, talks to host Adi Narayan about local-first collaboration software. They discuss what the term means, how it leads to simpler application architectures compared to the cloud-first model, and the benefits to developers and users from keeping all of their data on their own devices. Martin goes into detail about how applications can synchronize data with and without a server, as well as conflict-resolution techniques, and the open-source library Automerge, which implements CRDTs and developers can use out-of-the-box. He also clarifies what kinds of applications would be suitable for the local-first approach. In the context of AI, they discuss vibe coding, local-first apps, and how the conflict-resolution work that enables data to be synchronized between users can also work with human-AI collaboration.",
+  "duration_seconds": 3314,
+  "guid": "37cecd32-61cc-45db-9af0-b6fe9332818f",
+  "item_id": "software-engineering-radio-265965df11c1",
+  "published_at": "2026-04-15T22:15:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 716: Martin Kleppmann Local-First Software",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/04/se-radio-716-martin-kleppmann-local-first-software/"
+}

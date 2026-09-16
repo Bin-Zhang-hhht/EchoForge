@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/727-jeroen-janssens-thijs-nieuwdorp-using-polars.mp3?dest-id=23379",
+  "description": "Jeroen Janssens, Head of Developer Relations at Posit, and Thijs Nieuwdorp, a developer relations engineer at Polars, speak with host Gregory M. Kapfhammer about Polars, a Python package for transforming, analyzing, and visualizing data. After discussing the key features, they explore the implementation and use of the expressions data type provided by Polars. Along with comparing Polars to other data-manipulation packages like Pandas, they also share best practices for performing data analysis in Python with Polars. Jeroen, Thijs, and Gregory also discuss topics such as how to interface Polars with a SQL database.",
+  "duration_seconds": 3736,
+  "guid": "32ef49cb-aaf6-44f6-8788-b67ca29f5f26",
+  "item_id": "software-engineering-radio-e8010e4e3492",
+  "published_at": "2026-07-02T17:11:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 727: Jeroen Janssens and Thijs Nieuwdorp on Using Polars",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/07/se-radio-727-jeroen-janssens-and-thijs-nieuwdorp-on-using-polars/"
+}

@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/725-danny-yang-sam-goldman-pyrefly.mp3?dest-id=23379",
+  "description": "Danny Yang and Sam Goldman, both Software Engineers at Meta, speak with host Gregory M. Kapfhammer about the Rust-based Pyrefly type checker for Python. After a look at the foundational concepts for annotating and checking types for Python programs, Danny and Sam present a deep dive of the implementation of Pyrefly. While comparing and contrasting against various type checkers, they also describe how Pyrefly implements the language server protocol (LSP) for Python. The episode explores a range of other topics, including how to balance the features, performance, and language integrations of a type checker.",
+  "duration_seconds": 3291,
+  "guid": "2be3cca0-4aba-4f76-9334-fd31f7827869",
+  "item_id": "software-engineering-radio-6fb9831d118f",
+  "published_at": "2026-06-18T20:24:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 725: Danny Yang and Sam Goldman on the Pyrefly Type Checker",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/06/se-radio-725-danny-yang-and-sam-goldman-on-the-pyrefly-type-checker/"
+}

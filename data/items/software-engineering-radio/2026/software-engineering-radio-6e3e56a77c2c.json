@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/729-garth-mollet-ai-supply-chain-security.mp3?dest-id=23379",
+  "description": "Garth Mollet, Senior Principal Product Security Engineer and Technical Advisor for Product Security at Red Hat, joins host Robert Blumen for a discussion of AI supply chain security. They start with the basics of supply chain security, including the key components of the AI supply chain, and how it differs from the conventional software supply chain. Garth discusses whether the attacks target model weights or inference, and describes the most common attacks and what's in it for the attacker, whether exfiltration, credentials, sabotage, or resources. The episode also considers SPIFFE, SPIRE, attestation, workload identity, and whether AI has the equivalent of \"reproducible builds.\" Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 2897,
+  "guid": "74ebc480-b818-4ee2-849a-291486b7929e",
+  "item_id": "software-engineering-radio-6e3e56a77c2c",
+  "published_at": "2026-07-15T23:12:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 729: Garth Mollett on AI Supply Chain Security",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/07/se-radio-729-garth-mollett-on-ai-supply-chain-security/"
+}

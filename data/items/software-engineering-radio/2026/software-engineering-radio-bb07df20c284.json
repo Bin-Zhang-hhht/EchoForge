@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/722-dwayne-mcdaniel-secrets-management.mp3?dest-id=23379",
+  "description": "Dwayne McDaniel, developer advocate at GitGuardian.com, joins host Priyanka Raghavan to talk about the engineering challenges of secrets management. They explore what \"secrets\" really are in modern systems—far beyond passwords—including API keys, tokens, certificates, and machine identities, and how \"secret sprawl\" emerges across the SDLC. Drawing on reports from GitGuardian and Verizon, they discuss the growing scale of secret leaks and why credential abuse and phishing remain dominant attack vectors. They examine common leak points—from code repos and logs to CI/CD pipelines, containers, and SaaS integrations—and how cloud, DevOps, and AI tooling are amplifying risks. Priyanka quizzes Dwayne about recent supply chain attacks from pyPi and trivy ecosystems, highlighting recurring root causes like poor access control, long-lived credentials, and weak security hygiene. Finally, they consider detection, response, and modern solutions—short-lived credentials, secret scanning, and identity",
+  "duration_seconds": 3130,
+  "guid": "ed90bd13-92de-4c1a-b436-39d2ca44dce3",
+  "item_id": "software-engineering-radio-bb07df20c284",
+  "published_at": "2026-05-27T21:59:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 722: Dwayne McDaniel on the Engineering Challenges of Secrets Management",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/05/se-radio-722-dwayne-mcdaniel-on-the-engineering-challenges-of-secrets-management/"
+}
