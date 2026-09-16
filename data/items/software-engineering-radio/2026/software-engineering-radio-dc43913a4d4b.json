@@ -8,8 +8,8 @@
   "reason": null,
   "source_id": "software-engineering-radio",
   "source_name": "Software Engineering Radio",
-  "status": "pending",
+  "status": "processed",
   "title": "SE Radio 713: Héctor Ramón Jiménez on Building a GUI library in Rust",
-  "transcript_url": null,
+  "transcript_url": "https://se-radio.net/2026/03/se-radio-713-hector-ramon-jimenez-on-building-a-gui-library-in-rust/",
   "url": "https://se-radio.net/2026/03/se-radio-713-hector-ramon-jimenez-on-building-a-gui-library-in-rust/"
 }
