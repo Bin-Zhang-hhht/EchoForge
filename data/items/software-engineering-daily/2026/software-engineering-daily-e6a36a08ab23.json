@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/f0d2e5d8/b070c184.mp3",
+  "description": "Historically, databases were responsible for storing data and returning exact results in response to queries. However, AI is now bending that contract in a new direction. Applications increasingly expect structured and unstructured data to come together. This is pushing databases into territory that looks more like search, where relevance and ranking matter and results are no longer strictly exact. Agents are also beginning to write their own queries and even propose their own schemas, which raises new questions about how data should be structured, governed, and trusted. Sailesh Krishnamurthy is a VP of Engineering at Google, and in this episode he joins Matt Merrill to discuss his background, how databases have evolved over the past fifty years, and where the field is heading as AI reshapes how data is queried, structured, and trusted. Sponsorship inquiries: sponsor@softwareengineeringdaily.com The post Inside Google’s Database Infrastructure for the AI Era appeared first on Software ",
+  "duration_seconds": 4706,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9908",
+  "item_id": "software-engineering-daily-e6a36a08ab23",
+  "published_at": "2026-09-15T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Inside Google’s Database Infrastructure for the AI Era",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/inside-googles-database-infrastructure-for-the-ai-era/"
+}
