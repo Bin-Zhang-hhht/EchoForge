@@ -5,7 +5,7 @@ date: '2026-09-17'
 published_at: '2026-07-08'
 transcribed_at: '2026-09-17'
 model: 'GLM-5.3 Flash'
-source_url: 'https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strands-sdk-for-ai-agents/'
+source_url: 'https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strand-sdk-for-ai-agents/'
 source_name: 'Software Engineering Radio'
 input_type: video_agent_kit_asr
 summary: 'AWS 高级首席工程师 Clare Liguori 讲述 Strands Agents SDK 的由来与哲学：扔掉为旧模型搭建的脚手架、以 steering 钩子做到 600 次评测 100% 准确、轨迹当过程记忆，以及"别急着建 agent,先把数据变成 MCP"的反直觉建议。'
@@ -22,7 +22,7 @@ tags: [AI Agent, 开发者工具, LLM]
 >
 > 标签：[AI Agent](/tags/AI%20Agent/) [开发者工具](/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/) [LLM](/tags/LLM/)
 >
-> 🎧 [收听原节目](https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strands-sdk-for-ai-agents/)
+> 🎧 [收听原节目](https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strand-sdk-for-ai-agents/)
 
 ## 速读
 
@@ -62,7 +62,7 @@ Strands 的下一步是服务"在 harness 之上建 agent"的人:事件驱动的
 
 ## 来源与定位
 
-- 原始节目：[SE Radio 728: Clare Liguori on AWS Strands SDK for AI Agents](https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strands-sdk-for-ai-agents/)
+- 原始节目：[SE Radio 728: Clare Liguori on AWS Strands SDK for AI Agents](https://se-radio.net/2026/07/se-radio-728-clare-liguori-on-aws-strand-sdk-for-ai-agents/)
 - 定位：时间戳取自 ASR 逐字稿。
   - agent 三要素与超越聊天的用例（00:00:54–00:02:33）
   - Claude 2 时代的解析地狱与反馈重试循环（00:02:40–00:04:48）
