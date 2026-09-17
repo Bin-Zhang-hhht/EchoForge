@@ -8,8 +8,8 @@
   "reason": null,
   "source_id": "software-engineering-radio",
   "source_name": "Software Engineering Radio",
-  "status": "pending",
+  "status": "processed",
   "title": "SE Radio 709: Bryan Cantrill on the Data Center Control Plane",
-  "transcript_url": null,
+  "transcript_url": "https://se-radio.net/2026/02/se-radio-709-bryan-cantrill-on-the-data-center-control-plane/",
   "url": "https://se-radio.net/2026/02/se-radio-709-bryan-cantrill-on-the-data-center-control-plane/"
 }
