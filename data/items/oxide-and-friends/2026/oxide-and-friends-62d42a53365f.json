@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/27f44a32/c648798d.mp3",
+  "description": "When the supply chain crunch catches up with you, sometimes a tiny resistor the size of a fleck of pepper is the difference between a world-class computer and... e-waste. Members of the Oxide operations and electrical engineering teams join Bryan and Adam to discuss how close we came to stopping production, for want of a resistor. In addition to Bryan Cantrill and Adam Leventhal, speakers included Robert \"RFK\" Keith, Eric Aasen, Scott Tagwerker, and Steve Tuck. Previously, on Oxide and Friends: OxF s06e12 - Rooting for the Home Team with Paul Freedman and Bryan Carmel OxF s06e06 - When Nine Nines Isn't Enough OxF s02e12 - More Tales from the Bringup Lab Some of the topics we hit on, in the order that we hit them: Bryan's blog: The Contagion of Fear PRs needed! If we got something wrong or missed something, please file a PR! Our next show will likely be on Monday at 5p Pacific Time on our Discord server; stay tuned to our Mastodon feeds for details, or subscribe to this calendar. We'd l",
+  "duration_seconds": 5030,
+  "guid": "c69e7677-0e72-41ae-9b8b-bbbf86341c46",
+  "item_id": "oxide-and-friends-62d42a53365f",
+  "published_at": "2026-09-16T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "pending",
+  "title": "For Want of a Resistor",
+  "transcript_url": "https://share.transistor.fm/s/27f44a32/transcription",
+  "url": "https://share.transistor.fm/s/27f44a32"
+}

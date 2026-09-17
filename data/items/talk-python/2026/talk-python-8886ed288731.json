@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/563/getting-started-with-rust-as-python-devs.mp3",
+  "description": "Lint the entire CPython code base from scratch. It takes 0.3 seconds. Three blinks of an eye. That is ruff, and it is written in Rust. So are Pydantic, Polars, uv, and Granian. Rust shows up in Python three ways: tools that happen to be Rust, libraries Python imports, and servers that run Python inside Rust. This is Rust for Python developers, not Rust experts. Christopher Trudeau is back on Talk Python to discuss Rust and his latest course Up and Running with Rust. The core rule is that only one thing can own a value at a time. Pass it around freely in Python and the garbage collector cleans up. Do that in Rust and it will not compile.",
+  "duration_seconds": 4250,
+  "guid": "26546533-1714-44c3-93e9-c6be79604c8e",
+  "item_id": "talk-python-8886ed288731",
+  "published_at": "2026-09-16T16:07:43Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#563: Getting Started with Rust as Python Devs",
+  "transcript_url": "https://talkpython.fm/episodes/show/563/getting-started-with-rust-as-python-devs.vtt",
+  "url": "https://talkpython.fm/episodes/show/563/getting-started-with-rust-as-python-devs"
+}
