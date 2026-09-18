@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/c7d4938a/29f28e02.mp3",
+  "description": "Most AI agent setups today are built around a single session, where one user interacts with one agent at a time. However, that model breaks down when an agent has to serve a business, where thousands of requests can arrive at once and each session needs to be isolated, durable, and recoverable. Getting agents to run reliably at that scale has meant a lot of hand-rolled infrastructure beneath the agent itself. eve is an open source, cloud-native agent framework from Vercel that removes much of the agent scaling burden. In the eve framework, an agent is defined declaratively through configuration files and these files compile into infrastructure as code so the platform provisions only what the agent actually uses. Andrew Barba is a Member of Technical Staff at Vercel, and Shar Dara is the Product Lead for eve at Vercel. In this episode, they join Kevin Ball to discuss what it means for an agent framework to be cloud-native, why they chose to express agents in plain English, and their vie",
+  "duration_seconds": 3085,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9950",
+  "item_id": "software-engineering-daily-8f0699d6ce4b",
+  "published_at": "2026-09-17T06:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Scaling Agent Workloads at Vercel",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/scaling-agent-workloads-at-vercel/"
+}
