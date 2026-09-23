@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/564/eve-online-departs-for-python-3.mp3",
+  "description": "Every ship in EVE Online eventually undocks and leaves the station. This time, it's the whole game. EVE has run on Python 2 since it launched in 2003, all 2.4 million lines of it, on a custom Stackless interpreter that stopped at 3.8 and was archived last year. Destination: Python 3.12. The route runs through 6,500 lines of division that decide who wins a fight, and 100 gigabytes of pickled Python objects that have to survive the jump intact. Kristinn Sigurbergsson was on this show ten years ago. He's back, with Jamie Bannister, who is flying the EVE Online migration right now, and Thomas Dähling, who took EVE Frontier through first. In EVE, a destroyed ship is gone for good. There are no do-overs, and the universe has to stay online the whole way.",
+  "duration_seconds": 4072,
+  "guid": "ce3be7eb-ceac-47d1-b733-2a579f67b78c",
+  "item_id": "talk-python-7e7be7f9d817",
+  "published_at": "2026-09-22T18:24:30Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#564: EVE Online Departs for Python 3",
+  "transcript_url": "https://talkpython.fm/episodes/show/564/eve-online-departs-for-python-3.vtt",
+  "url": "https://talkpython.fm/episodes/show/564/eve-online-departs-for-python-3"
+}

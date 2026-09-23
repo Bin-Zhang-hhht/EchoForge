@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/3be322e1/333f2f5c.mp3",
+  "description": "Many real-world processes produce data as a continuous stream rather than as isolated records. Sensor readings, financial markets, and application telemetry all generate data this way. This kind of time-series data has a distinctive shape. It’s written far more often than it is updated, it accumulates continuously, and it is usually queried across ranges of time. Time-series databases are built specifically for this kind of workload. TimescaleDB is an open source database from Tiger Data that adds time-series capabilities to PostgreSQL. It’s implemented as a Postgres extension, so it introduces new functionality while preserving standard Postgres behavior and SQL. This lets a single Postgres-based system handle both transactional and analytical workloads without splitting data across multiple tools. Brandon Purcell is the Director of Product Management at Tiger Data. In this episode, Brandon joins Kevin Ball to discuss why time-series data breaks conventional databases, how hypertables",
+  "duration_seconds": 2903,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9967",
+  "item_id": "software-engineering-daily-3a9873227090",
+  "published_at": "2026-09-22T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Scaling Time-Series Workloads on Postgres",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/scaling-time-series-workloads-on-postgres/"
+}
