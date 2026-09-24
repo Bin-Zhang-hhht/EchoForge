@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/08e89b67/2283fb0b.mp3",
+  "description": "In episode 34 of Recsperts, I'm joined by Raghav Saboo, Staff Machine Learning Engineer at DoorDash and Tech Lead for Personalization and Search for New Verticals — groceries, convenience, retail, alcohol, pet supplies and more, beyond the original restaurant vertical. We discuss the particular challenges of personalized recommendation, ranking and search in quick commerce, recent trends in generative recommendations and the application of Semantic IDs to item ranking and query reformulation. Raghav's path into recommender systems started in chemical engineering before he moved into ML consulting, a Master's in Statistics, Machine Learning and Econometrics from Duke University, and building LLMs for new language launches on Amazon's Alexa AI, ahead of joining DoorDash. We start with the marketplace itself: DoorDash connects consumers, merchants and couriers, and growing it means balancing the interests of all three so that the platform stays healthy for everyone on it. Raghav walks me ",
+  "duration_seconds": 6210,
+  "guid": "cb5bcaf6-664b-40bc-8611-62f07ebd7a68",
+  "item_id": "recsperts-4aa6a8c25683",
+  "published_at": "2026-09-23T13:00:00Z",
+  "reason": null,
+  "source_id": "recsperts",
+  "source_name": "Recsperts",
+  "status": "pending",
+  "title": "#34: From Consumer Memory to Semantic IDs: Generative RecSys for Quick Commerce with Raghav Saboo",
+  "transcript_url": "https://share.transistor.fm/s/08e89b67/transcript.txt",
+  "url": "https://share.transistor.fm/s/08e89b67"
+}
