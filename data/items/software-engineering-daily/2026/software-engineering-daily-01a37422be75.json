@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/1d9b518b/945cb4e7.mp3",
+  "description": "Data retrieval is a fundamental challenge in AI systems, and the approaches for solving it are still evolving. Vector search was an early answer to the retrieval problem, but the rise of agentic systems has raised the stakes considerably. Agents issue queries at machine speed, decompose complex questions into parallel searches, and require retrieval infrastructure that can keep pace without becoming prohibitively expensive. Chroma is a company building open source infrastructure for AI applications, best known for its widely used database of the same name. The company also published the influential Context Rot paper, which documented how model performance degrades as context window utilization increases, and recently released Context One, a 20 billion parameter retrieval sub-agent trained to do agentic search at frontier model quality but at an order of magnitude lower cost and higher speed. Hammad Bashir is the CTO of Chroma, with a background spanning machine learning, computer visio",
+  "duration_seconds": 3140,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9973",
+  "item_id": "software-engineering-daily-01a37422be75",
+  "published_at": "2026-09-24T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Chroma and Agentic Retrieval",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/chroma-and-agentic-retrieval/"
+}
