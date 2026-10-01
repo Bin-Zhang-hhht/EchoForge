@@ -5,7 +5,7 @@
   "guid": "changelog.com/1/2823",
   "item_id": "changelog-adbbbcd8242a",
   "published_at": "2026-07-21T19:00:00Z",
-  "reason": "预算延迟：本批 ASR 名额已用，等待后续批次",
+  "reason": "预算延迟：官方 transcript 未发布（changelog.com 显示 Coming Soon），且时长 7608 秒超过 120 分钟 ASR 单批上限，只能等待官方稿发布",
   "source_id": "changelog",
   "source_name": "The Changelog",
   "status": "pending",
