@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/740-raju-dandigam-building-production-ai-agents.mp3?dest-id=23379",
+  "description": "Raju Dandigam speaks with host Amey Ambade about building robust AI agents for production. Raju recommends treating an agent as a software subsystem rather than a standalone model call. That means designing decision contracts and tool boundaries, choosing between predictable workflows and multi-agent orchestration, and managing the runtime, state, and streaming that make agents durable. A recurring theme is that the model should not own the system: the right architecture is usually the simplest one that meets the product need while preserving reliability and control, with the language model placed inside a controlled runtime that settles authentication, policy, data freshness, and idempotency before it is ever asked to reason. They focus largely on how teams can be sure that an agent works and how to debug it when it does not. The episode covers behavioral testing against contracts, golden scenarios, and observability that captures the full execution path rather than flat logs, which i",
+  "duration_seconds": 3455,
+  "guid": "bf508b76-af00-420d-a7bd-9c769b23ddff",
+  "item_id": "software-engineering-radio-946e08a20ee1",
+  "published_at": "2026-09-30T23:51:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 740: Raju Dandigam on Building Production AI Agents",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/09/se-radio-740-raju-dandigam-on-building-production-ai-agents/"
+}
