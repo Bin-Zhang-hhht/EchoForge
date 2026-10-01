@@ -223,11 +223,11 @@ tags: [Agent]
 
 使用内置 `GITHUB_TOKEN`，权限只需 `contents: write`。同类采集任务串行执行。单一来源请求失败时记录原因并继续其他来源；所有启用来源都失败时工作流报错，不能把它报告为“今日没有更新”。
 
-只新增元信息的提交不需要更新阅读站点。`GITHUB_TOKEN` 的普通 push 不会再触发另一个 push 工作流，本设计不依赖它触发部署（参见 [GitHub 工作流触发文档](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)）。
+采集提交需要让站点首页的「运行统计」随之更新，因此每日采集后都要重新部署。`GITHUB_TOKEN` 的普通 push 不会再触发另一个 push 工作流，所以由 `deploy.yml` 的 `workflow_run` 触发器在采集工作流结束后接续部署（参见 [GitHub 工作流触发文档](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)）。
 
 ### 4.2 deploy.yml
 
-通过本地正常 Git 身份推送 `main` 时触发，另支持在 Actions 页面手动运行。初版不必配置复杂路径过滤。
+通过本地正常 Git 身份推送 `main` 时触发，或在 `Collect podcast metadata` 工作流结束后由 `workflow_run` 触发（仅限 `main` 分支上的成功运行，失败跳过），另支持在 Actions 页面手动运行。初版不必配置复杂路径过滤。
 
 ```text
 拉取代码和文章 → 安装依赖 → 检查文章 → 生成文章列表
