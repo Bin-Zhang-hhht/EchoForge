@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/565/tachyon-python-3.15s-built-in-sampling-profiler.mp3",
+  "description": "Do you know what's actually slow in your Python app? Or are you guessing? Until now, profiling Python meant a tracing profiler that made your code 2 to 3 times slower. Or a third-party tool that broke with every new release. Python 3.15 fixes that. It ships Tachyon, a sampling profiler built into the standard library. It attaches to live production apps with almost zero overhead. My guests are Pablo Galindo Salgado, CPython core developer and Steering Council member, and László Kiss Kollár from Bloomberg's Python infrastructure team. Their first prototype ran at two samples a second. Now it does over a million hz. And it lands in Python 3.15 this October.",
+  "duration_seconds": 5266,
+  "guid": "69941f8a-440b-4543-80c5-87dca3e86bb4",
+  "item_id": "talk-python-7a039cb9f3d8",
+  "published_at": "2026-10-02T00:09:20Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#565: Tachyon, Python 3.15's Built-in Sampling Profiler",
+  "transcript_url": "https://talkpython.fm/episodes/show/565/tachyon-python-3.15s-built-in-sampling-profiler.vtt",
+  "url": "https://talkpython.fm/episodes/show/565/tachyon-python-3.15s-built-in-sampling-profiler"
+}
