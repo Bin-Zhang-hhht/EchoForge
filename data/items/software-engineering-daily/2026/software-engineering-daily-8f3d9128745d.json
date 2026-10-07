@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/ffe3cc9d/4c1fc403.mp3",
+  "description": "In the world of software security, there was historically a comfortable lag between the moment a vulnerability became public and the moment attackers could exploit it. This lag was often measured in months, but AI models can now read a vulnerability report and generate a working exploit almost instantly. They can scan the entire internet for exposed secrets at a scale no human team could match, and surface complex flaws that traditional tools missed for years. However, the same capabilities are just as available to defenders, and there is a case to be made that defenders hold the stronger hand. Alon Schindel is the VP of AI and Threat Research at Wiz, which is a cloud security platform acquired by Google in 2026. In this episode, Alon joins Gregor Vand to discuss how AI has compressed the time from disclosure to exploit, the prospects for defenders to stay ahead, how Wiz approaches scanning and remediation, the growing strain on open source maintainers, and more. Sponsorship inquiries:",
+  "duration_seconds": 2996,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=9991",
+  "item_id": "software-engineering-daily-8f3d9128745d",
+  "published_at": "2026-10-06T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Security in the Age of Instant Exploits",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/security-in-the-age-of-instant-exploits/"
+}
