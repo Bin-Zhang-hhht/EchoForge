@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/741-sahil-walia-schema-changes-data-migrations.mp3?dest-id=23379",
+  "description": "Shail Walia, a senior technical architect at Snowflake, joins host Robert Blumen for a conversation about schema migration and data migration. Together, they discuss the basics of schema: do all data sets have schema?; what drives schema change?; are data migration and schema migration the same thing? Must they happen at the same time? They then talk about the challenges and failure modes of schema migration, including challenges at scale, migrating without downtime, the concept of \"safety\" in data migrations, and safety patterns for data migration - double writes, read repair, replication, ending on the Apache Iceberg case study.",
+  "duration_seconds": 2822,
+  "guid": "234cae48-5c81-49d7-945a-a27a30855c54",
+  "item_id": "software-engineering-radio-ec73d949001f",
+  "published_at": "2026-10-07T17:54:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 741: Sahil Walia on Schema Changes and Data Migrations",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/10/se-radio-741-sahil-walia-on-schema-changes-and-data-migrations/"
+}
