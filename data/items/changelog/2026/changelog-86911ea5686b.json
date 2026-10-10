@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/686/the-changelog-686.mp3",
+  "description": "Gavriel Cohen, creator of NanoClaw and co-founder of NanoCo, joins Adam to explain how a 40-hour weekend project became a viral open source hit and the foundation of an enterprise AI company. Gavriel describes the security concerns that led him to build a small, container-isolated alternative to OpenClaw, why he released it under the MIT license, and why the project's community and credibility are more valuable than keeping its code private. They explore the shift from writing code to architecting the environments in which agents work, NanoClaw's \"skills over features\" approach, the approval and governance layers required inside large companies, and a future where every worker manages agents without surrendering human judgment. They close with the technical simplicity behind NanoClaw, containers, TypeScript, SQLite, and a two-database design, and Adam's case for durable Agent Flow artifacts that keep organizational context from disappearing into chat.",
+  "duration_seconds": 9771,
+  "guid": "changelog.com/1/2834",
+  "item_id": "changelog-86911ea5686b",
+  "published_at": "2026-10-09T19:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "From zero to NanoClaw (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/686"
+}
