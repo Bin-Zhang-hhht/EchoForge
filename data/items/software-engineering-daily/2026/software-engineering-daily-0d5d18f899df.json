@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/bb55e6b2/829acc3c.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer break down the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, Gregor and Sean cover a wave of new product drops, including Jev from TypeSafe AI, a model that returns scored, type-safe structured responses for machine-to-machine tasks like routing and classification rather than human-style chat. They also dig into Meta‘s Muse, a personal AI assistant with a companion keychain device, and the upcoming IPO of Nscale, a former crypto-mining outfit turned “neocloud” inference provider whose filing leans heavily on a single unnamed customer. The main topic examines the tension around AI risk, frontier lab slowdowns, and the conspiracy theories they’ve spawned. Gregor and Sean unpack Dario Amodei’s essay on pacing AI development, the awkward timing of major model launches days later, and whether calls to slow down are genuine sa",
+  "duration_seconds": 2941,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10020",
+  "item_id": "software-engineering-daily-0d5d18f899df",
+  "published_at": "2026-10-13T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: Jev, Meta’s Muse, and the AI Slowdown Paradox",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-jev-metas-muse-and-the-ai-slowdown-paradox/"
+}
