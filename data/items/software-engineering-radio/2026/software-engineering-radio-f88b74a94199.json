@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/742-tim-varelmann-mathematical-optimizations.mp3?dest-id=23379",
+  "description": "Tim Varelmann, the founder of Bluebird Optimization, which helps companies automate complex decision-making, speaks with host Sriram Panyam about mathematical optimization. The episode begins by differentiating optimization from what software engineers usually mean by the word. Making something faster or smaller is improvement, whereas optimization means finding the provably best solution after which no further improvement is possible unless the problem's parameters change. The conversation examines the difference between simulation and optimization, where optimization is already running, optimization and AI, key software engineering principles, and how you can get started with mathematical optimization.",
+  "duration_seconds": 2886,
+  "guid": "700e55a8-f0e8-4eeb-8cba-b549d3010dc9",
+  "item_id": "software-engineering-radio-f88b74a94199",
+  "published_at": "2026-10-14T22:17:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 742: Tim Varelmann on Mathematical Optimization for Software Engineers",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/10/se-radio-742-tim-varelmann-on-mathematical-optimization-for-software-engineers/"
+}
