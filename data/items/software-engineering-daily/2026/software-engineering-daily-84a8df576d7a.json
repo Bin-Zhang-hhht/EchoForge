@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/33953bfb/d0a75431.mp3",
+  "description": "Software testing is widely understood as essential to building reliable systems, and it’s one of the hardest things to get right. A fundamental issue is that tests are good at confirming the behavior a team expects, but the most damaging failures tend to hide in the edge cases no one thought to check during development. Those blind spots are only growing as AI produces more code that no human has closely reviewed. Antithesis is a software verification company built around an approach called deterministic simulation testing. The platform runs a customer’s software in a fully controlled environment, exploring thousands of different paths through it at runtime. Crucially, the paths aren’t pre-specified and they’re not merely the expected cases. In this way, it can surface rare, damaging bugs that normal testing would never catch. Carl Sverre is on the Red Team at Antithesis and he also leads much of the company’s AI strategy. In this episode, Carl joins Sean Falconer to discuss the Antith",
+  "duration_seconds": 2820,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10032",
+  "item_id": "software-engineering-daily-84a8df576d7a",
+  "published_at": "2026-10-15T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Software Verification in the Age of Coding Agents",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/software-verification-in-the-age-of-coding-agents/"
+}
