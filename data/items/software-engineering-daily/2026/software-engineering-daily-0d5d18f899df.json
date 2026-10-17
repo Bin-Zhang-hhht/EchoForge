@@ -5,10 +5,10 @@
   "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10020",
   "item_id": "software-engineering-daily-0d5d18f899df",
   "published_at": "2026-10-13T09:00:00Z",
-  "reason": null,
+  "reason": "内容政策：全文包含约17分钟持续讨论AI发展监管、政府政策、美国/中国竞争及相关政治与监管争议，属于实质性政治内容。",
   "source_id": "software-engineering-daily",
   "source_name": "Software Engineering Daily",
-  "status": "pending",
+  "status": "ignored",
   "title": "SED News: Jev, Meta’s Muse, and the AI Slowdown Paradox",
   "transcript_url": null,
   "url": "https://softwareengineeringdaily.com/podcasts/sed-news-jev-metas-muse-and-the-ai-slowdown-paradox/"
