@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/566/state-of-the-art-in-python-2026.mp3?v=2",
+  "description": "Which of your Python tools would you still pick if you started fresh today? For a long time, the answer was easy. The stack felt settled. AI has reopened almost every one of those choices. Some tools got faster. Others got replaced outright. On this episode, a panel takes stock of the state of the art in Python for 2026. Calvin Hendryx-Parker is CTO and co-founder of Six Feet Up. Pat Decker works in DevOps at Hibu. Reuven Lerner has trained Python developers for 15 years. Sydney Runkle does product management for open source at LangChain. One of them barely opens an editor anymore. Listen in to hear the surprising replacement.",
+  "duration_seconds": 3913,
+  "guid": "d04142a6-ad9b-4ec8-a27a-8c238ad151bc",
+  "item_id": "talk-python-6626e25c5e80",
+  "published_at": "2026-10-17T11:36:21Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#566: State of the art in Python 2026",
+  "transcript_url": "https://talkpython.fm/episodes/show/566/state-of-the-art-in-python-2026.vtt",
+  "url": "https://talkpython.fm/episodes/show/566/state-of-the-art-in-python-2026"
+}
