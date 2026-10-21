@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/331da62b/f57cbddf.mp3",
+  "description": "In recent years, the main impact of AI has been on the digital world, and most notably software engineering. However, its longer-term effect on the physical world may prove even more profound, reshaping how cars drive themselves, how factories run, and how robots move through homes and warehouses. World models are at the center of the movement to bring AI into the physical space. These models take in observations of the current state of the world and predict what comes next, which lets a robot plan its next move or a car anticipate the road ahead. NVIDIA has been building a family of these models called Cosmos, and sits at the frontier of physical AI and robotics. Amit Goel has been at NVIDIA for fifteen years, and he is currently the Head of Robotics Ecosystem and Edge AI Product. In this episode, Amit joins Matt Merrill to discuss what separates physical AI from digital AI, how world models plan and predict, the two-tower architecture that lets a robot reason and act at once, why tra",
+  "duration_seconds": 3416,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10036",
+  "item_id": "software-engineering-daily-df981f9cdbe5",
+  "published_at": "2026-10-20T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Physical AI at NVIDIA",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/physical-ai-at-nvidia/"
+}
