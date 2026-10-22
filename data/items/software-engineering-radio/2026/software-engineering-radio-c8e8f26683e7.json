@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/743-sowjanya-pandruju-agent-state.mp3?dest-id=23379",
+  "description": "Sowjanya Pandruju, Cloud Application Architect with Amazon Web Services, Vice Chair of the IEEE Computer Society Madison Section, and Chair of the IEEE Women in Engineering (WIE) Madison Section (Region 4), speaks with SE Radio host Gavin Henry about managing agent state. Sowjanya discusses what agents are and are not, what agent state is, the role an LLM actually plays, why agents need state, the different types of state, where to store agent state, how multi-agents change things, and the solutions to the various challenges created by managing agent state. Brought to you by IEEE Computer Society and IEEE Software magazine.",
+  "duration_seconds": 4122,
+  "guid": "caccb77d-348f-4ba4-bab0-66b1123d9c45",
+  "item_id": "software-engineering-radio-c8e8f26683e7",
+  "published_at": "2026-10-21T22:43:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 743: Sowjanya Pandruju on Managing Agent State",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/10/se-radio-743-sowjanya-pandruju-on-managing-agent-state/"
+}
