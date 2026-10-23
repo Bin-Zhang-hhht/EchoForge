@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/9a42098b/0357dcc1.mp3",
+  "description": "AI is changing cybersecurity, accelerating vulnerability research and exploit development while raising new questions about reliability, risk, and guardrails. Daniel and Chris talk with Spencer McIntyre, Director of Exploit Development at VulnCheck, about how agents are being used to discover vulnerabilities, why many proof-of-concept exploits (POCs) fail to deliver, and how initial access intelligence helps security teams prioritize real threats. They also explore the limitations of AI-assisted exploitation, the challenges of AI guardrails for security researchers, and what these developments mean for the future of threat intelligence. Featuring: Spencer McIntyre – LinkedIn Daniel Whitenack – Website, GitHub, X Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Links: VulnCheck Go Exploit framework Initial Access Intelligence Sponsors: Hostinger: Create your website today. Go to hostinger.com/practical and use practical for 10 percent off now. Resources and Events: Register for upco",
+  "duration_seconds": 2713,
+  "guid": "09810723-2d12-4151-b100-7944f5eaf813",
+  "item_id": "practical-ai-b40c1820c2bf",
+  "published_at": "2026-10-22T09:00:00Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Exploit Development, Agentic Vulnerability Discovery, and Fake PoCs",
+  "transcript_url": "https://share.transistor.fm/s/9a42098b/transcription",
+  "url": "https://share.transistor.fm/s/9a42098b"
+}

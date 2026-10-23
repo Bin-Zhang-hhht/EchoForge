@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/687/the-changelog-687.mp3",
+  "description": "This week I'm talking with Zeno Rocha, CEO of Resend, about scaling \"boring\" email to 3 million users, the secret Go rewrite behind it, and building for agents. We cover pricing.md, MCP, spam gangs, and why Resend keeps what's next for email.",
+  "duration_seconds": 7221,
+  "guid": "changelog.com/1/2833",
+  "item_id": "changelog-a7ad707b8aae",
+  "published_at": "2026-10-22T16:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Building what's next (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/687"
+}

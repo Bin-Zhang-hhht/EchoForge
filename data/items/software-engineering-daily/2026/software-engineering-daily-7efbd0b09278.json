@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/dd637ae2/ead5439c.mp3",
+  "description": "Codebases in enterprise organizations often span hundreds of thousands, or even millions, of lines of code. In many cases, changes must follow established patterns precisely, or risk introducing costly security or operational issues. A common challenge with AI coding tools is that they struggle at this scale: LLM context windows cover only a fraction of a large codebase, and output quality degrades the longer an agent runs. Blitzy is an autonomous software development platform for the enterprise. It starts by understanding your entire codebase, building a knowledge graph that acts as a shared source of truth. From a well-defined spec that engineers review and approve, it orchestrates specialized agents that work in parallel to build, review, and test code autonomously at scale. The result is a pull request that engineers can then review and merge Sid Pardeshi is the CTO and co-founder of Blitzy, and he previously worked at NVIDIA. In this episode, he joins Kevin Ball to discuss why lar",
+  "duration_seconds": 3063,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10053",
+  "item_id": "software-engineering-daily-7efbd0b09278",
+  "published_at": "2026-10-22T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Blitzy and Autonomous Software Development for Enterprise",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/blitzy-and-autonomous-software-development-for-enterprise/"
+}
