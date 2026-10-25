@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/226b1683/855442e9.mp3",
+  "description": "We've talked about Oxide's Root of Trust--the hardware underpinning the security of the product--but how do we keep a bad actor from spoofing Oxide to load malicious software? Philip Tricca joined Bryan and Adam to describe the key ceremony, the process of creating and storing the secret that plays a critical role in manufacturing. And we paid our respects to the dot matrix printers that made the ultimate sacrifice in the name of security. In addition to Bryan Cantrill and Adam Leventhal, our special guest was Philip Tricca. Previously, on Oxide and Friends: OxF s01e15 - Theranos, Silicon Valley, and the March Madness of Tech Fraud OxF s04e28 - Books in the Box IV OxF s06e07 - Building a Quorum of Trust in the Oxide Rack OxF s03e18 - Okay, Doomer: A Rebuttal to AI Doom-mongering Some of the topics we hit on, in the order that we hit them: You Can See Everything (A24) IANA: Root KSK Ceremonies Caliptra IANA YouTube: live streams RFD 585: Cosmo RoT Code Signing Ceremony RFD 605: Virtual ",
+  "duration_seconds": 4707,
+  "guid": "e65a12e5-9093-4bd7-be78-c7723e4221f0",
+  "item_id": "oxide-and-friends-ad7793f7a6e4",
+  "published_at": "2026-10-24T14:00:00Z",
+  "reason": null,
+  "source_id": "oxide-and-friends",
+  "source_name": "Oxide and Friends",
+  "status": "pending",
+  "title": "Dead Printers Tell No Tales",
+  "transcript_url": "https://share.transistor.fm/s/226b1683/transcription",
+  "url": "https://share.transistor.fm/s/226b1683"
+}
