@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/6e0e955f/43980af7.mp3",
+  "description": "Over the past couple of years, companies raced to get their employees using AI, often encouraging them to lean on it as much as possible. However, as AI coding tools spread through engineering teams, many companies watched their AI bills explode. That kind of runaway cost growth can threaten a business, so the new challenge is capturing the productivity gains from AI without the spending spiraling out of control. Databricks is a data and AI company that hit this problem early, running AI tools across thousands of its own engineers. Rather than clamp down on usage, the team built a set of practical ways to manage the cost, from taking advantage of steadily falling model prices to automatically routing each request to the cheapest model that can still do the job well. Patrick Wendell is a co-founder of Databricks, where he leads engineering teams and has driven much of the company’s internal AI adoption. He recently wrote a viral blog post on managing AI coding costs that reached the top",
+  "duration_seconds": 3676,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10058",
+  "item_id": "software-engineering-daily-1b1c74315893",
+  "published_at": "2026-10-27T09:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Managing AI Coding Costs at Scale",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/managing-ai-coding-costs-at-scale/"
+}

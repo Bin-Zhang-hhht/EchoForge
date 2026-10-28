@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://talkpython.fm/episodes/download/567/personal-ai-agents-for-pythonistas.mp3?v=2",
+  "description": "The most popular Python project you've probably never heard of has 252,000 GitHub stars and merged over 1,800 pull requests in a single week. It's Hermes, a self-hosted AI agent you program just by talking to it. And it never clocks out. It runs 24/7 on a box in your house, wakes up every 15 minutes, keeps your YouTube channel in sync, and has your morning briefing ready before you're up. Mine started as a few config files. A few months later, it's 16,000 files of skills, memories, and tools it built for itself, all while I wasn't watching. Jeff Triplett joins me to explore this honestly weird but kind of amazing world. And yes, Hermes has a few words for you, too.",
+  "duration_seconds": 3998,
+  "guid": "8c60b4de-9eff-440e-bdb5-bd51c446c713",
+  "item_id": "talk-python-c98178b4def1",
+  "published_at": "2026-10-27T22:27:47Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#567: Personal AI Agents for Pythonistas",
+  "transcript_url": "https://talkpython.fm/episodes/show/567/personal-ai-agents-for-pythonistas.vtt",
+  "url": "https://talkpython.fm/episodes/show/567/personal-ai-agents-for-pythonistas"
+}
