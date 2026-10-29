@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/688/the-changelog-688.mp3",
+  "description": "Craig Kerstiens returns to talk about the ever-expanding world of Postgres: a deliberately boring core, a thriving extension ecosystem, and pg_lake bringing DuckDB and Iceberg into the mix. We dig into the pain of ETL, what Craig is watching in Postgres 19, the impact of AI on open source maintainers, and why the database still has plenty of room to grow.",
+  "duration_seconds": 6379,
+  "guid": "changelog.com/1/2832",
+  "item_id": "changelog-d1a97fd24c6d",
+  "published_at": "2026-10-28T15:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "The future is Postgres (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/688"
+}
