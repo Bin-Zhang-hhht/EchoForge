@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/744-danilo-krummrich-rust-linux-kernel.mp3?dest-id=23379",
+  "description": "Danilo Krummrich, a software engineer at Red Hat, speaks with host Gregory M. Kapfhammer about the using the Rust programming language in the Linux kernel. After introducing the Nova project, which leverages Rust for building NVIDIA GPU drivers, they explore the benefits associated with Rust, such as GPU driver memory safety. The conversation also examines topics like best practices for implementing self-referential structures with Rust and the pin-init crate. Danilo also describes practical performance considerations and lessons learned from building and maintaining the Nova project.",
+  "duration_seconds": 3237,
+  "guid": "f399e5ac-b03f-4328-96a6-97c8f23e0f8c",
+  "item_id": "software-engineering-radio-22733a492403",
+  "published_at": "2026-10-29T18:47:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 744: Danilo Krummrich on Rust in the Linux Kernel",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/10/se-radio-744-danilo-krummrich-on-rust-in-the-linux-kernel/"
+}
