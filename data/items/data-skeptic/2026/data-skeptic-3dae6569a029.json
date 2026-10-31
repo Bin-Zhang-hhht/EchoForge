@@ -5,7 +5,7 @@
   "guid": "510e8c17-3805-47d7-9740-af29a6bd8419",
   "item_id": "data-skeptic-3dae6569a029",
   "published_at": "2026-10-29T13:05:00Z",
-  "reason": null,
+  "reason": "预算延迟：无官方 transcript，本会话 ASR 工具不可用，待 ASR 恢复后处理（实测音频 1589 秒量级，需重新实测）",
   "source_id": "data-skeptic",
   "source_name": "Data Skeptic",
   "status": "pending",

@@ -5,7 +5,7 @@
   "guid": "changelog.com/1/2833",
   "item_id": "changelog-a7ad707b8aae",
   "published_at": "2026-10-22T16:00:00Z",
-  "reason": null,
+  "reason": "预算延迟：官方 transcript 未发布（changelog.com 显示 Coming Soon），且时长 7221 秒超过 120 分钟 ASR 单批上限，只能等待官方稿发布",
   "source_id": "changelog",
   "source_name": "The Changelog",
   "status": "pending",
