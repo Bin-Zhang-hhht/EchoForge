@@ -5,10 +5,10 @@
   "guid": "f399e5ac-b03f-4328-96a6-97c8f23e0f8c",
   "item_id": "software-engineering-radio-22733a492403",
   "published_at": "2026-10-29T18:47:00Z",
-  "reason": "预算延迟：官方页面暂无 transcript（发布仅数日），本会话 ASR 工具不可用，待 ASR 恢复后按 3237 秒时长处理",
+  "reason": null,
   "source_id": "software-engineering-radio",
   "source_name": "Software Engineering Radio",
-  "status": "pending",
+  "status": "processed",
   "title": "SE Radio 744: Danilo Krummrich on Rust in the Linux Kernel",
   "transcript_url": null,
   "url": "https://se-radio.net/2026/10/se-radio-744-danilo-krummrich-on-rust-in-the-linux-kernel/"
