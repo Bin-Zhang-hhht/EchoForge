@@ -1,9 +1,9 @@
 ---
 item_id: data-skeptic-3dae6569a029
 title: '把味道印进食物内部：Yamato Miyatake 谈 TastePrint 与数字食物制造'
-date: '2026-11-02'
+date: '2026-11-01'
 published_at: '2026-10-29'
-transcribed_at: '2026-11-02'
+transcribed_at: '2026-11-01'
 model: 'GLM-5.3 Flash'
 source_url: 'https://dataskeptic.com/blog/episodes/2026/tasteprint'
 source_name: 'Data Skeptic'
@@ -16,7 +16,7 @@ tags: [人机交互, AI]
 
 > 节目：[Data Skeptic](/podcasts/data-skeptic/)
 >
-> 节目发布：2026-10-29 · 逐字稿获取：2026-11-02 · 笔记整理：2026-11-02
+> 节目发布：2026-10-29 · 逐字稿获取：2026-11-01 · 笔记整理：2026-11-01
 >
 > 全文共 6633 字 · 阅读约 17 分钟
 >
