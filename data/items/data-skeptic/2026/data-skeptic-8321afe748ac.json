@@ -5,10 +5,10 @@
   "guid": "85a0272e-1220-4487-b263-6f095f97e425",
   "item_id": "data-skeptic-8321afe748ac",
   "published_at": "2026-10-18T20:23:00Z",
-  "reason": "预算延迟：无官方 transcript，本会话 ASR 工具不可用，待 ASR 恢复后处理（音频时长以条目 1804 秒为准）",
+  "reason": null,
   "source_id": "data-skeptic",
   "source_name": "Data Skeptic",
-  "status": "pending",
+  "status": "processed",
   "title": "Gestures Around the Ear",
   "transcript_url": null,
   "url": "https://dataskeptic.com/blog/episodes/2026/gestures-around-the-ear"
