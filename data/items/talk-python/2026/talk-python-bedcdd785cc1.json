@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/talkpython.fm/episodes/download/568/cloudflare-python-workers.mp3?v=2",
+  "description": "Where does your Python code actually run? A server in Virginia? A container in Frankfurt? Pyodide put Python into the browser. Cloudflare put the browser into the server. Combine the two and you get Python Workers, now generally available. My guests are Hood Chatham, Gyeongjae Choi, and Dominik Picheta from Cloudflare. Hood and Gyeongjae maintain Pyodide. Dominik got Python running in Cloudflare Workers in the first place. Your FastAPI app ships as plain Python files. It runs on CPython compiled to WebAssembly, inside V8, at over 350 locations worldwide.",
+  "duration_seconds": 3731,
+  "guid": "e8312da7-f633-4bfb-a2d2-87a88ff24620",
+  "item_id": "talk-python-bedcdd785cc1",
+  "published_at": "2026-11-03T20:33:06Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#568: Cloudflare Python Workers",
+  "transcript_url": "https://talkpython.fm/episodes/show/568/cloudflare-python-workers.vtt",
+  "url": "https://talkpython.fm/episodes/show/568/cloudflare-python-workers"
+}

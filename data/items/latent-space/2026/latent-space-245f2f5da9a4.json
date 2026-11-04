@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://podcasts.beehiiv.com/3967c1f2-cb97-4eb0-a5c0-21a1d2579408/01a15fdf-0e93-7e1a-880d-d73752a1f915/01a1794a-94ec-7f36-ab76-412cdc9ed579/01a183eb-8968-7863-ad65-64165119cad1.mp3",
+  "description": "AI agents are creating more software—and that changes what a backend needs to do. Supabase co-founders Paul Copplestone and Ant Wilson join swyx to discuss running long-lived workloads alongside the database, making schemas easier for agents to underst...",
+  "duration_seconds": 4598,
+  "guid": "01a1794a-94ec-7106-9f74-d300c3d89af2",
+  "item_id": "latent-space-245f2f5da9a4",
+  "published_at": "2026-10-28T20:00:00Z",
+  "reason": null,
+  "source_id": "latent-space",
+  "source_name": "Latent Space",
+  "status": "pending",
+  "title": "Why Agents Love Supabase",
+  "transcript_url": "https://rss.beehiiv.com/podcasts/transcriptions/01a183f0-c56d-72a4-9e07-fb3d07bab761.vtt",
+  "url": "https://latent.space/p/supabase"
+}
