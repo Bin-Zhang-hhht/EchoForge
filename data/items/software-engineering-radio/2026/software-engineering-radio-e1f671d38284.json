@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/745-andrew-tridgell-flight-control-software.mp3?dest-id=23379",
+  "description": "Dr Andrew Tridgell of the Ardupilot project discusses flight control software for autonomous and remote controlled aircraft. This field has advanced considerably in recent years, and autonomous vehicles are playing an increasingly important role in many industries -- from package delivery to scientific surveying and film-making -- as well as in the consumer market. Host Jason Davey speaks with Tridgell about the fundamental concepts required to keep a drone in the air, the hardware and software architecture behind these vehicles, and how development and testing are handled in Ardupilot, one of the leading open source flight control software stacks.",
+  "duration_seconds": 3488,
+  "guid": "b65c7e9c-c2cf-493e-abed-5fe6876c1d1d",
+  "item_id": "software-engineering-radio-e1f671d38284",
+  "published_at": "2026-11-04T20:38:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 745: Andrew Tridgell on Flight Control Software",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/11/se-radio-745-andrew-tridgell-on-flight-control-software"
+}
