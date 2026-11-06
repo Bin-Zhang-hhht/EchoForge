@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/605f45df/3cd65c7b.mp3",
+  "description": "SED News is a monthly podcast from Software Engineering Daily where hosts Gregor Vand and Sean Falconer break down the biggest stories shaping software engineering, Silicon Valley, and the broader tech industry. In this episode, Gregor and Sean cover the PHP remote code execution flaw that hit an estimated 70 percent of the internet, the recording device an OpenAI employee hid in a conference room, and a busy run of deals including Chroma joining Replit, Cloudflare taking Deno, and Supabase acquiring Turso. The main topic tours the AI graveyard, sorting recent product failures into patterns: features swallowed by bigger platforms, runaway hits too costly or risky to sustain, interfaces made redundant by agents, and hardware that never materialized. As always, the episode wraps up with a few standout Hacker News threads, including why washing machines took 50 years to catch on, a location-aware local Wikipedia, and a Figma quirk that traces back to the Windows Numlock key. Sponsorship i",
+  "duration_seconds": 3253,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10091",
+  "item_id": "software-engineering-daily-a39165feb30e",
+  "published_at": "2026-11-05T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "SED News: PHP’s Megabug, a Hidden Mic at OpenAI, and Dead AI Products",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/sed-news-phps-megabug-a-hidden-mic-at-openai-and-dead-ai-products/"
+}
