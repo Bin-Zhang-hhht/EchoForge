@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/8853df30/6292762a.mp3",
+  "description": "AI coding agents can already reach well beyond the code in front of them. Through connections to tools like Slack, Jira, and Sentry, an agent can pull in issues, discussions, and production signals from across an organization. However, that context is scattered across many separate systems, with no shared map of how it all connects and no common controls over what an agent is allowed to touch. For a large enterprise, stitching that together while staying compliant, auditable, and sometimes fully cut off from the internet is a hard problem. GitLab runs one of the major platforms where software gets built, hosted, and shipped. That gives it a wide view of everything around the code, which shapes how it is approaching the agent era. The bet is that AI is most useful when it can draw on the full context of a project and stay under enterprise control, rather than acting as a point tool bolted onto a single repository. Getting there means wrestling with hard questions about governance, agent",
+  "duration_seconds": 3371,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10082",
+  "item_id": "software-engineering-daily-44b68b31eb04",
+  "published_at": "2026-11-10T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "GitLab and the Evolution of DevSecOps",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/gitlab-and-the-evolution-of-devsecops/"
+}
