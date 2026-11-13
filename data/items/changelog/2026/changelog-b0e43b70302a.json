@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/690/the-changelog-690.mp3",
+  "description": "AI agents can write the code, choose the packages, and run the install. Who's checking what they just invited onto your machine? This week I'm joined by Ahmad Nassri, CTO of Socket and former CTO of npm. We get into the trust built into a package install, the new ways attackers are using agents, and what it takes to keep building without handing over the keys or your wallet.",
+  "duration_seconds": 8381,
+  "guid": "changelog.com/1/2837",
+  "item_id": "changelog-b0e43b70302a",
+  "published_at": "2026-11-13T03:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "All your packages are belong to us (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/690"
+}

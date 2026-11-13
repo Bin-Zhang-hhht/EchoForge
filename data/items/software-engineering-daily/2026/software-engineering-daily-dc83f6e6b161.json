@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/3f1bbc6b/58868328.mp3",
+  "description": "A major challenge for almost every online service is reliably identifying users, and knowing whether a given user or agent can be trusted. Historically, web services leaned on cookies stored in the browser to remember a visitor and recognize them when they return. The problem is that cookies live in the user’s own browser and are easy to remove, block, or avoid entirely, so a bad actor can simply clear them to escape recognition. IP blocking and CAPTCHA puzzles are firmer approaches, but they can frustrate legitimate users while doing little to stop a determined attacker. That leaves developers stuck between being too lax and losing control, or too strict and driving real users away. FingerprintJS was started in 2012 as an open-source project. In 2019, Fingerprint was launched as a separate, full commercial platform, built on the original FingerprintJS GitHub library, to recognize devices and browsers without relying on cookies. It handles identification by reading over 100 signals, fr",
+  "duration_seconds": 2542,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10103",
+  "item_id": "software-engineering-daily-dc83f6e6b161",
+  "published_at": "2026-11-12T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Fraud Prevention in the Age of AI Agents",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/fraud-prevention-in-the-age-of-ai-agents/"
+}
