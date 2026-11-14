@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/media.transistor.fm/58a69653/1bd19fd9.mp3",
+  "description": "How can AI models learn from private data without compromising privacy? Chris is joined by Lorenzo Sani, Research Scientist at Flower Labs and PhD researcher at Cambridge, to explore federated learning and privacy-preserving AI. They discuss how collaborative learning can expand access to private data for LLM training, how model trajectories can help improve agentic AI systems, and the benefits of open-weight models. The conversation also explores real-world applications of locally hosted AI agents, from healthcare and robotics to everyday automation (for a Halloween party). Featuring: Lorenzo Sani – LinkedIn Chris Benson – Website, LinkedIn, Bluesky, GitHub, X Links: Endeavor model page Introducing Endeavor 1.1 Sponsors: Hostinger: Create your website today. Go to hostinger.com/practical and use practical for 10 percent off now. Perplexity AI: \"Start your free trial of Perplexity Computer today at pplx.ai/practical and experience the next phase of AI. Resources and Events: Register fo",
+  "duration_seconds": 2613,
+  "guid": "831710d1-ed18-46f7-b479-539ba9a751d3",
+  "item_id": "practical-ai-bf2d881f6848",
+  "published_at": "2026-11-13T17:59:46Z",
+  "reason": null,
+  "source_id": "practical-ai",
+  "source_name": "Practical AI",
+  "status": "pending",
+  "title": "Implementing Federated Learning to enhance Agentic AI",
+  "transcript_url": "https://share.transistor.fm/s/58a69653/transcription",
+  "url": "https://share.transistor.fm/s/58a69653"
+}
