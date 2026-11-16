@@ -5,10 +5,10 @@
   "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10074",
   "item_id": "software-engineering-daily-02168d911489",
   "published_at": "2026-11-03T10:00:00Z",
-  "reason": null,
+  "reason": "内容政策：实质性章节深入讨论政府监管、AI 安全治理与中美竞赛（主张政府强制安全标准、两国政府为唯一监管者、美国政治体制阻碍数据中心建设），超出顺带提及",
   "source_id": "software-engineering-daily",
   "source_name": "Software Engineering Daily",
-  "status": "pending",
+  "status": "ignored",
   "title": "Demis Hassabis and the Race to Build AI with Sebastian Mallaby",
   "transcript_url": null,
   "url": "https://softwareengineeringdaily.com/podcasts/demis-hassabis-and-the-race-to-build-ai-with-sebastian-mallaby/"

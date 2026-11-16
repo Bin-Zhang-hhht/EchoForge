@@ -9,7 +9,7 @@ source_url: 'https://share.transistor.fm/s/1b301bdc'
 source_name: 'Practical AI'
 input_type: official_transcript
 transcript_url: 'https://share.transistor.fm/s/1b301bdc/transcription'
-summary: 'Midwest AI Summit Part 2：更多讲者片段——从企业落地、评估到组织实践，看一线团队如何在真实约束下把 AI 用起来。'
+summary: '中西部 AI 峰会特辑下篇精选三段演讲：Don Barger 讲先立 AI 章程再写代码，用「不做」清单赢得组织信任；Noblis CIO Mark Lay 提出 CIO 必答的四项决策——委派什么、谁担责、谁验证产出与欠多少技术债；AeroCore 的 Darren Taillie 分享 Text-to-SQL 代理与视觉工单核验的一线落地。'
 tags: [AI Agent, 企业 AI, 评估, 组织转型]
 ---
 
@@ -19,7 +19,7 @@ tags: [AI Agent, 企业 AI, 评估, 组织转型]
 >
 > 节目发布：2026-11-05 · 逐字稿获取：2026-11-16 · 笔记整理：2026-11-16
 >
-> 全文共 19247 字 · 阅读约 49 分钟
+> 全文共 19248 字 · 阅读约 49 分钟
 >
 > 标签：[AI Agent](/tags/AI%20Agent/) [企业 AI](/tags/%E4%BC%81%E4%B8%9A%20AI/) [评估](/tags/%E8%AF%84%E4%BC%B0/) [组织转型](/tags/%E7%BB%84%E7%BB%87%E8%BD%AC%E5%9E%8B/)
 >
@@ -27,7 +27,7 @@ tags: [AI Agent, 企业 AI, 评估, 组织转型]
 
 ## 速读
 
-本篇是中西部 AI 峰会特辑的下篇：Practical AI 再放出峰会的三段演讲。Don Barger（International Mission Board 创新与人工智能总监）讲组织如何在写下第一行代码之前先立 AI 章程，用「不做什么」的清单一百八十一岁的保守组织里赢得变革信任；Noblis 副总裁兼 CIO Mark Lay 把「AI 需要像员工一样被管理」展开为 CIO 必答的四项决策——委派什么、谁担责、谁验证产出、正在欠下多少技术债；AeroCore Technologies 资深数据分析经理 Darren Taillie 分享两段一线落地：Text-to-SQL 代理进 Teams 实现自助取数，视觉模型每天早上核验夜班工单，让月末对账会议这个月直接取消。适合正在为组织划定 AI 边界、承担 AI 问责，或推动一线数据自助的负责人、工程师与企业 AI 团队。与上篇特辑（可靠工作流、一线共创与智能体自主度）互补，本篇更靠近组织与业务的落地端。
+本篇是中西部 AI 峰会特辑的下篇：Practical AI 再放出峰会的三段演讲。Don Barger（International Mission Board 创新与人工智能总监）讲组织如何在写下第一行代码之前先立 AI 章程，用「不做什么」的清单在一百八十一岁的保守组织里赢得变革信任；Noblis 副总裁兼 CIO Mark Lay 把「AI 需要像员工一样被管理」展开为 CIO 必答的四项决策——委派什么、谁担责、谁验证产出、正在欠下多少技术债；AeroCore Technologies 资深数据分析经理 Darren Taillie 分享两段一线落地：Text-to-SQL 代理进 Teams 实现自助取数，视觉模型每天早上核验夜班工单，让月末对账会议这个月直接取消。适合正在为组织划定 AI 边界、承担 AI 问责，或推动一线数据自助的负责人、工程师与企业 AI 团队。与上篇特辑（可靠工作流、一线共创与智能体自主度）互补，本篇更靠近组织与业务的落地端。
 
 ## 主题正文
 
