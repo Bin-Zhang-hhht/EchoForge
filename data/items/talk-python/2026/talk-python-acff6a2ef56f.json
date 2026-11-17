@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/talkpython.fm/episodes/download/569/connecting-agents-to-data-via-mcp-cli-and-more.mp3?v=2",
+  "description": "Should your agent call an MCP server or just run a CLI? Pamela Fox joins us to share how she thinks about connecting AI and her data. She’s taught MCP workshops from PyCon to WeAreDevelopers. And, every week, an agent combs her Gmail, Outlook, and X history to build her news roundup. She uses MCP all day. Yet, there are still times you when to skip it. You'll hear how her colleague pitted the GitHub CLI against the GitHub MCP server on a real bug fix. The CLI used fewer tokens. It succeeded more often. So do we choose CLIs, MCPs, or even just APIs for connecting our agents to our data and services? Let's find out.",
+  "duration_seconds": 3764,
+  "guid": "abe39770-ad50-46f9-8104-22eb7ab20597",
+  "item_id": "talk-python-acff6a2ef56f",
+  "published_at": "2026-11-16T20:21:45Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#569: Connecting Agents to Data via MCP, CLI, and More",
+  "transcript_url": "https://talkpython.fm/episodes/show/569/connecting-agents-to-data-via-mcp-cli-and-more.vtt",
+  "url": "https://talkpython.fm/episodes/show/569/connecting-agents-to-data-via-mcp-cli-and-more"
+}
