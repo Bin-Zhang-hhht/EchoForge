@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/50acc20a/0fdf3086.mp3",
+  "description": "The technical interview has long been used as a proxy for actual job performance. Brain teasers, data structure puzzles, or reversing a linked list became the price of admission to employment as a developer in many organizations, even though few engineers do that work day to day. It would seem AI has now broken that model entirely, since an LLM can one-shot any classic algorithm question. This is forcing tech companies to rethink what an interview should measure. Vivek Ravisankar is the co-founder and CEO of HackerRank, which is one of the most well-known platforms for tech interview practice problems. In this episode, Vivek joins Josh Goldberg to discuss why old-style interviews stopped working, the company’s “apology tour” for years of algorithm puzzles, how to keep AI evaluation fair and trustworthy, and where both models and the shape of hiring may be headed as software engineering becomes something every role does. Sponsorship inquiries: sponsor@softwareengineeringdaily.com The po",
+  "duration_seconds": 3218,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10109",
+  "item_id": "software-engineering-daily-21edb0909ab9",
+  "published_at": "2026-11-17T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "The Technical Interview Is Broken",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/the-technical-interview-is-broken/"
+}
