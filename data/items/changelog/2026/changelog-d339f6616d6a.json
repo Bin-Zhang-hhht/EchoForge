@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/691/the-changelog-691.mp3",
+  "description": "Quinn Slack is back and we're talking about the next level for Amp. Agents write the code, they review the code, and they can push it to main (like our friends at Amp). But where should your agents live? Who remembers what you actually asked them to do? Amp is now its own company, and Quinn has a lot to say about orbs, threads that last forever, and why code review as we know it is fading. He explains why the model matters less than it used to, and why he worries we could lose the open source commons. Quinn even built a feature request live on the show to solve my tailnet problem.",
+  "duration_seconds": 5062,
+  "guid": "changelog.com/1/2838",
+  "item_id": "changelog-d339f6616d6a",
+  "published_at": "2026-11-18T20:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Orbin' with Amp (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/691"
+}
