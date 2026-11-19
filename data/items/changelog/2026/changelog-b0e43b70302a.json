@@ -5,7 +5,7 @@
   "guid": "changelog.com/1/2837",
   "item_id": "changelog-b0e43b70302a",
   "published_at": "2026-11-13T03:00:00Z",
-  "reason": null,
+  "reason": "预算与来源限制：官方逐字稿暂为 Coming Soon，时长 8381s 超单批 ASR 上限（120 分钟），保持 pending 待官方 transcript 发布后处理",
   "source_id": "changelog",
   "source_name": "The Changelog",
   "status": "pending",
