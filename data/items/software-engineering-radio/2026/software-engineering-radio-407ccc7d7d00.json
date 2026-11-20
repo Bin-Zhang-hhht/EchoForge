@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/747-sabina-anja-ai-workloads-gpu-network-design.mp3?dest-id=23379",
+  "description": "Sabina Anja, Chief Technologist and executive advisor at VMware Cloud Foundation, talks with host Amey Ambade about how AI workloads reshape GPU network design, and why the network moves into the critical path of computation once a model is too large for a single GPU. Using Llama 3's 405 billion parameters as a starting point, Sabina explains how sharding spreads model weights across many GPUs. She then walks through the difference between scaling up inside a server over NVLink and scaling out across servers over the cluster network. She describes collective traffic as synchronous: no GPU moves to the next step until every GPU finishes, so one slow GPU or congested link, called a straggler, stalls the whole job. The conversation covers data, tensor, and pipeline parallelism and the distinct traffic pattern each produces, with analogies such as splitting a restaurant bill to explain all-reduce. It then moves to physical topology, including rail-optimized designs, dedicated back-end AI n",
+  "duration_seconds": 3226,
+  "guid": "ddd13ad3-e0e4-4259-88bb-dc17153ba961",
+  "item_id": "software-engineering-radio-407ccc7d7d00",
+  "published_at": "2026-11-20T00:43:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 747: Sabina Anja on How AI Workloads Shape GPU Network Design",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/11/se-radio-747-sabina-anja-on-how-ai-workloads-shape-gpu-network-design"
+}

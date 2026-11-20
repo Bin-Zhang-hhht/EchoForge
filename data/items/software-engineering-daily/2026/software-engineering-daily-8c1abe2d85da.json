@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/81856baa/00172ed9.mp3",
+  "description": "AI coding agents have made individual developers dramatically more productive, yet most organizations aren’t seeing anything close to that gain at the company level. A key reason is that shipping a feature to production involves far more than writing code. Triage, review, context, guardrails, and human approvals all surround the work, and agents add new risk by acting in ways teams can’t always see or control. Turning individual gains into real organizational throughput, has become one of the central challenges of the agentic era. Port is an AI software factory platform that lets platform engineers build, operate, and govern an AI software factory which is a layer that sits above the coding agents. The factory is model and agent agnostic while supplying a context lake that encodes an organization’s taxonomy and data, governance, and guardrails across each stage of the software lifecycle, human-in-the-loop checkpoints, orchestration across different agents, and a registry of approved ag",
+  "duration_seconds": 2179,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10111",
+  "item_id": "software-engineering-daily-8c1abe2d85da",
+  "published_at": "2026-11-19T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "The Rise of the Software Factories",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/the-rise-of-the-software-factories/"
+}
