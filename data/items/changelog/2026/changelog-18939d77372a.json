@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/podcast/693/the-changelog-693.mp3",
+  "description": "Zach Lloyd, founder and CEO of Warp, is back to talk about what he calls the company's primary bet: Warp Factories, open infrastructure for running a cloud software factory, which he calls the new version of CI/CD. He explains factory as code, what's inside an agent trace, why self-improving systems drift, and how his senior engineers went from guardians of the code to the biggest adopters once the models got good enough. Then he and Adam get into whether this is a pivot, why the best interface might be no new interface at all, coding as a team in Slack, and Adam's case for continuous flow.",
+  "duration_seconds": 6481,
+  "guid": "changelog.com/1/2840",
+  "item_id": "changelog-18939d77372a",
+  "published_at": "2026-11-24T20:00:00Z",
+  "reason": null,
+  "source_id": "changelog",
+  "source_name": "The Changelog",
+  "status": "pending",
+  "title": "Warp bets on the software factory (Interview)",
+  "transcript_url": null,
+  "url": "https://changelog.com/podcast/693"
+}

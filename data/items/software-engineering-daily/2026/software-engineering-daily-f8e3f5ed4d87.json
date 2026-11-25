@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/b159157f/bd5804ae.mp3",
+  "description": "Building software with AI agents has moved beyond using a single assistant. A growing number of engineers are now running what they call software factories, teams of named, persistent agents that talk to each other, hold roles, and produce code around the clock. That shift surfaces a strange new set of problems, ones that are less about writing code and more about running an organization. The difficult questions become how to keep agents from over-constraining themselves into paralysis, how much autonomy to grant them, and how to introduce AI coworkers to the actual humans they end up messaging. Steve Yegge is a longtime engineer and writer, well known for his work at Google and Amazon and his influential writing on AI-assisted development. He has been building one of these factories at the far edge of what is currently possible, and he argues the primitives are starting to converge. In this episode, Steve returns to SED to speak with Kevin Ball about the rise of software factories, wh",
+  "duration_seconds": 3620,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10124",
+  "item_id": "software-engineering-daily-f8e3f5ed4d87",
+  "published_at": "2026-11-24T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Steve Yegge on Building Software Factories",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/steve-yegge-on-building-software-factories/"
+}
