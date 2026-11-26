@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/talkpython.fm/episodes/download/570/free-threaded-python.mp3?v=2",
+  "description": "NumPy already releases the GIL. So threads should already pay off for your NumPy code, right? Christopher Ariza tested that. He summed the rows of a 10,000 by 10,000 array on Python 3.14. Sequential took 360 milliseconds. A thread pool took 373, slower than doing nothing. The same code on free- threaded Python 3.14t took 83.7 milliseconds. Free-threaded Python is officially supported as of 3.14. The GIL isn’t gone, though. It’s a zombie. Import one compiled package that hasn’t opted in, psycopg2 for example, and the GIL comes back for your entire process. You get a warning, not an error. Chris is the creator of StaticFrame and its C extension library ArrayKit. We dig into when threads beat plain NumPy, how to tell if you’re actually running free-threaded, and conditional-futures, his drop-in thread pool that stops your code from getting slower when the GIL wakes back up.",
+  "duration_seconds": 3709,
+  "guid": "4ee0937d-a97b-414c-a067-221e573226ca",
+  "item_id": "talk-python-169364ad4d0b",
+  "published_at": "2026-11-26T00:17:34Z",
+  "reason": null,
+  "source_id": "talk-python",
+  "source_name": "Talk Python To Me",
+  "status": "pending",
+  "title": "#570: Free-Threaded Python",
+  "transcript_url": "https://talkpython.fm/episodes/show/570/free-threaded-python.vtt",
+  "url": "https://talkpython.fm/episodes/show/570/free-threaded-python"
+}

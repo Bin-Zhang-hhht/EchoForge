@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://traffic.libsyn.com/secure/seradio/748-david-denton-http4k.mp3?dest-id=23379",
+  "description": "David Denton, co-creator of http4k, joins host Giovanni Asproni to talk about this lightweight toolkit for building HTTP applications in Kotlin. http4k is built on a simple idea, borrowed from Twitter's Finagle: A server is just a function that turns a request into a response. Endpoints and clients work the same way. David explains how this makes testing fast and easy, so that whole systems of services can be tested in memory, in milliseconds. They explore the toolkit's design choices: no hidden \"magic,\" very little boilerplate, and API documentation generated straight from the code. David also tours some of http4k's 220+ modules, including fake AWS services for testing and support for AI tools through MCP. He counsels that testing matters more than ever as AI speeds up coding. Finally, they discuss when to choose http4k, how to move an existing app to it step-by-step, and how the team uses AI to find security issues.",
+  "duration_seconds": 3330,
+  "guid": "78e53313-3368-4925-a029-aff185ae847d",
+  "item_id": "software-engineering-radio-560b22e02464",
+  "published_at": "2026-11-25T16:36:00Z",
+  "reason": null,
+  "source_id": "software-engineering-radio",
+  "source_name": "Software Engineering Radio",
+  "status": "pending",
+  "title": "SE Radio 748: David Denton on http4k",
+  "transcript_url": null,
+  "url": "https://se-radio.net/2026/11/se-radio-748-david-denton-on-http4k/"
+}
