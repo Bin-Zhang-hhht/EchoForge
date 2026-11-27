@@ -1,0 +1,15 @@
+{
+  "audio_url": "https://media.transistor.fm/9d768b37/782f9b88.mp3",
+  "description": "Coordinating long-running processes on top of distributed systems is one of the persistent hard problems in software. A process that runs across many steps can’t count on finishing in one clean pass, since the machines running it may crash, stall, or drop connections. To handle this fragility, developers have often resorted to writing layers of retries, timeouts, and checkpointing to keep state alive across failures. However, this custom plumbing is often brittle, hard to maintain, and can break down at scale. Temporal is an open-source platform built around an approach it calls durable execution. Developers write a workflow as a straightforward sequence of steps, and the platform preserves its full state underneath, so the code can survive a crash and resume exactly where it left off. The underlying technology was created at Uber over a decade ago. Since then, Temporal has become foundational infrastructure for AI and agent workloads, where long-running tools and agent loops need exac",
+  "duration_seconds": 2830,
+  "guid": "https://softwareengineeringdaily.com/?post_type=podcast&p=10112",
+  "item_id": "software-engineering-daily-60d7a7217900",
+  "published_at": "2026-11-26T10:00:00Z",
+  "reason": null,
+  "source_id": "software-engineering-daily",
+  "source_name": "Software Engineering Daily",
+  "status": "pending",
+  "title": "Temporal and Durable Execution for AI Agents",
+  "transcript_url": null,
+  "url": "https://softwareengineeringdaily.com/podcasts/temporal-and-durable-execution-for-ai-agents/"
+}
